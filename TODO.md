@@ -1,0 +1,32 @@
+# TODO: Create File Structure for legal-ai-assistant
+
+- [x] .env.example
+- [x] .gitignore
+- [x] README.md
+- [ ] docker-compose.yml
+- [ ] Dockerfile
+- [ ] requirements.txt
+- [ ] app/__init__.py
+- [ ] app/main.py
+- [ ] app/config.py
+- [ ] app/models.py
+- [ ] app/dependencies.py
+- [ ] app/api/__init__.py
+- [ ] app/api/chat.py
+- [ ] app/api/health.py
+- [ ] app/core/__init__.py
+- [ ] app/core/retriever.py
+- [ ] app/core/llm_chain.py
+- [ ] app/core/chat_history.py
+- [ ] app/utils/__init__.py
+- [ ] app/utils/logger.py
+- [ ] app/utils/exceptions.py
+- [ ] scripts/index_data.py
+- [ ] scripts/test_retrieval.py
+- [ ] data/ipc.json
+- [ ] frontend/index.html
+- [ ] frontend/app.js
+- [ ] frontend/style.css
+- [ ] tests/__init__.py
+- [ ] tests/test_retriever.py
+- [ ] tests/test_api.py

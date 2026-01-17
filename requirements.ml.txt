@@ -1,0 +1,9 @@
+# ================================
+# AI / ML (CPU, PRODUCTION LOCKED)
+# ================================
+torch==2.1.0+cpu
+sentence-transformers==2.2.2
+transformers==4.33.3
+huggingface-hub==0.16.4
+numpy<2.0
+groq==0.4.1

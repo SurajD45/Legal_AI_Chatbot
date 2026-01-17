@@ -1,0 +1,74 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+.venv
+venv/
+env/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Environment files
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# Tests
+tests/
+*.test.py
+
+# Data files (will be mounted or downloaded)
+data/*.json
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frontend (not needed in backend container)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/src/
+frontend/tsconfig*.json
+frontend/vite.config.ts
+frontend/tailwind.config.js
+frontend/package*.json
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Scripts (copy only what's needed)
+scripts/test_*.py
+
+# Misc
+TODO.md
+.gitkeep

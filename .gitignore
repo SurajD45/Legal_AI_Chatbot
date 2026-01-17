@@ -1,0 +1,98 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment variables (CRITICAL - NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Database
+*.db
+*.sqlite3
+
+# Vector DB data (if running Qdrant locally)
+qdrant_storage/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Docker
+*.pid
+
+# Data files (keep structure, not data)
+data/*.json
+!data/.gitkeep
+
+# Model cache
+models/
+.cache/
+
+# Node/Frontend
+node_modules/
+.pnp
+.pnp.js
+frontend/dist/
+frontend/build/
+frontend/.vite/
+vite.config.ts.timestamp-*
+
+# Frontend Environment
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
