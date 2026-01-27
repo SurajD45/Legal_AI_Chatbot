@@ -1,11 +1,13 @@
 """
 Configuration module for Legal AI Assistant.
 
-Loads all settings from environment variables with validation.
-Fails fast if critical configuration is missing.
+Cloud-ready configuration:
+- Qdrant Cloud (URL + API Key)
+- Railway Redis (REDIS_URL)
+- Groq LLM
 """
 
-from typing import List, Optional
+from typing import List
 from pydantic_settings import BaseSettings
 from pydantic import Field, field_validator
 
@@ -14,22 +16,25 @@ class Settings(BaseSettings):
     # =====================
     # API KEYS
     # =====================
-    GROQ_API_KEY: str = Field(..., description="Groq API key for LLM")
+    GROQ_API_KEY: str = Field(..., description="Groq API key")
 
     # =====================
-    # QDRANT
+    # QDRANT CLOUD (IMPORTANT)
     # =====================
-    QDRANT_HOST: str = Field(default="localhost")
-    QDRANT_PORT: int = Field(default=6333)
-    QDRANT_COLLECTION_NAME: str = Field(default="ipc_legal_docs")
+    QDRANT_URL: str = Field(..., description="Qdrant Cloud URL")
+    QDRANT_API_KEY: str = Field(..., description="Qdrant Cloud API key")
+    QDRANT_COLLECTION_NAME: str = Field(
+        default="ipc_legal_docs",
+        description="Qdrant collection name",
+    )
 
     # =====================
-    # REDIS (Railway / Prod-safe)
+    # REDIS (Railway)
     # =====================
     REDIS_URL: str = Field(..., description="Redis connection URL")
 
     # =====================
-    # APP SETTINGS
+    # APPLICATION
     # =====================
     ENVIRONMENT: str = Field(default="development")
     HOST: str = Field(default="0.0.0.0")
@@ -50,24 +55,14 @@ class Settings(BaseSettings):
         default="intfloat/multilingual-e5-base"
     )
     EMBEDDING_DIMENSION: int = Field(default=768)
-
-    LLM_MODEL: str = Field(
-        default="llama3-70b-8192"
-    )
+    LLM_MODEL: str = Field(default="llama3-70b-8192")
 
     # =====================
-    # SEARCH CONFIG
+    # SEARCH / RATE LIMIT
     # =====================
     DEFAULT_TOP_K: int = Field(default=5)
     MAX_CONTEXT_LENGTH: int = Field(default=4000)
-
-    # =====================
-    # RATE LIMITING
-    # =====================
-    RATE_LIMIT_PER_MINUTE: int = Field(
-        default=30,
-        description="Max requests per minute per IP"
-    )
+    RATE_LIMIT_PER_MINUTE: int = Field(default=30)
 
     # =====================
     # VALIDATORS
@@ -87,7 +82,7 @@ class Settings(BaseSettings):
         return v
 
     # =====================
-    # HELPER METHODS (CRITICAL)
+    # HELPERS
     # =====================
     def is_production(self) -> bool:
         return self.ENVIRONMENT == "production"
