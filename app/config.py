@@ -5,9 +5,9 @@ Loads all settings from environment variables with validation.
 Fails fast if critical configuration is missing.
 """
 
-from pydantic_settings import BaseSettings
-from pydantic import Field, validator
 from typing import List, Optional
+from pydantic_settings import BaseSettings
+from pydantic import Field, field_validator
 
 
 class Settings(BaseSettings):
@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     QDRANT_COLLECTION_NAME: str = Field(default="ipc_legal_docs")
 
     # =====================
-    # REDIS (IMPORTANT)
+    # REDIS (Railway / Prod-safe)
     # =====================
     REDIS_URL: str = Field(..., description="Redis connection URL")
 
@@ -61,21 +61,6 @@ class Settings(BaseSettings):
     DEFAULT_TOP_K: int = Field(default=5)
     MAX_CONTEXT_LENGTH: int = Field(default=4000)
 
-    @validator("CORS_ORIGINS")
-    def parse_cors(cls, v: str) -> List[str]:
-        return [x.strip() for x in v.split(",")]
-
-    @validator("ENVIRONMENT")
-    def validate_env(cls, v: str) -> str:
-        if v not in {"development", "staging", "production"}:
-            raise ValueError("Invalid ENVIRONMENT")
-        return v
-
-    class Config:
-        env_file = ".env"
-        case_sensitive = True
-
-    
     # =====================
     # RATE LIMITING
     # =====================
@@ -84,5 +69,36 @@ class Settings(BaseSettings):
         description="Max requests per minute per IP"
     )
 
+    # =====================
+    # VALIDATORS
+    # =====================
+    @field_validator("CORS_ORIGINS")
+    @classmethod
+    def parse_cors(cls, v: str) -> List[str]:
+        return [x.strip() for x in v.split(",") if x.strip()]
 
+    @field_validator("ENVIRONMENT")
+    @classmethod
+    def validate_env(cls, v: str) -> str:
+        if v not in {"development", "staging", "production"}:
+            raise ValueError(
+                "ENVIRONMENT must be one of: development, staging, production"
+            )
+        return v
+
+    # =====================
+    # HELPER METHODS (CRITICAL)
+    # =====================
+    def is_production(self) -> bool:
+        return self.ENVIRONMENT == "production"
+
+    def is_development(self) -> bool:
+        return self.ENVIRONMENT == "development"
+
+    class Config:
+        env_file = ".env"
+        case_sensitive = True
+
+
+# Global settings instance (fails fast if invalid)
 settings = Settings()
