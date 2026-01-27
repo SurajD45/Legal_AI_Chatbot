@@ -75,5 +75,14 @@ class Settings(BaseSettings):
         env_file = ".env"
         case_sensitive = True
 
+    
+    # =====================
+    # RATE LIMITING
+    # =====================
+    RATE_LIMIT_PER_MINUTE: int = Field(
+        default=30,
+        description="Max requests per minute per IP"
+    )
+
 
 settings = Settings()
