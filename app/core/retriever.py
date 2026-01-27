@@ -19,28 +19,43 @@ class DocumentRetriever:
         self._model: Optional[SentenceTransformer] = None
         self._client: Optional[QdrantClient] = None
 
+    # --------------------------------------------------
+    # Embedding model (cached)
+    # --------------------------------------------------
     @property
     def model(self) -> SentenceTransformer:
         if self._model is None:
             logger.info("loading_embedding_model", model=settings.EMBEDDING_MODEL)
-            self._model = SentenceTransformer(settings.EMBEDDING_MODEL)
+            self._model = SentenceTransformer(
+                settings.EMBEDDING_MODEL,
+                cache_folder="/models/huggingface",
+            )
         return self._model
 
+    # --------------------------------------------------
+    # Qdrant client (CLOUD SAFE)
+    # --------------------------------------------------
     @property
     def client(self) -> QdrantClient:
         if self._client is None:
-            logger.info("connecting_qdrant")
+            logger.info("connecting_qdrant_cloud")
             self._client = QdrantClient(
-                host=settings.QDRANT_HOST,
-                port=settings.QDRANT_PORT,
-                timeout=10.0,
+                url=settings.QDRANT_URL,
+                api_key=settings.QDRANT_API_KEY,
+                timeout=20.0,
             )
         return self._client
 
+    # --------------------------------------------------
+    # Section detection
+    # --------------------------------------------------
     def detect_sections(self, query: str) -> List[str]:
-        pattern = r"(?:section|sec\.?|u/s|धारा|कलम)\s*([0-9]+[A-Z]?)"
-        return re.findall(pattern, query, flags=re.IGNORECASE)
+        pattern = r"(?:section|sec\.?|u/s|धारा|कलम)\s*([0-9]{1,3}[A-Z]?)"
+        return list(set(re.findall(pattern, query, flags=re.IGNORECASE)))
 
+    # --------------------------------------------------
+    # Exact section search
+    # --------------------------------------------------
     def search_by_section(self, section: str) -> List[RetrievedDocument]:
         results, _ = self.client.scroll(
             collection_name=self.collection_name,
@@ -48,24 +63,27 @@ class DocumentRetriever:
                 must=[
                     FieldCondition(
                         key="section_number",
-                        match=MatchValue(value=section),
+                        match=MatchValue(value=str(section)),
                     )
                 ]
             ),
-            limit=10,
+            limit=5,
             with_payload=True,
         )
 
         return [
             RetrievedDocument(
-                section=p.payload.get("section_number"),
-                title=p.payload.get("title"),
-                text=p.payload.get("text"),
+                section=p.payload["section_number"],
+                title=p.payload["title"],
+                text=p.payload["text"],
                 score=1.0,
             )
             for p in results
         ]
 
+    # --------------------------------------------------
+    # Semantic search
+    # --------------------------------------------------
     def semantic_search(self, query: str, top_k: int = 5) -> List[RetrievedDocument]:
         vector = self.model.encode(
             query[:1000],
@@ -82,23 +100,30 @@ class DocumentRetriever:
 
         return [
             RetrievedDocument(
-                section=r.payload.get("section_number"),
-                title=r.payload.get("title"),
-                text=r.payload.get("text"),
+                section=r.payload["section_number"],
+                title=r.payload["title"],
+                text=r.payload["text"],
                 score=r.score,
             )
             for r in results
         ]
 
+    # --------------------------------------------------
+    # Hybrid search (PRODUCTION LOGIC)
+    # --------------------------------------------------
     def hybrid_search(self, query: str) -> List[RetrievedDocument]:
         sections = self.detect_sections(query)
+
         if sections:
+            logger.info("section_detected", sections=sections)
             docs = []
             for sec in sections:
                 docs.extend(self.search_by_section(sec))
             if docs:
                 return docs
-        return self.semantic_search(query)
+
+        logger.info("fallback_to_semantic_search")
+        return self.semantic_search(query, settings.DEFAULT_TOP_K)
 
 
 @lru_cache
