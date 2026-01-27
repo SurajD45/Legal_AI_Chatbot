@@ -20,12 +20,15 @@ class DocumentRetriever:
         self._client: Optional[QdrantClient] = None
 
     # --------------------------------------------------
-    # Embedding model (cached)
+    # Embedding model (lazy + cached)
     # --------------------------------------------------
     @property
     def model(self) -> SentenceTransformer:
         if self._model is None:
-            logger.info("loading_embedding_model", model=settings.EMBEDDING_MODEL)
+            logger.info(
+                "loading_embedding_model",
+                model=settings.EMBEDDING_MODEL,
+            )
             self._model = SentenceTransformer(
                 settings.EMBEDDING_MODEL,
                 cache_folder="/models/huggingface",
@@ -47,14 +50,22 @@ class DocumentRetriever:
         return self._client
 
     # --------------------------------------------------
-    # Section detection
+    # Detect IPC sections in query
     # --------------------------------------------------
     def detect_sections(self, query: str) -> List[str]:
+        """
+        Detect IPC section numbers like:
+        - Section 376
+        - Sec. 420
+        - u/s 302
+        - धारा 498A
+        """
         pattern = r"(?:section|sec\.?|u/s|धारा|कलम)\s*([0-9]{1,3}[A-Z]?)"
-        return list(set(re.findall(pattern, query, flags=re.IGNORECASE)))
+        matches = re.findall(pattern, query, flags=re.IGNORECASE)
+        return list(set(matches))
 
     # --------------------------------------------------
-    # Exact section search
+    # Exact section match search
     # --------------------------------------------------
     def search_by_section(self, section: str) -> List[RetrievedDocument]:
         results, _ = self.client.scroll(
@@ -73,9 +84,9 @@ class DocumentRetriever:
 
         return [
             RetrievedDocument(
-                section=p.payload["section_number"],
-                title=p.payload["title"],
-                text=p.payload["text"],
+                section=p.payload.get("section_number"),
+                title=p.payload.get("title"),
+                text=p.payload.get("text"),
                 score=1.0,
             )
             for p in results
@@ -84,7 +95,7 @@ class DocumentRetriever:
     # --------------------------------------------------
     # Semantic search
     # --------------------------------------------------
-    def semantic_search(self, query: str, top_k: int = 5) -> List[RetrievedDocument]:
+    def semantic_search(self, query: str, top_k: int) -> List[RetrievedDocument]:
         vector = self.model.encode(
             query[:1000],
             normalize_embeddings=True,
@@ -100,28 +111,30 @@ class DocumentRetriever:
 
         return [
             RetrievedDocument(
-                section=r.payload["section_number"],
-                title=r.payload["title"],
-                text=r.payload["text"],
+                section=r.payload.get("section_number"),
+                title=r.payload.get("title"),
+                text=r.payload.get("text"),
                 score=r.score,
             )
             for r in results
         ]
 
     # --------------------------------------------------
-    # Hybrid search (PRODUCTION LOGIC)
+    # Hybrid retrieval (PRODUCTION LOGIC)
     # --------------------------------------------------
     def hybrid_search(self, query: str) -> List[RetrievedDocument]:
         sections = self.detect_sections(query)
 
+        # 1️⃣ Exact section match wins
         if sections:
             logger.info("section_detected", sections=sections)
-            docs = []
+            docs: List[RetrievedDocument] = []
             for sec in sections:
                 docs.extend(self.search_by_section(sec))
             if docs:
                 return docs
 
+        # 2️⃣ Semantic fallback
         logger.info("fallback_to_semantic_search")
         return self.semantic_search(query, settings.DEFAULT_TOP_K)
 

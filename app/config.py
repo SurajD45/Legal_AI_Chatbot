@@ -1,10 +1,6 @@
 """
 Configuration module for Legal AI Assistant.
-
-Cloud-ready configuration:
-- Qdrant Cloud (URL + API Key)
-- Railway Redis (REDIS_URL)
-- Groq LLM
+Cloud-safe, Railway-safe, strict validation.
 """
 
 from typing import List
@@ -19,14 +15,11 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str = Field(..., description="Groq API key")
 
     # =====================
-    # QDRANT CLOUD (IMPORTANT)
+    # QDRANT CLOUD (MANDATORY)
     # =====================
     QDRANT_URL: str = Field(..., description="Qdrant Cloud URL")
     QDRANT_API_KEY: str = Field(..., description="Qdrant Cloud API key")
-    QDRANT_COLLECTION_NAME: str = Field(
-        default="ipc_legal_docs",
-        description="Qdrant collection name",
-    )
+    QDRANT_COLLECTION_NAME: str = Field(default="ipc_legal_docs")
 
     # =====================
     # REDIS (Railway)
@@ -34,9 +27,9 @@ class Settings(BaseSettings):
     REDIS_URL: str = Field(..., description="Redis connection URL")
 
     # =====================
-    # APPLICATION
+    # APP SETTINGS
     # =====================
-    ENVIRONMENT: str = Field(default="development")
+    ENVIRONMENT: str = Field(default="production")
     HOST: str = Field(default="0.0.0.0")
     PORT: int = Field(default=8000)
     LOG_LEVEL: str = Field(default="INFO")
@@ -45,7 +38,7 @@ class Settings(BaseSettings):
     # CORS
     # =====================
     CORS_ORIGINS: str = Field(
-        default="http://localhost:3000,http://localhost:8000"
+        default="http://localhost:3000"
     )
 
     # =====================
@@ -58,10 +51,14 @@ class Settings(BaseSettings):
     LLM_MODEL: str = Field(default="llama3-70b-8192")
 
     # =====================
-    # SEARCH / RATE LIMIT
+    # SEARCH
     # =====================
     DEFAULT_TOP_K: int = Field(default=5)
     MAX_CONTEXT_LENGTH: int = Field(default=4000)
+
+    # =====================
+    # RATE LIMIT
+    # =====================
     RATE_LIMIT_PER_MINUTE: int = Field(default=30)
 
     # =====================
@@ -76,9 +73,7 @@ class Settings(BaseSettings):
     @classmethod
     def validate_env(cls, v: str) -> str:
         if v not in {"development", "staging", "production"}:
-            raise ValueError(
-                "ENVIRONMENT must be one of: development, staging, production"
-            )
+            raise ValueError("Invalid ENVIRONMENT")
         return v
 
     # =====================
@@ -95,5 +90,4 @@ class Settings(BaseSettings):
         case_sensitive = True
 
 
-# Global settings instance (fails fast if invalid)
 settings = Settings()
