@@ -1,14 +1,18 @@
 """
-Chat history management using in-memory storage.
+Chat history management using Redis for persistence.
 
-For production, this should be replaced with Redis or a database.
-Currently uses a simple in-memory dict for simplicity.
+Multi-user, ownership-enforced, auth-ready design.
 """
 
+import json
 import uuid
 from typing import List, Dict, Optional
-from datetime import datetime, timedelta
+from datetime import datetime
 
+import redis
+from redis.exceptions import RedisError
+
+from app.config import settings
 from app.utils import get_logger, InvalidSessionError
 
 logger = get_logger(__name__)
@@ -16,156 +20,193 @@ logger = get_logger(__name__)
 
 class ChatHistoryManager:
     """
-    Manages conversation history for multi-turn dialogues.
-    
-    Note: This is an in-memory implementation.
-    For production with multiple workers, use Redis.
+    Manages conversation history using Redis.
+
+    Redis keys:
+    - session:{session_id}
+    - user_sessions:{user_id} -> SET of session_ids
     """
-    
-    def __init__(self, max_history_length: int = 10, session_ttl_hours: int = 24):
-        """
-        Initialize chat history manager.
-        
-        Args:
-            max_history_length: Maximum messages to keep per session
-            session_ttl_hours: Session expiry time in hours
-        """
-        self.sessions: Dict[str, Dict] = {}
+
+    def __init__(
+        self,
+        max_history_length: int = 10,
+        session_ttl_hours: int = 24,
+    ):
         self.max_history_length = max_history_length
-        self.session_ttl = timedelta(hours=session_ttl_hours)
-        
-        logger.info("chat_history_initialized",
-                   max_length=max_history_length,
-                   ttl_hours=session_ttl_hours)
-    
-    def create_session(self) -> str:
-        """
-        Create a new chat session.
-        
-        Returns:
-            New session ID
-        """
+        self.session_ttl_seconds = session_ttl_hours * 3600
+
+        try:
+            self.redis_client = redis.Redis(
+                host=settings.REDIS_HOST,
+                port=settings.REDIS_PORT,
+                db=settings.REDIS_DB,
+                password=settings.REDIS_PASSWORD,
+                decode_responses=True,
+                socket_timeout=5,
+                socket_connect_timeout=5,
+            )
+            self.redis_client.ping()
+            logger.info(
+                "redis_connected",
+                host=settings.REDIS_HOST,
+                port=settings.REDIS_PORT,
+                ttl_hours=session_ttl_hours,
+            )
+        except RedisError as e:
+            logger.error("redis_connection_failed", error=str(e))
+            raise RuntimeError(f"Redis unavailable: {e}")
+
+    # ------------------------
+    # Helpers
+    # ------------------------
+    def _session_key(self, session_id: str) -> str:
+        return f"session:{session_id}"
+
+    def _user_sessions_key(self, user_id: str) -> str:
+        return f"user_sessions:{user_id}"
+
+    # ------------------------
+    # Session lifecycle
+    # ------------------------
+    def create_session(self, user_id: str) -> str:
         session_id = str(uuid.uuid4())
-        self.sessions[session_id] = {
+
+        session_data = {
+            "user_id": user_id,
             "history": [],
-            "created_at": datetime.now(),
-            "last_activity": datetime.now()
+            "created_at": datetime.now().isoformat(),
+            "last_activity": datetime.now().isoformat(),
         }
-        
-        logger.info("session_created", session_id=session_id)
-        return session_id
-    
-    def get_history(self, session_id: str) -> List[Dict[str, str]]:
-        """
-        Get conversation history for a session.
-        
-        Args:
-            session_id: Session identifier
-            
-        Returns:
-            List of message dicts with 'role' and 'content'
-            
-        Raises:
-            InvalidSessionError: If session doesn't exist or expired
-        """
-        if session_id not in self.sessions:
-            logger.warning("session_not_found", session_id=session_id)
-            raise InvalidSessionError(f"Session {session_id} not found")
-        
-        session = self.sessions[session_id]
-        
-        # Check if session expired
-        if datetime.now() - session["last_activity"] > self.session_ttl:
-            logger.info("session_expired", session_id=session_id)
-            del self.sessions[session_id]
-            raise InvalidSessionError(f"Session {session_id} expired")
-        
-        return session["history"]
-    
+
+        try:
+            pipe = self.redis_client.pipeline()
+            pipe.setex(
+                self._session_key(session_id),
+                self.session_ttl_seconds,
+                json.dumps(session_data),
+            )
+            pipe.sadd(self._user_sessions_key(user_id), session_id)
+            pipe.execute()
+
+            logger.info(
+                "session_created",
+                user_id=user_id,
+                session_id=session_id,
+            )
+            return session_id
+
+        except RedisError as e:
+            logger.error("session_creation_failed", error=str(e))
+            raise InvalidSessionError("Failed to create session")
+
+    def get_history(self, user_id: str, session_id: str) -> List[Dict[str, str]]:
+        try:
+            raw = self.redis_client.get(self._session_key(session_id))
+            if raw is None:
+                raise InvalidSessionError("Session not found or expired")
+
+            session_data = json.loads(raw)
+
+            if session_data["user_id"] != user_id:
+                raise InvalidSessionError("Session does not belong to user")
+
+            return session_data["history"]
+
+        except (RedisError, json.JSONDecodeError) as e:
+            logger.error("get_history_failed", error=str(e))
+            raise InvalidSessionError("Failed to retrieve session history")
+
     def add_message(
         self,
+        user_id: str,
         session_id: str,
         role: str,
-        content: str
+        content: str,
     ) -> None:
-        """
-        Add a message to session history.
-        
-        Args:
-            session_id: Session identifier
-            role: Message role ('user' or 'assistant')
-            content: Message content
-            
-        Raises:
-            InvalidSessionError: If session doesn't exist
-        """
-        if session_id not in self.sessions:
-            raise InvalidSessionError(f"Session {session_id} not found")
-        
-        session = self.sessions[session_id]
-        session["history"].append({
-            "role": role,
-            "content": content
-        })
-        
-        # Trim history if too long
-        if len(session["history"]) > self.max_history_length:
-            session["history"] = session["history"][-self.max_history_length:]
-            logger.info("history_trimmed", session_id=session_id)
-        
-        # Update last activity
-        session["last_activity"] = datetime.now()
-        
-        logger.debug("message_added",
-                    session_id=session_id,
-                    role=role,
-                    history_length=len(session["history"]))
-    
-    def clear_session(self, session_id: str) -> None:
-        """
-        Delete a session and its history.
-        
-        Args:
-            session_id: Session identifier
-        """
-        if session_id in self.sessions:
-            del self.sessions[session_id]
-            logger.info("session_cleared", session_id=session_id)
-    
-    def cleanup_expired_sessions(self) -> int:
-        """
-        Remove expired sessions.
-        
-        Returns:
-            Number of sessions removed
-        """
-        now = datetime.now()
-        expired = [
-            sid for sid, session in self.sessions.items()
-            if now - session["last_activity"] > self.session_ttl
-        ]
-        
-        for sid in expired:
-            del self.sessions[sid]
-        
-        if expired:
-            logger.info("expired_sessions_cleaned",
-                       count=len(expired))
-        
-        return len(expired)
+        try:
+            key = self._session_key(session_id)
+            raw = self.redis_client.get(key)
+
+            if raw is None:
+                raise InvalidSessionError("Session not found or expired")
+
+            session_data = json.loads(raw)
+
+            if session_data["user_id"] != user_id:
+                raise InvalidSessionError("Session does not belong to user")
+
+            session_data["history"].append(
+                {"role": role, "content": content}
+            )
+
+            if len(session_data["history"]) > self.max_history_length:
+                session_data["history"] = session_data["history"][
+                    -self.max_history_length :
+                ]
+
+            session_data["last_activity"] = datetime.now().isoformat()
+
+            self.redis_client.setex(
+                key,
+                self.session_ttl_seconds,
+                json.dumps(session_data),
+            )
+
+        except (RedisError, json.JSONDecodeError) as e:
+            logger.error("add_message_failed", error=str(e))
+            raise InvalidSessionError("Failed to update session")
+
+    def list_user_sessions(self, user_id: str) -> List[str]:
+        try:
+            return list(
+                self.redis_client.smembers(
+                    self._user_sessions_key(user_id)
+                )
+            )
+        except RedisError:
+            return []
+
+    # ------------------------
+    # NEW: restore latest session
+    # ------------------------
+    def get_latest_session(self, user_id: str) -> Optional[Dict]:
+        try:
+            session_ids = self.list_user_sessions(user_id)
+            if not session_ids:
+                return None
+
+            latest_session = None
+            latest_time = None
+
+            for session_id in session_ids:
+                raw = self.redis_client.get(self._session_key(session_id))
+                if not raw:
+                    continue
+
+                data = json.loads(raw)
+                last_activity = data.get("last_activity")
+
+                if last_activity and (
+                    latest_time is None or last_activity > latest_time
+                ):
+                    latest_time = last_activity
+                    latest_session = {
+                        "session_id": session_id,
+                        "history": data.get("history", []),
+                    }
+
+            return latest_session
+
+        except Exception as e:
+            logger.error("get_latest_session_failed", error=str(e))
+            return None
 
 
-# Global history manager instance
+# Singleton
 _history_manager: Optional[ChatHistoryManager] = None
 
 
 def get_history_manager() -> ChatHistoryManager:
-    """
-    Get or create the global ChatHistoryManager instance.
-    
-    Returns:
-        ChatHistoryManager instance
-    """
     global _history_manager
     if _history_manager is None:
         _history_manager = ChatHistoryManager()

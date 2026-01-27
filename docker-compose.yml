@@ -12,6 +12,22 @@ services:
       - QDRANT__TELEMETRY_DISABLED=true
     restart: unless-stopped
 
+
+  redis:
+    image: redis:7-alpine
+    container_name: legal-ai-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
   backend:
     build: .
     container_name: legal-ai-backend
@@ -29,15 +45,24 @@ services:
       - HF_HUB_OFFLINE=1
       - TRANSFORMERS_OFFLINE=1
       - HF_HUB_DISABLE_TELEMETRY=1
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     volumes:
       - ./frontend/dist:/app/frontend:ro
       - ./data:/app/data
       # CRITICAL: No :ro here! sentence-transformers needs write access
       - "C:/Users/suraj doifode/.cache/huggingface:/models/huggingface"
     depends_on:
-      - qdrant
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+
     restart: unless-stopped
 
 volumes:
   qdrant_storage:
     driver: local
+  redis_data:
+    driver: local
+

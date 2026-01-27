@@ -9,7 +9,7 @@ import os
 from typing import List
 from pydantic_settings import BaseSettings
 from pydantic import Field, validator
-
+from typing import List, Optional  
 
 class Settings(BaseSettings):
     """
@@ -30,6 +30,13 @@ class Settings(BaseSettings):
         description="Qdrant collection name"
     )
     
+    # Redis Configuration
+    REDIS_HOST: str = Field(default="localhost", description="Redis host")
+    REDIS_PORT: int = Field(default=6379, description="Redis port")
+    REDIS_DB: int = Field(default=0, description="Redis database number")
+    REDIS_PASSWORD: Optional[str] = Field(default=None, description="Redis password")
+
+
     # Application Settings
     ENVIRONMENT: str = Field(default="development", description="Runtime environment")
     LOG_LEVEL: str = Field(default="INFO", description="Logging level")

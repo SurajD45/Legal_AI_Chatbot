@@ -10,8 +10,16 @@ from pydantic import BaseModel, Field, validator
 
 
 class ChatRequest(BaseModel):
-    """Request model for chat endpoint."""
-    
+    """Request model for chat endpoint (multi-user, auth-ready)."""
+
+    user_id: str = Field(
+        ...,
+        min_length=1,
+        max_length=128,
+        description="Client-generated user identifier",
+        example="user-001"
+    )
+
     query: str = Field(
         ...,
         min_length=1,
@@ -19,17 +27,26 @@ class ChatRequest(BaseModel):
         description="User's legal query",
         example="What is Section 302 of IPC?"
     )
+
     session_id: Optional[str] = Field(
         default=None,
         description="Optional session ID for conversation history"
     )
-    
+
     @validator("query")
     def validate_query(cls, v: str) -> str:
         """Ensure query is not just whitespace."""
         if not v.strip():
             raise ValueError("Query cannot be empty or whitespace")
         return v.strip()
+
+    @validator("user_id")
+    def validate_user_id(cls, v: str) -> str:
+        """Ensure user_id is not empty or whitespace."""
+        if not v.strip():
+            raise ValueError("user_id cannot be empty")
+        return v.strip()
+
 
 
 class RetrievedDocument(BaseModel):

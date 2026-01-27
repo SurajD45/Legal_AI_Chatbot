@@ -26,18 +26,27 @@ logger = get_logger(__name__)
 async def lifespan(app: FastAPI):
     logger.info("startup_begin", environment=settings.ENVIRONMENT)
 
+    # -------------------------------
+    # Redis (HARD requirement)
+    # -------------------------------
+    try:
+        from app.core.chat_history import get_history_manager
+        get_history_manager()
+        logger.info("redis_connection_ok")
+    except Exception as e:
+        logger.critical("redis_unavailable_at_startup", error=str(e))
+        raise
+
+    # -------------------------------
+    # Qdrant (SOFT dependency)
+    # -------------------------------
     try:
         from app.core.retriever import get_retriever
         retriever = get_retriever()
-
-        # SAFE connectivity check (NO schema parsing)
         retriever.client.get_collections()
-
         logger.info("qdrant_connection_ok")
-
     except Exception as e:
         logger.warning("qdrant_unavailable_at_startup", error=str(e))
-        # IMPORTANT: DO NOT crash the app
 
     yield
 
@@ -53,30 +62,45 @@ app = FastAPI(
     redoc_url="/redoc" if settings.is_development() else None,
 )
 
+# -------------------------------
 # Rate limiting
+# -------------------------------
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS
+# -------------------------------
+# CORS (CRITICAL)
+# -------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3001",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# -------------------------------
 # Routes
+# -------------------------------
 app.include_router(health.router)
 app.include_router(chat.router)
 
-# Static frontend
+# -------------------------------
+# Static frontend (optional)
+# -------------------------------
 try:
     app.mount("/static", StaticFiles(directory="frontend", html=True), name="frontend")
 except Exception:
     logger.warning("frontend_not_mounted")
 
-
+# -------------------------------
+# Exception handling
+# -------------------------------
 @app.exception_handler(LegalAIException)
 async def legal_ai_exception_handler(request: Request, exc: LegalAIException):
     return JSONResponse(

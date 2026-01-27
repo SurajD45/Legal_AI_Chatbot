@@ -1,5 +1,6 @@
 // API Types
 export interface ChatRequest {
+  user_id: string;
   query: string;
   session_id?: string;
 }
