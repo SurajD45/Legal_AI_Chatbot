@@ -19,14 +19,6 @@ logger = get_logger(__name__)
 
 
 class ChatHistoryManager:
-    """
-    Manages conversation history using Redis.
-
-    Redis keys:
-    - session:{session_id}
-    - user_sessions:{user_id} -> SET of session_ids
-    """
-
     def __init__(
         self,
         max_history_length: int = 10,
@@ -36,22 +28,20 @@ class ChatHistoryManager:
         self.session_ttl_seconds = session_ttl_hours * 3600
 
         try:
-            self.redis_client = redis.Redis(
-                host=settings.REDIS_HOST,
-                port=settings.REDIS_PORT,
-                db=settings.REDIS_DB,
-                password=settings.REDIS_PASSWORD,
+            self.redis_client = redis.Redis.from_url(
+                settings.REDIS_URL,
                 decode_responses=True,
                 socket_timeout=5,
                 socket_connect_timeout=5,
             )
             self.redis_client.ping()
+
             logger.info(
                 "redis_connected",
-                host=settings.REDIS_HOST,
-                port=settings.REDIS_PORT,
+                redis_url="****",
                 ttl_hours=session_ttl_hours,
             )
+
         except RedisError as e:
             logger.error("redis_connection_failed", error=str(e))
             raise RuntimeError(f"Redis unavailable: {e}")
