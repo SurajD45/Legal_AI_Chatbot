@@ -12,8 +12,8 @@ class Settings(BaseSettings):
     # =====================
     # QDRANT (CLOUD)
     # =====================
-    QDRANT_URL: str = Field(..., description="Qdrant Cloud URL")
-    QDRANT_API_KEY: str = Field(..., description="Qdrant API key")
+    QDRANT_URL: str = Field(...)
+    QDRANT_API_KEY: str = Field(...)
     QDRANT_COLLECTION_NAME: str = Field(default="ipc_legal_docs")
 
     # =====================
@@ -71,8 +71,14 @@ class Settings(BaseSettings):
             raise ValueError("Invalid ENVIRONMENT")
         return v
 
+    # =====================
+    # HELPERS (THIS FIXES YOUR ERROR)
+    # =====================
     def is_production(self) -> bool:
         return self.ENVIRONMENT == "production"
+
+    def is_development(self) -> bool:
+        return self.ENVIRONMENT == "development"
 
 
 settings = Settings()
