@@ -1,8 +1,3 @@
-"""
-Configuration module for Legal AI Assistant.
-Cloud-safe, Railway-safe, strict validation.
-"""
-
 from typing import List
 from pydantic_settings import BaseSettings
 from pydantic import Field, field_validator
@@ -12,24 +7,24 @@ class Settings(BaseSettings):
     # =====================
     # API KEYS
     # =====================
-    GROQ_API_KEY: str = Field(..., description="Groq API key")
+    GROQ_API_KEY: str = Field(...)
 
     # =====================
-    # QDRANT CLOUD (MANDATORY)
+    # QDRANT (CLOUD)
     # =====================
     QDRANT_URL: str = Field(..., description="Qdrant Cloud URL")
-    QDRANT_API_KEY: str = Field(..., description="Qdrant Cloud API key")
+    QDRANT_API_KEY: str = Field(..., description="Qdrant API key")
     QDRANT_COLLECTION_NAME: str = Field(default="ipc_legal_docs")
 
     # =====================
-    # REDIS (Railway)
+    # REDIS
     # =====================
-    REDIS_URL: str = Field(..., description="Redis connection URL")
+    REDIS_URL: str = Field(...)
 
     # =====================
-    # APP SETTINGS
+    # APP
     # =====================
-    ENVIRONMENT: str = Field(default="production")
+    ENVIRONMENT: str = Field(default="development")
     HOST: str = Field(default="0.0.0.0")
     PORT: int = Field(default=8000)
     LOG_LEVEL: str = Field(default="INFO")
@@ -38,7 +33,7 @@ class Settings(BaseSettings):
     # CORS
     # =====================
     CORS_ORIGINS: str = Field(
-        default="http://localhost:3000"
+        default="http://localhost:3000,http://localhost:8000"
     )
 
     # =====================
@@ -76,18 +71,8 @@ class Settings(BaseSettings):
             raise ValueError("Invalid ENVIRONMENT")
         return v
 
-    # =====================
-    # HELPERS
-    # =====================
     def is_production(self) -> bool:
         return self.ENVIRONMENT == "production"
-
-    def is_development(self) -> bool:
-        return self.ENVIRONMENT == "development"
-
-    class Config:
-        env_file = ".env"
-        case_sensitive = True
 
 
 settings = Settings()
