@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Robust IPC ingestion script for Qdrant.
+IPC ingestion script for Qdrant Cloud.
+
 Guarantees:
 - No empty sections
 - No duplicate sections
-- No silent overwrites
-- Full IPC coverage
-- Compatible with latest Qdrant server
+- Safe re-creation of collection
+- Cloud-compatible (QDRANT_URL + API KEY)
+- Payload index for section-based filtering (REQUIRED for Qdrant Cloud)
 """
 
 import json
@@ -17,17 +18,21 @@ from pathlib import Path
 from typing import List, Dict, Set
 
 # -----------------------------
-# OFFLINE / MODEL CONFIG
+# MODEL / HF CONFIG
 # -----------------------------
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
-os.environ["HF_HOME"] = "/models/huggingface"
+os.environ.setdefault("HF_HOME", "/models/huggingface")
 
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import (
+    Distance,
+    VectorParams,
+    PointStruct,
+    PayloadSchemaType,
+)
 from tqdm import tqdm
 
+# project imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from app.config import settings
@@ -45,8 +50,8 @@ def load_and_validate_ipc(file_path: str) -> List[Dict]:
     with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    seen: Set[str] = set()
-    clean_docs = []
+    seen_sections: Set[str] = set()
+    clean_docs: List[Dict] = []
 
     for doc in data:
         section = str(doc.get("section_number", "")).strip()
@@ -56,11 +61,11 @@ def load_and_validate_ipc(file_path: str) -> List[Dict]:
             logger.warning("dropping_invalid_section", section=section)
             continue
 
-        if section in seen:
+        if section in seen_sections:
             logger.warning("duplicate_section_skipped", section=section)
             continue
 
-        seen.add(section)
+        seen_sections.add(section)
         clean_docs.append(doc)
 
     logger.info(
@@ -71,13 +76,13 @@ def load_and_validate_ipc(file_path: str) -> List[Dict]:
     )
 
     if not clean_docs:
-        raise RuntimeError("No assumeable IPC sections found after validation")
+        raise RuntimeError("No valid IPC sections found after validation")
 
     return clean_docs
 
 
 # --------------------------------------------------
-# RECREATE COLLECTION (SAFE)
+# RECREATE COLLECTION
 # --------------------------------------------------
 def recreate_collection(client: QdrantClient, dimension: int):
     name = settings.QDRANT_COLLECTION_NAME
@@ -100,6 +105,25 @@ def recreate_collection(client: QdrantClient, dimension: int):
 
 
 # --------------------------------------------------
+# CREATE PAYLOAD INDEX (🔥 CRITICAL FOR CLOUD 🔥)
+# --------------------------------------------------
+def create_payload_indexes(client: QdrantClient):
+    name = settings.QDRANT_COLLECTION_NAME
+
+    client.create_payload_index(
+        collection_name=name,
+        field_name="section_number",
+        field_schema=PayloadSchemaType.KEYWORD,
+    )
+
+    logger.info(
+        "payload_index_created",
+        collection=name,
+        field="section_number",
+    )
+
+
+# --------------------------------------------------
 # INDEX DOCUMENTS
 # --------------------------------------------------
 def index_documents(
@@ -109,8 +133,7 @@ def index_documents(
     batch_size: int = 64,
 ):
     name = settings.QDRANT_COLLECTION_NAME
-
-    points = []
+    points: List[PointStruct] = []
     indexed = 0
 
     for doc in tqdm(documents, desc="Indexing IPC sections"):
@@ -127,7 +150,7 @@ def index_documents(
                 id=str(uuid.uuid4()),
                 vector=vector,
                 payload={
-                    "section_number": doc["section_number"],
+                    "section_number": str(doc["section_number"]),
                     "title": doc.get("title"),
                     "chapter": doc.get("chapter"),
                     "chapter_title": doc.get("chapter_title"),
@@ -161,7 +184,7 @@ def main():
 
     data_path = Path(__file__).parent.parent / "data" / "ipc_clean.json"
     if not data_path.exists():
-        raise FileNotFoundError(f"Missing file: {data_path}")
+        raise FileNotFoundError(f"Missing IPC data file: {data_path}")
 
     documents = load_and_validate_ipc(str(data_path))
 
@@ -169,16 +192,16 @@ def main():
         settings.EMBEDDING_MODEL,
         cache_folder=os.environ["HF_HOME"],
     )
-
     dimension = model.get_sentence_embedding_dimension()
 
     client = QdrantClient(
-        host=settings.QDRANT_HOST,
-        port=settings.QDRANT_PORT,
+        url=settings.QDRANT_URL,
+        api_key=settings.QDRANT_API_KEY,
         timeout=30.0,
     )
 
     recreate_collection(client, dimension)
+    create_payload_indexes(client)     # 🔥 REQUIRED
     index_documents(client, model, documents)
 
     print("\n✅ IPC ingestion successful")

@@ -7,22 +7,25 @@ class Settings(BaseSettings):
     # =====================
     # API KEYS
     # =====================
-    GROQ_API_KEY: str = Field(...)
+    GROQ_API_KEY: str = Field(..., description="Groq API key")
 
     # =====================
-    # QDRANT (CLOUD)
+    # QDRANT (CLOUD ONLY)
     # =====================
-    QDRANT_URL: str = Field(...)
-    QDRANT_API_KEY: str = Field(...)
-    QDRANT_COLLECTION_NAME: str = Field(default="ipc_legal_docs")
+    QDRANT_URL: str = Field(..., description="Qdrant Cloud URL")
+    QDRANT_API_KEY: str = Field(..., description="Qdrant Cloud API Key")
+    QDRANT_COLLECTION_NAME: str = Field(
+        default="ipc_legal_docs",
+        description="Qdrant collection name",
+    )
 
     # =====================
-    # REDIS
+    # REDIS (SINGLE SOURCE)
     # =====================
-    REDIS_URL: str = Field(...)
+    REDIS_URL: str = Field(..., description="Redis connection URL")
 
     # =====================
-    # APP
+    # APP SETTINGS
     # =====================
     ENVIRONMENT: str = Field(default="development")
     HOST: str = Field(default="0.0.0.0")
@@ -43,17 +46,16 @@ class Settings(BaseSettings):
         default="intfloat/multilingual-e5-base"
     )
     EMBEDDING_DIMENSION: int = Field(default=768)
-    LLM_MODEL: str = Field(default="llama3-70b-8192")
+
+    LLM_MODEL: str = Field(
+        default="llama3-70b-8192"
+    )
 
     # =====================
-    # SEARCH
+    # SEARCH / LIMITS
     # =====================
     DEFAULT_TOP_K: int = Field(default=5)
     MAX_CONTEXT_LENGTH: int = Field(default=4000)
-
-    # =====================
-    # RATE LIMIT
-    # =====================
     RATE_LIMIT_PER_MINUTE: int = Field(default=30)
 
     # =====================
@@ -68,11 +70,13 @@ class Settings(BaseSettings):
     @classmethod
     def validate_env(cls, v: str) -> str:
         if v not in {"development", "staging", "production"}:
-            raise ValueError("Invalid ENVIRONMENT")
+            raise ValueError(
+                "ENVIRONMENT must be one of: development, staging, production"
+            )
         return v
 
     # =====================
-    # HELPERS (THIS FIXES YOUR ERROR)
+    # HELPER METHODS (CRITICAL)
     # =====================
     def is_production(self) -> bool:
         return self.ENVIRONMENT == "production"
@@ -80,5 +84,10 @@ class Settings(BaseSettings):
     def is_development(self) -> bool:
         return self.ENVIRONMENT == "development"
 
+    class Config:
+        env_file = ".env"
+        case_sensitive = True
 
+
+# Global settings instance (fails fast if env is broken)
 settings = Settings()
