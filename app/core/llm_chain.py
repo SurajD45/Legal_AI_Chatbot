@@ -108,7 +108,7 @@ QUESTION:
                 "model": self.model,
                 "messages": messages,
                 "temperature": 0.2,
-                "max_tokens": 700,
+                "max_tokens": 1024,  # Increased for Mistral's larger context
             }
 
             with httpx.Client(timeout=60.0) as client:

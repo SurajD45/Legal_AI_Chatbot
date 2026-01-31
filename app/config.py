@@ -49,7 +49,7 @@ class Settings(BaseSettings):
     EMBEDDING_DIMENSION: int = Field(default=768)
 
     LLM_MODEL: str = Field(
-        default="qwen/qwen3-next-80b-a3b-instruct:free"  # UPDATED: Qwen model
+        default="mistralai/mistral-small-3.1-24b-instruct:free"  # UPDATED: Mistral model
     )
 
     # =====================
