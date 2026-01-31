@@ -1,7 +1,6 @@
 """Health check API endpoints."""
 
 from fastapi import APIRouter
-from qdrant_client.http.exceptions import UnexpectedResponse
 
 from app.models import HealthResponse
 from app.config import settings
@@ -17,71 +16,76 @@ router = APIRouter(tags=["health"])
 async def health_check():
     """
     Health check endpoint.
-    
-    Returns service status and checks dependent services.
+    SAFE for Qdrant Cloud (no config parsing).
     """
     services = {}
-    
-    # Check Qdrant connection
+
+    # -------------------------
+    # QDRANT (SAFE CHECK)
+    # -------------------------
     try:
         retriever = get_retriever()
-        collection_info = retriever.client.get_collection(retriever.collection_name)
-        services["qdrant"] = {
-            "status": "healthy",
-            "collection": retriever.collection_name,
-            "vectors_count": collection_info.vectors_count
-        }
-    except UnexpectedResponse:
-        services["qdrant"] = {
-            "status": "unhealthy",
-            "error": "Collection not found - run indexing script"
-        }
+        exists = retriever.client.collection_exists(
+            retriever.collection_name
+        )
+
+        if exists:
+            services["qdrant"] = {
+                "status": "healthy",
+                "collection": retriever.collection_name,
+            }
+        else:
+            services["qdrant"] = {
+                "status": "unhealthy",
+                "error": "Collection not found"
+            }
+
     except Exception as e:
         services["qdrant"] = {
             "status": "unhealthy",
-            "error": str(e)
+            "error": str(e)[:120],
         }
-    
-    # Check embedding model (DON'T trigger loading)
+
+    # -------------------------
+    # EMBEDDING MODEL
+    # -------------------------
     try:
         retriever = get_retriever()
-        # Check if model is already loaded, don't trigger loading
         if retriever._model is not None:
             services["embedding_model"] = {
                 "status": "healthy",
-                "model": settings.EMBEDDING_MODEL
+                "model": settings.EMBEDDING_MODEL,
             }
         else:
             services["embedding_model"] = {
                 "status": "not_loaded",
-                "note": "Model loads on first query"
+                "note": "Model loads on first query",
             }
     except Exception as e:
-        # Bound error message to 100 chars
-        error_msg = str(e)[:100]
         services["embedding_model"] = {
             "status": "degraded",
-            "error": error_msg
+            "error": str(e)[:120],
         }
-    
-    overall_status = "healthy" if all(
-        s.get("status") == "healthy" for s in services.values()
-    ) else "degraded"
-    
+
+    overall_status = (
+        "healthy"
+        if services.get("qdrant", {}).get("status") == "healthy"
+        else "degraded"
+    )
+
     return HealthResponse(
         status=overall_status,
         environment=settings.ENVIRONMENT,
-        services=services
+        services=services,
     )
 
 
 @router.get("/")
 async def root():
-    """Root endpoint with API information."""
     return {
         "name": "Legal AI Assistant API",
         "version": "1.0.0",
         "description": "Indian Penal Code AI Assistant with RAG",
         "docs": "/docs",
-        "health": "/health"
+        "health": "/health",
     }
