@@ -49,7 +49,7 @@ class Settings(BaseSettings):
     EMBEDDING_DIMENSION: int = Field(default=768)
 
     LLM_MODEL: str = Field(
-        default="meta-llama/llama-3.3-70b-instruct:free"
+        default="qwen/qwen3-next-80b-a3b-instruct:free"  # UPDATED: Qwen model
     )
 
     # =====================
