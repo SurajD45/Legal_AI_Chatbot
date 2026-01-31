@@ -110,7 +110,7 @@ async def legal_ai_exception_handler(request: Request, exc: LegalAIException):
             error=type(exc).__name__,
             message=exc.message,
             details=exc.details,
-        ).dict(),
+        ).model_dump(),
     )
 
 
