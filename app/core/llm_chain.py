@@ -4,6 +4,7 @@ Production-safe version (Railway compatible).
 """
 
 from typing import List, Dict, Optional
+import traceback
 from groq import Groq
 
 from app.config import settings
@@ -25,7 +26,7 @@ class LLMChain:
 
             self.client = Groq(
                 api_key=settings.GROQ_API_KEY,
-                timeout=60,              # 🔥 CRITICAL FIX
+                timeout=60,
             )
 
             self.model = model
@@ -35,9 +36,6 @@ class LLMChain:
             logger.error("llm_init_failed", error=str(e))
             raise LLMError(f"Failed to initialize LLM: {e}")
 
-    # --------------------------------------------------
-    # Context builder
-    # --------------------------------------------------
     def _build_context(self, documents: List[RetrievedDocument]) -> str:
         if not documents:
             return "No relevant IPC sections were found."
@@ -57,9 +55,6 @@ class LLMChain:
 
         return context
 
-    # --------------------------------------------------
-    # SYSTEM PROMPT
-    # --------------------------------------------------
     def _build_system_prompt(self) -> str:
         return """
 You are an Indian Legal Assistant specializing in the Indian Penal Code (IPC).
@@ -84,9 +79,6 @@ PUNISHMENT:
 - Mention IPC section
 """
 
-    # --------------------------------------------------
-    # USER PROMPT
-    # --------------------------------------------------
     def _build_user_prompt(self, query: str, context: str) -> str:
         return f"""
 IPC CONTEXT:
@@ -96,9 +88,6 @@ QUESTION:
 {query}
 """
 
-    # --------------------------------------------------
-    # MAIN GENERATION
-    # --------------------------------------------------
     def generate_answer(
         self,
         query: str,
@@ -129,11 +118,15 @@ QUESTION:
             return response.choices[0].message.content.strip()
 
         except Exception as e:
-            logger.error("groq_call_failed", error=str(e))
+            logger.error(
+                "groq_call_failed",
+                error=str(e),
+                error_type=type(e).__name__,
+                traceback=traceback.format_exc(),
+            )
             raise LLMError(f"Failed to generate answer: {e}")
 
 
-# Singleton
 _llm_chain: Optional[LLMChain] = None
 
 

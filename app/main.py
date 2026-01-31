@@ -15,7 +15,7 @@ from slowapi.errors import RateLimitExceeded
 from app.config import settings
 from app.utils import setup_logging, get_logger, LegalAIException
 from app.dependencies import limiter
-from app.api import health, chat, debug  # Single import line
+from app.api import health, chat, debug
 from app.models import ErrorResponse
 
 setup_logging()
@@ -89,7 +89,7 @@ app.add_middleware(
 # -------------------------------
 app.include_router(health.router)
 app.include_router(chat.router)
-app.include_router(debug.router)  # Add debug router
+app.include_router(debug.router)
 
 # -------------------------------
 # Static frontend (optional)
