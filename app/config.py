@@ -7,7 +7,8 @@ class Settings(BaseSettings):
     # =====================
     # API KEYS
     # =====================
-    GROQ_API_KEY: str = Field(..., description="Groq API key")
+    GROQ_API_KEY: str = Field(default="", description="Groq API key (deprecated)")
+    OPENROUTER_API_KEY: str = Field(..., description="OpenRouter API key")
 
     # =====================
     # QDRANT (CLOUD ONLY)
@@ -48,7 +49,7 @@ class Settings(BaseSettings):
     EMBEDDING_DIMENSION: int = Field(default=768)
 
     LLM_MODEL: str = Field(
-        default="llama3-70b-8192"
+        default="meta-llama/llama-3.3-70b-instruct:free"
     )
 
     # =====================

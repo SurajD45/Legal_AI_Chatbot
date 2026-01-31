@@ -1,11 +1,11 @@
 """
-LLM chain for generating answers using Groq.
+LLM chain for generating answers using OpenRouter.
 Production-safe version (Railway compatible).
 """
 
 from typing import List, Dict, Optional
 import traceback
-from groq import Groq
+import httpx
 
 from app.config import settings
 from app.utils import get_logger, LLMError
@@ -14,23 +14,16 @@ from app.models import RetrievedDocument
 logger = get_logger(__name__)
 
 
-SAFE_FALLBACK_MODEL = "llama-3.1-8b-instant"
-
-
 class LLMChain:
     """Orchestrates LLM calls for IPC-based legal answers."""
 
     def __init__(self):
         try:
-            model = settings.LLM_MODEL or SAFE_FALLBACK_MODEL
-
-            self.client = Groq(
-                api_key=settings.GROQ_API_KEY,
-                timeout=60,
-            )
-
-            self.model = model
-            logger.info("llm_chain_initialized", model=model)
+            self.api_key = settings.OPENROUTER_API_KEY
+            self.model = settings.LLM_MODEL
+            self.base_url = "https://openrouter.ai/api/v1"
+            
+            logger.info("llm_chain_initialized", model=self.model, provider="openrouter")
 
         except Exception as e:
             logger.error("llm_init_failed", error=str(e))
@@ -56,8 +49,7 @@ class LLMChain:
         return context
 
     def _build_system_prompt(self) -> str:
-        return """
-You are an Indian Legal Assistant specializing in the Indian Penal Code (IPC).
+        return """You are an Indian Legal Assistant specializing in the Indian Penal Code (IPC).
 
 RULES:
 - Use ONLY provided IPC context
@@ -76,17 +68,14 @@ ANALYSIS:
 
 PUNISHMENT:
 - Bullet points
-- Mention IPC section
-"""
+- Mention IPC section"""
 
     def _build_user_prompt(self, query: str, context: str) -> str:
-        return f"""
-IPC CONTEXT:
+        return f"""IPC CONTEXT:
 {context}
 
 QUESTION:
-{query}
-"""
+{query}"""
 
     def generate_answer(
         self,
@@ -103,23 +92,51 @@ QUESTION:
             ]
 
             logger.info(
-                "calling_groq",
+                "calling_openrouter",
                 model=self.model,
                 context_length=len(context),
             )
 
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=messages,
-                temperature=0.2,
-                max_tokens=700,
-            )
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://legalaichatbot-production.up.railway.app",
+                "X-Title": "Legal AI Assistant",
+            }
 
-            return response.choices[0].message.content.strip()
+            payload = {
+                "model": self.model,
+                "messages": messages,
+                "temperature": 0.2,
+                "max_tokens": 700,
+            }
+
+            with httpx.Client(timeout=60.0) as client:
+                response = client.post(
+                    f"{self.base_url}/chat/completions",
+                    headers=headers,
+                    json=payload,
+                )
+                response.raise_for_status()
+                data = response.json()
+
+            answer = data["choices"][0]["message"]["content"].strip()
+            logger.info("openrouter_success", tokens_used=data.get("usage", {}))
+            
+            return answer
+
+        except httpx.HTTPStatusError as e:
+            logger.error(
+                "openrouter_http_error",
+                status_code=e.response.status_code,
+                error=e.response.text[:500],
+                traceback=traceback.format_exc(),
+            )
+            raise LLMError(f"OpenRouter API error: {e.response.status_code}")
 
         except Exception as e:
             logger.error(
-                "groq_call_failed",
+                "openrouter_call_failed",
                 error=str(e),
                 error_type=type(e).__name__,
                 traceback=traceback.format_exc(),
