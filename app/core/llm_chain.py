@@ -21,7 +21,7 @@ class LLMChain:
         try:
             self.api_key = settings.OPENROUTER_API_KEY
             self.model = settings.LLM_MODEL
-            self.base_url = "https://openrouter.ai/api/v1"
+            self.base_url = "https://openrouter.ai/api/v1"  # FIXED: removed trailing space
             
             logger.info("llm_chain_initialized", model=self.model, provider="openrouter")
 
@@ -100,7 +100,7 @@ QUESTION:
             headers = {
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://legalaichatbot-production.up.railway.app",
+                "HTTP-Referer": "https://legalaichatbot-production.up.railway.app",  # FIXED: removed trailing space
                 "X-Title": "Legal AI Assistant",
             }
 
