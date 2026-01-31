@@ -21,23 +21,27 @@ async def health_check():
     services = {}
 
     # -------------------------
-    # QDRANT (SAFE CHECK)
+    # QDRANT (CORRECT CHECK)
     # -------------------------
     try:
         retriever = get_retriever()
-        exists = retriever.client.collection_exists(
-            retriever.collection_name
-        )
-
-        if exists:
+        collections = retriever.client.get_collections()
+        collection_names = [c.name for c in collections.collections]
+        
+        if retriever.collection_name in collection_names:
+            # Get collection info for more details
+            collection_info = retriever.client.get_collection(
+                collection_name=retriever.collection_name
+            )
             services["qdrant"] = {
                 "status": "healthy",
                 "collection": retriever.collection_name,
+                "points_count": collection_info.points_count,
             }
         else:
             services["qdrant"] = {
                 "status": "unhealthy",
-                "error": "Collection not found"
+                "error": f"Collection '{retriever.collection_name}' not found"
             }
 
     except Exception as e:
