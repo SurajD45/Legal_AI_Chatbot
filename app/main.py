@@ -73,14 +73,8 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 # -------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://127.0.0.1:3000",
-        "http://127.0.0.1:3001",
-        "https://legal-ai-chatbot-suraj-doifodes-projects.vercel.app",
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],  # Allow all origins for testing
+    allow_credentials=False,  # Must be False when using "*"
     allow_methods=["*"],
     allow_headers=["*"],
 )
