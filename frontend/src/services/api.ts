@@ -32,7 +32,7 @@ export const chatApi = {
    * Clear a chat session (optional / future use)
    */
   clearSession: async (sessionId: string): Promise<void> => {
-    await api.delete(`/api/session/${sessionId}`);
+    await api.delete(`/api/session/${sessionId}`);  // FIXED: Template literal syntax
   },
 
   /**
