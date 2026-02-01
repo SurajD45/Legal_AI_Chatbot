@@ -79,7 +79,7 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "http://127.0.0.1:3001",
         "https://*.vercel.app",  # ADD THIS
-        "https://your-frontend-name.vercel.app",
+        "https://legal-ai-chatbot-exvi-lo8v8lxmp-surajd45s-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
