@@ -7,8 +7,7 @@ class Settings(BaseSettings):
     # =====================
     # API KEYS
     # =====================
-    GROQ_API_KEY: str = Field(default="", description="Groq API key (deprecated)")
-    OPENROUTER_API_KEY: str = Field(..., description="OpenRouter API key")
+    GROQ_API_KEY: str = Field(..., description="Groq API key")
 
     # =====================
     # QDRANT (CLOUD ONLY)
@@ -49,7 +48,7 @@ class Settings(BaseSettings):
     EMBEDDING_DIMENSION: int = Field(default=768)
 
     LLM_MODEL: str = Field(
-        default="mistralai/mistral-small-3.1-24b-instruct:free"  # UPDATED: Mistral model
+        default="llama-3.3-70b-versatile"
     )
 
     # =====================

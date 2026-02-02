@@ -1,11 +1,11 @@
 """
-LLM chain for generating answers using OpenRouter.
-Production-safe version (Railway compatible).
+LLM chain for generating answers using Groq.
+Production-safe version (Render compatible).
 """
 
 from typing import List, Dict, Optional
 import traceback
-import httpx
+from groq import Groq
 
 from app.config import settings
 from app.utils import get_logger, LLMError
@@ -19,11 +19,12 @@ class LLMChain:
 
     def __init__(self):
         try:
-            self.api_key = settings.OPENROUTER_API_KEY
+            self.client = Groq(
+                api_key=settings.GROQ_API_KEY,
+                timeout=60,
+            )
             self.model = settings.LLM_MODEL
-            self.base_url = "https://openrouter.ai/api/v1"  # FIXED: No trailing space
-            
-            logger.info("llm_chain_initialized", model=self.model, provider="openrouter")
+            logger.info("llm_chain_initialized", model=self.model, provider="groq")
 
         except Exception as e:
             logger.error("llm_init_failed", error=str(e))
@@ -92,51 +93,23 @@ QUESTION:
             ]
 
             logger.info(
-                "calling_openrouter",
+                "calling_groq",
                 model=self.model,
                 context_length=len(context),
             )
 
-            headers = {
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json",
-                "HTTP-Referer": "https://legalaichatbot-production.up.railway.app",  # FIXED: No trailing space
-                "X-Title": "Legal AI Assistant",
-            }
-
-            payload = {
-                "model": self.model,
-                "messages": messages,
-                "temperature": 0.2,
-                "max_tokens": 1024,  # Increased for Mistral's larger context
-            }
-
-            with httpx.Client(timeout=60.0) as client:
-                response = client.post(
-                    f"{self.base_url}/chat/completions",
-                    headers=headers,
-                    json=payload,
-                )
-                response.raise_for_status()
-                data = response.json()
-
-            answer = data["choices"][0]["message"]["content"].strip()
-            logger.info("openrouter_success", tokens_used=data.get("usage", {}))
-            
-            return answer
-
-        except httpx.HTTPStatusError as e:
-            logger.error(
-                "openrouter_http_error",
-                status_code=e.response.status_code,
-                error=e.response.text[:500],
-                traceback=traceback.format_exc(),
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                temperature=0.2,
+                max_tokens=700,
             )
-            raise LLMError(f"OpenRouter API error: {e.response.status_code}")
+
+            return response.choices[0].message.content.strip()
 
         except Exception as e:
             logger.error(
-                "openrouter_call_failed",
+                "groq_call_failed",
                 error=str(e),
                 error_type=type(e).__name__,
                 traceback=traceback.format_exc(),
