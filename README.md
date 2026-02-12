@@ -61,13 +61,13 @@ The Legal AI Assistant is a **production-ready RAG system** that provides intell
 
 | Welcome Screen | Chat Interface | Source Citations |
 |---------------|----------------|------------------|
-| ![Welcome](https://via.placeholder.com/300x200/4F46E5/FFFFFF?text=Welcome+Screen) | ![Chat](https://via.placeholder.com/300x200/059669/FFFFFF?text=Chat+Interface) | ![Sources](https://via.placeholder.com/300x200/DC2626/FFFFFF?text=Source+Citations) |
+| ![Welcome](image2.png) | ![Chat](image1.png) |
 
 ### Live Demo
 
 🚀 **[Try the Live Demo](https://your-demo-url.com)** (Coming Soon)
 
-*Note: Replace placeholder images with actual screenshots of your application*
+
 
 ---
 
@@ -156,18 +156,6 @@ curl -X POST http://localhost:8000/api/query \
 ```
 
 ---
-
-## 🌟 Community & Social Proof
-
-### 📊 GitHub Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api/pinned?username=yourusername&repo=legal-ai-assistant&theme=dark)
-
-### 🤝 Contributors
-
-<a href="https://github.com/yourusername/legal-ai-assistant/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=yourusername/legal-ai-assistant" />
-</a>
 
 ### 💬 Discussions & Support
 
