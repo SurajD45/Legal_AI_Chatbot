@@ -1,8 +1,8 @@
 import re
+import httpx
 from typing import List, Optional
 from functools import lru_cache
 
-from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.models import Filter, FieldCondition, MatchValue
 
@@ -12,28 +12,13 @@ from app.utils import get_logger
 
 logger = get_logger(__name__)
 
+HF_EMBEDDING_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/intfloat/multilingual-e5-base"
+
 
 class DocumentRetriever:
     def __init__(self):
         self.collection_name = settings.QDRANT_COLLECTION_NAME
-        self._model: Optional[SentenceTransformer] = None
         self._client: Optional[QdrantClient] = None
-
-    # --------------------------------------------------
-    # Embedding model (lazy + cached)
-    # --------------------------------------------------
-    @property
-    def model(self) -> SentenceTransformer:
-        if self._model is None:
-            logger.info(
-                "loading_embedding_model",
-                model=settings.EMBEDDING_MODEL,
-            )
-            self._model = SentenceTransformer(
-                settings.EMBEDDING_MODEL,
-                cache_folder="/models/huggingface",
-            )
-        return self._model
 
     # --------------------------------------------------
     # Qdrant client (CLOUD SAFE)
@@ -50,16 +35,42 @@ class DocumentRetriever:
         return self._client
 
     # --------------------------------------------------
+    # Embedding via HuggingFace Inference API
+    # --------------------------------------------------
+    def _get_embedding(self, text: str) -> List[float]:
+        headers = {"Authorization": f"Bearer {settings.HF_API_TOKEN}"}
+        payload = {
+            "inputs": text[:512],
+            "options": {"wait_for_model": True},
+        }
+
+        with httpx.Client(timeout=30.0) as client:
+            response = client.post(
+                HF_EMBEDDING_URL,
+                headers=headers,
+                json=payload,
+            )
+            response.raise_for_status()
+
+        result = response.json()
+
+        # HF returns nested list for batched or flat list for single
+        if isinstance(result[0], list):
+            vector = result[0]
+        else:
+            vector = result
+
+        # Normalize manually (same as normalize_embeddings=True)
+        norm = sum(x * x for x in vector) ** 0.5
+        if norm > 0:
+            vector = [x / norm for x in vector]
+
+        return vector
+
+    # --------------------------------------------------
     # Detect IPC sections in query
     # --------------------------------------------------
     def detect_sections(self, query: str) -> List[str]:
-        """
-        Detect IPC section numbers like:
-        - Section 376
-        - Sec. 420
-        - u/s 302
-        - धारा 498A
-        """
         pattern = r"(?:section|sec\.?|u/s|धारा|कलम)\s*([0-9]{1,3}[A-Z]?)"
         matches = re.findall(pattern, query, flags=re.IGNORECASE)
         return list(set(matches))
@@ -96,11 +107,7 @@ class DocumentRetriever:
     # Semantic search
     # --------------------------------------------------
     def semantic_search(self, query: str, top_k: int) -> List[RetrievedDocument]:
-        vector = self.model.encode(
-            query[:1000],
-            normalize_embeddings=True,
-            show_progress_bar=False,
-        ).tolist()
+        vector = self._get_embedding(query)
 
         results = self.client.search(
             collection_name=self.collection_name,
@@ -125,7 +132,6 @@ class DocumentRetriever:
     def hybrid_search(self, query: str) -> List[RetrievedDocument]:
         sections = self.detect_sections(query)
 
-        # 1️⃣ Exact section match wins
         if sections:
             logger.info("section_detected", sections=sections)
             docs: List[RetrievedDocument] = []
@@ -134,7 +140,6 @@ class DocumentRetriever:
             if docs:
                 return docs
 
-        # 2️⃣ Semantic fallback
         logger.info("fallback_to_semantic_search")
         return self.semantic_search(query, settings.DEFAULT_TOP_K)
 

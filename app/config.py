@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     # =====================
     GROQ_API_KEY: str = Field(default="", description="Groq API key (deprecated)")
     OPENROUTER_API_KEY: str = Field(..., description="OpenRouter API key")
+    HF_API_TOKEN: str = Field(..., description="HuggingFace API token for embeddings")
 
     # =====================
     # QDRANT (CLOUD ONLY)
