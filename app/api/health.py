@@ -16,20 +16,19 @@ router = APIRouter(tags=["health"])
 async def health_check():
     """
     Health check endpoint.
-    SAFE for Qdrant Cloud (no config parsing).
+    Reports status of Qdrant and embedding configuration.
     """
     services = {}
 
     # -------------------------
-    # QDRANT (CORRECT CHECK)
+    # QDRANT
     # -------------------------
     try:
         retriever = get_retriever()
         collections = retriever.client.get_collections()
         collection_names = [c.name for c in collections.collections]
-        
+
         if retriever.collection_name in collection_names:
-            # Get collection info for more details
             collection_info = retriever.client.get_collection(
                 collection_name=retriever.collection_name
             )
@@ -41,7 +40,7 @@ async def health_check():
         else:
             services["qdrant"] = {
                 "status": "unhealthy",
-                "error": f"Collection '{retriever.collection_name}' not found"
+                "error": f"Collection '{retriever.collection_name}' not found",
             }
 
     except Exception as e:
@@ -51,25 +50,23 @@ async def health_check():
         }
 
     # -------------------------
-    # EMBEDDING MODEL
+    # EMBEDDING (HF Inference API)
     # -------------------------
-    try:
-        retriever = get_retriever()
-        if retriever._model is not None:
-            services["embedding_model"] = {
-                "status": "healthy",
-                "model": settings.EMBEDDING_MODEL,
-            }
-        else:
-            services["embedding_model"] = {
-                "status": "not_loaded",
-                "note": "Model loads on first query",
-            }
-    except Exception as e:
-        services["embedding_model"] = {
-            "status": "degraded",
-            "error": str(e)[:120],
-        }
+    services["embedding"] = {
+        "status": "configured",
+        "model": settings.EMBEDDING_MODEL,
+        "provider": "huggingface_inference_api",
+        "note": "Embeddings are generated on-demand via HF API",
+    }
+
+    # -------------------------
+    # LLM (Groq)
+    # -------------------------
+    services["llm"] = {
+        "status": "configured",
+        "model": settings.LLM_MODEL,
+        "provider": "groq",
+    }
 
     overall_status = (
         "healthy"

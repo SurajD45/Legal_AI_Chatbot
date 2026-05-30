@@ -38,7 +38,12 @@ class DocumentRetriever:
     # Embedding via HuggingFace Inference API
     # --------------------------------------------------
     def _get_embedding(self, text: str) -> List[float]:
-        headers = {"Authorization": f"Bearer {settings.HF_API_TOKEN}"}
+        headers = {"Content-Type": "application/json"}
+
+        # Use HF token if available (handles rate-limited endpoints)
+        if settings.HF_API_TOKEN:
+            headers["Authorization"] = f"Bearer {settings.HF_API_TOKEN}"
+
         payload = {
             "inputs": text[:512],
             "options": {"wait_for_model": True},

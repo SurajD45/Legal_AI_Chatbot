@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from pydantic_settings import BaseSettings
 from pydantic import Field, field_validator
 
@@ -7,9 +7,11 @@ class Settings(BaseSettings):
     # =====================
     # API KEYS
     # =====================
-    GROQ_API_KEY: str = Field(default="", description="Groq API key (deprecated)")
-    OPENROUTER_API_KEY: str = Field(..., description="OpenRouter API key")
-    HF_API_TOKEN: str = Field(..., description="HuggingFace API token for embeddings")
+    GROQ_API_KEY: str = Field(..., description="Groq API key for LLM inference")
+    HF_API_TOKEN: Optional[str] = Field(
+        default=None,
+        description="HuggingFace API token (optional, for rate-limited endpoints)",
+    )
 
     # =====================
     # QDRANT (CLOUD ONLY)
@@ -22,9 +24,9 @@ class Settings(BaseSettings):
     )
 
     # =====================
-    # REDIS (SINGLE SOURCE)
+    # REDIS (UPSTASH)
     # =====================
-    REDIS_URL: str = Field(..., description="Redis connection URL")
+    REDIS_URL: str = Field(..., description="Redis/Upstash connection URL")
 
     # =====================
     # APP SETTINGS
@@ -38,7 +40,7 @@ class Settings(BaseSettings):
     # CORS
     # =====================
     CORS_ORIGINS: str = Field(
-        default="http://localhost:3000,http://localhost:8000"
+        default="http://localhost:3000,http://localhost:5173"
     )
 
     # =====================
@@ -50,7 +52,8 @@ class Settings(BaseSettings):
     EMBEDDING_DIMENSION: int = Field(default=768)
 
     LLM_MODEL: str = Field(
-        default="mistralai/mistral-small-3.1-24b-instruct:free"  # UPDATED: Mistral model
+        default="llama-3.3-70b-versatile",
+        description="Groq model ID",
     )
 
     # =====================
@@ -78,7 +81,7 @@ class Settings(BaseSettings):
         return v
 
     # =====================
-    # HELPER METHODS (CRITICAL)
+    # HELPER METHODS
     # =====================
     def is_production(self) -> bool:
         return self.ENVIRONMENT == "production"

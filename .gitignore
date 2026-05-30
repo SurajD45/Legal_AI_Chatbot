@@ -92,7 +92,11 @@ frontend/.vite/
 vite.config.ts.timestamp-*
 
 # Frontend Environment
+frontend/.env
 frontend/.env.local
 frontend/.env.development.local
 frontend/.env.test.local
 frontend/.env.production.local
+
+# Evaluation outputs (generated, not committed)
+evaluation/*_report.json

@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "query": "What is Section 302 of IPC?",
+    "expected_sections": ["302"],
+    "category": "exact_match"
+  },
+  {
+    "id": 2,
+    "query": "What is Section 420 of IPC?",
+    "expected_sections": ["420"],
+    "category": "exact_match"
+  },
+  {
+    "id": 3,
+    "query": "Explain Section 376 IPC",
+    "expected_sections": ["376"],
+    "category": "exact_match"
+  },
+  {
+    "id": 4,
+    "query": "What does Section 498A say?",
+    "expected_sections": ["498A"],
+    "category": "exact_match"
+  },
+  {
+    "id": 5,
+    "query": "Section 304B of Indian Penal Code",
+    "expected_sections": ["304B"],
+    "category": "exact_match"
+  },
+  {
+    "id": 6,
+    "query": "What is sec 307?",
+    "expected_sections": ["307"],
+    "category": "exact_match"
+  },
+  {
+    "id": 7,
+    "query": "u/s 354 IPC",
+    "expected_sections": ["354"],
+    "category": "exact_match"
+  },
+  {
+    "id": 8,
+    "query": "धारा 302 क्या है?",
+    "expected_sections": ["302"],
+    "category": "exact_match_hindi"
+  },
+  {
+    "id": 9,
+    "query": "धारा 420 में क्या सजा है?",
+    "expected_sections": ["420"],
+    "category": "exact_match_hindi"
+  },
+  {
+    "id": 10,
+    "query": "कलम 376 समझाइए",
+    "expected_sections": ["376"],
+    "category": "exact_match_hindi"
+  },
+  {
+    "id": 11,
+    "query": "Section 34 and Section 302 together",
+    "expected_sections": ["34", "302"],
+    "category": "multi_section"
+  },
+  {
+    "id": 12,
+    "query": "Difference between Section 302 and Section 304",
+    "expected_sections": ["302", "304"],
+    "category": "multi_section"
+  },
+  {
+    "id": 13,
+    "query": "Sections 378 and 379 of IPC",
+    "expected_sections": ["378", "379"],
+    "category": "multi_section"
+  },
+  {
+    "id": 14,
+    "query": "Section 299 vs Section 300",
+    "expected_sections": ["299", "300"],
+    "category": "multi_section"
+  },
+  {
+    "id": 15,
+    "query": "Compare section 304A and 304B",
+    "expected_sections": ["304A", "304B"],
+    "category": "multi_section"
+  },
+  {
+    "id": 16,
+    "query": "punishment for murder in India",
+    "expected_sections": ["302", "300"],
+    "category": "semantic"
+  },
+  {
+    "id": 17,
+    "query": "what is the punishment for theft?",
+    "expected_sections": ["378", "379"],
+    "category": "semantic"
+  },
+  {
+    "id": 18,
+    "query": "law against cheating and fraud",
+    "expected_sections": ["415", "420"],
+    "category": "semantic"
+  },
+  {
+    "id": 19,
+    "query": "dowry death punishment",
+    "expected_sections": ["304B"],
+    "category": "semantic"
+  },
+  {
+    "id": 20,
+    "query": "kidnapping laws in IPC",
+    "expected_sections": ["359", "360", "361", "363"],
+    "category": "semantic"
+  },
+  {
+    "id": 21,
+    "query": "what happens if someone commits robbery?",
+    "expected_sections": ["390", "392"],
+    "category": "semantic"
+  },
+  {
+    "id": 22,
+    "query": "punishment for attempt to murder",
+    "expected_sections": ["307"],
+    "category": "semantic"
+  },
+  {
+    "id": 23,
+    "query": "sexual assault against women",
+    "expected_sections": ["354", "376"],
+    "category": "semantic"
+  },
+  {
+    "id": 24,
+    "query": "domestic violence laws IPC",
+    "expected_sections": ["498A"],
+    "category": "semantic"
+  },
+  {
+    "id": 25,
+    "query": "criminal intimidation and threatening",
+    "expected_sections": ["503", "506"],
+    "category": "semantic"
+  },
+  {
+    "id": 26,
+    "query": "defamation laws in India",
+    "expected_sections": ["499", "500"],
+    "category": "semantic"
+  },
+  {
+    "id": 27,
+    "query": "forgery and making false documents",
+    "expected_sections": ["463", "464", "465"],
+    "category": "semantic"
+  },
+  {
+    "id": 28,
+    "query": "rioting and unlawful assembly",
+    "expected_sections": ["141", "146", "147"],
+    "category": "semantic"
+  },
+  {
+    "id": 29,
+    "query": "culpable homicide not amounting to murder",
+    "expected_sections": ["299", "304"],
+    "category": "semantic"
+  },
+  {
+    "id": 30,
+    "query": "what is criminal breach of trust?",
+    "expected_sections": ["405", "406"],
+    "category": "semantic"
+  },
+  {
+    "id": 31,
+    "query": "punishment for hurting someone",
+    "expected_sections": ["319", "323", "324"],
+    "category": "semantic"
+  },
+  {
+    "id": 32,
+    "query": "extortion and blackmail laws",
+    "expected_sections": ["383", "384"],
+    "category": "semantic"
+  },
+  {
+    "id": 33,
+    "query": "mischief and property damage IPC",
+    "expected_sections": ["425", "426", "427"],
+    "category": "semantic"
+  },
+  {
+    "id": 34,
+    "query": "trespassing and house breaking",
+    "expected_sections": ["441", "442", "445", "446"],
+    "category": "semantic"
+  },
+  {
+    "id": 35,
+    "query": "wrongful restraint and confinement",
+    "expected_sections": ["339", "340", "341", "342"],
+    "category": "semantic"
+  },
+  {
+    "id": 36,
+    "query": "abetment of crime",
+    "expected_sections": ["107", "108", "109"],
+    "category": "semantic"
+  },
+  {
+    "id": 37,
+    "query": "what is the right to private defence?",
+    "expected_sections": ["96", "97", "100", "101"],
+    "category": "semantic"
+  },
+  {
+    "id": 38,
+    "query": "giving false evidence and perjury",
+    "expected_sections": ["191", "193"],
+    "category": "semantic"
+  },
+  {
+    "id": 39,
+    "query": "offences against public servants",
+    "expected_sections": ["186", "189", "353"],
+    "category": "semantic"
+  },
+  {
+    "id": 40,
+    "query": "bribery and corruption IPC",
+    "expected_sections": ["161", "165"],
+    "category": "semantic"
+  },
+  {
+    "id": 41,
+    "query": "causing death by negligence",
+    "expected_sections": ["304A"],
+    "category": "semantic"
+  },
+  {
+    "id": 42,
+    "query": "grievous hurt punishment",
+    "expected_sections": ["320", "325", "326"],
+    "category": "semantic"
+  },
+  {
+    "id": 43,
+    "query": "what is dacoity?",
+    "expected_sections": ["391", "395", "396"],
+    "category": "semantic"
+  },
+  {
+    "id": 44,
+    "query": "assault and using criminal force",
+    "expected_sections": ["349", "350", "351", "352"],
+    "category": "semantic"
+  },
+  {
+    "id": 45,
+    "query": "counterfeiting currency",
+    "expected_sections": ["231", "232", "233"],
+    "category": "semantic"
+  },
+  {
+    "id": 46,
+    "query": "suicide abetment laws",
+    "expected_sections": ["305", "306"],
+    "category": "semantic"
+  },
+  {
+    "id": 47,
+    "query": "adultery law in IPC",
+    "expected_sections": ["497"],
+    "category": "semantic"
+  },
+  {
+    "id": 48,
+    "query": "obscenity and indecent exposure",
+    "expected_sections": ["292", "294"],
+    "category": "semantic"
+  },
+  {
+    "id": 49,
+    "query": "waging war against the state",
+    "expected_sections": ["121", "121A", "122"],
+    "category": "semantic"
+  },
+  {
+    "id": 50,
+    "query": "sedition charges in India",
+    "expected_sections": ["124A"],
+    "category": "semantic"
+  },
+  {
+    "id": 51,
+    "query": "acid attack punishment",
+    "expected_sections": ["326A", "326B"],
+    "category": "semantic"
+  },
+  {
+    "id": 52,
+    "query": "stalking and voyeurism laws",
+    "expected_sections": ["354C", "354D"],
+    "category": "semantic"
+  },
+  {
+    "id": 53,
+    "query": "what punishment does a person get for hurting someone with a knife?",
+    "expected_sections": ["324", "326"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 54,
+    "query": "if someone threatens to kill me what section applies?",
+    "expected_sections": ["506"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 55,
+    "query": "my neighbour broke into my house at night",
+    "expected_sections": ["445", "446", "456"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 56,
+    "query": "someone stole my phone from my pocket",
+    "expected_sections": ["378", "379"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 57,
+    "query": "a man cheated me of money through fake investment scheme",
+    "expected_sections": ["415", "420"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 58,
+    "query": "can a wife file complaint against husband for cruelty?",
+    "expected_sections": ["498A"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 59,
+    "query": "what if a group of 10 people attacked someone?",
+    "expected_sections": ["141", "147", "148", "149"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 60,
+    "query": "drunk driving causing death on highway",
+    "expected_sections": ["304A"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 61,
+    "query": "someone is spreading false rumours about me online",
+    "expected_sections": ["499", "500"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 62,
+    "query": "can I defend myself if someone attacks me at home?",
+    "expected_sections": ["96", "97", "100", "103"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 63,
+    "query": "my employee stole money from the company safe",
+    "expected_sections": ["405", "406", "408"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 64,
+    "query": "doctor gave wrong medicine and patient died",
+    "expected_sections": ["304A"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 65,
+    "query": "someone tried to poison me but I survived",
+    "expected_sections": ["307", "328"],
+    "category": "semantic_complex"
+  },
+  {
+    "id": 66,
+    "query": "Is jaywalking a crime under IPC?",
+    "expected_sections": [],
+    "category": "edge_case_no_match"
+  },
+  {
+    "id": 67,
+    "query": "parking violations penalty IPC",
+    "expected_sections": [],
+    "category": "edge_case_no_match"
+  },
+  {
+    "id": 68,
+    "query": "income tax evasion IPC section",
+    "expected_sections": [],
+    "category": "edge_case_no_match"
+  },
+  {
+    "id": 69,
+    "query": "hello how are you",
+    "expected_sections": [],
+    "category": "edge_case_irrelevant"
+  },
+  {
+    "id": 70,
+    "query": "what is the weather today?",
+    "expected_sections": [],
+    "category": "edge_case_irrelevant"
+  },
+  {
+    "id": 71,
+    "query": "chori ki saja kya hai?",
+    "expected_sections": ["378", "379"],
+    "category": "semantic_hindi"
+  },
+  {
+    "id": 72,
+    "query": "hatya ka punishment kya hai?",
+    "expected_sections": ["302"],
+    "category": "semantic_hindi"
+  },
+  {
+    "id": 73,
+    "query": "dahej hatya kya hoti hai?",
+    "expected_sections": ["304B"],
+    "category": "semantic_hindi"
+  },
+  {
+    "id": 74,
+    "query": "loot aur daketi mein kya fark hai?",
+    "expected_sections": ["390", "391"],
+    "category": "semantic_hindi"
+  },
+  {
+    "id": 75,
+    "query": "section 302 punishment death penalty or life imprisonment",
+    "expected_sections": ["302"],
+    "category": "exact_match"
+  },
+  {
+    "id": 76,
+    "query": "IPC section for rape",
+    "expected_sections": ["375", "376"],
+    "category": "semantic"
+  },
+  {
+    "id": 77,
+    "query": "what is criminal conspiracy?",
+    "expected_sections": ["120A", "120B"],
+    "category": "semantic"
+  },
+  {
+    "id": 78,
+    "query": "harboring a criminal offence",
+    "expected_sections": ["212", "216"],
+    "category": "semantic"
+  },
+  {
+    "id": 79,
+    "query": "public nuisance and noise pollution IPC",
+    "expected_sections": ["268", "290"],
+    "category": "semantic"
+  },
+  {
+    "id": 80,
+    "query": "punishment for bigamy in India",
+    "expected_sections": ["494", "495"],
+    "category": "semantic"
+  },
+  {
+    "id": 81,
+    "query": "food adulteration and poisoning law",
+    "expected_sections": ["272", "273", "274"],
+    "category": "semantic"
+  },
+  {
+    "id": 82,
+    "query": "false complaint to police section",
+    "expected_sections": ["182", "211"],
+    "category": "semantic"
+  },
+  {
+    "id": 83,
+    "query": "promoting enmity between groups",
+    "expected_sections": ["153A"],
+    "category": "semantic"
+  },
+  {
+    "id": 84,
+    "query": "dishonest misappropriation of property",
+    "expected_sections": ["403"],
+    "category": "semantic"
+  },
+  {
+    "id": 85,
+    "query": "what is unnatural offence under IPC?",
+    "expected_sections": ["377"],
+    "category": "semantic"
+  },
+  {
+    "id": 86,
+    "query": "insulting the national flag or anthem",
+    "expected_sections": [],
+    "category": "edge_case_no_match"
+  },
+  {
+    "id": 87,
+    "query": "cyber crime section IPC",
+    "expected_sections": [],
+    "category": "edge_case_no_match"
+  },
+  {
+    "id": 88,
+    "query": "cheque bounce case IPC",
+    "expected_sections": [],
+    "category": "edge_case_no_match"
+  },
+  {
+    "id": 89,
+    "query": "Section 149 common intention",
+    "expected_sections": ["149"],
+    "category": "exact_match"
+  },
+  {
+    "id": 90,
+    "query": "sec. 120B criminal conspiracy",
+    "expected_sections": ["120B"],
+    "category": "exact_match"
+  },
+  {
+    "id": 91,
+    "query": "wrongful gain and wrongful loss defined",
+    "expected_sections": ["23"],
+    "category": "semantic"
+  },
+  {
+    "id": 92,
+    "query": "what constitutes hurt under IPC?",
+    "expected_sections": ["319"],
+    "category": "semantic"
+  },
+  {
+    "id": 93,
+    "query": "causing miscarriage without consent",
+    "expected_sections": ["312", "313", "314"],
+    "category": "semantic"
+  },
+  {
+    "id": 94,
+    "query": "abandoning a child under twelve years",
+    "expected_sections": ["317"],
+    "category": "semantic"
+  },
+  {
+    "id": 95,
+    "query": "receiving stolen property knowingly",
+    "expected_sections": ["411"],
+    "category": "semantic"
+  },
+  {
+    "id": 96,
+    "query": "voluntarily causing hurt to deter public servant",
+    "expected_sections": ["332"],
+    "category": "semantic"
+  },
+  {
+    "id": 97,
+    "query": "punishment for giving or fabricating false evidence",
+    "expected_sections": ["193", "194"],
+    "category": "semantic"
+  },
+  {
+    "id": 98,
+    "query": "destruction of evidence in a case",
+    "expected_sections": ["201"],
+    "category": "semantic"
+  },
+  {
+    "id": 99,
+    "query": "sale of obscene books or material",
+    "expected_sections": ["292"],
+    "category": "semantic"
+  },
+  {
+    "id": 100,
+    "query": "husband demanding dowry after marriage",
+    "expected_sections": ["498A", "304B"],
+    "category": "semantic_complex"
+  }
+]

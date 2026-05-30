@@ -1,3 +1,3 @@
-from app.api import health, chat, ready
+from app.api import health, chat
 
-__all__ = ["health", "chat", "ready"]
+__all__ = ["health", "chat"]

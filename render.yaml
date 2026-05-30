@@ -1,0 +1,28 @@
+# Render.com deployment blueprint
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: legal-ai-backend
+    runtime: docker
+    repo: https://github.com/YOUR_USERNAME/legal-ai-assistant
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: CORS_ORIGINS
+        sync: false
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
+    healthCheckPath: /health

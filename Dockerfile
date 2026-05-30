@@ -7,24 +7,15 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Python deps
-COPY requirements.base.txt requirements.ml.txt ./
-
+# Python deps (production only)
+COPY requirements.base.txt ./
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir \
-    --extra-index-url https://download.pytorch.org/whl/cpu \
-    -r requirements.base.txt \
-    -r requirements.ml.txt
+    pip install --no-cache-dir -r requirements.base.txt
 
-# App code
+# App code only
 COPY app/ ./app/
-COPY scripts/ ./scripts/
-COPY frontend/ ./frontend/
-
-RUN mkdir -p /app/data
+COPY data/ ./data/
 
 EXPOSE 8000
-
-# 🚫 NO HEALTHCHECK (intentional)
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

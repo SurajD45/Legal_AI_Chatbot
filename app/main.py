@@ -7,7 +7,6 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
 
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -15,7 +14,7 @@ from slowapi.errors import RateLimitExceeded
 from app.config import settings
 from app.utils import setup_logging, get_logger, LegalAIException
 from app.dependencies import limiter
-from app.api import health, chat, debug
+from app.api import health, chat
 from app.models import ErrorResponse
 
 setup_logging()
@@ -27,7 +26,7 @@ async def lifespan(app: FastAPI):
     logger.info("startup_begin", environment=settings.ENVIRONMENT)
 
     # -------------------------------
-    # Redis (HARD requirement)
+    # Redis / Upstash (HARD requirement)
     # -------------------------------
     try:
         from app.core.chat_history import get_history_manager
@@ -69,12 +68,12 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # -------------------------------
-# CORS (CRITICAL)
+# CORS (explicit origins)
 # -------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for testing
-    allow_credentials=False,  # Must be False when using "*"
+    allow_origins=settings.CORS_ORIGINS,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -84,15 +83,7 @@ app.add_middleware(
 # -------------------------------
 app.include_router(health.router)
 app.include_router(chat.router)
-app.include_router(debug.router)
 
-# -------------------------------
-# Static frontend (optional)
-# -------------------------------
-try:
-    app.mount("/static", StaticFiles(directory="frontend", html=True), name="frontend")
-except Exception:
-    logger.warning("frontend_not_mounted")
 
 # -------------------------------
 # Exception handling
