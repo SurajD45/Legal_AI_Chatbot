@@ -60,8 +60,16 @@ class Settings(BaseSettings):
     # SEARCH / LIMITS
     # =====================
     DEFAULT_TOP_K: int = Field(default=5)
+    DENSE_CANDIDATES: int = Field(default=20)
+    BM25_CANDIDATES: int = Field(default=20)
+    RRF_K: int = Field(default=60)
     MAX_CONTEXT_LENGTH: int = Field(default=4000)
     RATE_LIMIT_PER_MINUTE: int = Field(default=30)
+
+    # =====================
+    # SUPABASE AUTH
+    # =====================
+    SUPABASE_URL: str = Field(..., description="Supabase project URL")
 
     # =====================
     # VALIDATORS

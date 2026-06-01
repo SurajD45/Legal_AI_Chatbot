@@ -1,0 +1,773 @@
+{
+  "summary": {
+    "total_queries": 20,
+    "avg_recall_at_1": 0.388,
+    "avg_recall_at_5": 0.55,
+    "avg_recall_at_10": 0.55,
+    "avg_mrr": 0.533,
+    "avg_retrieval_ms": 808.8,
+    "avg_generation_ms": 882.0,
+    "avg_total_ms": 1690.8
+  },
+  "category_breakdown": {
+    "edge_case_no_match": {
+      "count": 2,
+      "avg_recall_1": 0.0,
+      "avg_recall_5": 0.0,
+      "avg_recall_10": 0.0,
+      "avg_mrr": 0.0,
+      "avg_retrieval_ms": 1131.2,
+      "avg_generation_ms": 671.9,
+      "avg_total_ms": 1803.2
+    },
+    "exact_match": {
+      "count": 4,
+      "avg_recall_1": 1.0,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 1.0,
+      "avg_retrieval_ms": 168.8,
+      "avg_generation_ms": 765.2,
+      "avg_total_ms": 934.0
+    },
+    "exact_match_hindi": {
+      "count": 2,
+      "avg_recall_1": 1.0,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 1.0,
+      "avg_retrieval_ms": 243.3,
+      "avg_generation_ms": 791.7,
+      "avg_total_ms": 1035.0
+    },
+    "hinglish": {
+      "count": 3,
+      "avg_recall_1": 0.0,
+      "avg_recall_5": 0.333,
+      "avg_recall_10": 0.333,
+      "avg_mrr": 0.167,
+      "avg_retrieval_ms": 1185.3,
+      "avg_generation_ms": 1248.9,
+      "avg_total_ms": 2434.2
+    },
+    "semantic": {
+      "count": 6,
+      "avg_recall_1": 0.125,
+      "avg_recall_5": 0.5,
+      "avg_recall_10": 0.5,
+      "avg_mrr": 0.528,
+      "avg_retrieval_ms": 1028.3,
+      "avg_generation_ms": 818.2,
+      "avg_total_ms": 1846.5
+    },
+    "semantic_hindi": {
+      "count": 3,
+      "avg_recall_1": 0.333,
+      "avg_recall_5": 0.333,
+      "avg_recall_10": 0.333,
+      "avg_mrr": 0.333,
+      "avg_retrieval_ms": 1008.8,
+      "avg_generation_ms": 998.5,
+      "avg_total_ms": 2007.2
+    }
+  },
+  "detailed_results": [
+    {
+      "id": 1,
+      "query": "What is Section 302 of IPC?",
+      "category": "exact_match",
+      "expected_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "302"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 158.3,
+      "generation_ms": 681.4,
+      "total_ms": 839.7,
+      "short_circuited": true,
+      "detected_sections": [
+        "302"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 302: Punishment for murder  ANALYSIS: * This section deals with the p..."
+    },
+    {
+      "id": 2,
+      "query": "Explain Section 420 IPC",
+      "category": "exact_match",
+      "expected_sections": [
+        "420"
+      ],
+      "retrieved_sections": [
+        "420"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 150.8,
+      "generation_ms": 879.2,
+      "total_ms": 1030.0,
+      "short_circuited": true,
+      "detected_sections": [
+        "420"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 420: Cheating and dishonestly inducing delivery of property  ANALYSIS..."
+    },
+    {
+      "id": 3,
+      "query": "What does Section 498A say?",
+      "category": "exact_match",
+      "expected_sections": [
+        "498A"
+      ],
+      "retrieved_sections": [
+        "498A"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 209.8,
+      "generation_ms": 723.1,
+      "total_ms": 932.8,
+      "short_circuited": true,
+      "detected_sections": [
+        "498A"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 498A: Husband or relative of husband of a woman subjecting her to cru..."
+    },
+    {
+      "id": 4,
+      "query": "Section 304B of Indian Penal Code",
+      "category": "exact_match",
+      "expected_sections": [
+        "304B"
+      ],
+      "retrieved_sections": [
+        "304B"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 156.3,
+      "generation_ms": 777.1,
+      "total_ms": 933.3,
+      "short_circuited": true,
+      "detected_sections": [
+        "304B"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 304B: Dowry death * Section 498A: Husband or relative of husband of a..."
+    },
+    {
+      "id": 5,
+      "query": "धारा 302 क्या है?",
+      "category": "exact_match_hindi",
+      "expected_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "302"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 215.7,
+      "generation_ms": 664.2,
+      "total_ms": 879.9,
+      "short_circuited": true,
+      "detected_sections": [
+        "302"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 302: Punishment for murder  ANALYSIS: - धारा 302 भारतीय दंड संहिता के..."
+    },
+    {
+      "id": 6,
+      "query": "धारा 420 में क्या सजा है?",
+      "category": "exact_match_hindi",
+      "expected_sections": [
+        "420"
+      ],
+      "retrieved_sections": [
+        "420"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 271.0,
+      "generation_ms": 919.2,
+      "total_ms": 1190.2,
+      "short_circuited": true,
+      "detected_sections": [
+        "420"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 420: Cheating and dishonestly inducing delivery of property  ANALYSIS..."
+    },
+    {
+      "id": 7,
+      "query": "punishment for murder in India",
+      "category": "semantic",
+      "expected_sections": [
+        "302",
+        "300"
+      ],
+      "retrieved_sections": [
+        "303",
+        "302",
+        "2",
+        "364",
+        "108A"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 0.5,
+      "retrieval_ms": 959.2,
+      "generation_ms": 567.5,
+      "total_ms": 1526.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 302: Punishment for murder * Section 2: Punishment of offences commit..."
+    },
+    {
+      "id": 8,
+      "query": "what is the punishment for theft?",
+      "category": "semantic",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "retrieved_sections": [
+        "379",
+        "380",
+        "382",
+        "401",
+        "451"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "retrieval_ms": 1057.1,
+      "generation_ms": 820.4,
+      "total_ms": 1877.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 379: Punishment for theft - Section 380: Theft in dwelling house, etc..."
+    },
+    {
+      "id": 9,
+      "query": "law against cheating and fraud",
+      "category": "semantic",
+      "expected_sections": [
+        "415",
+        "420"
+      ],
+      "retrieved_sections": [
+        "418",
+        "468",
+        "420",
+        "417",
+        "419"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 0.3333333333333333,
+      "retrieval_ms": 1039.8,
+      "generation_ms": 1016.9,
+      "total_ms": 2056.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 417: Punishment for cheating * Section 418: Cheating with knowledge t..."
+    },
+    {
+      "id": 10,
+      "query": "kidnapping laws in IPC",
+      "category": "semantic",
+      "expected_sections": [
+        "359",
+        "360",
+        "361",
+        "363"
+      ],
+      "retrieved_sections": [
+        "359",
+        "363",
+        "364",
+        "303",
+        "365"
+      ],
+      "recall_at_1": 0.25,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "retrieval_ms": 934.0,
+      "generation_ms": 816.5,
+      "total_ms": 1750.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 359: Kidnapping * Section 363: Punishment for kidnapping * Section 36..."
+    },
+    {
+      "id": 11,
+      "query": "punishment for attempt to murder",
+      "category": "semantic",
+      "expected_sections": [
+        "307"
+      ],
+      "retrieved_sections": [
+        "308",
+        "302",
+        "307",
+        "393",
+        "511"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "retrieval_ms": 995.4,
+      "generation_ms": 813.2,
+      "total_ms": 1808.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 307: Attempt to murder * Section 511: Punishment for attempting to co..."
+    },
+    {
+      "id": 12,
+      "query": "domestic violence laws IPC",
+      "category": "semantic",
+      "expected_sections": [
+        "498A"
+      ],
+      "retrieved_sections": [
+        "303",
+        "497",
+        "153A",
+        "376",
+        "5"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 1184.3,
+      "generation_ms": 874.8,
+      "total_ms": 2059.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 498A: Husband or relative of husband of a woman subjecting her to cru..."
+    },
+    {
+      "id": 13,
+      "query": "chori ki saja kya hai?",
+      "category": "semantic_hindi",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "retrieved_sections": [
+        "303",
+        "1",
+        "494",
+        "2",
+        "153B"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 1081.7,
+      "generation_ms": 1373.4,
+      "total_ms": 2455.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 1: Title and extent of operation of the Code. - Section 2: Punishment..."
+    },
+    {
+      "id": 14,
+      "query": "hatya ka punishment kya hai?",
+      "category": "semantic_hindi",
+      "expected_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "302",
+        "311",
+        "342",
+        "227",
+        "336"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "retrieval_ms": 1099.8,
+      "generation_ms": 363.0,
+      "total_ms": 1462.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 302: Punishment for murder  ANALYSIS: - Murder is a serious offense u..."
+    },
+    {
+      "id": 15,
+      "query": "dahej hatya kya hoti hai?",
+      "category": "semantic_hindi",
+      "expected_sections": [
+        "304B"
+      ],
+      "retrieved_sections": [
+        "177",
+        "1",
+        "195",
+        "2",
+        "303"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 844.8,
+      "generation_ms": 1259.1,
+      "total_ms": 2103.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 177: Furnishing false information - Section 195: Giving or fabricatin..."
+    },
+    {
+      "id": 16,
+      "query": "agar koi kisi ko blackmail kare toh kya section lagega?",
+      "category": "hinglish",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "retrieved_sections": [
+        "330",
+        "505",
+        "166A",
+        "153B",
+        "376E"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 1239.3,
+      "generation_ms": 1433.0,
+      "total_ms": 2672.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * Section 330: Voluntarily causing hurt to extort confession, or to compel rest..."
+    },
+    {
+      "id": 17,
+      "query": "chori ke case mein kitne saal ki jail hoti hai?",
+      "category": "hinglish",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "retrieved_sections": [
+        "303",
+        "323",
+        "153B",
+        "376C",
+        "481"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 1078.6,
+      "generation_ms": 1087.0,
+      "total_ms": 2165.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 323: Punishment for voluntarily causing hurt. - Section 376C: Sexual ..."
+    },
+    {
+      "id": 18,
+      "query": "patni par zulm karne par husband ko kya saza milti hai?",
+      "category": "hinglish",
+      "expected_sections": [
+        "498A"
+      ],
+      "retrieved_sections": [
+        "494",
+        "498A",
+        "376B",
+        "497",
+        "303"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "retrieval_ms": 1237.9,
+      "generation_ms": 1226.6,
+      "total_ms": 2464.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - Section 498A: Husband or relative of husband of a woman subjecting her to cru..."
+    },
+    {
+      "id": 19,
+      "query": "Is jaywalking a crime under IPC?",
+      "category": "edge_case_no_match",
+      "expected_sections": [],
+      "retrieved_sections": [
+        "303",
+        "497",
+        "511",
+        "330",
+        "366"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 974.2,
+      "generation_ms": 878.3,
+      "total_ms": 1852.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: * None  ANALYSIS: * Jaywalking is not mentioned in the provided IPC context * T..."
+    },
+    {
+      "id": 20,
+      "query": "income tax evasion IPC section",
+      "category": "edge_case_no_match",
+      "expected_sections": [],
+      "retrieved_sections": [
+        "303",
+        "166A",
+        "121A",
+        "127",
+        "497"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "retrieval_ms": 1288.2,
+      "generation_ms": 465.5,
+      "total_ms": 1753.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": "RELEVANT PROVISIONS: - No specific section mentioned in the provided IPC context for income tax evas..."
+    }
+  ],
+  "failures": [
+    {
+      "id": 7,
+      "query": "punishment for murder in India",
+      "category": "semantic",
+      "expected": [
+        "302",
+        "300"
+      ],
+      "got": [
+        "303",
+        "302",
+        "2",
+        "364",
+        "108A"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 8,
+      "query": "what is the punishment for theft?",
+      "category": "semantic",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "379",
+        "380",
+        "382",
+        "401",
+        "451"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 9,
+      "query": "law against cheating and fraud",
+      "category": "semantic",
+      "expected": [
+        "415",
+        "420"
+      ],
+      "got": [
+        "418",
+        "468",
+        "420",
+        "417",
+        "419"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 10,
+      "query": "kidnapping laws in IPC",
+      "category": "semantic",
+      "expected": [
+        "359",
+        "360",
+        "361",
+        "363"
+      ],
+      "got": [
+        "359",
+        "363",
+        "364",
+        "303",
+        "365"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 12,
+      "query": "domestic violence laws IPC",
+      "category": "semantic",
+      "expected": [
+        "498A"
+      ],
+      "got": [
+        "303",
+        "497",
+        "153A",
+        "376",
+        "5"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 13,
+      "query": "chori ki saja kya hai?",
+      "category": "semantic_hindi",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "303",
+        "1",
+        "494",
+        "2",
+        "153B"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 15,
+      "query": "dahej hatya kya hoti hai?",
+      "category": "semantic_hindi",
+      "expected": [
+        "304B"
+      ],
+      "got": [
+        "177",
+        "1",
+        "195",
+        "2",
+        "303"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 16,
+      "query": "agar koi kisi ko blackmail kare toh kya section lagega?",
+      "category": "hinglish",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "330",
+        "505",
+        "166A",
+        "153B",
+        "376E"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 17,
+      "query": "chori ke case mein kitne saal ki jail hoti hai?",
+      "category": "hinglish",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "303",
+        "323",
+        "153B",
+        "376C",
+        "481"
+      ],
+      "short_circuited": false,
+      "detected_sections": []
+    }
+  ]
+}

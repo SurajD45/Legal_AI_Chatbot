@@ -1,0 +1,48 @@
+{
+  "hindi_legal_map": {
+    "chori": ["theft", "stolen", "moveable property"],
+    "hatya": ["murder", "death", "culpable homicide"],
+    "dahej": ["dowry"],
+    "dahej hatya": ["dowry death"],
+    "qatl": ["murder", "culpable homicide"],
+    "maar": ["hurt", "injury", "grievous"],
+    "marna": ["hurt", "causing hurt"],
+    "zulm": ["cruelty", "harassment"],
+    "dhoka": ["cheating", "fraud", "deceiving"],
+    "loot": ["robbery", "dacoity"],
+    "saja": ["punishment", "punished", "imprisonment"],
+    "saza": ["punishment", "punished", "imprisonment"],
+    "jail": ["imprisonment"],
+    "kanoon": ["law", "penal code"],
+    "jurm": ["offence", "crime"],
+    "dhara": ["section"],
+    "patni": ["wife", "woman"],
+    "pati": ["husband"],
+    "aurat": ["woman"],
+    "bachcha": ["child", "minor"],
+    "kare": [],
+    "karna": [],
+    "hoti": [],
+    "lagega": [],
+    "milti": []
+  },
+  "english_legal_synonyms": {
+    "blackmail": ["extortion", "fear", "induces"],
+    "domestic violence": ["cruelty", "husband", "wife", "harassment"],
+    "fraud": ["cheating", "deceiving", "dishonestly"],
+    "bribery": ["gratification", "public servant"],
+    "assault": ["hurt", "force", "criminal force"],
+    "forgery": ["false document", "forgery"],
+    "defamation": ["imputation", "reputation"],
+    "trespass": ["criminal trespass", "house-breaking"],
+    "arson": ["mischief", "fire"],
+    "robbery": ["extortion", "theft", "force"]
+  },
+  "concept_expansion": {
+    "murder": ["murder", "culpable homicide", "punishment for murder", "death"],
+    "theft": ["theft", "stolen property", "moveable property", "punishment for theft"],
+    "cheating": ["cheating", "fraud", "deceiving", "dishonestly inducing delivery"],
+    "kidnapping": ["kidnapping", "lawful guardianship", "kidnapping from India", "minor"],
+    "extortion": ["extortion", "fear", "induces", "punishment for extortion"]
+  }
+}

@@ -84,43 +84,94 @@ def load_and_validate_ipc(file_path: str) -> List[Dict]:
 # --------------------------------------------------
 # RECREATE COLLECTION
 # --------------------------------------------------
-def recreate_collection(client: QdrantClient, dimension: int):
+def recreate_collection(client: QdrantClient, dimension: int, retries: int = 5, backoff: int = 2):
+    import time
     name = settings.QDRANT_COLLECTION_NAME
 
-    try:
-        client.delete_collection(name)
-        logger.info("deleted_existing_collection", collection=name)
-    except Exception:
-        logger.info("collection_not_present", collection=name)
-
-    client.create_collection(
-        collection_name=name,
-        vectors_config=VectorParams(
-            size=dimension,
-            distance=Distance.COSINE,
-        ),
-    )
-
-    logger.info("collection_created", collection=name, dimension=dimension)
+    for i in range(retries):
+        try:
+            collections = client.get_collections()
+            exists = any(c.name == name for c in collections.collections)
+            if exists:
+                logger.info("deleting_existing_collection", collection=name, attempt=i+1)
+                client.delete_collection(name)
+                
+                # Wait for deletion to propagate (up to 10 seconds)
+                deleted = False
+                for _ in range(10):
+                    time.sleep(1)
+                    collections = client.get_collections()
+                    if not any(c.name == name for c in collections.collections):
+                        logger.info("deleted_existing_collection_verified", collection=name)
+                        deleted = True
+                        break
+                if not deleted:
+                    raise RuntimeError(f"Collection {name} was not deleted after propagation delay")
+            else:
+                logger.info("collection_not_present_skipping_delete", collection=name)
+            
+            client.create_collection(
+                collection_name=name,
+                vectors_config=VectorParams(
+                    size=dimension,
+                    distance=Distance.COSINE,
+                ),
+            )
+            logger.info("collection_created", collection=name, dimension=dimension)
+            return
+        except Exception as e:
+            if i == retries - 1:
+                logger.error("collection_recreation_failed_permanently", error=str(e))
+                raise e
+            wait_time = backoff ** i
+            logger.warning("collection_recreation_failed_retrying", attempt=i+1, wait_time=wait_time, error=str(e))
+            time.sleep(wait_time)
 
 
 # --------------------------------------------------
 # CREATE PAYLOAD INDEX (🔥 CRITICAL FOR CLOUD 🔥)
 # --------------------------------------------------
-def create_payload_indexes(client: QdrantClient):
+def create_payload_indexes(client: QdrantClient, retries: int = 5, backoff: int = 2):
+    import time
     name = settings.QDRANT_COLLECTION_NAME
 
-    client.create_payload_index(
-        collection_name=name,
-        field_name="section_number",
-        field_schema=PayloadSchemaType.KEYWORD,
-    )
+    for i in range(retries):
+        try:
+            client.create_payload_index(
+                collection_name=name,
+                field_name="section_number",
+                field_schema=PayloadSchemaType.KEYWORD,
+            )
+            logger.info(
+                "payload_index_created",
+                collection=name,
+                field="section_number",
+            )
+            return
+        except Exception as e:
+            if i == retries - 1:
+                logger.error("payload_index_creation_failed_permanently", error=str(e))
+                raise e
+            wait_time = backoff ** i
+            logger.warning("payload_index_creation_failed_retrying", attempt=i+1, wait_time=wait_time, error=str(e))
+            time.sleep(wait_time)
 
-    logger.info(
-        "payload_index_created",
-        collection=name,
-        field="section_number",
-    )
+
+# --------------------------------------------------
+# SAFE UPSERT WITH RETRIES
+# --------------------------------------------------
+def safe_upsert(client: QdrantClient, collection_name: str, points: List[PointStruct], retries: int = 5, backoff: int = 2):
+    import time
+    for i in range(retries):
+        try:
+            client.upsert(collection_name=collection_name, points=points)
+            return
+        except Exception as e:
+            if i == retries - 1:
+                raise e
+            wait_time = backoff ** i
+            logger.warning("upsert_failed_retrying", attempt=i+1, wait_time=wait_time, error=str(e))
+            time.sleep(wait_time)
 
 
 # --------------------------------------------------
@@ -137,7 +188,7 @@ def index_documents(
     indexed = 0
 
     for doc in tqdm(documents, desc="Indexing IPC sections"):
-        embed_text = f"{doc.get('title','')} {doc.get('text','')}".strip()
+        embed_text = f"passage: {doc.get('title','')} {doc.get('text','')}".strip()
 
         vector = model.encode(
             embed_text,
@@ -161,12 +212,12 @@ def index_documents(
         )
 
         if len(points) >= batch_size:
-            client.upsert(collection_name=name, points=points)
+            safe_upsert(client, name, points)
             indexed += len(points)
             points.clear()
 
     if points:
-        client.upsert(collection_name=name, points=points)
+        safe_upsert(client, name, points)
         indexed += len(points)
 
     logger.info(
@@ -204,10 +255,10 @@ def main():
     create_payload_indexes(client)     # 🔥 REQUIRED
     index_documents(client, model, documents)
 
-    print("\n✅ IPC ingestion successful")
-    print(f"📚 Sections indexed: {len(documents)}")
-    print(f"🧠 Vector dimension: {dimension}")
-    print(f"🗄️ Collection: {settings.QDRANT_COLLECTION_NAME}")
+    print("\n[SUCCESS] IPC ingestion successful")
+    print(f"Sections indexed: {len(documents)}")
+    print(f"Vector dimension: {dimension}")
+    print(f"Collection: {settings.QDRANT_COLLECTION_NAME}")
 
 
 if __name__ == "__main__":

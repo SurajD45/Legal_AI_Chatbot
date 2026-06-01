@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "category": "exact_match",
+    "query": "What is Section 302 of IPC?",
+    "expected_sections": ["302"]
+  },
+  {
+    "id": 2,
+    "category": "exact_match",
+    "query": "Explain Section 420 IPC",
+    "expected_sections": ["420"]
+  },
+  {
+    "id": 3,
+    "category": "exact_match",
+    "query": "What does Section 498A say?",
+    "expected_sections": ["498A"]
+  },
+  {
+    "id": 4,
+    "category": "exact_match",
+    "query": "Section 304B of Indian Penal Code",
+    "expected_sections": ["304B"]
+  },
+  {
+    "id": 5,
+    "category": "exact_match_hindi",
+    "query": "धारा 302 क्या है?",
+    "expected_sections": ["302"]
+  },
+  {
+    "id": 6,
+    "category": "exact_match_hindi",
+    "query": "धारा 420 में क्या सजा है?",
+    "expected_sections": ["420"]
+  },
+  {
+    "id": 7,
+    "category": "semantic",
+    "query": "punishment for murder in India",
+    "expected_sections": ["302", "300"]
+  },
+  {
+    "id": 8,
+    "category": "semantic",
+    "query": "what is the punishment for theft?",
+    "expected_sections": ["378", "379"]
+  },
+  {
+    "id": 9,
+    "category": "semantic",
+    "query": "law against cheating and fraud",
+    "expected_sections": ["415", "420"]
+  },
+  {
+    "id": 10,
+    "category": "semantic",
+    "query": "kidnapping laws in IPC",
+    "expected_sections": ["359", "360", "361", "363"]
+  },
+  {
+    "id": 11,
+    "category": "semantic",
+    "query": "punishment for attempt to murder",
+    "expected_sections": ["307"]
+  },
+  {
+    "id": 12,
+    "category": "semantic",
+    "query": "domestic violence laws IPC",
+    "expected_sections": ["498A"]
+  },
+  {
+    "id": 13,
+    "category": "semantic_hindi",
+    "query": "chori ki saja kya hai?",
+    "expected_sections": ["378", "379"]
+  },
+  {
+    "id": 14,
+    "category": "semantic_hindi",
+    "query": "hatya ka punishment kya hai?",
+    "expected_sections": ["302"]
+  },
+  {
+    "id": 15,
+    "category": "semantic_hindi",
+    "query": "dahej hatya kya hoti hai?",
+    "expected_sections": ["304B"]
+  },
+  {
+    "id": 16,
+    "category": "hinglish",
+    "query": "agar koi kisi ko blackmail kare toh kya section lagega?",
+    "expected_sections": ["383", "384"]
+  },
+  {
+    "id": 17,
+    "category": "hinglish",
+    "query": "chori ke case mein kitne saal ki jail hoti hai?",
+    "expected_sections": ["378", "379"]
+  },
+  {
+    "id": 18,
+    "category": "hinglish",
+    "query": "patni par zulm karne par husband ko kya saza milti hai?",
+    "expected_sections": ["498A"]
+  },
+  {
+    "id": 19,
+    "category": "edge_case_no_match",
+    "query": "Is jaywalking a crime under IPC?",
+    "expected_sections": []
+  },
+  {
+    "id": 20,
+    "category": "edge_case_no_match",
+    "query": "income tax evasion IPC section",
+    "expected_sections": []
+  }
+]

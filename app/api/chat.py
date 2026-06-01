@@ -1,11 +1,11 @@
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, Depends
 from fastapi.responses import Response
 
 from app.models import ChatRequest, ChatResponse
 from app.core.retriever import get_retriever
 from app.core.llm_chain import get_llm_chain
 from app.core.chat_history import get_history_manager
-from app.dependencies import limiter, get_rate_limit_string
+from app.dependencies import limiter, get_rate_limit_string, get_current_user
 from app.utils import get_logger, LegalAIException, InvalidSessionError
 
 logger = get_logger(__name__)
@@ -18,9 +18,9 @@ async def options_query():
     return Response(status_code=200)
 
 
-# NEW: restore last session
+# RESTORE last session (protected)
 @router.get("/session/latest")
-async def get_latest_session(user_id: str):
+async def get_latest_session(user_id: str = Depends(get_current_user)):
     try:
         history_manager = get_history_manager()
         session = history_manager.get_latest_session(user_id)
@@ -35,21 +35,26 @@ async def get_latest_session(user_id: str):
         raise HTTPException(status_code=500, detail="Failed to load history")
 
 
+# QUERY legal assistant (protected)
 @router.post("/query", response_model=ChatResponse)
 @limiter.limit(get_rate_limit_string())
-async def query_legal_assistant(request: Request, chat_request: ChatRequest):
+async def query_legal_assistant(
+    request: Request,
+    chat_request: ChatRequest,
+    user_id: str = Depends(get_current_user),
+):
     try:
         history_manager = get_history_manager()
 
         if chat_request.session_id is None:
             session_id = history_manager.create_session(
-                user_id=chat_request.user_id
+                user_id=user_id
             )
         else:
             session_id = chat_request.session_id
 
         chat_history = history_manager.get_history(
-            user_id=chat_request.user_id,
+            user_id=user_id,
             session_id=session_id,
         )
 
@@ -64,13 +69,13 @@ async def query_legal_assistant(request: Request, chat_request: ChatRequest):
         )
 
         history_manager.add_message(
-            user_id=chat_request.user_id,
+            user_id=user_id,
             session_id=session_id,
             role="user",
             content=chat_request.query,
         )
         history_manager.add_message(
-            user_id=chat_request.user_id,
+            user_id=user_id,
             session_id=session_id,
             role="assistant",
             content=answer,
@@ -92,3 +97,4 @@ async def query_legal_assistant(request: Request, chat_request: ChatRequest):
     except Exception as e:
         logger.error("chat_endpoint_failed", error=str(e))
         raise HTTPException(status_code=500, detail="Internal server error")
+

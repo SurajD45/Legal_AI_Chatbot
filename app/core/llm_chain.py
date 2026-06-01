@@ -88,8 +88,17 @@ QUESTION:
 
             messages = [
                 {"role": "system", "content": self._build_system_prompt()},
-                {"role": "user", "content": self._build_user_prompt(query, context)},
             ]
+
+            if chat_history:
+                # Use a sliding window of the last 8 messages (4 turns) to prevent context bloat
+                recent_history = chat_history[-8:]
+                for msg in recent_history:
+                    messages.append({"role": msg["role"], "content": msg["content"]})
+
+            messages.append(
+                {"role": "user", "content": self._build_user_prompt(query, context)}
+            )
 
             logger.info(
                 "calling_groq",

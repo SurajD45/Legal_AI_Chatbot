@@ -19,22 +19,23 @@ export const useChat = () => {
       const session = await getCurrentSession();
       if (!session?.user?.id) return;
 
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/session/latest?user_id=${session.user.id}`
-      );
-      const data = await res.json();
+      try {
+        const data = await chatApi.getLatestSession();
 
-      if (data.session_id) {
-        setState((prev) => ({
-          ...prev,
-          sessionId: data.session_id,
-          messages: data.history.map((m: any) => ({
-            id: crypto.randomUUID(),
-            role: m.role,
-            content: m.content,
-            timestamp: new Date(),
-          })),
-        }));
+        if (data.session_id) {
+          setState((prev) => ({
+            ...prev,
+            sessionId: data.session_id,
+            messages: data.history.map((m: any) => ({
+              id: crypto.randomUUID(),
+              role: m.role,
+              content: m.content,
+              timestamp: new Date(),
+            })),
+          }));
+        }
+      } catch (error) {
+        console.error("Failed to restore history:", error);
       }
     }
 

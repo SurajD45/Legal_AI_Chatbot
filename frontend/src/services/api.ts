@@ -19,6 +19,17 @@ const api = axios.create({
   },
 });
 
+// Attach Supabase JWT to every outgoing request
+api.interceptors.request.use(async (config) => {
+  const { supabase } = await import("./auth");
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export const chatApi = {
   /**
    * Send a query to the legal assistant
@@ -40,6 +51,14 @@ export const chatApi = {
    */
   checkHealth: async (): Promise<HealthResponse> => {
     const { data } = await api.get<HealthResponse>("/health");
+    return data;
+  },
+
+  /**
+   * Restore the latest chat session for the current user
+   */
+  getLatestSession: async (): Promise<{ session_id: string | null; history: any[] }> => {
+    const { data } = await api.get<{ session_id: string | null; history: any[] }>("/api/session/latest");
     return data;
   },
 };
