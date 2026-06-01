@@ -1,0 +1,5659 @@
+{
+  "summary": {
+    "total_queries": 120,
+    "avg_recall_at_1": 0.483,
+    "avg_recall_at_5": 0.715,
+    "avg_recall_at_10": 0.715,
+    "avg_mrr": 0.637,
+    "avg_precision_at_5": 0.343,
+    "avg_ndcg_at_5": 0.62,
+    "avg_ndcg_at_10": 0.62,
+    "avg_retrieval_ms": 952.5,
+    "avg_generation_ms": 0.0,
+    "avg_total_ms": 952.5
+  },
+  "category_breakdown": {
+    "ambiguous_queries": {
+      "count": 10,
+      "avg_recall_1": 0.15,
+      "avg_recall_5": 0.25,
+      "avg_recall_10": 0.25,
+      "avg_mrr": 0.35,
+      "avg_precision_5": 0.08,
+      "avg_ndcg_5": 0.201,
+      "avg_ndcg_10": 0.201,
+      "avg_retrieval_ms": 1402.6,
+      "avg_total_ms": 1402.6
+    },
+    "definition_queries": {
+      "count": 15,
+      "avg_recall_1": 0.6,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 0.73,
+      "avg_precision_5": 0.2,
+      "avg_ndcg_5": 0.748,
+      "avg_ndcg_10": 0.748,
+      "avg_retrieval_ms": 971.8,
+      "avg_total_ms": 971.8
+    },
+    "english_semantic_queries": {
+      "count": 15,
+      "avg_recall_1": 0.433,
+      "avg_recall_5": 0.7,
+      "avg_recall_10": 0.7,
+      "avg_mrr": 0.722,
+      "avg_precision_5": 0.2,
+      "avg_ndcg_5": 0.665,
+      "avg_ndcg_10": 0.665,
+      "avg_retrieval_ms": 1057.2,
+      "avg_total_ms": 1057.2
+    },
+    "exact_section_lookup": {
+      "count": 15,
+      "avg_recall_1": 1.0,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 1.0,
+      "avg_precision_5": 1.0,
+      "avg_ndcg_5": 1.0,
+      "avg_ndcg_10": 1.0,
+      "avg_retrieval_ms": 192.6,
+      "avg_total_ms": 192.6
+    },
+    "hindi_section_lookup": {
+      "count": 10,
+      "avg_recall_1": 1.0,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 1.0,
+      "avg_precision_5": 1.0,
+      "avg_ndcg_5": 1.0,
+      "avg_ndcg_10": 1.0,
+      "avg_retrieval_ms": 195.1,
+      "avg_total_ms": 195.1
+    },
+    "hindi_semantic_queries": {
+      "count": 10,
+      "avg_recall_1": 0.45,
+      "avg_recall_5": 0.583,
+      "avg_recall_10": 0.583,
+      "avg_mrr": 0.64,
+      "avg_precision_5": 0.16,
+      "avg_ndcg_5": 0.506,
+      "avg_ndcg_10": 0.506,
+      "avg_retrieval_ms": 1002.5,
+      "avg_total_ms": 1002.5
+    },
+    "hinglish_queries": {
+      "count": 10,
+      "avg_recall_1": 0.25,
+      "avg_recall_5": 0.75,
+      "avg_recall_10": 0.75,
+      "avg_mrr": 0.487,
+      "avg_precision_5": 0.2,
+      "avg_ndcg_5": 0.526,
+      "avg_ndcg_10": 0.526,
+      "avg_retrieval_ms": 1249.2,
+      "avg_total_ms": 1249.2
+    },
+    "multi_section_queries": {
+      "count": 10,
+      "avg_recall_1": 0.2,
+      "avg_recall_5": 0.55,
+      "avg_recall_10": 0.55,
+      "avg_mrr": 0.517,
+      "avg_precision_5": 0.22,
+      "avg_ndcg_5": 0.496,
+      "avg_ndcg_10": 0.496,
+      "avg_retrieval_ms": 1416.7,
+      "avg_total_ms": 1416.7
+    },
+    "negative_queries": {
+      "count": 10,
+      "avg_recall_1": 0.0,
+      "avg_recall_5": 0.0,
+      "avg_recall_10": 0.0,
+      "avg_mrr": 0.0,
+      "avg_precision_5": 0.0,
+      "avg_ndcg_5": 0.0,
+      "avg_ndcg_10": 0.0,
+      "avg_retrieval_ms": 1380.9,
+      "avg_total_ms": 1380.9
+    },
+    "punishment_queries": {
+      "count": 15,
+      "avg_recall_1": 0.467,
+      "avg_recall_5": 0.933,
+      "avg_recall_10": 0.933,
+      "avg_mrr": 0.65,
+      "avg_precision_5": 0.24,
+      "avg_ndcg_5": 0.726,
+      "avg_ndcg_10": 0.726,
+      "avg_retrieval_ms": 966.8,
+      "avg_total_ms": 966.8
+    }
+  },
+  "difficulty_breakdown": {
+    "easy": {
+      "count": 51,
+      "avg_recall_1": 0.686,
+      "avg_recall_5": 0.863,
+      "avg_recall_10": 0.863,
+      "avg_mrr": 0.777,
+      "avg_precision_5": 0.596,
+      "avg_ndcg_5": 0.753,
+      "avg_ndcg_10": 0.753,
+      "avg_retrieval_ms": 652.0,
+      "avg_total_ms": 652.0
+    },
+    "hard": {
+      "count": 30,
+      "avg_recall_1": 0.333,
+      "avg_recall_5": 0.561,
+      "avg_recall_10": 0.561,
+      "avg_mrr": 0.491,
+      "avg_precision_5": 0.153,
+      "avg_ndcg_5": 0.466,
+      "avg_ndcg_10": 0.466,
+      "avg_retrieval_ms": 1203.7,
+      "avg_total_ms": 1203.7
+    },
+    "medium": {
+      "count": 39,
+      "avg_recall_1": 0.333,
+      "avg_recall_5": 0.641,
+      "avg_recall_10": 0.641,
+      "avg_mrr": 0.567,
+      "avg_precision_5": 0.159,
+      "avg_ndcg_5": 0.563,
+      "avg_ndcg_10": 0.563,
+      "avg_retrieval_ms": 1152.1,
+      "avg_total_ms": 1152.1
+    }
+  },
+  "language_breakdown": {
+    "en": {
+      "count": 90,
+      "avg_recall_1": 0.456,
+      "avg_recall_5": 0.694,
+      "avg_recall_10": 0.694,
+      "avg_mrr": 0.613,
+      "avg_precision_5": 0.307,
+      "avg_ndcg_5": 0.601,
+      "avg_ndcg_10": 0.601,
+      "avg_retrieval_ms": 998.1,
+      "avg_total_ms": 998.1
+    },
+    "hi": {
+      "count": 20,
+      "avg_recall_1": 0.725,
+      "avg_recall_5": 0.792,
+      "avg_recall_10": 0.792,
+      "avg_mrr": 0.82,
+      "avg_precision_5": 0.58,
+      "avg_ndcg_5": 0.753,
+      "avg_ndcg_10": 0.753,
+      "avg_retrieval_ms": 598.8,
+      "avg_total_ms": 598.8
+    },
+    "mixed": {
+      "count": 10,
+      "avg_recall_1": 0.25,
+      "avg_recall_5": 0.75,
+      "avg_recall_10": 0.75,
+      "avg_mrr": 0.487,
+      "avg_precision_5": 0.2,
+      "avg_ndcg_5": 0.526,
+      "avg_ndcg_10": 0.526,
+      "avg_retrieval_ms": 1249.2,
+      "avg_total_ms": 1249.2
+    }
+  },
+  "failures": [
+    {
+      "id": 30,
+      "query": "What is the punishment for robbery under the IPC?",
+      "original_query": "What is the punishment for robbery under the IPC?",
+      "expanded_query": "What is the punishment for robbery under the IPC? 378 379 383 384 390 392 extortion fear force induces moveable property stolen property theft",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "392"
+      ],
+      "got": [
+        "390",
+        "382",
+        "389",
+        "384",
+        "379"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 58,
+      "query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "original_query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "expanded_query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "382",
+        "316",
+        "115",
+        "299",
+        "308"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 61,
+      "query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "original_query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "expanded_query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "383",
+        "195A",
+        "100",
+        "214",
+        "99"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 62,
+      "query": "what is the offense if five people break into a shop at night with guns and steal money",
+      "original_query": "what is the offense if five people break into a shop at night with guns and steal money",
+      "expanded_query": "what is the offense if five people break into a shop at night with guns and steal money 391 395 assembly dacoity five or more",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "391",
+        "395"
+      ],
+      "got": [
+        "391",
+        "402",
+        "396",
+        "457",
+        "398"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 64,
+      "query": "what offense is it if an officer demands money to process a government file",
+      "original_query": "what offense is it if an officer demands money to process a government file",
+      "expanded_query": "what offense is it if an officer demands money to process a government file 161 bribery gratification public servant",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "161"
+      ],
+      "got": [
+        "171B",
+        "116",
+        "187",
+        "166",
+        "182"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 66,
+      "query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "original_query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "expanded_query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "96",
+        "97"
+      ],
+      "got": [
+        "71",
+        "106",
+        "97",
+        "418",
+        "98"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.10961051126301759,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 68,
+      "query": "writing false stories online to destroy someone's social reputation",
+      "original_query": "writing false stories online to destroy someone's social reputation",
+      "expanded_query": "writing false stories online to destroy someone's social reputation 499 500 defamation imputation",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "499",
+        "500"
+      ],
+      "got": [
+        "499",
+        "195A",
+        "192",
+        "477A",
+        "469"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 69,
+      "query": "inducing a bride to commit suicide because of continuous mental torture",
+      "original_query": "inducing a bride to commit suicide because of continuous mental torture",
+      "expanded_query": "inducing a bride to commit suicide because of continuous mental torture abetment of suicide causing death",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "306",
+        "498A"
+      ],
+      "got": [
+        "306",
+        "305",
+        "115",
+        "108",
+        "300"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 72,
+      "query": "हत्या की परिभाषा और सजा क्या है",
+      "original_query": "हत्या की परिभाषा और सजा क्या है",
+      "expanded_query": "हत्या की परिभाषा और सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected": [
+        "300",
+        "302"
+      ],
+      "got": [
+        "302",
+        "1",
+        "428",
+        "2",
+        "364"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 75,
+      "query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "original_query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "expanded_query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected": [
+        "354",
+        "509"
+      ],
+      "got": [
+        "354",
+        "1",
+        "498",
+        "2",
+        "366"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 76,
+      "query": "किसी को जान से मारने की धमकी देना",
+      "original_query": "किसी को जान से मारने की धमकी देना",
+      "expanded_query": "किसी को जान से मारने की धमकी देना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected": [
+        "503",
+        "506"
+      ],
+      "got": [
+        "387",
+        "1",
+        "386",
+        "2",
+        "195A"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 77,
+      "query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "original_query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "expanded_query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "378",
+        "1",
+        "288",
+        "2",
+        "154"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 78,
+      "query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "original_query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "expanded_query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "279",
+        "1",
+        "287",
+        "2",
+        "337"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 80,
+      "query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "original_query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "expanded_query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected": [
+        "463",
+        "464",
+        "465"
+      ],
+      "got": [
+        "182",
+        "1",
+        "477",
+        "2",
+        "464"
+      ],
+      "recall_at_5": 0.3333333333333333,
+      "ndcg_at_5": 0.09364787839833931,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 84,
+      "query": "blackmail karne par kya punishment hai IPC me",
+      "original_query": "blackmail karne par kya punishment hai IPC me",
+      "expanded_query": "blackmail karne par kya punishment hai IPC me 383 384 extortion fear induces",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "384",
+        "385",
+        "388",
+        "386",
+        "387"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 85,
+      "query": "agar koi online fake profile banakar insult kare to kya kare",
+      "original_query": "agar koi online fake profile banakar insult kare to kya kare",
+      "expanded_query": "agar koi online fake profile banakar insult kare to kya kare 415 417 420 499 500 cheating defamation false document forgery imputation modesty reputation",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected": [
+        "499",
+        "500"
+      ],
+      "got": [
+        "469",
+        "464",
+        "466",
+        "228",
+        "505"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 90,
+      "query": "agar kuch log milkar bank lootne ka plan banaye",
+      "original_query": "agar kuch log milkar bank lootne ka plan banaye",
+      "expanded_query": "agar kuch log milkar bank lootne ka plan banaye 120A 120B 390 391 392 395 agreement conspiracy criminal conspiracy dacoity five or more robbery",
+      "category": "hinglish_queries",
+      "difficulty": "hard",
+      "language": "mixed",
+      "expected": [
+        "120A",
+        "120B"
+      ],
+      "got": [
+        "391",
+        "121A",
+        "396",
+        "397",
+        "398"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 93,
+      "query": "difference between criminal misappropriation and criminal breach of trust",
+      "original_query": "difference between criminal misappropriation and criminal breach of trust",
+      "expanded_query": "difference between criminal misappropriation and criminal breach of trust",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "403",
+        "405"
+      ],
+      "got": [
+        "406",
+        "408",
+        "407",
+        "410",
+        "409"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.18543279769614657,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 95,
+      "query": "difference between kidnapping and abduction",
+      "original_query": "difference between kidnapping and abduction",
+      "expanded_query": "difference between kidnapping and abduction kidnapped lawful guardianship minor",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "359",
+        "362"
+      ],
+      "got": [
+        "361",
+        "359",
+        "363",
+        "364A",
+        "363A"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.5826065381492406,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 96,
+      "query": "cheating under 415 vs cheating under 420",
+      "original_query": "cheating under 415 vs cheating under 420",
+      "expanded_query": "cheating under 415 vs cheating under 420 417",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "415",
+        "420"
+      ],
+      "got": [
+        "415",
+        "468",
+        "417",
+        "418",
+        "414"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.649014791936513,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 97,
+      "query": "wrongful restraint vs wrongful confinement",
+      "original_query": "wrongful restraint vs wrongful confinement",
+      "expanded_query": "wrongful restraint vs wrongful confinement",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "339",
+        "340"
+      ],
+      "got": [
+        "341",
+        "345",
+        "342",
+        "346",
+        "452"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.2575785703353275,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 98,
+      "query": "assault vs criminal force",
+      "original_query": "assault vs criminal force",
+      "expanded_query": "assault vs criminal force criminal force hurt",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "349",
+        "350",
+        "351"
+      ],
+      "got": [
+        "357",
+        "356",
+        "358",
+        "355",
+        "352"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 99,
+      "query": "hurt vs grievous hurt",
+      "original_query": "hurt vs grievous hurt",
+      "expanded_query": "hurt vs grievous hurt",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "319",
+        "320"
+      ],
+      "got": [
+        "322",
+        "325",
+        "320",
+        "459",
+        "335"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.36592122627329854,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 101,
+      "query": "someone took my phone from my bag while I was sleeping in a train",
+      "original_query": "someone took my phone from my bag while I was sleeping in a train",
+      "expanded_query": "someone took my phone from my bag while I was sleeping in a train",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "378",
+        "382",
+        "464",
+        "390",
+        "354D"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 102,
+      "query": "my landlord locked me out of my apartment and is not letting me enter",
+      "original_query": "my landlord locked me out of my apartment and is not letting me enter",
+      "expanded_query": "my landlord locked me out of my apartment and is not letting me enter",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "339",
+        "341"
+      ],
+      "got": [
+        "225B",
+        "378",
+        "445",
+        "94",
+        "223"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 103,
+      "query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "original_query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "expanded_query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "415",
+        "420"
+      ],
+      "got": [
+        "464",
+        "192",
+        "177",
+        "378",
+        "173"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 104,
+      "query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "original_query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "expanded_query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "383",
+        "180",
+        "175",
+        "464",
+        "167"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 106,
+      "query": "someone is continuously following my sister and watching her outside her college",
+      "original_query": "someone is continuously following my sister and watching her outside her college",
+      "expanded_query": "someone is continuously following my sister and watching her outside her college",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "354D"
+      ],
+      "got": [
+        "366",
+        "354C",
+        "177",
+        "375",
+        "182"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 107,
+      "query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "original_query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "expanded_query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "93",
+        "92",
+        "88",
+        "104",
+        "299"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 108,
+      "query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "original_query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "expanded_query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "320",
+        "325"
+      ],
+      "got": [
+        "382",
+        "326A",
+        "299",
+        "94",
+        "177"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 109,
+      "query": "my business partner took all client payments into his personal account and left the country",
+      "original_query": "my business partner took all client payments into his personal account and left the country",
+      "expanded_query": "my business partner took all client payments into his personal account and left the country",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "405",
+        "406"
+      ],
+      "got": [
+        "405",
+        "409",
+        "404",
+        "477A",
+        "464"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 110,
+      "query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "original_query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "expanded_query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "341",
+        "509"
+      ],
+      "got": [
+        "294",
+        "376D",
+        "153B",
+        "376",
+        "363A"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    }
+  ],
+  "detailed_results": [
+    {
+      "id": 1,
+      "query": "What is Section 302 of the IPC?",
+      "original_query": "What is Section 302 of the IPC?",
+      "expanded_query": "What is Section 302 of the IPC?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "302"
+      ],
+      "primary_sections": [
+        "302"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "302"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 238.0,
+      "generation_ms": 0.0,
+      "total_ms": 238.0,
+      "short_circuited": true,
+      "detected_sections": [
+        "302"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 2,
+      "query": "Explain IPC Section 420.",
+      "original_query": "Explain IPC Section 420.",
+      "expanded_query": "Explain IPC Section 420.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "420"
+      ],
+      "primary_sections": [
+        "420"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "420"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 158.7,
+      "generation_ms": 0.0,
+      "total_ms": 158.7,
+      "short_circuited": true,
+      "detected_sections": [
+        "420"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 3,
+      "query": "What does Section 379 IPC state?",
+      "original_query": "What does Section 379 IPC state?",
+      "expanded_query": "What does Section 379 IPC state?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "379"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 154.1,
+      "generation_ms": 0.0,
+      "total_ms": 154.1,
+      "short_circuited": true,
+      "detected_sections": [
+        "379"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 4,
+      "query": "Define Section 300 of the Indian Penal Code.",
+      "original_query": "Define Section 300 of the Indian Penal Code.",
+      "expanded_query": "Define Section 300 of the Indian Penal Code.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "300"
+      ],
+      "primary_sections": [
+        "300"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "300"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 203.9,
+      "generation_ms": 0.0,
+      "total_ms": 203.9,
+      "short_circuited": true,
+      "detected_sections": [
+        "300"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 5,
+      "query": "What is Section 498A about?",
+      "original_query": "What is Section 498A about?",
+      "expanded_query": "What is Section 498A about?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "498A"
+      ],
+      "primary_sections": [
+        "498A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "498A"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 203.0,
+      "generation_ms": 0.0,
+      "total_ms": 203.0,
+      "short_circuited": true,
+      "detected_sections": [
+        "498A"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 6,
+      "query": "Tell me about Section 304A IPC.",
+      "original_query": "Tell me about Section 304A IPC.",
+      "expanded_query": "Tell me about Section 304A IPC.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "304A"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 203.6,
+      "generation_ms": 0.0,
+      "total_ms": 203.6,
+      "short_circuited": true,
+      "detected_sections": [
+        "304A"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 7,
+      "query": "What is Section 376 under IPC?",
+      "original_query": "What is Section 376 under IPC?",
+      "expanded_query": "What is Section 376 under IPC?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "376"
+      ],
+      "primary_sections": [
+        "376"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "376"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 205.8,
+      "generation_ms": 0.0,
+      "total_ms": 205.8,
+      "short_circuited": true,
+      "detected_sections": [
+        "376"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 8,
+      "query": "Explain Section 120B of the IPC.",
+      "original_query": "Explain Section 120B of the IPC.",
+      "expanded_query": "Explain Section 120B of the IPC.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "120B"
+      ],
+      "primary_sections": [
+        "120B"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "120B"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 204.6,
+      "generation_ms": 0.0,
+      "total_ms": 204.6,
+      "short_circuited": true,
+      "detected_sections": [
+        "120B"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 9,
+      "query": "What does Section 506 IPC cover?",
+      "original_query": "What does Section 506 IPC cover?",
+      "expanded_query": "What does Section 506 IPC cover?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "506"
+      ],
+      "primary_sections": [
+        "506"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "506"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 156.0,
+      "generation_ms": 0.0,
+      "total_ms": 156.0,
+      "short_circuited": true,
+      "detected_sections": [
+        "506"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 10,
+      "query": "Can you explain IPC Section 307?",
+      "original_query": "Can you explain IPC Section 307?",
+      "expanded_query": "Can you explain IPC Section 307?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "307"
+      ],
+      "primary_sections": [
+        "307"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "307"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 153.9,
+      "generation_ms": 0.0,
+      "total_ms": 153.9,
+      "short_circuited": true,
+      "detected_sections": [
+        "307"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 11,
+      "query": "Detail Section 323 of Indian Penal Code.",
+      "original_query": "Detail Section 323 of Indian Penal Code.",
+      "expanded_query": "Detail Section 323 of Indian Penal Code.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "323"
+      ],
+      "primary_sections": [
+        "323"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "323"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 150.1,
+      "generation_ms": 0.0,
+      "total_ms": 150.1,
+      "short_circuited": true,
+      "detected_sections": [
+        "323"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 12,
+      "query": "What is Section 392 of IPC?",
+      "original_query": "What is Section 392 of IPC?",
+      "expanded_query": "What is Section 392 of IPC?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "392"
+      ],
+      "primary_sections": [
+        "392"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "392"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 254.5,
+      "generation_ms": 0.0,
+      "total_ms": 254.5,
+      "short_circuited": true,
+      "detected_sections": [
+        "392"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 13,
+      "query": "Define Section 354 under IPC.",
+      "original_query": "Define Section 354 under IPC.",
+      "expanded_query": "Define Section 354 under IPC.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "354"
+      ],
+      "primary_sections": [
+        "354"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "354"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 204.7,
+      "generation_ms": 0.0,
+      "total_ms": 204.7,
+      "short_circuited": true,
+      "detected_sections": [
+        "354"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 14,
+      "query": "Explain IPC Section 384.",
+      "original_query": "Explain IPC Section 384.",
+      "expanded_query": "Explain IPC Section 384.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "384"
+      ],
+      "primary_sections": [
+        "384"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "384"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 157.6,
+      "generation_ms": 0.0,
+      "total_ms": 157.6,
+      "short_circuited": true,
+      "detected_sections": [
+        "384"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 15,
+      "query": "What is Section 509 IPC?",
+      "original_query": "What is Section 509 IPC?",
+      "expanded_query": "What is Section 509 IPC?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "509"
+      ],
+      "primary_sections": [
+        "509"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "509"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 240.6,
+      "generation_ms": 0.0,
+      "total_ms": 240.6,
+      "short_circuited": true,
+      "detected_sections": [
+        "509"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 16,
+      "query": "धारा 302 क्या है?",
+      "original_query": "धारा 302 क्या है?",
+      "expanded_query": "धारा 302 क्या है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "302"
+      ],
+      "primary_sections": [
+        "302"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "302"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 152.9,
+      "generation_ms": 0.0,
+      "total_ms": 152.9,
+      "short_circuited": true,
+      "detected_sections": [
+        "302"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 17,
+      "query": "धारा 420 क्या कहती है?",
+      "original_query": "धारा 420 क्या कहती है?",
+      "expanded_query": "धारा 420 क्या कहती है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "420"
+      ],
+      "primary_sections": [
+        "420"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "420"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 161.5,
+      "generation_ms": 0.0,
+      "total_ms": 161.5,
+      "short_circuited": true,
+      "detected_sections": [
+        "420"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 18,
+      "query": "धारा 379 आईपीसी समझाएं।",
+      "original_query": "धारा 379 आईपीसी समझाएं।",
+      "expanded_query": "धारा 379 आईपीसी समझाएं।",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "379"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 153.4,
+      "generation_ms": 0.0,
+      "total_ms": 153.4,
+      "short_circuited": true,
+      "detected_sections": [
+        "379"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 19,
+      "query": "आईपीसी की धारा 498A के बारे में बताएं।",
+      "original_query": "आईपीसी की धारा 498A के बारे में बताएं।",
+      "expanded_query": "आईपीसी की धारा 498A के बारे में बताएं।",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "498A"
+      ],
+      "primary_sections": [
+        "498A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "498A"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 256.7,
+      "generation_ms": 0.0,
+      "total_ms": 256.7,
+      "short_circuited": true,
+      "detected_sections": [
+        "498A"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 20,
+      "query": "धारा 304A क्या होती है?",
+      "original_query": "धारा 304A क्या होती है?",
+      "expanded_query": "धारा 304A क्या होती है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "304A"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 203.7,
+      "generation_ms": 0.0,
+      "total_ms": 203.7,
+      "short_circuited": true,
+      "detected_sections": [
+        "304A"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 21,
+      "query": "आईपीसी धारा 307 क्या है?",
+      "original_query": "आईपीसी धारा 307 क्या है?",
+      "expanded_query": "आईपीसी धारा 307 क्या है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "307"
+      ],
+      "primary_sections": [
+        "307"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "307"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 205.1,
+      "generation_ms": 0.0,
+      "total_ms": 205.1,
+      "short_circuited": true,
+      "detected_sections": [
+        "307"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 22,
+      "query": "धारा 354 आईपीसी के नियम क्या हैं?",
+      "original_query": "धारा 354 आईपीसी के नियम क्या हैं?",
+      "expanded_query": "धारा 354 आईपीसी के नियम क्या हैं?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "354"
+      ],
+      "primary_sections": [
+        "354"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "354"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 204.0,
+      "generation_ms": 0.0,
+      "total_ms": 204.0,
+      "short_circuited": true,
+      "detected_sections": [
+        "354"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 23,
+      "query": "आईपीसी की धारा 120B समझाओ।",
+      "original_query": "आईपीसी की धारा 120B समझाओ।",
+      "expanded_query": "आईपीसी की धारा 120B समझाओ।",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "120B"
+      ],
+      "primary_sections": [
+        "120B"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "120B"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 203.7,
+      "generation_ms": 0.0,
+      "total_ms": 203.7,
+      "short_circuited": true,
+      "detected_sections": [
+        "120B"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 24,
+      "query": "धारा 506 के तहत क्या अपराध आता है?",
+      "original_query": "धारा 506 के तहत क्या अपराध आता है?",
+      "expanded_query": "धारा 506 के तहत क्या अपराध आता है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "506"
+      ],
+      "primary_sections": [
+        "506"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "506"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 205.1,
+      "generation_ms": 0.0,
+      "total_ms": 205.1,
+      "short_circuited": true,
+      "detected_sections": [
+        "506"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 25,
+      "query": "आईपीसी की धारा 376 का मतलब क्या है?",
+      "original_query": "आईपीसी की धारा 376 का मतलब क्या है?",
+      "expanded_query": "आईपीसी की धारा 376 का मतलब क्या है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "376"
+      ],
+      "primary_sections": [
+        "376"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "376"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 204.8,
+      "generation_ms": 0.0,
+      "total_ms": 204.8,
+      "short_circuited": true,
+      "detected_sections": [
+        "376"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 26,
+      "query": "What is the punishment for theft under IPC?",
+      "original_query": "What is the punishment for theft under IPC?",
+      "expanded_query": "What is the punishment for theft under IPC? 378 379 moveable property stolen property",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "379",
+        "410",
+        "215",
+        "412",
+        "382"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 954.1,
+      "generation_ms": 0.0,
+      "total_ms": 954.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 27,
+      "query": "What is the penalty for murder?",
+      "original_query": "What is the penalty for murder?",
+      "expanded_query": "What is the penalty for murder? 300 302 culpable homicide death",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "302"
+      ],
+      "primary_sections": [
+        "302"
+      ],
+      "secondary_sections": [
+        "300"
+      ],
+      "retrieved_sections": [
+        "304",
+        "308",
+        "302",
+        "299",
+        "301"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.41311732856427996,
+      "ndcg_at_10": 0.41311732856427996,
+      "retrieval_ms": 1403.9,
+      "generation_ms": 0.0,
+      "total_ms": 1403.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 28,
+      "query": "State the punishment for abetment of suicide.",
+      "original_query": "State the punishment for abetment of suicide.",
+      "expanded_query": "State the punishment for abetment of suicide. abetment of suicide causing death",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "306"
+      ],
+      "primary_sections": [
+        "306"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "306",
+        "305",
+        "115",
+        "309",
+        "109"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1132.5,
+      "generation_ms": 0.0,
+      "total_ms": 1132.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 29,
+      "query": "What is the punishment for cheating under Section 417?",
+      "original_query": "What is the punishment for cheating under Section 417?",
+      "expanded_query": "What is the punishment for cheating under Section 417? 415 420",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "417"
+      ],
+      "primary_sections": [
+        "417"
+      ],
+      "secondary_sections": [
+        "415"
+      ],
+      "retrieved_sections": [
+        "417"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 1.0,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 161.6,
+      "generation_ms": 0.0,
+      "total_ms": 161.6,
+      "short_circuited": true,
+      "detected_sections": [
+        "417"
+      ],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 30,
+      "query": "What is the punishment for robbery under the IPC?",
+      "original_query": "What is the punishment for robbery under the IPC?",
+      "expanded_query": "What is the punishment for robbery under the IPC? 378 379 383 384 390 392 extortion fear force induces moveable property stolen property theft",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "392"
+      ],
+      "primary_sections": [
+        "392"
+      ],
+      "secondary_sections": [
+        "390"
+      ],
+      "retrieved_sections": [
+        "390",
+        "382",
+        "389",
+        "384",
+        "379"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.27541155237618664,
+      "ndcg_at_10": 0.27541155237618664,
+      "retrieval_ms": 1063.7,
+      "generation_ms": 0.0,
+      "total_ms": 1063.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 31,
+      "query": "What is the sentence for dacoity?",
+      "original_query": "What is the sentence for dacoity?",
+      "expanded_query": "What is the sentence for dacoity? 391 395 five or more",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "395"
+      ],
+      "primary_sections": [
+        "395"
+      ],
+      "secondary_sections": [
+        "391"
+      ],
+      "retrieved_sections": [
+        "391",
+        "396",
+        "395",
+        "402",
+        "212"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.6885288809404666,
+      "ndcg_at_10": 0.6885288809404666,
+      "retrieval_ms": 922.6,
+      "generation_ms": 0.0,
+      "total_ms": 922.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 32,
+      "query": "State the punishment for criminal breach of trust.",
+      "original_query": "State the punishment for criminal breach of trust.",
+      "expanded_query": "State the punishment for criminal breach of trust.",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "406"
+      ],
+      "primary_sections": [
+        "406"
+      ],
+      "secondary_sections": [
+        "405"
+      ],
+      "retrieved_sections": [
+        "406",
+        "408",
+        "407",
+        "409",
+        "405"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.9327783893101107,
+      "ndcg_at_10": 0.9327783893101107,
+      "retrieval_ms": 971.7,
+      "generation_ms": 0.0,
+      "total_ms": 971.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 33,
+      "query": "What are the penalties for defamation?",
+      "original_query": "What are the penalties for defamation?",
+      "expanded_query": "What are the penalties for defamation? 499 500 imputation reputation",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "500"
+      ],
+      "primary_sections": [
+        "500"
+      ],
+      "secondary_sections": [
+        "499"
+      ],
+      "retrieved_sections": [
+        "499",
+        "500",
+        "195A",
+        "469",
+        "153B"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.7967075809905066,
+      "ndcg_at_10": 0.7967075809905066,
+      "retrieval_ms": 1060.2,
+      "generation_ms": 0.0,
+      "total_ms": 1060.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 34,
+      "query": "What is the punishment for wrongful confinement?",
+      "original_query": "What is the punishment for wrongful confinement?",
+      "expanded_query": "What is the punishment for wrongful confinement?",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "342"
+      ],
+      "primary_sections": [
+        "342"
+      ],
+      "secondary_sections": [
+        "340"
+      ],
+      "retrieved_sections": [
+        "346",
+        "342",
+        "345",
+        "347",
+        "343"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.52129602861432,
+      "ndcg_at_10": 0.52129602861432,
+      "retrieval_ms": 895.4,
+      "generation_ms": 0.0,
+      "total_ms": 895.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 35,
+      "query": "What is the punishment for public nuisance?",
+      "original_query": "What is the punishment for public nuisance?",
+      "expanded_query": "What is the punishment for public nuisance? annoyance public nuisance",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "290"
+      ],
+      "primary_sections": [
+        "290"
+      ],
+      "secondary_sections": [
+        "268"
+      ],
+      "retrieved_sections": [
+        "268",
+        "290",
+        "291",
+        "510",
+        "294"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.7967075809905066,
+      "ndcg_at_10": 0.7967075809905066,
+      "retrieval_ms": 954.9,
+      "generation_ms": 0.0,
+      "total_ms": 954.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 36,
+      "query": "Sentence for unlawful assembly participation.",
+      "original_query": "Sentence for unlawful assembly participation.",
+      "expanded_query": "Sentence for unlawful assembly participation.",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "143"
+      ],
+      "primary_sections": [
+        "143"
+      ],
+      "secondary_sections": [
+        "141"
+      ],
+      "retrieved_sections": [
+        "145",
+        "144",
+        "150",
+        "143",
+        "157"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.25,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.35583989829307827,
+      "ndcg_at_10": 0.35583989829307827,
+      "retrieval_ms": 921.4,
+      "generation_ms": 0.0,
+      "total_ms": 921.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 37,
+      "query": "What is the punishment for causing death by negligence?",
+      "original_query": "What is the punishment for causing death by negligence?",
+      "expanded_query": "What is the punishment for causing death by negligence? causing death negligent reckless",
+      "category": "punishment_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "304A",
+        "304",
+        "300",
+        "299",
+        "316"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1042.0,
+      "generation_ms": 0.0,
+      "total_ms": 1042.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 38,
+      "query": "What is the punishment for kidnapping for ransom?",
+      "original_query": "What is the punishment for kidnapping for ransom?",
+      "expanded_query": "What is the punishment for kidnapping for ransom? kidnapped lawful guardianship minor",
+      "category": "punishment_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "364A"
+      ],
+      "primary_sections": [
+        "364A"
+      ],
+      "secondary_sections": [
+        "359",
+        "362"
+      ],
+      "retrieved_sections": [
+        "363",
+        "361",
+        "364A",
+        "363A",
+        "359"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.45676225929604214,
+      "ndcg_at_10": 0.45676225929604214,
+      "retrieval_ms": 901.4,
+      "generation_ms": 0.0,
+      "total_ms": 901.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 39,
+      "query": "Penalty for abetting suicide of a child or insane person.",
+      "original_query": "Penalty for abetting suicide of a child or insane person.",
+      "expanded_query": "Penalty for abetting suicide of a child or insane person. abetment of suicide causing death",
+      "category": "punishment_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "305"
+      ],
+      "primary_sections": [
+        "305"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "305",
+        "306",
+        "89",
+        "108",
+        "309"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1229.2,
+      "generation_ms": 0.0,
+      "total_ms": 1229.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 40,
+      "query": "What is the punishment for committing dacoity with murder?",
+      "original_query": "What is the punishment for committing dacoity with murder?",
+      "expanded_query": "What is the punishment for committing dacoity with murder? 300 302 391 395 culpable homicide death five or more",
+      "category": "punishment_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "396"
+      ],
+      "primary_sections": [
+        "396"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "396",
+        "391",
+        "395",
+        "304",
+        "402"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 887.7,
+      "generation_ms": 0.0,
+      "total_ms": 887.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 41,
+      "query": "Define the offense of theft under IPC.",
+      "original_query": "Define the offense of theft under IPC.",
+      "expanded_query": "Define the offense of theft under IPC. 378 379 moveable property stolen property",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "378"
+      ],
+      "primary_sections": [
+        "378"
+      ],
+      "secondary_sections": [
+        "379"
+      ],
+      "retrieved_sections": [
+        "410",
+        "215",
+        "382",
+        "378",
+        "97"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.25,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.35583989829307827,
+      "ndcg_at_10": 0.35583989829307827,
+      "retrieval_ms": 1056.5,
+      "generation_ms": 0.0,
+      "total_ms": 1056.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 42,
+      "query": "What is murder under the IPC?",
+      "original_query": "What is murder under the IPC?",
+      "expanded_query": "What is murder under the IPC? 300 302 culpable homicide death",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "300"
+      ],
+      "primary_sections": [
+        "300"
+      ],
+      "secondary_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "304",
+        "308",
+        "300",
+        "303",
+        "299"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.41311732856427996,
+      "ndcg_at_10": 0.41311732856427996,
+      "retrieval_ms": 1067.9,
+      "generation_ms": 0.0,
+      "total_ms": 1067.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 43,
+      "query": "Explain what is extortion under IPC.",
+      "original_query": "Explain what is extortion under IPC.",
+      "expanded_query": "Explain what is extortion under IPC. 383 384 fear induces",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "383"
+      ],
+      "primary_sections": [
+        "383"
+      ],
+      "secondary_sections": [
+        "384"
+      ],
+      "retrieved_sections": [
+        "385",
+        "390",
+        "383",
+        "389",
+        "386"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.41311732856427996,
+      "ndcg_at_10": 0.41311732856427996,
+      "retrieval_ms": 877.2,
+      "generation_ms": 0.0,
+      "total_ms": 877.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 44,
+      "query": "What is cheating defined as in IPC?",
+      "original_query": "What is cheating defined as in IPC?",
+      "expanded_query": "What is cheating defined as in IPC? 415 417 420",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "415"
+      ],
+      "primary_sections": [
+        "415"
+      ],
+      "secondary_sections": [
+        "417",
+        "420"
+      ],
+      "retrieved_sections": [
+        "415",
+        "417",
+        "420",
+        "418",
+        "416"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 818.6,
+      "generation_ms": 0.0,
+      "total_ms": 818.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 45,
+      "query": "Define culpable homicide.",
+      "original_query": "Define culpable homicide.",
+      "expanded_query": "Define culpable homicide.",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "299"
+      ],
+      "primary_sections": [
+        "299"
+      ],
+      "secondary_sections": [
+        "304"
+      ],
+      "retrieved_sections": [
+        "301",
+        "308",
+        "299",
+        "316",
+        "304"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.5196610607458307,
+      "ndcg_at_10": 0.5196610607458307,
+      "retrieval_ms": 983.2,
+      "generation_ms": 0.0,
+      "total_ms": 983.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 46,
+      "query": "What is the legal definition of robbery?",
+      "original_query": "What is the legal definition of robbery?",
+      "expanded_query": "What is the legal definition of robbery? 378 379 383 384 390 392 extortion fear force induces moveable property stolen property theft",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "390"
+      ],
+      "primary_sections": [
+        "390"
+      ],
+      "secondary_sections": [
+        "392"
+      ],
+      "retrieved_sections": [
+        "390",
+        "410",
+        "97",
+        "382",
+        "389"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 859.0,
+      "generation_ms": 0.0,
+      "total_ms": 859.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 47,
+      "query": "What constitutes dacoity under IPC?",
+      "original_query": "What constitutes dacoity under IPC?",
+      "expanded_query": "What constitutes dacoity under IPC? 391 395 five or more",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "391"
+      ],
+      "primary_sections": [
+        "391"
+      ],
+      "secondary_sections": [
+        "395"
+      ],
+      "retrieved_sections": [
+        "391",
+        "396",
+        "402",
+        "395",
+        "212"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.944847956559586,
+      "ndcg_at_10": 0.944847956559586,
+      "retrieval_ms": 1019.6,
+      "generation_ms": 0.0,
+      "total_ms": 1019.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 48,
+      "query": "What is criminal conspiracy defined as?",
+      "original_query": "What is criminal conspiracy defined as?",
+      "expanded_query": "What is criminal conspiracy defined as? 120A 120B agreement criminal conspiracy",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "120A"
+      ],
+      "primary_sections": [
+        "120A"
+      ],
+      "secondary_sections": [
+        "120B"
+      ],
+      "retrieved_sections": [
+        "120A",
+        "120B",
+        "121A",
+        "192",
+        "35"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1030.6,
+      "generation_ms": 0.0,
+      "total_ms": 1030.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 49,
+      "query": "Define criminal breach of trust.",
+      "original_query": "Define criminal breach of trust.",
+      "expanded_query": "Define criminal breach of trust.",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "405"
+      ],
+      "primary_sections": [
+        "405"
+      ],
+      "secondary_sections": [
+        "406"
+      ],
+      "retrieved_sections": [
+        "406",
+        "408",
+        "407",
+        "409",
+        "405"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.2,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.5950427489208391,
+      "ndcg_at_10": 0.5950427489208391,
+      "retrieval_ms": 918.8,
+      "generation_ms": 0.0,
+      "total_ms": 918.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 50,
+      "query": "What is unlawful assembly under the IPC?",
+      "original_query": "What is unlawful assembly under the IPC?",
+      "expanded_query": "What is unlawful assembly under the IPC?",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "141"
+      ],
+      "primary_sections": [
+        "141"
+      ],
+      "secondary_sections": [
+        "143"
+      ],
+      "retrieved_sections": [
+        "141",
+        "142",
+        "154",
+        "157",
+        "145"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1024.2,
+      "generation_ms": 0.0,
+      "total_ms": 1024.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 51,
+      "query": "Define defamation according to Indian law.",
+      "original_query": "Define defamation according to Indian law.",
+      "expanded_query": "Define defamation according to Indian law. 499 500 imputation reputation",
+      "category": "definition_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "499"
+      ],
+      "primary_sections": [
+        "499"
+      ],
+      "secondary_sections": [
+        "500"
+      ],
+      "retrieved_sections": [
+        "499",
+        "500",
+        "153B",
+        "505",
+        "3"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1329.1,
+      "generation_ms": 0.0,
+      "total_ms": 1329.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 52,
+      "query": "Define criminal intimidation.",
+      "original_query": "Define criminal intimidation.",
+      "expanded_query": "Define criminal intimidation.",
+      "category": "definition_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "503"
+      ],
+      "primary_sections": [
+        "503"
+      ],
+      "secondary_sections": [
+        "506"
+      ],
+      "retrieved_sections": [
+        "503",
+        "507",
+        "506",
+        "366",
+        "355"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.9639404333166532,
+      "ndcg_at_10": 0.9639404333166532,
+      "retrieval_ms": 911.0,
+      "generation_ms": 0.0,
+      "total_ms": 911.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 53,
+      "query": "What constitutes public nuisance?",
+      "original_query": "What constitutes public nuisance?",
+      "expanded_query": "What constitutes public nuisance? annoyance public nuisance",
+      "category": "definition_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "268"
+      ],
+      "primary_sections": [
+        "268"
+      ],
+      "secondary_sections": [
+        "290"
+      ],
+      "retrieved_sections": [
+        "268",
+        "290",
+        "291",
+        "182",
+        "294"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 887.2,
+      "generation_ms": 0.0,
+      "total_ms": 887.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 54,
+      "query": "Define the concept of private defense.",
+      "original_query": "Define the concept of private defense.",
+      "expanded_query": "Define the concept of private defense.",
+      "category": "definition_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "96"
+      ],
+      "primary_sections": [
+        "96"
+      ],
+      "secondary_sections": [
+        "97",
+        "98",
+        "99",
+        "100"
+      ],
+      "retrieved_sections": [
+        "105",
+        "96",
+        "106",
+        "102",
+        "103"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.38250073714724464,
+      "ndcg_at_10": 0.38250073714724464,
+      "retrieval_ms": 804.2,
+      "generation_ms": 0.0,
+      "total_ms": 804.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 55,
+      "query": "What is the definition of grievance hurt / grievous hurt?",
+      "original_query": "What is the definition of grievance hurt / grievous hurt?",
+      "expanded_query": "What is the definition of grievance hurt / grievous hurt?",
+      "category": "definition_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "320"
+      ],
+      "primary_sections": [
+        "320"
+      ],
+      "secondary_sections": [
+        "322",
+        "325"
+      ],
+      "retrieved_sections": [
+        "320",
+        "322",
+        "329",
+        "325",
+        "335"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.9832184408687481,
+      "ndcg_at_10": 0.9832184408687481,
+      "retrieval_ms": 989.4,
+      "generation_ms": 0.0,
+      "total_ms": 989.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 56,
+      "query": "laws against cheating and fraud in commercial deals",
+      "original_query": "laws against cheating and fraud in commercial deals",
+      "expanded_query": "laws against cheating and fraud in commercial deals 415 417 420 deceiving dishonestly",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "420"
+      ],
+      "primary_sections": [
+        "420"
+      ],
+      "secondary_sections": [
+        "415",
+        "417"
+      ],
+      "retrieved_sections": [
+        "420",
+        "405",
+        "418",
+        "263A",
+        "421"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.7262287617954056,
+      "ndcg_at_10": 0.7262287617954056,
+      "retrieval_ms": 1070.7,
+      "generation_ms": 0.0,
+      "total_ms": 1070.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 57,
+      "query": "legal provisions regarding kidnapping a child",
+      "original_query": "legal provisions regarding kidnapping a child",
+      "expanded_query": "legal provisions regarding kidnapping a child kidnapped lawful guardianship minor",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "363"
+      ],
+      "primary_sections": [
+        "363"
+      ],
+      "secondary_sections": [
+        "359",
+        "361"
+      ],
+      "retrieved_sections": [
+        "361",
+        "363",
+        "359",
+        "363A",
+        "369"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8213137146137828,
+      "ndcg_at_10": 0.8213137146137828,
+      "retrieval_ms": 832.0,
+      "generation_ms": 0.0,
+      "total_ms": 832.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 58,
+      "query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "original_query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "expanded_query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "382",
+        "316",
+        "115",
+        "299",
+        "308"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 812.0,
+      "generation_ms": 0.0,
+      "total_ms": 812.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 59,
+      "query": "laws related to public health and making noise or polluting the neighborhood",
+      "original_query": "laws related to public health and making noise or polluting the neighborhood",
+      "expanded_query": "laws related to public health and making noise or polluting the neighborhood annoyance public nuisance",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "268",
+        "290"
+      ],
+      "primary_sections": [
+        "268"
+      ],
+      "secondary_sections": [
+        "290"
+      ],
+      "retrieved_sections": [
+        "268",
+        "278",
+        "291",
+        "188",
+        "290"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.9327783893101107,
+      "ndcg_at_10": 0.9327783893101107,
+      "retrieval_ms": 1165.7,
+      "generation_ms": 0.0,
+      "total_ms": 1165.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 60,
+      "query": "husband and mother-in-law torturing wife for money or gold",
+      "original_query": "husband and mother-in-law torturing wife for money or gold",
+      "expanded_query": "husband and mother-in-law torturing wife for money or gold",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "498A"
+      ],
+      "primary_sections": [
+        "498A"
+      ],
+      "secondary_sections": [
+        "304B"
+      ],
+      "retrieved_sections": [
+        "494",
+        "498A",
+        "212",
+        "467",
+        "387"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.52129602861432,
+      "ndcg_at_10": 0.52129602861432,
+      "retrieval_ms": 1124.9,
+      "generation_ms": 0.0,
+      "total_ms": 1124.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 61,
+      "query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "original_query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "expanded_query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "primary_sections": [
+        "383"
+      ],
+      "secondary_sections": [
+        "384"
+      ],
+      "retrieved_sections": [
+        "383",
+        "195A",
+        "100",
+        "214",
+        "99"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1138.8,
+      "generation_ms": 0.0,
+      "total_ms": 1138.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 62,
+      "query": "what is the offense if five people break into a shop at night with guns and steal money",
+      "original_query": "what is the offense if five people break into a shop at night with guns and steal money",
+      "expanded_query": "what is the offense if five people break into a shop at night with guns and steal money 391 395 assembly dacoity five or more",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "391",
+        "395"
+      ],
+      "primary_sections": [
+        "391"
+      ],
+      "secondary_sections": [
+        "395"
+      ],
+      "retrieved_sections": [
+        "391",
+        "402",
+        "396",
+        "457",
+        "398"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 969.6,
+      "generation_ms": 0.0,
+      "total_ms": 969.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 63,
+      "query": "what happens if a servant steals jewelry from the master's locker",
+      "original_query": "what happens if a servant steals jewelry from the master's locker",
+      "expanded_query": "what happens if a servant steals jewelry from the master's locker",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "381"
+      ],
+      "primary_sections": [
+        "381"
+      ],
+      "secondary_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "381",
+        "378",
+        "137",
+        "404",
+        "382"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1064.2,
+      "generation_ms": 0.0,
+      "total_ms": 1064.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 64,
+      "query": "what offense is it if an officer demands money to process a government file",
+      "original_query": "what offense is it if an officer demands money to process a government file",
+      "expanded_query": "what offense is it if an officer demands money to process a government file 161 bribery gratification public servant",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "161"
+      ],
+      "primary_sections": [
+        "161"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "171B",
+        "116",
+        "187",
+        "166",
+        "182"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 957.8,
+      "generation_ms": 0.0,
+      "total_ms": 957.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 65,
+      "query": "laws regarding insulting a woman's modesty in public places",
+      "original_query": "laws regarding insulting a woman's modesty in public places",
+      "expanded_query": "laws regarding insulting a woman's modesty in public places",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "509"
+      ],
+      "primary_sections": [
+        "509"
+      ],
+      "secondary_sections": [
+        "354"
+      ],
+      "retrieved_sections": [
+        "509",
+        "354",
+        "376",
+        "297",
+        "354C"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1192.7,
+      "generation_ms": 0.0,
+      "total_ms": 1192.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 66,
+      "query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "original_query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "expanded_query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "96",
+        "97"
+      ],
+      "primary_sections": [
+        "96"
+      ],
+      "secondary_sections": [
+        "97",
+        "99",
+        "100"
+      ],
+      "retrieved_sections": [
+        "71",
+        "106",
+        "97",
+        "418",
+        "98"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.10961051126301759,
+      "ndcg_at_10": 0.10961051126301759,
+      "retrieval_ms": 858.7,
+      "generation_ms": 0.0,
+      "total_ms": 858.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 67,
+      "query": "what is it called when two or more people plan together in a hotel room to commit a bank robbery",
+      "original_query": "what is it called when two or more people plan together in a hotel room to commit a bank robbery",
+      "expanded_query": "what is it called when two or more people plan together in a hotel room to commit a bank robbery 120A 120B 378 379 383 384 390 392 agreement conspiracy criminal conspiracy extortion fear force induces moveable property stolen property theft",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "120A",
+        "120B"
+      ],
+      "primary_sections": [
+        "120A"
+      ],
+      "secondary_sections": [
+        "120B"
+      ],
+      "retrieved_sections": [
+        "390",
+        "120A",
+        "391",
+        "382",
+        "120B"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.6278397607958708,
+      "ndcg_at_10": 0.6278397607958708,
+      "retrieval_ms": 1143.1,
+      "generation_ms": 0.0,
+      "total_ms": 1143.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 68,
+      "query": "writing false stories online to destroy someone's social reputation",
+      "original_query": "writing false stories online to destroy someone's social reputation",
+      "expanded_query": "writing false stories online to destroy someone's social reputation 499 500 defamation imputation",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "499",
+        "500"
+      ],
+      "primary_sections": [
+        "499"
+      ],
+      "secondary_sections": [
+        "500"
+      ],
+      "retrieved_sections": [
+        "499",
+        "195A",
+        "192",
+        "477A",
+        "469"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1070.1,
+      "generation_ms": 0.0,
+      "total_ms": 1070.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 69,
+      "query": "inducing a bride to commit suicide because of continuous mental torture",
+      "original_query": "inducing a bride to commit suicide because of continuous mental torture",
+      "expanded_query": "inducing a bride to commit suicide because of continuous mental torture abetment of suicide causing death",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "306",
+        "498A"
+      ],
+      "primary_sections": [
+        "306"
+      ],
+      "secondary_sections": [
+        "498A"
+      ],
+      "retrieved_sections": [
+        "306",
+        "305",
+        "115",
+        "108",
+        "300"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1229.3,
+      "generation_ms": 0.0,
+      "total_ms": 1229.3,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 70,
+      "query": "what happens if someone steals a bike and while running away, stabs the owner who tries to stop him",
+      "original_query": "what happens if someone steals a bike and while running away, stabs the owner who tries to stop him",
+      "expanded_query": "what happens if someone steals a bike and while running away, stabs the owner who tries to stop him",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "382"
+      ],
+      "primary_sections": [
+        "382"
+      ],
+      "secondary_sections": [
+        "390"
+      ],
+      "retrieved_sections": [
+        "382",
+        "71",
+        "403",
+        "378",
+        "390"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.9327783893101107,
+      "ndcg_at_10": 0.9327783893101107,
+      "retrieval_ms": 1227.9,
+      "generation_ms": 0.0,
+      "total_ms": 1227.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 71,
+      "query": "चोरी की सजा क्या है आईपीसी में",
+      "original_query": "चोरी की सजा क्या है आईपीसी में",
+      "expanded_query": "चोरी की सजा क्या है आईपीसी में",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "379",
+        "1",
+        "448",
+        "2",
+        "381"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 919.1,
+      "generation_ms": 0.0,
+      "total_ms": 919.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 72,
+      "query": "हत्या की परिभाषा और सजा क्या है",
+      "original_query": "हत्या की परिभाषा और सजा क्या है",
+      "expanded_query": "हत्या की परिभाषा और सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "300",
+        "302"
+      ],
+      "primary_sections": [
+        "302"
+      ],
+      "secondary_sections": [
+        "300"
+      ],
+      "retrieved_sections": [
+        "302",
+        "1",
+        "428",
+        "2",
+        "364"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 921.8,
+      "generation_ms": 0.0,
+      "total_ms": 921.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 73,
+      "query": "दहेज हत्या क्या होती है और इसकी सजा क्या है",
+      "original_query": "दहेज हत्या क्या होती है और इसकी सजा क्या है",
+      "expanded_query": "दहेज हत्या क्या होती है और इसकी सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "304B"
+      ],
+      "primary_sections": [
+        "304B"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "302",
+        "1",
+        "396",
+        "2",
+        "304B"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.2,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.38685280723454163,
+      "ndcg_at_10": 0.38685280723454163,
+      "retrieval_ms": 928.8,
+      "generation_ms": 0.0,
+      "total_ms": 928.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 74,
+      "query": "धोखाधड़ी और बेईमानी से संपत्ति हड़पने के कानून",
+      "original_query": "धोखाधड़ी और बेईमानी से संपत्ति हड़पने के कानून",
+      "expanded_query": "धोखाधड़ी और बेईमानी से संपत्ति हड़पने के कानून",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected_sections": [
+        "420"
+      ],
+      "primary_sections": [
+        "420"
+      ],
+      "secondary_sections": [
+        "415"
+      ],
+      "retrieved_sections": [
+        "420",
+        "1",
+        "477",
+        "2",
+        "421"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 811.6,
+      "generation_ms": 0.0,
+      "total_ms": 811.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 75,
+      "query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "original_query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "expanded_query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected_sections": [
+        "354",
+        "509"
+      ],
+      "primary_sections": [
+        "354"
+      ],
+      "secondary_sections": [
+        "509"
+      ],
+      "retrieved_sections": [
+        "354",
+        "1",
+        "498",
+        "2",
+        "366"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 840.5,
+      "generation_ms": 0.0,
+      "total_ms": 840.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 76,
+      "query": "किसी को जान से मारने की धमकी देना",
+      "original_query": "किसी को जान से मारने की धमकी देना",
+      "expanded_query": "किसी को जान से मारने की धमकी देना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected_sections": [
+        "503",
+        "506"
+      ],
+      "primary_sections": [
+        "506"
+      ],
+      "secondary_sections": [
+        "503"
+      ],
+      "retrieved_sections": [
+        "387",
+        "1",
+        "386",
+        "2",
+        "195A"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 815.6,
+      "generation_ms": 0.0,
+      "total_ms": 815.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 77,
+      "query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "original_query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "expanded_query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "378",
+        "1",
+        "288",
+        "2",
+        "154"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.27541155237618664,
+      "ndcg_at_10": 0.27541155237618664,
+      "retrieval_ms": 1271.9,
+      "generation_ms": 0.0,
+      "total_ms": 1271.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 78,
+      "query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "original_query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "expanded_query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "279",
+        "1",
+        "287",
+        "2",
+        "337"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1288.8,
+      "generation_ms": 0.0,
+      "total_ms": 1288.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 79,
+      "query": "पति द्वारा पत्नी को प्रताड़ित करना",
+      "original_query": "पति द्वारा पत्नी को प्रताड़ित करना",
+      "expanded_query": "पति द्वारा पत्नी को प्रताड़ित करना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected_sections": [
+        "498A"
+      ],
+      "primary_sections": [
+        "498A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "498A",
+        "1",
+        "498",
+        "2",
+        "497"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "retrieval_ms": 1183.3,
+      "generation_ms": 0.0,
+      "total_ms": 1183.3,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 80,
+      "query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "original_query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "expanded_query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected_sections": [
+        "463",
+        "464",
+        "465"
+      ],
+      "primary_sections": [
+        "465"
+      ],
+      "secondary_sections": [
+        "463",
+        "464"
+      ],
+      "retrieved_sections": [
+        "182",
+        "1",
+        "477",
+        "2",
+        "464"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.3333333333333333,
+      "recall_at_10": 0.3333333333333333,
+      "mrr": 0.2,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.09364787839833931,
+      "ndcg_at_10": 0.09364787839833931,
+      "retrieval_ms": 1043.8,
+      "generation_ms": 0.0,
+      "total_ms": 1043.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 81,
+      "query": "chori ki saja kya hoti hai aur kaun sa section lagta hai",
+      "original_query": "chori ki saja kya hoti hai aur kaun sa section lagta hai",
+      "expanded_query": "chori ki saja kya hoti hai aur kaun sa section lagta hai 378 379 imprisonment moveable property punished punishment stolen stolen property theft",
+      "category": "hinglish_queries",
+      "difficulty": "easy",
+      "language": "mixed",
+      "expected_sections": [
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "215",
+        "410",
+        "379",
+        "412",
+        "413"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.41311732856427996,
+      "ndcg_at_10": 0.41311732856427996,
+      "retrieval_ms": 1036.3,
+      "generation_ms": 0.0,
+      "total_ms": 1036.3,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 82,
+      "query": "murder ki saja kis section me di gayi hai",
+      "original_query": "murder ki saja kis section me di gayi hai",
+      "expanded_query": "murder ki saja kis section me di gayi hai 300 302 culpable homicide death imprisonment punished punishment",
+      "category": "hinglish_queries",
+      "difficulty": "easy",
+      "language": "mixed",
+      "expected_sections": [
+        "302"
+      ],
+      "primary_sections": [
+        "302"
+      ],
+      "secondary_sections": [
+        "300"
+      ],
+      "retrieved_sections": [
+        "302",
+        "303",
+        "212",
+        "304",
+        "307"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1166.5,
+      "generation_ms": 0.0,
+      "total_ms": 1166.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 83,
+      "query": "rape karne par kitne saal ki punishment milti hai",
+      "original_query": "rape karne par kitne saal ki punishment milti hai",
+      "expanded_query": "rape karne par kitne saal ki punishment milti hai",
+      "category": "hinglish_queries",
+      "difficulty": "easy",
+      "language": "mixed",
+      "expected_sections": [
+        "376"
+      ],
+      "primary_sections": [
+        "376"
+      ],
+      "secondary_sections": [
+        "375"
+      ],
+      "retrieved_sections": [
+        "376",
+        "376A",
+        "376D",
+        "302",
+        "342"
+      ],
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 772.6,
+      "generation_ms": 0.0,
+      "total_ms": 772.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 84,
+      "query": "blackmail karne par kya punishment hai IPC me",
+      "original_query": "blackmail karne par kya punishment hai IPC me",
+      "expanded_query": "blackmail karne par kya punishment hai IPC me 383 384 extortion fear induces",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "primary_sections": [
+        "384"
+      ],
+      "secondary_sections": [
+        "383"
+      ],
+      "retrieved_sections": [
+        "384",
+        "385",
+        "388",
+        "386",
+        "387"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1331.4,
+      "generation_ms": 0.0,
+      "total_ms": 1331.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 85,
+      "query": "agar koi online fake profile banakar insult kare to kya kare",
+      "original_query": "agar koi online fake profile banakar insult kare to kya kare",
+      "expanded_query": "agar koi online fake profile banakar insult kare to kya kare 415 417 420 499 500 cheating defamation false document forgery imputation modesty reputation",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected_sections": [
+        "499",
+        "500"
+      ],
+      "primary_sections": [
+        "499"
+      ],
+      "secondary_sections": [
+        "500"
+      ],
+      "retrieved_sections": [
+        "469",
+        "464",
+        "466",
+        "228",
+        "505"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1342.9,
+      "generation_ms": 0.0,
+      "total_ms": 1342.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 86,
+      "query": "road par accident karke bhag jane par konsa law lagta hai",
+      "original_query": "road par accident karke bhag jane par konsa law lagta hai",
+      "expanded_query": "road par accident karke bhag jane par konsa law lagta hai 279 304A causing death by negligence negligence negligent death negligent driving public way rash driving",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "279",
+        "304A",
+        "280",
+        "284",
+        "283"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.6309297535714574,
+      "ndcg_at_10": 0.6309297535714574,
+      "retrieval_ms": 1203.8,
+      "generation_ms": 0.0,
+      "total_ms": 1203.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 87,
+      "query": "apne defence me kisi ko marna allowed hai kya",
+      "original_query": "apne defence me kisi ko marna allowed hai kya",
+      "expanded_query": "apne defence me kisi ko marna allowed hai kya 96 97 causing hurt hurt private defense self defense",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected_sections": [
+        "96",
+        "97"
+      ],
+      "primary_sections": [
+        "96"
+      ],
+      "secondary_sections": [
+        "97",
+        "99",
+        "100"
+      ],
+      "retrieved_sections": [
+        "103",
+        "96",
+        "97",
+        "100",
+        "101"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.618963063861963,
+      "ndcg_at_10": 0.618963063861963,
+      "retrieval_ms": 1245.4,
+      "generation_ms": 0.0,
+      "total_ms": 1245.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 88,
+      "query": "ladki ko harass karna ya comment pass karna kis section me aata hai",
+      "original_query": "ladki ko harass karna ya comment pass karna kis section me aata hai",
+      "expanded_query": "ladki ko harass karna ya comment pass karna kis section me aata hai 498A cruelty cruelty by husband harassment modesty wife harassment",
+      "category": "hinglish_queries",
+      "difficulty": "hard",
+      "language": "mixed",
+      "expected_sections": [
+        "354",
+        "509"
+      ],
+      "primary_sections": [
+        "509"
+      ],
+      "secondary_sections": [
+        "354"
+      ],
+      "retrieved_sections": [
+        "498A",
+        "354A",
+        "509",
+        "497",
+        "354"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.5196610607458307,
+      "ndcg_at_10": 0.5196610607458307,
+      "retrieval_ms": 1529.7,
+      "generation_ms": 0.0,
+      "total_ms": 1529.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 89,
+      "query": "patni ko dahej ke liye pareshan karna",
+      "original_query": "patni ko dahej ke liye pareshan karna",
+      "expanded_query": "patni ko dahej ke liye pareshan karna dowry wife woman",
+      "category": "hinglish_queries",
+      "difficulty": "hard",
+      "language": "mixed",
+      "expected_sections": [
+        "498A"
+      ],
+      "primary_sections": [
+        "498A"
+      ],
+      "secondary_sections": [
+        "304B"
+      ],
+      "retrieved_sections": [
+        "304B",
+        "494",
+        "498",
+        "27",
+        "498A"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.2,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.5950427489208391,
+      "ndcg_at_10": 0.5950427489208391,
+      "retrieval_ms": 1483.5,
+      "generation_ms": 0.0,
+      "total_ms": 1483.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 90,
+      "query": "agar kuch log milkar bank lootne ka plan banaye",
+      "original_query": "agar kuch log milkar bank lootne ka plan banaye",
+      "expanded_query": "agar kuch log milkar bank lootne ka plan banaye 120A 120B 390 391 392 395 agreement conspiracy criminal conspiracy dacoity five or more robbery",
+      "category": "hinglish_queries",
+      "difficulty": "hard",
+      "language": "mixed",
+      "expected_sections": [
+        "120A",
+        "120B"
+      ],
+      "primary_sections": [
+        "120A"
+      ],
+      "secondary_sections": [
+        "120B"
+      ],
+      "retrieved_sections": [
+        "391",
+        "121A",
+        "396",
+        "397",
+        "398"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1380.1,
+      "generation_ms": 0.0,
+      "total_ms": 1380.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 91,
+      "query": "difference between theft and robbery",
+      "original_query": "difference between theft and robbery",
+      "expanded_query": "difference between theft and robbery 378 379 383 384 390 392 extortion fear force induces moveable property stolen property",
+      "category": "multi_section_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "378",
+        "390"
+      ],
+      "primary_sections": [
+        "378",
+        "390"
+      ],
+      "secondary_sections": [
+        "379",
+        "392"
+      ],
+      "retrieved_sections": [
+        "390",
+        "410",
+        "382",
+        "378",
+        "97"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.7370232448816235,
+      "ndcg_at_10": 0.7370232448816235,
+      "retrieval_ms": 1626.4,
+      "generation_ms": 0.0,
+      "total_ms": 1626.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 92,
+      "query": "murder vs culpable homicide",
+      "original_query": "murder vs culpable homicide",
+      "expanded_query": "murder vs culpable homicide 300 302 culpable homicide death",
+      "category": "multi_section_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "299",
+        "300"
+      ],
+      "primary_sections": [
+        "299",
+        "300"
+      ],
+      "secondary_sections": [
+        "302",
+        "304"
+      ],
+      "retrieved_sections": [
+        "301",
+        "304",
+        "299",
+        "308",
+        "300"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.5652112123086611,
+      "ndcg_at_10": 0.5652112123086611,
+      "retrieval_ms": 1550.3,
+      "generation_ms": 0.0,
+      "total_ms": 1550.3,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 93,
+      "query": "difference between criminal misappropriation and criminal breach of trust",
+      "original_query": "difference between criminal misappropriation and criminal breach of trust",
+      "expanded_query": "difference between criminal misappropriation and criminal breach of trust",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "403",
+        "405"
+      ],
+      "primary_sections": [
+        "403",
+        "405"
+      ],
+      "secondary_sections": [
+        "406"
+      ],
+      "retrieved_sections": [
+        "406",
+        "408",
+        "407",
+        "410",
+        "409"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.18543279769614657,
+      "ndcg_at_10": 0.18543279769614657,
+      "retrieval_ms": 1533.8,
+      "generation_ms": 0.0,
+      "total_ms": 1533.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 94,
+      "query": "robbery vs dacoity",
+      "original_query": "robbery vs dacoity",
+      "expanded_query": "robbery vs dacoity 378 379 383 384 390 391 392 395 extortion fear five or more force induces moveable property stolen property theft",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "390",
+        "391"
+      ],
+      "primary_sections": [
+        "390",
+        "391"
+      ],
+      "secondary_sections": [
+        "392",
+        "395"
+      ],
+      "retrieved_sections": [
+        "391",
+        "390",
+        "389",
+        "412",
+        "382"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.8401851084845681,
+      "ndcg_at_10": 0.8401851084845681,
+      "retrieval_ms": 1238.4,
+      "generation_ms": 0.0,
+      "total_ms": 1238.4,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 95,
+      "query": "difference between kidnapping and abduction",
+      "original_query": "difference between kidnapping and abduction",
+      "expanded_query": "difference between kidnapping and abduction kidnapped lawful guardianship minor",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "359",
+        "362"
+      ],
+      "primary_sections": [
+        "359",
+        "362"
+      ],
+      "secondary_sections": [
+        "361",
+        "363"
+      ],
+      "retrieved_sections": [
+        "361",
+        "359",
+        "363",
+        "364A",
+        "363A"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.5826065381492406,
+      "ndcg_at_10": 0.5826065381492406,
+      "retrieval_ms": 1423.0,
+      "generation_ms": 0.0,
+      "total_ms": 1423.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 96,
+      "query": "cheating under 415 vs cheating under 420",
+      "original_query": "cheating under 415 vs cheating under 420",
+      "expanded_query": "cheating under 415 vs cheating under 420 417",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "415",
+        "420"
+      ],
+      "primary_sections": [
+        "415",
+        "420"
+      ],
+      "secondary_sections": [
+        "417"
+      ],
+      "retrieved_sections": [
+        "415",
+        "468",
+        "417",
+        "418",
+        "414"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.649014791936513,
+      "ndcg_at_10": 0.649014791936513,
+      "retrieval_ms": 1677.5,
+      "generation_ms": 0.0,
+      "total_ms": 1677.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 97,
+      "query": "wrongful restraint vs wrongful confinement",
+      "original_query": "wrongful restraint vs wrongful confinement",
+      "expanded_query": "wrongful restraint vs wrongful confinement",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "339",
+        "340"
+      ],
+      "primary_sections": [
+        "339",
+        "340"
+      ],
+      "secondary_sections": [
+        "341",
+        "342"
+      ],
+      "retrieved_sections": [
+        "341",
+        "345",
+        "342",
+        "346",
+        "452"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.2575785703353275,
+      "ndcg_at_10": 0.2575785703353275,
+      "retrieval_ms": 1287.9,
+      "generation_ms": 0.0,
+      "total_ms": 1287.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 98,
+      "query": "assault vs criminal force",
+      "original_query": "assault vs criminal force",
+      "expanded_query": "assault vs criminal force criminal force hurt",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "349",
+        "350",
+        "351"
+      ],
+      "primary_sections": [
+        "350",
+        "351"
+      ],
+      "secondary_sections": [
+        "349"
+      ],
+      "retrieved_sections": [
+        "357",
+        "356",
+        "358",
+        "355",
+        "352"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1180.2,
+      "generation_ms": 0.0,
+      "total_ms": 1180.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 99,
+      "query": "hurt vs grievous hurt",
+      "original_query": "hurt vs grievous hurt",
+      "expanded_query": "hurt vs grievous hurt",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "319",
+        "320"
+      ],
+      "primary_sections": [
+        "319",
+        "320"
+      ],
+      "secondary_sections": [
+        "323",
+        "325"
+      ],
+      "retrieved_sections": [
+        "322",
+        "325",
+        "320",
+        "459",
+        "335"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 0.3333333333333333,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.36592122627329854,
+      "ndcg_at_10": 0.36592122627329854,
+      "retrieval_ms": 1192.0,
+      "generation_ms": 0.0,
+      "total_ms": 1192.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 100,
+      "query": "extortion vs robbery",
+      "original_query": "extortion vs robbery",
+      "expanded_query": "extortion vs robbery 378 379 383 384 390 392 fear force induces moveable property stolen property theft",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "383",
+        "390"
+      ],
+      "primary_sections": [
+        "383",
+        "390"
+      ],
+      "secondary_sections": [
+        "384",
+        "392"
+      ],
+      "retrieved_sections": [
+        "390",
+        "382",
+        "383",
+        "410",
+        "105"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "precision_at_5": 0.4,
+      "ndcg_at_5": 0.7727357110059825,
+      "ndcg_at_10": 0.7727357110059825,
+      "retrieval_ms": 1457.1,
+      "generation_ms": 0.0,
+      "total_ms": 1457.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 101,
+      "query": "someone took my phone from my bag while I was sleeping in a train",
+      "original_query": "someone took my phone from my bag while I was sleeping in a train",
+      "expanded_query": "someone took my phone from my bag while I was sleeping in a train",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "primary_sections": [
+        "379"
+      ],
+      "secondary_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "378",
+        "382",
+        "464",
+        "390",
+        "354D"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.27541155237618664,
+      "ndcg_at_10": 0.27541155237618664,
+      "retrieval_ms": 1328.6,
+      "generation_ms": 0.0,
+      "total_ms": 1328.6,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 102,
+      "query": "my landlord locked me out of my apartment and is not letting me enter",
+      "original_query": "my landlord locked me out of my apartment and is not letting me enter",
+      "expanded_query": "my landlord locked me out of my apartment and is not letting me enter",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "339",
+        "341"
+      ],
+      "primary_sections": [
+        "341"
+      ],
+      "secondary_sections": [
+        "339"
+      ],
+      "retrieved_sections": [
+        "225B",
+        "378",
+        "445",
+        "94",
+        "223"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1145.7,
+      "generation_ms": 0.0,
+      "total_ms": 1145.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 103,
+      "query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "original_query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "expanded_query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "415",
+        "420"
+      ],
+      "primary_sections": [
+        "420"
+      ],
+      "secondary_sections": [
+        "415"
+      ],
+      "retrieved_sections": [
+        "464",
+        "192",
+        "177",
+        "378",
+        "173"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1457.1,
+      "generation_ms": 0.0,
+      "total_ms": 1457.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 104,
+      "query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "original_query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "expanded_query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "primary_sections": [
+        "383"
+      ],
+      "secondary_sections": [
+        "384"
+      ],
+      "retrieved_sections": [
+        "383",
+        "180",
+        "175",
+        "464",
+        "167"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.8262346571285599,
+      "ndcg_at_10": 0.8262346571285599,
+      "retrieval_ms": 1454.5,
+      "generation_ms": 0.0,
+      "total_ms": 1454.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 105,
+      "query": "husband and mother-in-law constant taunting and harassment for not bringing car",
+      "original_query": "husband and mother-in-law constant taunting and harassment for not bringing car",
+      "expanded_query": "husband and mother-in-law constant taunting and harassment for not bringing car",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "498A"
+      ],
+      "primary_sections": [
+        "498A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "494",
+        "498A",
+        "354A",
+        "212",
+        "153A"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.6309297535714574,
+      "ndcg_at_10": 0.6309297535714574,
+      "retrieval_ms": 1531.8,
+      "generation_ms": 0.0,
+      "total_ms": 1531.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 106,
+      "query": "someone is continuously following my sister and watching her outside her college",
+      "original_query": "someone is continuously following my sister and watching her outside her college",
+      "expanded_query": "someone is continuously following my sister and watching her outside her college",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "354D"
+      ],
+      "primary_sections": [
+        "354D"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "366",
+        "354C",
+        "177",
+        "375",
+        "182"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1536.8,
+      "generation_ms": 0.0,
+      "total_ms": 1536.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 107,
+      "query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "original_query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "expanded_query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "304A"
+      ],
+      "primary_sections": [
+        "304A"
+      ],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "93",
+        "92",
+        "88",
+        "104",
+        "299"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1230.2,
+      "generation_ms": 0.0,
+      "total_ms": 1230.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 108,
+      "query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "original_query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "expanded_query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "320",
+        "325"
+      ],
+      "primary_sections": [
+        "325"
+      ],
+      "secondary_sections": [
+        "320"
+      ],
+      "retrieved_sections": [
+        "382",
+        "326A",
+        "299",
+        "94",
+        "177"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1437.8,
+      "generation_ms": 0.0,
+      "total_ms": 1437.8,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 109,
+      "query": "my business partner took all client payments into his personal account and left the country",
+      "original_query": "my business partner took all client payments into his personal account and left the country",
+      "expanded_query": "my business partner took all client payments into his personal account and left the country",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "405",
+        "406"
+      ],
+      "primary_sections": [
+        "406"
+      ],
+      "secondary_sections": [
+        "405"
+      ],
+      "retrieved_sections": [
+        "405",
+        "409",
+        "404",
+        "477A",
+        "464"
+      ],
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr": 1.0,
+      "precision_at_5": 0.2,
+      "ndcg_at_5": 0.27541155237618664,
+      "ndcg_at_10": 0.27541155237618664,
+      "retrieval_ms": 1515.2,
+      "generation_ms": 0.0,
+      "total_ms": 1515.2,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 110,
+      "query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "original_query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "expanded_query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [
+        "341",
+        "509"
+      ],
+      "primary_sections": [
+        "509"
+      ],
+      "secondary_sections": [
+        "341"
+      ],
+      "retrieved_sections": [
+        "294",
+        "376D",
+        "153B",
+        "376",
+        "363A"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1388.7,
+      "generation_ms": 0.0,
+      "total_ms": 1388.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 111,
+      "query": "How to file income tax return in India online?",
+      "original_query": "How to file income tax return in India online?",
+      "expanded_query": "How to file income tax return in India online?",
+      "category": "negative_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "4",
+        "236",
+        "3",
+        "153B",
+        "175"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1398.9,
+      "generation_ms": 0.0,
+      "total_ms": 1398.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 112,
+      "query": "Steps for GST registration for a new software company",
+      "original_query": "Steps for GST registration for a new software company",
+      "expanded_query": "Steps for GST registration for a new software company",
+      "category": "negative_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "405",
+        "75",
+        "511",
+        "175",
+        "173"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1453.5,
+      "generation_ms": 0.0,
+      "total_ms": 1453.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 113,
+      "query": "Is jaywalking a crime in India and what is the fine?",
+      "original_query": "Is jaywalking a crime in India and what is the fine?",
+      "expanded_query": "Is jaywalking a crime in India and what is the fine?",
+      "category": "negative_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "283",
+        "244",
+        "290",
+        "212",
+        "154"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1355.7,
+      "generation_ms": 0.0,
+      "total_ms": 1355.7,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 114,
+      "query": "how to apply for a driving license in Maharashtra",
+      "original_query": "how to apply for a driving license in Maharashtra",
+      "expanded_query": "how to apply for a driving license in Maharashtra",
+      "category": "negative_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "279",
+        "174",
+        "282",
+        "171D",
+        "173"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1474.0,
+      "generation_ms": 0.0,
+      "total_ms": 1474.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 115,
+      "query": "what are the documents required for passport renewal",
+      "original_query": "what are the documents required for passport renewal",
+      "expanded_query": "what are the documents required for passport renewal",
+      "category": "negative_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "489E",
+        "29",
+        "176",
+        "467",
+        "476"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1340.3,
+      "generation_ms": 0.0,
+      "total_ms": 1340.3,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 116,
+      "query": "minimum wage rules for workers in Delhi NCR",
+      "original_query": "minimum wage rules for workers in Delhi NCR",
+      "expanded_query": "minimum wage rules for workers in Delhi NCR",
+      "category": "negative_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "290",
+        "175",
+        "121",
+        "176",
+        "122"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1225.1,
+      "generation_ms": 0.0,
+      "total_ms": 1225.1,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 117,
+      "query": "how to register a trademark for a brand name in India",
+      "original_query": "how to register a trademark for a brand name in India",
+      "expanded_query": "how to register a trademark for a brand name in India",
+      "category": "negative_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "464",
+        "489E",
+        "212",
+        "263A",
+        "466"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1431.9,
+      "generation_ms": 0.0,
+      "total_ms": 1431.9,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 118,
+      "query": "procedure to file for mutual divorce in family court",
+      "original_query": "procedure to file for mutual divorce in family court",
+      "expanded_query": "procedure to file for mutual divorce in family court",
+      "category": "negative_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "193",
+        "209",
+        "174",
+        "466",
+        "208"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1387.3,
+      "generation_ms": 0.0,
+      "total_ms": 1387.3,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 119,
+      "query": "how to claim insurance for a car damaged in a flood",
+      "original_query": "how to claim insurance for a car damaged in a flood",
+      "expanded_query": "how to claim insurance for a car damaged in a flood",
+      "category": "negative_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "405",
+        "209",
+        "432",
+        "425",
+        "207"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1275.5,
+      "generation_ms": 0.0,
+      "total_ms": 1275.5,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    },
+    {
+      "id": 120,
+      "query": "how to rent a commercial shop and draft a rent agreement",
+      "original_query": "how to rent a commercial shop and draft a rent agreement",
+      "expanded_query": "how to rent a commercial shop and draft a rent agreement",
+      "category": "negative_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected_sections": [],
+      "primary_sections": [],
+      "secondary_sections": [],
+      "retrieved_sections": [
+        "330",
+        "383",
+        "37",
+        "403",
+        "405"
+      ],
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "precision_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0,
+      "retrieval_ms": 1467.0,
+      "generation_ms": 0.0,
+      "total_ms": 1467.0,
+      "short_circuited": false,
+      "detected_sections": [],
+      "retrieval_error": null,
+      "generation_error": null,
+      "answer_snippet": ""
+    }
+  ]
+}

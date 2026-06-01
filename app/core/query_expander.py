@@ -26,19 +26,19 @@ def _load_dictionary() -> Dict[str, Dict[str, List[str]]]:
 
 
 _DICT = _load_dictionary()
-HINDI_LEGAL_MAP: Dict[str, List[str]] = _DICT["hindi_legal_map"]
-ENGLISH_LEGAL_SYNONYMS: Dict[str, List[str]] = _DICT["english_legal_synonyms"]
-CONCEPT_EXPANSION: Dict[str, List[str]] = _DICT["concept_expansion"]
+VOCABULARY_MAP: Dict[str, List[str]] = _DICT["vocabulary_map"]
+SYNONYM_MAP: Dict[str, List[str]] = _DICT["synonym_map"]
+LEGAL_CONCEPT_MAP: Dict[str, List[str]] = _DICT["legal_concept_map"]
 
 logger.info(
     "query_expansion_dictionary_loaded",
-    hindi_entries=len(HINDI_LEGAL_MAP),
-    english_entries=len(ENGLISH_LEGAL_SYNONYMS),
-    concept_entries=len(CONCEPT_EXPANSION),
+    vocabulary_entries=len(VOCABULARY_MAP),
+    synonym_entries=len(SYNONYM_MAP),
+    legal_concept_entries=len(LEGAL_CONCEPT_MAP),
 )
 
 # Precompute merged map and sorted multi-word phrases (longest first)
-_ALL_MAPS: Dict[str, List[str]] = {**HINDI_LEGAL_MAP, **ENGLISH_LEGAL_SYNONYMS}
+_ALL_MAPS: Dict[str, List[str]] = {**VOCABULARY_MAP, **SYNONYM_MAP}
 _MULTI_WORD_PHRASES = sorted(
     [k for k in _ALL_MAPS if " " in k],
     key=lambda x: len(x),
@@ -66,15 +66,15 @@ def expand_query(query: str) -> str:
     # Phase 2: Single-word token matching
     tokens = re.findall(r"[a-z0-9]+", lower_q)
     for token in tokens:
-        if token in HINDI_LEGAL_MAP:
-            expansions.update(HINDI_LEGAL_MAP[token])
-        if token in ENGLISH_LEGAL_SYNONYMS:
-            expansions.update(ENGLISH_LEGAL_SYNONYMS[token])
+        if token in VOCABULARY_MAP:
+            expansions.update(VOCABULARY_MAP[token])
+        if token in SYNONYM_MAP:
+            expansions.update(SYNONYM_MAP[token])
 
     # Phase 3: Concept expansion on collected terms + original tokens
     for term in list(expansions) + tokens:
-        if term in CONCEPT_EXPANSION:
-            expansions.update(CONCEPT_EXPANSION[term])
+        if term in LEGAL_CONCEPT_MAP:
+            expansions.update(LEGAL_CONCEPT_MAP[term])
 
     # Remove empty strings
     expansions.discard("")

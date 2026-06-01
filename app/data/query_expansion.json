@@ -1,5 +1,5 @@
 {
-  "hindi_legal_map": {
+  "vocabulary_map": {
     "chori": ["theft", "stolen", "moveable property"],
     "hatya": ["murder", "death", "culpable homicide"],
     "dahej": ["dowry"],
@@ -20,13 +20,23 @@
     "pati": ["husband"],
     "aurat": ["woman"],
     "bachcha": ["child", "minor"],
-    "kare": [],
-    "karna": [],
-    "hoti": [],
-    "lagega": [],
-    "milti": []
+    "pead": ["tree", "timber"],
+    "ped": ["tree", "timber"],
+    "zamin": ["land", "property"],
+    "gadi": ["vehicle", "driving"],
+    "harass": ["harassment", "cruelty", "modesty"],
+    "insult": ["defamation", "modesty"],
+    "lootne": ["robbery", "dacoity"],
+    "plan banaye": ["conspiracy"],
+    "dhokhadhadi": ["cheating", "fraud"],
+    "gariya": ["modesty", "dignity"],
+    "garima": ["modesty", "dignity"],
+    "dhamki": ["intimidation", "threat"],
+    "zaberjasti": ["force", "assault"],
+    "jabarjasti": ["force", "assault"],
+    "laparwahi": ["negligence"]
   },
-  "english_legal_synonyms": {
+  "synonym_map": {
     "blackmail": ["extortion", "fear", "induces"],
     "domestic violence": ["cruelty", "husband", "wife", "harassment"],
     "fraud": ["cheating", "deceiving", "dishonestly"],
@@ -36,13 +46,42 @@
     "defamation": ["imputation", "reputation"],
     "trespass": ["criminal trespass", "house-breaking"],
     "arson": ["mischief", "fire"],
-    "robbery": ["extortion", "theft", "force"]
+    "robbery": ["extortion", "theft", "force"],
+    "accident": ["negligent driving", "rash driving", "causing death by negligence"],
+    "negligence": ["negligent", "reckless", "causing death"],
+    "speeding": ["rash driving", "public way"],
+    "nuisance": ["public nuisance", "annoyance"],
+    "noise": ["public nuisance", "annoyance"],
+    "five people": ["dacoity", "assembly"],
+    "5 people": ["dacoity", "assembly"],
+    "officer demands money": ["bribery", "gratification", "public servant"],
+    "self defense": ["private defense", "protection"],
+    "defence": ["private defense"],
+    "self defence": ["private defense"],
+    "plan together": ["conspiracy", "agreement"],
+    "reputation": ["reputation", "imputation", "defamation"],
+    "suicide": ["abetment of suicide", "causing death"],
+    "threat": ["intimidation", "threat"],
+    "fake profile": ["forgery", "false document", "cheating", "defamation"],
+    "extort": ["extortion", "fear", "induces"],
+    "kidnapping": ["lawful guardianship", "minor", "kidnapped"],
+    "kidnap": ["lawful guardianship", "minor", "kidnapped"]
   },
-  "concept_expansion": {
-    "murder": ["murder", "culpable homicide", "punishment for murder", "death"],
-    "theft": ["theft", "stolen property", "moveable property", "punishment for theft"],
-    "cheating": ["cheating", "fraud", "deceiving", "dishonestly inducing delivery"],
-    "kidnapping": ["kidnapping", "lawful guardianship", "kidnapping from India", "minor"],
-    "extortion": ["extortion", "fear", "induces", "punishment for extortion"]
+  "legal_concept_map": {
+    "murder": ["300", "302", "murder", "culpable homicide", "death"],
+    "theft": ["378", "379", "theft", "stolen property", "moveable property"],
+    "robbery": ["390", "392", "robbery"],
+    "dacoity": ["391", "395", "dacoity", "five or more"],
+    "conspiracy": ["120A", "120B", "criminal conspiracy", "agreement"],
+    "defamation": ["499", "500", "defamation", "imputation", "reputation"],
+    "extortion": ["383", "384", "extortion", "fear", "induces"],
+    "cheating": ["415", "417", "420", "cheating"],
+    "bribery": ["161", "public servant", "gratification"],
+    "private defense": ["96", "97", "private defense", "self defense"],
+    "cruelty": ["498A", "cruelty by husband", "wife harassment"],
+    "stalking": ["354D", "stalking", "voyeurism"],
+    "negligent driving": ["279", "304A", "negligence", "public way"],
+    "rash driving": ["279", "304A", "negligence", "public way"],
+    "causing death by negligence": ["304A", "negligent death"]
   }
 }

@@ -37,10 +37,10 @@ class DocumentRetriever:
 
         self.ipc_by_section = {str(doc["section_number"]): doc for doc in self.ipc_docs}
 
-        # Tokenize all documents over section title + text
+        # Tokenize all documents over section number + title + text
         doc_tokens = []
         for doc in self.ipc_docs:
-            full_text = f"{doc.get('title', '')} {doc.get('text', '')}"
+            full_text = f"section {doc.get('section_number', '')} {doc.get('title', '')} {doc.get('text', '')}"
             doc_tokens.append(self._tokenize_text(full_text))
 
         self.bm25 = BM25Okapi(doc_tokens)
@@ -81,15 +81,25 @@ class DocumentRetriever:
             "options": {"wait_for_model": True},
         }
 
-        with httpx.Client(timeout=30.0) as client:
-            response = client.post(
-                HF_EMBEDDING_URL,
-                headers=headers,
-                json=payload,
-            )
-            response.raise_for_status()
-
-        result = response.json()
+        import time
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                with httpx.Client(timeout=30.0) as client:
+                    response = client.post(
+                        HF_EMBEDDING_URL,
+                        headers=headers,
+                        json=payload,
+                    )
+                    response.raise_for_status()
+                result = response.json()
+                break
+            except Exception as e:
+                if attempt == max_attempts - 1:
+                    logger.error("hf_embedding_failed", error=str(e))
+                    raise
+                logger.warning("hf_embedding_retry", attempt=attempt+1, error=str(e))
+                time.sleep(1.0)
 
         # HF returns nested list for batched or flat list for single
         if isinstance(result[0], list):
@@ -116,19 +126,30 @@ class DocumentRetriever:
     # Exact section match search
     # --------------------------------------------------
     def search_by_section(self, section: str) -> List[RetrievedDocument]:
-        results, _ = self.client.scroll(
-            collection_name=self.collection_name,
-            scroll_filter=Filter(
-                must=[
-                    FieldCondition(
-                        key="section_number",
-                        match=MatchValue(value=str(section)),
-                    )
-                ]
-            ),
-            limit=5,
-            with_payload=True,
-        )
+        import time
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                results, _ = self.client.scroll(
+                    collection_name=self.collection_name,
+                    scroll_filter=Filter(
+                        must=[
+                            FieldCondition(
+                                key="section_number",
+                                match=MatchValue(value=str(section)),
+                            )
+                        ]
+                    ),
+                    limit=5,
+                    with_payload=True,
+                )
+                break
+            except Exception as e:
+                if attempt == max_attempts - 1:
+                    logger.error("qdrant_scroll_failed", error=str(e))
+                    raise
+                logger.warning("qdrant_scroll_retry", attempt=attempt+1, error=str(e))
+                time.sleep(1.0)
 
         return [
             RetrievedDocument(
@@ -146,12 +167,23 @@ class DocumentRetriever:
     def semantic_search(self, query: str, top_k: int) -> List[RetrievedDocument]:
         vector = self._get_embedding(query)
 
-        response = self.client.query_points(
-            collection_name=self.collection_name,
-            query=vector,
-            limit=top_k,
-        )
-        results = response.points
+        import time
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                response = self.client.query_points(
+                    collection_name=self.collection_name,
+                    query=vector,
+                    limit=top_k,
+                )
+                results = response.points
+                break
+            except Exception as e:
+                if attempt == max_attempts - 1:
+                    logger.error("qdrant_query_failed", error=str(e))
+                    raise
+                logger.warning("qdrant_query_retry", attempt=attempt+1, error=str(e))
+                time.sleep(1.0)
 
         return [
             RetrievedDocument(
