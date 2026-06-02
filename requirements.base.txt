@@ -38,3 +38,8 @@ rank-bm25==0.2.2
 # Logging
 # ================================
 structlog==23.2.0
+
+# ================================
+# Authentication & Security
+# ================================
+python-jose[cryptography]==3.3.0
