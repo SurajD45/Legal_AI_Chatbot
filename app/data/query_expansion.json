@@ -34,7 +34,19 @@
     "dhamki": ["intimidation", "threat"],
     "zaberjasti": ["force", "assault"],
     "jabarjasti": ["force", "assault"],
-    "laparwahi": ["negligence"]
+    "laparwahi": ["negligence"],
+    "stole": ["theft", "stolen"],
+    "steals": ["theft", "stolen"],
+    "stealing": ["theft", "stolen"],
+    "locked": ["wrongful confinement", "wrongful restraint"],
+    "blocked": ["wrongful restraint"],
+    "vanished": ["cheating", "fraud"],
+    "forced": ["extortion", "intimidation"],
+    "following": ["stalking", "harassment"],
+    "watching": ["stalking"],
+    "fracture": ["grievous hurt"],
+    "coma": ["grievous hurt"],
+    "embezzled": ["criminal breach of trust"]
   },
   "synonym_map": {
     "blackmail": ["extortion", "fear", "induces"],
@@ -65,7 +77,27 @@
     "fake profile": ["forgery", "false document", "cheating", "defamation"],
     "extort": ["extortion", "fear", "induces"],
     "kidnapping": ["lawful guardianship", "minor", "kidnapped"],
-    "kidnap": ["lawful guardianship", "minor", "kidnapped"]
+    "kidnap": ["lawful guardianship", "minor", "kidnapped"],
+    "medical mistake": ["negligence", "causing death by negligence"],
+    "surgical error": ["negligence", "causing death by negligence"],
+    "wrong treatment": ["negligence", "causing death by negligence"],
+    "careless medical procedure": ["negligence", "causing death by negligence"],
+    "entrusted money": ["criminal breach of trust"],
+    "misappropriated funds": ["criminal breach of trust", "criminal misappropriation"],
+    "misuse of entrusted property": ["criminal breach of trust"],
+    "locked out": ["wrongful confinement", "wrongful restraint"],
+    "prevented": ["wrongful restraint"],
+    "obstruct": ["wrongful restraint"],
+    "obstructing": ["wrongful restraint"],
+    "cheated": ["cheating", "fraud"],
+    "deceived": ["cheating", "fraud"],
+    "tricked": ["cheating", "fraud"],
+    "threatening": ["extortion", "intimidation"],
+    "blackmailed": ["extortion"],
+    "coerced": ["extortion"],
+    "severely hurt": ["grievous hurt"],
+    "vulgar": ["modesty"],
+    "obscene": ["modesty"]
   },
   "legal_concept_map": {
     "murder": ["300", "302", "murder", "culpable homicide", "death"],
@@ -82,6 +114,11 @@
     "stalking": ["354D", "stalking", "voyeurism"],
     "negligent driving": ["279", "304A", "negligence", "public way"],
     "rash driving": ["279", "304A", "negligence", "public way"],
-    "causing death by negligence": ["304A", "negligent death"]
+    "causing death by negligence": ["304A", "negligent death"],
+    "wrongful restraint": ["339", "341", "wrongful restraint"],
+    "wrongful confinement": ["340", "342", "wrongful confinement"],
+    "grievous hurt": ["320", "325", "grievous hurt"],
+    "criminal breach of trust": ["405", "406", "breach of trust"],
+    "modesty": ["354", "509", "modesty of a woman", "insult to modesty"]
   }
 }

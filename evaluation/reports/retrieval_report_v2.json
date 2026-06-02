@@ -1,0 +1,1140 @@
+{
+  "summary": {
+    "total_queries": 120,
+    "avg_recall_at_1": 0.487,
+    "avg_recall_at_5": 0.624,
+    "avg_recall_at_10": 0.624,
+    "avg_mrr": 0.588,
+    "avg_precision_at_5": 0.315,
+    "avg_ndcg_at_5": 0.563,
+    "avg_ndcg_at_10": 0.563,
+    "avg_retrieval_ms": 865.1,
+    "avg_generation_ms": 0.0,
+    "avg_total_ms": 865.1
+  },
+  "category_breakdown": {
+    "ambiguous_queries": {
+      "count": 10,
+      "avg_recall_1": 0.25,
+      "avg_recall_5": 0.25,
+      "avg_recall_10": 0.25,
+      "avg_mrr": 0.4,
+      "avg_precision_5": 0.08,
+      "avg_ndcg_5": 0.238,
+      "avg_ndcg_10": 0.238,
+      "avg_retrieval_ms": 1121.0,
+      "avg_total_ms": 1121.0
+    },
+    "definition_queries": {
+      "count": 15,
+      "avg_recall_1": 0.6,
+      "avg_recall_5": 0.933,
+      "avg_recall_10": 0.933,
+      "avg_mrr": 0.688,
+      "avg_precision_5": 0.187,
+      "avg_ndcg_5": 0.709,
+      "avg_ndcg_10": 0.709,
+      "avg_retrieval_ms": 964.5,
+      "avg_total_ms": 964.5
+    },
+    "english_semantic_queries": {
+      "count": 15,
+      "avg_recall_1": 0.333,
+      "avg_recall_5": 0.5,
+      "avg_recall_10": 0.5,
+      "avg_mrr": 0.478,
+      "avg_precision_5": 0.12,
+      "avg_ndcg_5": 0.455,
+      "avg_ndcg_10": 0.455,
+      "avg_retrieval_ms": 1058.3,
+      "avg_total_ms": 1058.3
+    },
+    "exact_section_lookup": {
+      "count": 15,
+      "avg_recall_1": 1.0,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 1.0,
+      "avg_precision_5": 1.0,
+      "avg_ndcg_5": 1.0,
+      "avg_ndcg_10": 1.0,
+      "avg_retrieval_ms": 198.9,
+      "avg_total_ms": 198.9
+    },
+    "hindi_section_lookup": {
+      "count": 10,
+      "avg_recall_1": 1.0,
+      "avg_recall_5": 1.0,
+      "avg_recall_10": 1.0,
+      "avg_mrr": 1.0,
+      "avg_precision_5": 1.0,
+      "avg_ndcg_5": 1.0,
+      "avg_ndcg_10": 1.0,
+      "avg_retrieval_ms": 171.8,
+      "avg_total_ms": 171.8
+    },
+    "hindi_semantic_queries": {
+      "count": 10,
+      "avg_recall_1": 0.45,
+      "avg_recall_5": 0.583,
+      "avg_recall_10": 0.583,
+      "avg_mrr": 0.64,
+      "avg_precision_5": 0.16,
+      "avg_ndcg_5": 0.506,
+      "avg_ndcg_10": 0.506,
+      "avg_retrieval_ms": 962.3,
+      "avg_total_ms": 962.3
+    },
+    "hinglish_queries": {
+      "count": 10,
+      "avg_recall_1": 0.3,
+      "avg_recall_5": 0.45,
+      "avg_recall_10": 0.45,
+      "avg_mrr": 0.35,
+      "avg_precision_5": 0.1,
+      "avg_ndcg_5": 0.358,
+      "avg_ndcg_10": 0.358,
+      "avg_retrieval_ms": 1003.9,
+      "avg_total_ms": 1003.9
+    },
+    "multi_section_queries": {
+      "count": 10,
+      "avg_recall_1": 0.25,
+      "avg_recall_5": 0.45,
+      "avg_recall_10": 0.45,
+      "avg_mrr": 0.558,
+      "avg_precision_5": 0.18,
+      "avg_ndcg_5": 0.469,
+      "avg_ndcg_10": 0.469,
+      "avg_retrieval_ms": 1024.1,
+      "avg_total_ms": 1024.1
+    },
+    "negative_queries": {
+      "count": 10,
+      "avg_recall_1": 0.0,
+      "avg_recall_5": 0.0,
+      "avg_recall_10": 0.0,
+      "avg_mrr": 0.0,
+      "avg_precision_5": 0.0,
+      "avg_ndcg_5": 0.0,
+      "avg_ndcg_10": 0.0,
+      "avg_retrieval_ms": 1008.6,
+      "avg_total_ms": 1008.6
+    },
+    "punishment_queries": {
+      "count": 15,
+      "avg_recall_1": 0.467,
+      "avg_recall_5": 0.733,
+      "avg_recall_10": 0.733,
+      "avg_mrr": 0.572,
+      "avg_precision_5": 0.2,
+      "avg_ndcg_5": 0.623,
+      "avg_ndcg_10": 0.623,
+      "avg_retrieval_ms": 1171.8,
+      "avg_total_ms": 1171.8
+    }
+  },
+  "difficulty_breakdown": {
+    "easy": {
+      "count": 51,
+      "avg_recall_1": 0.676,
+      "avg_recall_5": 0.765,
+      "avg_recall_10": 0.765,
+      "avg_mrr": 0.73,
+      "avg_precision_5": 0.569,
+      "avg_ndcg_5": 0.703,
+      "avg_ndcg_10": 0.703,
+      "avg_retrieval_ms": 678.1,
+      "avg_total_ms": 678.1
+    },
+    "hard": {
+      "count": 30,
+      "avg_recall_1": 0.35,
+      "avg_recall_5": 0.478,
+      "avg_recall_10": 0.478,
+      "avg_mrr": 0.448,
+      "avg_precision_5": 0.12,
+      "avg_ndcg_5": 0.41,
+      "avg_ndcg_10": 0.41,
+      "avg_retrieval_ms": 977.6,
+      "avg_total_ms": 977.6
+    },
+    "medium": {
+      "count": 39,
+      "avg_recall_1": 0.346,
+      "avg_recall_5": 0.551,
+      "avg_recall_10": 0.551,
+      "avg_mrr": 0.509,
+      "avg_precision_5": 0.133,
+      "avg_ndcg_5": 0.496,
+      "avg_ndcg_10": 0.496,
+      "avg_retrieval_ms": 1023.2,
+      "avg_total_ms": 1023.2
+    }
+  },
+  "language_breakdown": {
+    "en": {
+      "count": 90,
+      "avg_recall_1": 0.456,
+      "avg_recall_5": 0.606,
+      "avg_recall_10": 0.606,
+      "avg_mrr": 0.563,
+      "avg_precision_5": 0.28,
+      "avg_ndcg_5": 0.543,
+      "avg_ndcg_10": 0.543,
+      "avg_retrieval_ms": 916.0,
+      "avg_total_ms": 916.0
+    },
+    "hi": {
+      "count": 20,
+      "avg_recall_1": 0.725,
+      "avg_recall_5": 0.792,
+      "avg_recall_10": 0.792,
+      "avg_mrr": 0.82,
+      "avg_precision_5": 0.58,
+      "avg_ndcg_5": 0.753,
+      "avg_ndcg_10": 0.753,
+      "avg_retrieval_ms": 567.1,
+      "avg_total_ms": 567.1
+    },
+    "mixed": {
+      "count": 10,
+      "avg_recall_1": 0.3,
+      "avg_recall_5": 0.45,
+      "avg_recall_10": 0.45,
+      "avg_mrr": 0.35,
+      "avg_precision_5": 0.1,
+      "avg_ndcg_5": 0.358,
+      "avg_ndcg_10": 0.358,
+      "avg_retrieval_ms": 1003.9,
+      "avg_total_ms": 1003.9
+    }
+  },
+  "failures": [
+    {
+      "id": 26,
+      "query": "What is the punishment for theft under IPC?",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "379"
+      ],
+      "got": [],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 27,
+      "query": "What is the penalty for murder?",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "302"
+      ],
+      "got": [],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 30,
+      "query": "What is the punishment for robbery under the IPC?",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "392"
+      ],
+      "got": [
+        "390",
+        "389",
+        "382",
+        "384",
+        "385"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 31,
+      "query": "What is the sentence for dacoity?",
+      "category": "punishment_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "395"
+      ],
+      "got": [
+        "118",
+        "402",
+        "195",
+        "398",
+        "391"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.10654373218155079,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 42,
+      "query": "What is murder under the IPC?",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "300"
+      ],
+      "got": [
+        "304",
+        "303",
+        "308",
+        "302",
+        "299"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.11861329943102608,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 58,
+      "query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "382",
+        "316",
+        "115",
+        "299",
+        "308"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 59,
+      "query": "laws related to public health and making noise or polluting the neighborhood",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "268",
+        "290"
+      ],
+      "got": [
+        "278",
+        "505",
+        "188",
+        "182",
+        "173"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 61,
+      "query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "383",
+        "195A",
+        "100",
+        "214",
+        "99"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 62,
+      "query": "what is the offense if five people break into a shop at night with guns and steal money",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "391",
+        "395"
+      ],
+      "got": [
+        "457",
+        "460",
+        "111",
+        "382",
+        "404"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 64,
+      "query": "what offense is it if an officer demands money to process a government file",
+      "category": "english_semantic_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "161"
+      ],
+      "got": [
+        "330",
+        "184",
+        "21",
+        "261",
+        "230"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 66,
+      "query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "96",
+        "97"
+      ],
+      "got": [
+        "71",
+        "106",
+        "97",
+        "418",
+        "98"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.10961051126301759,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 67,
+      "query": "what is it called when two or more people plan together in a hotel room to commit a bank robbery",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "120A",
+        "120B"
+      ],
+      "got": [
+        "390",
+        "382",
+        "385",
+        "387",
+        "389"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 68,
+      "query": "writing false stories online to destroy someone's social reputation",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "499",
+        "500"
+      ],
+      "got": [
+        "195A",
+        "469",
+        "192",
+        "477A",
+        "464"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 69,
+      "query": "inducing a bride to commit suicide because of continuous mental torture",
+      "category": "english_semantic_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "306",
+        "498A"
+      ],
+      "got": [
+        "306",
+        "305",
+        "309",
+        "508",
+        "335"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 72,
+      "query": "हत्या की परिभाषा और सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected": [
+        "300",
+        "302"
+      ],
+      "got": [
+        "302",
+        "1",
+        "428",
+        "2",
+        "364"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 75,
+      "query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected": [
+        "354",
+        "509"
+      ],
+      "got": [
+        "354",
+        "1",
+        "498",
+        "2",
+        "366"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 76,
+      "query": "किसी को जान से मारने की धमकी देना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected": [
+        "503",
+        "506"
+      ],
+      "got": [
+        "387",
+        "1",
+        "386",
+        "2",
+        "195A"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 77,
+      "query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "medium",
+      "language": "hi",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "378",
+        "1",
+        "288",
+        "2",
+        "154"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 78,
+      "query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "279",
+        "1",
+        "287",
+        "2",
+        "337"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 80,
+      "query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "category": "hindi_semantic_queries",
+      "difficulty": "hard",
+      "language": "hi",
+      "expected": [
+        "463",
+        "464",
+        "465"
+      ],
+      "got": [
+        "182",
+        "1",
+        "477",
+        "2",
+        "464"
+      ],
+      "recall_at_5": 0.3333333333333333,
+      "ndcg_at_5": 0.09364787839833931,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 84,
+      "query": "blackmail karne par kya punishment hai IPC me",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "385",
+        "387",
+        "386",
+        "384",
+        "388"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.35583989829307827,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 85,
+      "query": "agar koi online fake profile banakar insult kare to kya kare",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected": [
+        "499",
+        "500"
+      ],
+      "got": [
+        "228",
+        "295A",
+        "182",
+        "441",
+        "505"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 86,
+      "query": "road par accident karke bhag jane par konsa law lagta hai",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "283",
+        "431",
+        "337",
+        "80",
+        "279"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 87,
+      "query": "apne defence me kisi ko marna allowed hai kya",
+      "category": "hinglish_queries",
+      "difficulty": "medium",
+      "language": "mixed",
+      "expected": [
+        "96",
+        "97"
+      ],
+      "got": [
+        "335",
+        "334",
+        "100",
+        "323",
+        "337"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.10961051126301759,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 88,
+      "query": "ladki ko harass karna ya comment pass karna kis section me aata hai",
+      "category": "hinglish_queries",
+      "difficulty": "hard",
+      "language": "mixed",
+      "expected": [
+        "354",
+        "509"
+      ],
+      "got": [
+        "50",
+        "376C",
+        "248",
+        "153A",
+        "249"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 90,
+      "query": "agar kuch log milkar bank lootne ka plan banaye",
+      "category": "hinglish_queries",
+      "difficulty": "hard",
+      "language": "mixed",
+      "expected": [
+        "120A",
+        "120B"
+      ],
+      "got": [
+        "489E",
+        "294A",
+        "489A",
+        "154",
+        "489C"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 91,
+      "query": "difference between theft and robbery",
+      "category": "multi_section_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "378",
+        "390"
+      ],
+      "got": [
+        "390",
+        "382",
+        "410",
+        "386",
+        "383"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.515157140670655,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 92,
+      "query": "murder vs culpable homicide",
+      "category": "multi_section_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "299",
+        "300"
+      ],
+      "got": [
+        "304",
+        "308",
+        "301",
+        "299",
+        "302"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.46001514644630775,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 93,
+      "query": "difference between criminal misappropriation and criminal breach of trust",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "403",
+        "405"
+      ],
+      "got": [
+        "406",
+        "408",
+        "407",
+        "410",
+        "409"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.18543279769614657,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 94,
+      "query": "robbery vs dacoity",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "390",
+        "391"
+      ],
+      "got": [
+        "390",
+        "389",
+        "382",
+        "412",
+        "385"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.515157140670655,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 95,
+      "query": "difference between kidnapping and abduction",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "359",
+        "362"
+      ],
+      "got": [
+        "359",
+        "361",
+        "363",
+        "360",
+        "364A"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.7093593200537353,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 97,
+      "query": "wrongful restraint vs wrongful confinement",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "339",
+        "340"
+      ],
+      "got": [
+        "341",
+        "345",
+        "342",
+        "346",
+        "452"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.2575785703353275,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 98,
+      "query": "assault vs criminal force",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "349",
+        "350",
+        "351"
+      ],
+      "got": [
+        "357",
+        "356",
+        "358",
+        "355",
+        "352"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 99,
+      "query": "hurt vs grievous hurt",
+      "category": "multi_section_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "319",
+        "320"
+      ],
+      "got": [
+        "322",
+        "325",
+        "320",
+        "459",
+        "335"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.36592122627329854,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 101,
+      "query": "someone took my phone from my bag while I was sleeping in a train",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "378",
+        "379"
+      ],
+      "got": [
+        "378",
+        "382",
+        "464",
+        "390",
+        "354D"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 102,
+      "query": "my landlord locked me out of my apartment and is not letting me enter",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "339",
+        "341"
+      ],
+      "got": [
+        "225B",
+        "378",
+        "445",
+        "94",
+        "223"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 103,
+      "query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected": [
+        "415",
+        "420"
+      ],
+      "got": [
+        "464",
+        "192",
+        "177",
+        "378",
+        "173"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 104,
+      "query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "383",
+        "384"
+      ],
+      "got": [
+        "383",
+        "180",
+        "175",
+        "464",
+        "167"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.8262346571285599,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 106,
+      "query": "someone is continuously following my sister and watching her outside her college",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "354D"
+      ],
+      "got": [
+        "366",
+        "354C",
+        "177",
+        "375",
+        "182"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 107,
+      "query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "category": "ambiguous_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected": [
+        "304A"
+      ],
+      "got": [
+        "93",
+        "92",
+        "88",
+        "104",
+        "300"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 108,
+      "query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "320",
+        "325"
+      ],
+      "got": [
+        "382",
+        "326A",
+        "299",
+        "94",
+        "177"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 109,
+      "query": "my business partner took all client payments into his personal account and left the country",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "405",
+        "406"
+      ],
+      "got": [
+        "405",
+        "409",
+        "404",
+        "477A",
+        "464"
+      ],
+      "recall_at_5": 0.5,
+      "ndcg_at_5": 0.27541155237618664,
+      "short_circuited": false,
+      "detected_sections": []
+    },
+    {
+      "id": 110,
+      "query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+      "category": "ambiguous_queries",
+      "difficulty": "hard",
+      "language": "en",
+      "expected": [
+        "341",
+        "509"
+      ],
+      "got": [
+        "294",
+        "376D",
+        "153B",
+        "366A",
+        "376"
+      ],
+      "recall_at_5": 0.0,
+      "ndcg_at_5": 0.0,
+      "short_circuited": false,
+      "detected_sections": []
+    }
+  ]
+}

@@ -49,41 +49,62 @@ _MULTI_WORD_PHRASES = sorted(
 # --------------------------------------------------
 # Public API
 # --------------------------------------------------
-def expand_query(query: str) -> str:
-    """Expand query with legal synonyms and Hindi translations.
+def expand_query_with_trace(query: str) -> tuple[str, list[str]]:
+    """Expand query with legal synonyms and Hinglish translations, returning the matched rules trace.
 
     The expansion is additive — original query tokens are always preserved.
-    Returns the original query unchanged if no dictionary keys match.
+    Returns (original_query, []) if no dictionary keys match.
     """
     lower_q = query.lower()
     expansions: Set[str] = set()
+    trace: List[str] = []
 
     # Phase 1: Multi-word phrase matching (greedy, longest first)
     for phrase in _MULTI_WORD_PHRASES:
         if phrase in lower_q:
-            expansions.update(_ALL_MAPS.get(phrase, []))
+            terms = _ALL_MAPS.get(phrase, [])
+            if terms:
+                expansions.update(terms)
+                trace.append(f"{phrase} -> {','.join(terms)}")
 
     # Phase 2: Single-word token matching
     tokens = re.findall(r"[a-z0-9]+", lower_q)
     for token in tokens:
         if token in VOCABULARY_MAP:
-            expansions.update(VOCABULARY_MAP[token])
+            terms = VOCABULARY_MAP[token]
+            if terms:
+                expansions.update(terms)
+                trace.append(f"{token} -> {','.join(terms)}")
         if token in SYNONYM_MAP:
-            expansions.update(SYNONYM_MAP[token])
+            terms = SYNONYM_MAP[token]
+            if terms:
+                expansions.update(terms)
+                trace.append(f"{token} -> {','.join(terms)}")
 
     # Phase 3: Concept expansion on collected terms + original tokens
     for term in list(expansions) + tokens:
         if term in LEGAL_CONCEPT_MAP:
-            expansions.update(LEGAL_CONCEPT_MAP[term])
+            terms = LEGAL_CONCEPT_MAP[term]
+            if terms:
+                expansions.update(terms)
+                trace.append(f"{term} -> {','.join(terms)}")
 
     # Remove empty strings
     expansions.discard("")
+
+    # Deduplicate trace entries while preserving order
+    seen_trace = set()
+    deduped_trace = []
+    for t in trace:
+        if t not in seen_trace:
+            seen_trace.add(t)
+            deduped_trace.append(t)
 
     if not expansions:
         logger.info(
             "query_expansion", original=query, expanded=query, expanded_terms=0
         )
-        return query
+        return query, deduped_trace
 
     # Deduplicate against existing query tokens
     existing_tokens = set(tokens)
@@ -93,7 +114,7 @@ def expand_query(query: str) -> str:
         logger.info(
             "query_expansion", original=query, expanded=query, expanded_terms=0
         )
-        return query
+        return query, deduped_trace
 
     expanded = f"{query} {' '.join(new_terms)}"
     logger.info(
@@ -102,4 +123,13 @@ def expand_query(query: str) -> str:
         expanded=expanded,
         expanded_terms=len(new_terms),
     )
+    return expanded, deduped_trace
+
+
+def expand_query(query: str) -> str:
+    """Wrapper around expand_query_with_trace that discards the trace.
+
+    Maintains backward compatibility with the rest of the codebase.
+    """
+    expanded, _ = expand_query_with_trace(query)
     return expanded

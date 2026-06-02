@@ -1,0 +1,1521 @@
+{
+  "report": {
+    "summary": {
+      "total_evaluated": 26,
+      "skipped": 0,
+      "errors": 4,
+      "avg_faithfulness": 0.869,
+      "avg_groundedness": 0.877,
+      "avg_completeness": 0.735,
+      "avg_consistency": 0.869,
+      "avg_scope_handling": 0.946,
+      "avg_citation_coverage": 0.897,
+      "avg_expected_section_coverage": 0.808,
+      "avg_retrieved_section_usage": 0.585,
+      "hallucination_rate": 0.231,
+      "queries_with_hallucinations": 6,
+      "avg_answer_length_chars": 1281,
+      "avg_retrieval_ms": 2281.9,
+      "avg_generation_ms": 7575.7,
+      "avg_total_ms": 9857.6
+    },
+    "category_breakdown": {
+      "ambiguous_queries": {
+        "count": 2,
+        "avg_faithfulness": 0.9,
+        "avg_groundedness": 0.8,
+        "avg_completeness": 0.7,
+        "avg_citation_coverage": 0.75,
+        "avg_section_coverage": 0.75,
+        "avg_scope_handling": 0.8,
+        "hallucination_rate": 0.0
+      },
+      "definition_queries": {
+        "count": 3,
+        "avg_faithfulness": 0.933,
+        "avg_groundedness": 0.867,
+        "avg_completeness": 0.733,
+        "avg_citation_coverage": 0.778,
+        "avg_section_coverage": 1.0,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.667
+      },
+      "english_semantic_queries": {
+        "count": 3,
+        "avg_faithfulness": 0.867,
+        "avg_groundedness": 0.967,
+        "avg_completeness": 0.767,
+        "avg_citation_coverage": 0.833,
+        "avg_section_coverage": 0.667,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.333
+      },
+      "exact_section_lookup": {
+        "count": 3,
+        "avg_faithfulness": 0.933,
+        "avg_groundedness": 0.967,
+        "avg_completeness": 0.9,
+        "avg_citation_coverage": 0.833,
+        "avg_section_coverage": 1.0,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.333
+      },
+      "hindi_section_lookup": {
+        "count": 3,
+        "avg_faithfulness": 0.967,
+        "avg_groundedness": 1.0,
+        "avg_completeness": 0.8,
+        "avg_citation_coverage": 0.833,
+        "avg_section_coverage": 1.0,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.333
+      },
+      "hindi_semantic_queries": {
+        "count": 2,
+        "avg_faithfulness": 0.45,
+        "avg_groundedness": 0.5,
+        "avg_completeness": 0.4,
+        "avg_citation_coverage": 1.0,
+        "avg_section_coverage": 0.75,
+        "avg_scope_handling": 0.5,
+        "hallucination_rate": 0.5
+      },
+      "hinglish_queries": {
+        "count": 1,
+        "avg_faithfulness": 0.9,
+        "avg_groundedness": 0.8,
+        "avg_completeness": 0.7,
+        "avg_citation_coverage": 1.0,
+        "avg_section_coverage": 1.0,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.0
+      },
+      "multi_section_queries": {
+        "count": 3,
+        "avg_faithfulness": 0.833,
+        "avg_groundedness": 0.867,
+        "avg_completeness": 0.7,
+        "avg_citation_coverage": 1.0,
+        "avg_section_coverage": 0.667,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.0
+      },
+      "negative_queries": {
+        "count": 3,
+        "avg_faithfulness": 0.867,
+        "avg_groundedness": 0.933,
+        "avg_completeness": 0.7,
+        "avg_citation_coverage": 1.0,
+        "avg_section_coverage": 0.333,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.0
+      },
+      "punishment_queries": {
+        "count": 3,
+        "avg_faithfulness": 0.933,
+        "avg_groundedness": 0.867,
+        "avg_completeness": 0.8,
+        "avg_citation_coverage": 1.0,
+        "avg_section_coverage": 1.0,
+        "avg_scope_handling": 1.0,
+        "hallucination_rate": 0.0
+      }
+    },
+    "failures": [
+      {
+        "id": 101,
+        "query": "someone took my phone from my bag while I was sleeping in a train",
+        "category": "ambiguous_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "378",
+          "379"
+        ],
+        "cited": [
+          "379",
+          "378"
+        ],
+        "faithfulness_evidence": "The generated answer accurately explains the definition and elements of theft under Section 378 of the IPC, and correctly identifies the punishment for theft in Section 379.",
+        "completeness_evidence": "The answer fully resolves the user query by explaining the definition and elements of theft, but it does not address the limitations of the retrieved context, such as the lack of specific details about the punishment for the first-time offender."
+      },
+      {
+        "id": 102,
+        "query": "my landlord locked me out of my apartment and is not letting me enter",
+        "category": "ambiguous_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "339",
+          "341"
+        ],
+        "cited": [
+          "340",
+          "347",
+          "341",
+          "345",
+          "342"
+        ],
+        "faithfulness_evidence": "The generated answer accurately cites relevant IPC sections (340, 341, 342, 345, 347) and provides a clear definition and elements of wrongful confinement/restraint.",
+        "completeness_evidence": "The answer partially resolves the user query by identifying wrongful confinement/restraint and citing relevant IPC sections, but fails to provide a clear conclusion or recommendation for the user's specific situation."
+      },
+      {
+        "id": 42,
+        "query": "What is murder under the IPC?",
+        "category": "definition_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "300"
+        ],
+        "cited": [
+          "300",
+          "302"
+        ],
+        "faithfulness_evidence": "The generated answer accurately reflects the definition and elements of murder under Section 300 of the IPC, with minor omissions of specific illustrations.",
+        "completeness_evidence": "The answer partially resolves the user query by providing the definition and elements of murder, but it fails to fully answer the query by not including the punishment details for murder, which are mentioned in Section 302 (not provided in the given context)."
+      },
+      {
+        "id": 43,
+        "query": "Explain what is extortion under IPC.",
+        "category": "definition_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "383"
+        ],
+        "cited": [
+          "389",
+          "383",
+          "385",
+          "386",
+          "390",
+          "377"
+        ],
+        "faithfulness_evidence": "The generated answer accurately cites and explains the relevant IPC sections and their punishments.",
+        "completeness_evidence": "The answer fully explains the definition and elements of extortion, but fails to provide a comprehensive list of all possible punishments."
+      },
+      {
+        "id": 58,
+        "query": "what offense is committed if you drive a car very fast and hit someone to death",
+        "category": "english_semantic_queries",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7,
+        "expected": [
+          "304A"
+        ],
+        "cited": [
+          "299",
+          "302"
+        ],
+        "faithfulness_evidence": "The generated answer correctly identifies Section 299 as the relevant provision and explains the essential ingredients of the offense.",
+        "completeness_evidence": "The answer fully resolves the user query, but fails to provide a specific punishment for culpable homicide, which is mentioned as a limitation."
+      },
+      {
+        "id": 3,
+        "query": "What does Section 379 IPC state?",
+        "category": "exact_section_lookup",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7,
+        "expected": [
+          "379"
+        ],
+        "cited": [
+          "379",
+          "378"
+        ],
+        "faithfulness_evidence": "The generated answer accurately states the punishment for theft under Section 379 IPC, but incorrectly assumes the definition of theft is covered under Section 378 IPC.",
+        "completeness_evidence": "The answer partially resolves the user query by stating the punishment for theft, but fails to provide the actual definition of theft as per the IPC context."
+      },
+      {
+        "id": 17,
+        "query": "धारा 420 क्या कहती है?",
+        "category": "hindi_section_lookup",
+        "faithfulness": 0.9,
+        "groundedness": 1.0,
+        "completeness": 0.8,
+        "expected": [
+          "420"
+        ],
+        "cited": [
+          "8",
+          "420"
+        ],
+        "faithfulness_evidence": "The generated answer accurately describes the elements of Section 420 and its punishment, but slightly paraphrases the original text.",
+        "completeness_evidence": "The answer fully describes the elements of Section 420, but fails to provide detailed information about the scope of the punishment."
+      },
+      {
+        "id": 72,
+        "query": "हत्या की परिभाषा और सजा क्या है",
+        "category": "hindi_semantic_queries",
+        "faithfulness": 0.0,
+        "groundedness": 0.0,
+        "completeness": 0.0,
+        "expected": [
+          "300",
+          "302"
+        ],
+        "cited": [
+          "302"
+        ],
+        "faithfulness_evidence": "Evaluation error: Connection error.",
+        "completeness_evidence": "Evaluation error: Connection error."
+      },
+      {
+        "id": 83,
+        "query": "rape karne par kitne saal ki punishment milti hai",
+        "category": "hinglish_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "376"
+        ],
+        "cited": [
+          "376A",
+          "376D",
+          "376"
+        ],
+        "faithfulness_evidence": "The generated answer accurately reflects the IPC sections related to rape and their corresponding punishments.",
+        "completeness_evidence": "The answer partially resolves the user query by providing information on punishments, but fails to address other aspects of rape, such as consent and reporting procedures."
+      },
+      {
+        "id": 91,
+        "query": "difference between theft and robbery",
+        "category": "multi_section_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "378",
+          "390"
+        ],
+        "cited": [
+          "378",
+          "390"
+        ],
+        "faithfulness_evidence": "The generated answer accurately describes the definitions and elements of theft and robbery as per the retrieved IPC context.",
+        "completeness_evidence": "The answer fully resolves the user query on the definitions and elements of theft and robbery, but it fails to provide specific punishment details for both crimes."
+      },
+      {
+        "id": 92,
+        "query": "murder vs culpable homicide",
+        "category": "multi_section_queries",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7,
+        "expected": [
+          "299",
+          "300"
+        ],
+        "cited": [
+          "300",
+          "308",
+          "304",
+          "299"
+        ],
+        "faithfulness_evidence": "The generated answer accurately describes the elements and punishment for culpable homicide, but fails to provide a clear distinction between murder and culpable homicide due to the absence of Section 300.",
+        "completeness_evidence": "The generated answer fully resolves the query on culpable homicide, but fails to provide a clear answer on the distinction between murder and culpable homicide due to the limitations of the retrieved context."
+      },
+      {
+        "id": 93,
+        "query": "difference between criminal misappropriation and criminal breach of trust",
+        "category": "multi_section_queries",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7,
+        "expected": [
+          "403",
+          "405"
+        ],
+        "cited": [
+          "408",
+          "409",
+          "406",
+          "407",
+          "410"
+        ],
+        "faithfulness_evidence": "The generated answer accurately describes the key difference between criminal breach of trust and criminal misappropriation, but does not explicitly define criminal misappropriation in the IPC context.",
+        "completeness_evidence": "The answer partially resolves the user query, but fails to provide a clear definition of criminal misappropriation and its corresponding punishment."
+      },
+      {
+        "id": 112,
+        "query": "Steps for GST registration for a new software company",
+        "category": "negative_queries",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.4,
+        "expected": [],
+        "cited": [
+          "405"
+        ],
+        "faithfulness_evidence": "The answer correctly identifies the query as out of scope and provides a relevant explanation, but does not fully answer the query about GST registration.",
+        "completeness_evidence": "The answer does not fully resolve the user query about GST registration for a new software company, but provides a recommendation to consult the official GST Portal or CBIC website."
+      },
+      {
+        "id": 113,
+        "query": "Is jaywalking a crime in India and what is the fine?",
+        "category": "negative_queries",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7,
+        "expected": [],
+        "cited": [
+          "283"
+        ],
+        "faithfulness_evidence": "The generated answer correctly cites Section 283 and explains its relevance to jaywalking, but does not fully address the limitations of the context.",
+        "completeness_evidence": "The answer partially resolves the user query, but fails to address the specific circumstances under which jaywalking would be considered a crime."
+      },
+      {
+        "id": 26,
+        "query": "What is the punishment for theft under IPC?",
+        "category": "punishment_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "379"
+        ],
+        "cited": [
+          "379"
+        ],
+        "faithfulness_evidence": "The generated answer accurately states the punishment for theft as imprisonment of either description for a term which may extend to three years, or with fine, or with both, as per Section 379.",
+        "completeness_evidence": "The answer fully answers the query about the punishment for theft, but it does not address other related aspects like the definition of theft or the consequences of receiving stolen property."
+      },
+      {
+        "id": 28,
+        "query": "State the punishment for abetment of suicide.",
+        "category": "punishment_queries",
+        "faithfulness": 0.9,
+        "groundedness": 0.8,
+        "completeness": 0.7,
+        "expected": [
+          "306"
+        ],
+        "cited": [
+          "306",
+          "305",
+          "109",
+          "115"
+        ],
+        "faithfulness_evidence": "The generated answer accurately cites relevant IPC sections and provides a detailed analysis of the punishment for abetment of suicide.",
+        "completeness_evidence": "The answer fully resolves the user query, but it also raises some limitations and uncertainties that are not fully addressed in the context."
+      }
+    ]
+  },
+  "details": [
+    {
+      "id": 101,
+      "query": "someone took my phone from my bag while I was sleeping in a train",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "retrieved_sections": [
+        "378",
+        "382",
+        "464",
+        "390",
+        "354D"
+      ],
+      "answer_sections": [
+        "379",
+        "378"
+      ],
+      "citation_coverage": 0.5,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately explains the definition and elements of theft under Section 378 of the IPC, and correctly identifies the punishment for theft in Section 379.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly grounded in the retrieved IPC context, but it does not explicitly mention the explanations provided in the context to support its claims.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer fully resolves the user query by explaining the definition and elements of theft, but it does not address the limitations of the retrieved context, such as the lack of specific details about the punishment for the first-time offender.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer is highly consistent with the retrieved IPC context, accurately explaining the definition and elements of theft and the punishment for theft in Section 379.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly handles the scope of the query, providing relevant information about theft under the IPC and avoiding any out-of-scope topics.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1508,
+      "retrieval_ms": 1890.4,
+      "generation_ms": 1136.2,
+      "total_ms": 3026.6,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 378**: Theft\n\n### DEFINITION & ELEMENTS\n- The person must have intended to take the property dishonestly.\n- The property must be movable.\n- The person must have moved the property out of the possession of the owner without their consent.\n- In this case, the phone was taken from the person's bag while they were sleeping, indicating that the person did not give their consent for the phone to be taken.\n\n### PUNISHMENT & PENALTIES\n- The IPC does not specify the punishment for theft in Section 378, but it is mentioned in Section 379, which states that whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or (in the case of a second or subsequent conviction) with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine.\n\n### CASE ANALYSIS\n- In this scenario, the person who took the phone from the bag without the owner's consent has committed theft.\n- The owner's phone was in their possession, and the person took it dishonestly without their consent.\n- The punishment for this offense can be imprisonment for up to three years, or in the case of a second or subsequent conviction, up to seven years, and a fine.\n\n### LIMITATIONS\n- The retrieved context does not contain specific details about the punishment for the first-time offender.\n- The IPC does not specify the punishment for theft in Section 378, but it is mentioned in Section 379.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 378**: Theft\n\n### DEFINITION & ELEMENTS\n- The person must have intended to take the property dishonestly.\n- The property must be movable.\n- The person must have mov..."
+    },
+    {
+      "id": 102,
+      "query": "my landlord locked me out of my apartment and is not letting me enter",
+      "category": "ambiguous_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "339",
+        "341"
+      ],
+      "retrieved_sections": [
+        "340",
+        "342",
+        "347",
+        "345",
+        "341"
+      ],
+      "answer_sections": [
+        "340",
+        "347",
+        "341",
+        "345",
+        "342"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 0.5,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately cites relevant IPC sections (340, 341, 342, 345, 347) and provides a clear definition and elements of wrongful confinement/restraint.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly grounded in the retrieved IPC context, but includes some external knowledge (e.g., rental agreement laws) and limitations (e.g., lack of specific provisions for eviction).",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer partially resolves the user query by identifying wrongful confinement/restraint and citing relevant IPC sections, but fails to provide a clear conclusion or recommendation for the user's specific situation.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer consistently applies the definition and elements of wrongful confinement/restraint to the user's scenario and accurately cites relevant IPC sections.",
+      "scope_handling": 0.6,
+      "scope_handling_evidence": "The answer correctly identifies the user's scenario as a potential case of wrongful confinement/restraint, but fails to clearly indicate whether it is out of scope or not, and includes a disclaimer to consult a legal expert.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 2333,
+      "retrieval_ms": 3653.4,
+      "generation_ms": 5008.5,
+      "total_ms": 8661.9,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 340**: Wrongful confinement.—\n- **Section 341**: Punishment for wrongful restraint.—\n- **Section 342**: Punishment for wrongful confinement.—\n- **Section 345**: Wrongful confinement of person for whose liberation writ has been issued.—\n- **Section 347**: Wrongful confinement to extort property, or constrain to illegal act.— (Note: This section is not directly applicable to the scenario, but it's included for completeness)\n\n### DEFINITION & ELEMENTS\n- Wrongful confinement occurs when a person is restrained in such a manner that they are prevented from proceeding beyond certain circumscribing limits.\n- In this scenario, the landlord locking you out of your apartment and not letting you enter could be considered wrongful restraint or confinement.\n- The essential elements of the offense are:\n  - The landlord has restrained you in your apartment.\n  - The restraint prevents you from proceeding beyond the circumscribing limits of your apartment.\n  - The landlord's actions are without lawful authority.\n\n### PUNISHMENT & PENALTIES\n- **Section 341**: Punishment for wrongful restraint.—\n  - Wrongful restraint is punishable with simple imprisonment for a term which may extend to one month, or with fine which may extend to five hundred rupees, or with both.\n- **Section 342**: Punishment for wrongful confinement.—\n  - Wrongful confinement is punishable with imprisonment of either description for a term which may extend to one year, or with fine which may extend to one thousand rupees, or with both.\n\n### CASE ANALYSIS\nIn your scenario, the landlord's actions of locking you out of your apartment and not letting you enter could be considered wrongful restraint or confinement. However, it is essential to note that the landlord may have a lawful right to do so, such as in cases of non-payment of rent or breach of lease terms. If the landlord's actions are found to be unlawful, you may be able to file a complaint under Sections 341 or 342.\n\n### LIMITATIONS\n- The retrieved context does not contain specific provisions for eviction or landlord-tenant disputes.\n- The applicability of these sections may depend on the specific circumstances and the laws governing your rental agreement.\n\nPlease consult a legal expert for a more detailed analysis and advice on your specific situation.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 340**: Wrongful confinement.—\n- **Section 341**: Punishment for wrongful restraint.—\n- **Section 342**: Punishment for wrongful confinement.—\n- **Section 345**: Wro..."
+    },
+    {
+      "id": 103,
+      "query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "category": "ambiguous_queries",
+      "error": "Retrieval failed: [Errno 11001] getaddrinfo failed"
+    },
+    {
+      "id": 41,
+      "query": "Define the offense of theft under IPC.",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "378"
+      ],
+      "retrieved_sections": [
+        "410",
+        "215",
+        "382",
+        "378",
+        "97"
+      ],
+      "answer_sections": [
+        "378"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately defines the offense of theft under IPC, citing relevant sections and explanations.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, without any external filler or knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The answer fully resolves the definition and elements of the offense of theft, but fails to provide punishment details.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer consistently represents the retrieved context, accurately citing relevant sections and explanations.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope, providing a detailed answer to the in-scope question about the offense of theft under IPC.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1140,
+      "retrieval_ms": 2099.9,
+      "generation_ms": 2762.5,
+      "total_ms": 4862.4,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 378**: Theft\n\n### DEFINITION & ELEMENTS\n- The offense of theft is committed when a person intends to take dishonestly any movable property out of the possession of any person without that person's consent.\n- The person moves the property in order to such taking.\n- The property must be movable, and it becomes capable of being the subject of theft as soon as it is severed from the earth.\n- The consent mentioned in the definition may be express or implied, and may be given either by the person in possession, or by any person having for that purpose authority either express or implied.\n\n### PUNISHMENT & PENALTIES\n- No punishment details are provided in this section.\n\n### CASE ANALYSIS\n- To determine if an offense of theft has been committed, we need to establish the following elements:\n  - The person intended to take the property dishonestly.\n  - The property was movable.\n  - The person moved the property in order to take it dishonestly.\n  - The person did not have the consent of the owner.\n\n### LIMITATIONS\n- The retrieved context does not contain punishment details for the offense of theft.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 378**: Theft\n\n### DEFINITION & ELEMENTS\n- The offense of theft is committed when a person intends to take dishonestly any movable property out of the possession of ..."
+    },
+    {
+      "id": 42,
+      "query": "What is murder under the IPC?",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "300"
+      ],
+      "retrieved_sections": [
+        "304",
+        "308",
+        "300",
+        "303",
+        "299"
+      ],
+      "answer_sections": [
+        "300",
+        "302"
+      ],
+      "citation_coverage": 0.5,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately reflects the definition and elements of murder under Section 300 of the IPC, with minor omissions of specific illustrations.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is primarily derived from the context, but it includes external information about the punishment for murder, which is not explicitly stated in the provided context.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer partially resolves the user query by providing the definition and elements of murder, but it fails to fully answer the query by not including the punishment details for murder, which are mentioned in Section 302 (not provided in the given context).",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer is highly consistent with the retrieved context, accurately reflecting the definition and elements of murder under Section 300 of the IPC.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope by answering the question about murder under the IPC without falsely claiming it is out of scope.",
+      "hallucinated_sections": [
+        "302"
+      ],
+      "has_hallucinations": true,
+      "answer_length": 1776,
+      "retrieval_ms": 3018.9,
+      "generation_ms": 13543.0,
+      "total_ms": 16561.9,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 300**: Murder\n\n### DEFINITION & ELEMENTS\n- Murder is defined under Section 300 of the IPC.\n- The essential ingredients of murder are:\n  - The act by which the death is caused is done with the intention of causing death.\n  - The act is done with the intention of causing such bodily injury as the offender knows to be likely to cause the death of the person to whom the harm is caused.\n  - The act is done with the intention of causing bodily injury to any person and the bodily injury intended to be inflicted is sufficient in the ordinary course of nature to cause death.\n  - The person committing the act knows that it is so imminently dangerous that it must, in all probability, cause death or such bodily injury as is likely to cause death.\n\n### PUNISHMENT & PENALTIES\n- The punishment for murder is not explicitly stated in Section 300, but it is mentioned in Section 302 (not provided in the given context). However, according to Section 302, the punishment for murder is death or imprisonment for life, and shall also be liable to fine.\n\n### CASE ANALYSIS\n- Based on the given context, murder is defined as an act that is done with the intention of causing death or with knowledge that it is likely to cause death.\n- The illustrations provided in Section 300 further clarify the definition of murder, including scenarios where the offender intends to cause bodily injury but not death, and where the offender is unaware of the victim's health condition.\n\n### LIMITATIONS\n- The retrieved context does not contain the punishment details for murder, which are mentioned in Section 302 (not provided in the given context).\n- The context does not provide any specific exceptions or circumstances that may reduce the punishment for murder.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 300**: Murder\n\n### DEFINITION & ELEMENTS\n- Murder is defined under Section 300 of the IPC.\n- The essential ingredients of murder are:\n  - The act by which the death..."
+    },
+    {
+      "id": 43,
+      "query": "Explain what is extortion under IPC.",
+      "category": "definition_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "383"
+      ],
+      "retrieved_sections": [
+        "385",
+        "390",
+        "383",
+        "389",
+        "386"
+      ],
+      "answer_sections": [
+        "389",
+        "383",
+        "385",
+        "386",
+        "390",
+        "377"
+      ],
+      "citation_coverage": 0.833,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately cites and explains the relevant IPC sections and their punishments.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly derived from the retrieved IPC context, but some external knowledge is used in the case analysis section.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer fully explains the definition and elements of extortion, but fails to provide a comprehensive list of all possible punishments.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer consistently uses the same terminology and definitions throughout, and accurately explains the relationships between the different IPC sections.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly handles the scope of the query and provides relevant information on extortion under the IPC.",
+      "hallucinated_sections": [
+        "377"
+      ],
+      "has_hallucinations": true,
+      "answer_length": 2159,
+      "retrieval_ms": 1689.4,
+      "generation_ms": 11129.5,
+      "total_ms": 12819.0,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 383**: Extortion.\n- **Section 385**: Putting person in fear of injury in order to commit extortion.\n- **Section 386**: Extortion by putting a person in fear of death or grievous hurt.\n- **Section 389**: Putting person in fear of accusation of offence, in order to commit extortion.\n- **Section 390**: Robbery.\n\n### DEFINITION & ELEMENTS\n- Extortion is defined as intentionally putting a person in fear of any injury to that person or to any other, and thereby dishonestly inducing the person so put in fear to deliver to any person any property or valuable security, or anything signed or sealed which may be converted into a valuable security.\n- The essential elements of extortion include:\n  - Intentional act of putting a person in fear of injury.\n  - Dishonest intention to induce the person to deliver property or valuable security.\n  - Delivery of property or valuable security as a result of the fear induced.\n\n### PUNISHMENT & PENALTIES\n- **Section 383**: Imprisonment of either description for a term which may extend to three years, or with fine, or with both.\n- **Section 385**: Imprisonment of either description for a term which may extend to two years, or with fine, or with both.\n- **Section 386**: Imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine.\n- **Section 389**: Imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine; and, if the offence be punishable under section 377 of this Code, may be punished with imprisonment for life.\n\n### CASE ANALYSIS\n- The scenario where A threatens to publish a defamatory libel concerning Z unless Z gives him money (Illustration (a) of Section 383) is an example of extortion.\n- In this case, A intentionally puts Z in fear of injury (damage to reputation) and dishonestly induces Z to deliver money to A.\n\n### LIMITATIONS\n- The retrieved context does not contain a comprehensive list of all possible punishments for extortion under different circumstances.\n- The punishments mentioned above are specific to the sections cited and may not be exhaustive.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 383**: Extortion.\n- **Section 385**: Putting person in fear of injury in order to commit extortion.\n- **Section 386**: Extortion by putting a person in fear of deat..."
+    },
+    {
+      "id": 56,
+      "query": "laws against cheating and fraud in commercial deals",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "420"
+      ],
+      "retrieved_sections": [
+        "420",
+        "405",
+        "418",
+        "263A",
+        "421"
+      ],
+      "answer_sections": [
+        "405",
+        "420"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.4,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately describes the elements and punishment of Section 420 and Section 405, but fails to mention the specific punishment for Section 405 in the IPC.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The generated answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The generated answer fully resolves the user query on laws against cheating and fraud in commercial deals, but fails to cover all aspects of commercial fraud, such as securities laws or consumer protection laws.",
+      "consistency": 0.9,
+      "consistency_evidence": "The generated answer consistently represents the retrieved IPC context, but incorrectly states that the IPC does not specify a punishment for Section 405.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The generated answer correctly handles the query's scope and provides relevant information on the IPC sections related to cheating and fraud in commercial deals.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1641,
+      "retrieval_ms": 1521.4,
+      "generation_ms": 11633.6,
+      "total_ms": 13155.0,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 420**: Cheating and dishonestly inducing delivery of property.\n- **Section 405**: Criminal breach of trust.\n\n### DEFINITION & ELEMENTS\n- **Section 420**:\n  - Cheating involves deceiving someone into delivering property or making, altering, or destroying a valuable security.\n  - Dishonest intent is essential for this offense.\n  - The property delivered or the valuable security altered must be capable of being converted into a valuable security.\n- **Section 405**:\n  - Criminal breach of trust occurs when someone entrusted with property or dominion over property misappropriates or converts it to their own use.\n  - Dishonest intent is necessary for this offense.\n  - The trust can be breached by violating a direction of law or a legal contract, express or implied.\n\n### PUNISHMENT & PENALTIES\n- **Section 420**:\n  - Imprisonment for up to 7 years.\n  - Fine.\n- **Section 405**:\n  - The IPC does not specify a punishment for this offense. However, it is generally considered a serious crime, and the punishment can vary depending on the circumstances.\n\n### CASE ANALYSIS\n- If someone cheats and dishonestly induces another person to deliver property in a commercial deal, they may be liable under Section 420.\n- If someone entrusted with property or dominion over property misappropriates or converts it to their own use in a commercial deal, they may be liable under Section 405.\n\n### LIMITATIONS\n- The retrieved context does not contain specific punishment details for Section 405.\n- The IPC context does not cover all aspects of commercial fraud, such as securities laws or consumer protection laws.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 420**: Cheating and dishonestly inducing delivery of property.\n- **Section 405**: Criminal breach of trust.\n\n### DEFINITION & ELEMENTS\n- **Section 420**:\n  - Cheati..."
+    },
+    {
+      "id": 57,
+      "query": "legal provisions regarding kidnapping a child",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "363"
+      ],
+      "retrieved_sections": [
+        "361",
+        "363",
+        "359",
+        "363A",
+        "369"
+      ],
+      "answer_sections": [
+        "363",
+        "369",
+        "359",
+        "361",
+        "363A"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately describes the relevant IPC sections and their definitions, elements, and punishments.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The answer fully resolves the user query regarding kidnapping a child, but fails to mention specific punishment details for kidnapping from India (Section 359).",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer consistently represents the retrieved IPC context, but incorrectly states that punishment for kidnapping from India is up to 7 years (Section 359 is not mentioned in the context).",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope and answers normally without falsely claiming it is out of scope.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1675,
+      "retrieval_ms": 1653.6,
+      "generation_ms": 10483.9,
+      "total_ms": 12137.5,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 361**: Kidnapping from lawful guardianship.\n- **Section 363**: Punishment for kidnapping.\n- **Section 359**: Kidnapping.\n- **Section 369**: Kidnapping or abducting child under ten years with intent to steal from its person.\n- **Section 363A**: Kidnapping or maiming a minor for purposes of begging.\n\n### DEFINITION & ELEMENTS\n- Kidnapping is defined as taking or enticing a minor out of the keeping of the lawful guardian without consent.\n- Kidnapping can be of two kinds: kidnapping from India and kidnapping from lawful guardianship.\n- Kidnapping involves taking a minor (male under 16, female under 18, or a person of unsound mind) out of lawful guardianship.\n- Kidnapping or abducting a child under 10 years with the intention of stealing from their person is also considered kidnapping.\n\n### PUNISHMENT & PENALTIES\n- Punishment for kidnapping: Imprisonment for up to 7 years and a fine.\n- Punishment for kidnapping or maiming a minor for purposes of begging: Imprisonment for up to 10 years and a fine (or life imprisonment for maiming).\n- Punishment for kidnapping or abducting a child under 10 years with intent to steal: Imprisonment for up to 7 years and a fine.\n\n### CASE ANALYSIS\nIf someone kidnaps a child under 10 years with the intention of stealing from their person, they can be punished with imprisonment for up to 7 years and a fine. If the child is kidnapped or maimed for purposes of begging, the punishment can be up to 10 years of imprisonment and a fine (or life imprisonment for maiming).\n\n### LIMITATIONS\n- The retrieved context does not contain specific punishment details for kidnapping from India (Section 359).",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 361**: Kidnapping from lawful guardianship.\n- **Section 363**: Punishment for kidnapping.\n- **Section 359**: Kidnapping.\n- **Section 369**: Kidnapping or abducting ..."
+    },
+    {
+      "id": 58,
+      "query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "category": "english_semantic_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "304A"
+      ],
+      "retrieved_sections": [
+        "382",
+        "316",
+        "115",
+        "299",
+        "308"
+      ],
+      "answer_sections": [
+        "299",
+        "302"
+      ],
+      "citation_coverage": 0.5,
+      "expected_section_coverage": 0.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.8,
+      "faithfulness_evidence": "The generated answer correctly identifies Section 299 as the relevant provision and explains the essential ingredients of the offense.",
+      "groundedness": 0.9,
+      "groundedness_evidence": "The answer is strictly grounded in the retrieved IPC context, with references to Sections 299, 302, and other relevant provisions.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer fully resolves the user query, but fails to provide a specific punishment for culpable homicide, which is mentioned as a limitation.",
+      "consistency": 0.8,
+      "consistency_evidence": "The answer is consistent with the retrieved IPC context, but the explanation for the punishment for culpable homicide is not entirely clear.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly identifies the query as in-scope and provides a relevant response, without falsely claiming it is out of scope.",
+      "hallucinated_sections": [
+        "302"
+      ],
+      "has_hallucinations": true,
+      "answer_length": 1582,
+      "retrieval_ms": 2610.2,
+      "generation_ms": 11361.9,
+      "total_ms": 13972.1,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 299**: Culpable homicide.\n\n### DEFINITION & ELEMENTS\n- The essential ingredients of the offense are:\n  - Causing death by doing an act.\n  - The act must be done with one of the following intentions:\n    - Intention of causing death.\n    - Intention of causing such bodily injury as is likely to cause death.\n    - Knowledge that the act is likely to cause death.\n\n### PUNISHMENT & PENALTIES\n- The punishment for culpable homicide is not explicitly mentioned in Section 299. However, the punishment for causing death under other sections may be applicable.\n- For example, under Section 302 (Punishment for murder), the punishment is death or imprisonment for life, and also liable to fine.\n\n### CASE ANALYSIS\n- If you drive a car very fast and hit someone to death, it can be considered an act done with the intention of causing death or with the knowledge that the act is likely to cause death.\n- Therefore, you may be guilty of culpable homicide under Section 299.\n\n### LIMITATIONS\n- The punishment for culpable homicide is not explicitly mentioned in Section 299.\n- The IPC does not provide a specific punishment for culpable homicide, but the punishment for murder under Section 302 may be applicable.\n\n### OUT OF SCOPE TEMPLATE\nThis query does not fall outside the scope of the Indian Penal Code (IPC) database.\n\n### EXPLANATION\nThe IPC provides a framework for understanding and prosecuting crimes related to homicide. The offense of culpable homicide is defined under Section 299, and the punishment for murder is defined under Section 302.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 299**: Culpable homicide.\n\n### DEFINITION & ELEMENTS\n- The essential ingredients of the offense are:\n  - Causing death by doing an act.\n  - The act must be done wit..."
+    },
+    {
+      "id": 1,
+      "query": "What is Section 302 of the IPC?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "302"
+      ],
+      "answer_sections": [
+        "302"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately quotes Section 302 of the IPC and provides its definition, elements, punishment, and limitations.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+      "completeness": 1.0,
+      "completeness_evidence": "The generated answer fully resolves the user query by providing the definition, elements, punishment, and limitations of Section 302.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer is highly consistent with the retrieved IPC context, accurately representing the content and structure of Section 302.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope by providing a detailed answer to the in-scope IPC query.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 474,
+      "retrieval_ms": 2813.3,
+      "generation_ms": 1451.6,
+      "total_ms": 4264.9,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 302**: Punishment for murder.\n\n### DEFINITION & ELEMENTS\n- The essential ingredient of this offense is the act of murder.\n\n### PUNISHMENT & PENALTIES\n- The punishment for this offense is:\n  - Death\n  - Imprisonment for life\n  - Liability to fine\n\n### CASE ANALYSIS\n- This section applies to individuals who commit the act of murder.\n\n### LIMITATIONS\n- None. The context contains both the definition and punishment details for Section 302.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 302**: Punishment for murder.\n\n### DEFINITION & ELEMENTS\n- The essential ingredient of this offense is the act of murder.\n\n### PUNISHMENT & PENALTIES\n- The punishme..."
+    },
+    {
+      "id": 2,
+      "query": "Explain IPC Section 420.",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "420"
+      ],
+      "retrieved_sections": [
+        "420"
+      ],
+      "answer_sections": [
+        "420"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately explains the elements and punishment of IPC Section 420 without any contradictions.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+      "completeness": 1.0,
+      "completeness_evidence": "The generated answer fully resolves all parts of the user query, explaining the definition, elements, punishment, and limitations of IPC Section 420.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer is highly consistent with the retrieved IPC context, accurately representing the section's provisions and penalties.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope, providing a detailed explanation of IPC Section 420 without falsely claiming it is out of scope.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1052,
+      "retrieval_ms": 634.9,
+      "generation_ms": 5838.1,
+      "total_ms": 6473.0,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 420**: Cheating and dishonestly inducing delivery of property.\n\n### DEFINITION & ELEMENTS\n- Cheating involves deceiving someone.\n- The deception must be done in a way that dishonestly induces the person deceived to deliver any property.\n- The delivery of property can be in the form of:\n  - Delivering any property to any person.\n  - Making, altering, or destroying the whole or any part of a valuable security.\n  - Making, altering, or destroying anything which is signed or sealed, and which is capable of being converted into a valuable security.\n\n### PUNISHMENT & PENALTIES\n- The person committing the offense shall be punished with imprisonment of either description for a term which may extend to seven years.\n- The person shall also be liable to fine.\n\n### CASE ANALYSIS\n- This section applies to scenarios where a person deceives another into delivering property, making, altering, or destroying valuable securities, or documents that can be converted into valuable securities.\n\n### LIMITATIONS\n- None noted.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 420**: Cheating and dishonestly inducing delivery of property.\n\n### DEFINITION & ELEMENTS\n- Cheating involves deceiving someone.\n- The deception must be done in a w..."
+    },
+    {
+      "id": 3,
+      "query": "What does Section 379 IPC state?",
+      "category": "exact_section_lookup",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "379"
+      ],
+      "retrieved_sections": [
+        "379"
+      ],
+      "answer_sections": [
+        "379",
+        "378"
+      ],
+      "citation_coverage": 0.5,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 0.8,
+      "faithfulness_evidence": "The generated answer accurately states the punishment for theft under Section 379 IPC, but incorrectly assumes the definition of theft is covered under Section 378 IPC.",
+      "groundedness": 0.9,
+      "groundedness_evidence": "The answer is primarily derived from the retrieved IPC context, but includes external filler/knowledge by assuming the definition of theft is covered under Section 378 IPC.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer partially resolves the user query by stating the punishment for theft, but fails to provide the actual definition of theft as per the IPC context.",
+      "consistency": 0.8,
+      "consistency_evidence": "The answer is generally consistent with the retrieved IPC context, but contains minor inconsistencies by assuming the definition of theft is covered under Section 378 IPC.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope by answering the question about Section 379 IPC without falsely claiming it is out of scope.",
+      "hallucinated_sections": [
+        "378"
+      ],
+      "has_hallucinations": true,
+      "answer_length": 615,
+      "retrieval_ms": 614.8,
+      "generation_ms": 4861.6,
+      "total_ms": 5476.4,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 379**: Punishment for theft.\n\n### DEFINITION & ELEMENTS\n- The section does not explicitly define the elements of theft; however, it is assumed to be covered under Section 378 IPC, which defines theft.\n\n### PUNISHMENT & PENALTIES\n- Imprisonment of either description for a term which may extend to three years.\n- Fine.\n- Both imprisonment and fine.\n\n### CASE ANALYSIS\n- This section would be applied to a scenario where someone is accused of theft.\n\n### LIMITATIONS\n- The retrieved context does not contain a definition of theft; it is assumed to be covered under Section 378 IPC.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 379**: Punishment for theft.\n\n### DEFINITION & ELEMENTS\n- The section does not explicitly define the elements of theft; however, it is assumed to be covered under S..."
+    },
+    {
+      "id": 16,
+      "query": "धारा 302 क्या है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "302"
+      ],
+      "answer_sections": [
+        "302"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately describes the punishment for murder under Section 302.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler/knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The answer fully resolves the user query but misses some related aspects, as mentioned in the limitations section.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer is highly consistent with the retrieved context and accurately represents the information.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope and identifies the limitations of Section 302.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 415,
+      "retrieval_ms": 1685.1,
+      "generation_ms": 3893.2,
+      "total_ms": 5578.4,
+      "answer_text": "### धारा 302 का विवरण\n- **धारा 302**: हत्या के लिए दंड (Punishment for murder)\n\n### हत्या का परिभाषा और तत्व\n- कोई भी व्यक्ति जो हत्या करता है, वह मृत्युदंड, जीवन कारावास, और जुर्माने के लिए दंडित होगा।\n\n### दंड और जुर्माना\n- मृत्युदंड, जीवन कारावास, और जुर्माने के लिए दंडित होना।\n\n### संदर्भ\n- [स्रोत 1]\n\n### सीमाएं\n- धारा 302 केवल हत्या के लिए दंड का वर्णन करती है, और अन्य संबंधित पहलुओं का उल्लेख नहीं करती है।",
+      "answer_preview": "### धारा 302 का विवरण\n- **धारा 302**: हत्या के लिए दंड (Punishment for murder)\n\n### हत्या का परिभाषा और तत्व\n- कोई भी व्यक्ति जो हत्या करता है, वह मृत्युदंड, जीवन कारावास, और जुर्माने के लिए दंडित होग..."
+    },
+    {
+      "id": 17,
+      "query": "धारा 420 क्या कहती है?",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "420"
+      ],
+      "retrieved_sections": [
+        "420"
+      ],
+      "answer_sections": [
+        "8",
+        "420"
+      ],
+      "citation_coverage": 0.5,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately describes the elements of Section 420 and its punishment, but slightly paraphrases the original text.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The answer fully describes the elements of Section 420, but fails to provide detailed information about the scope of the punishment.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer is highly consistent with the retrieved context, but slightly rephrases the original text.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope and answers the question about Section 420 without claiming it is out of scope.",
+      "hallucinated_sections": [
+        "8"
+      ],
+      "has_hallucinations": true,
+      "answer_length": 728,
+      "retrieval_ms": 1638.5,
+      "generation_ms": 4163.6,
+      "total_ms": 5802.1,
+      "answer_text": "### धारा 420 का विवरण\n- धारा 420: धोखाधड़ी और सम्मान के साथ संपत्ति की डिलीवरी को प्रेरित करना।\n\n### धारा 420 के तत्व\n- कोई व्यक्ति जो धोखा देता है और जिससे सम्मान के साथ व्यक्ति को धोखा देता है किसी व्यक्ति को किसी संपत्ति को देने के लिए या किसी मूल्य की सुरक्षा को बनाने, बदलने या नष्ट करने के लिए या जो हस्ताक्षर या सील किया गया है और जो मूल्य की सुरक्षा में बदल सकता है, उसे किसी भी हिस्से को बनाने, बदलने या नष्ट करने के लिए।\n- यह धारा 8 - धोखाधड़ी और संपत्ति के निष्कर्षण के लिए एक भाग के तहत आती है।\n\n### दंड और दंड\n- कोई भी व्यक्ति जो धारा 420 का उल्लंघन करता है, उसे 7 वर्ष तक की कैद की सजा हो सकती है और उसे जुर्माना भी लगाया जा सकता है।\n\n### सीमाएँ\n- धारा 420 के तहत दंड के बारे में कोई विस्तृत जानकारी नहीं दी गई है।",
+      "answer_preview": "### धारा 420 का विवरण\n- धारा 420: धोखाधड़ी और सम्मान के साथ संपत्ति की डिलीवरी को प्रेरित करना।\n\n### धारा 420 के तत्व\n- कोई व्यक्ति जो धोखा देता है और जिससे सम्मान के साथ व्यक्ति को धोखा देता है किसी ..."
+    },
+    {
+      "id": 18,
+      "query": "धारा 379 आईपीसी समझाएं।",
+      "category": "hindi_section_lookup",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "379"
+      ],
+      "retrieved_sections": [
+        "379"
+      ],
+      "answer_sections": [
+        "379"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately describes the punishment for theft under Section 379 IPC without any contradictions.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The answer fully describes the punishment for theft, but fails to provide a detailed explanation of the elements of the crime.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer consistently aligns with and represents the retrieved IPC context without any inconsistencies.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope by providing a detailed explanation of Section 379 IPC without falsely claiming it is out of scope.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 469,
+      "retrieval_ms": 564.7,
+      "generation_ms": 4649.9,
+      "total_ms": 5214.6,
+      "answer_text": "### धारा 379 आईपीसी का विवरण\n- **धारा 379**: चोरी के लिए दंड (Punishment for theft)\n\n### चोरी की परिभाषा और तत्व\n- कोई भी व्यक्ति जो चोरी करता है, वह चोरी का अपराध करता है।\n\n### दंड और दंड के प्रकार\n- चोरी के अपराध के लिए दंड के रूप में कोई भी व्यक्ति को तीन वर्ष तक की कैद, या जुर्माना, या दोनों के लिए दंडित किया जा सकता है।\n\n### सीमाएं\n- धारा 379 केवल चोरी के अपराध के लिए दंड के बारे में बताती है, लेकिन चोरी के अपराध के तत्वों के बारे में विस्तार से नहीं बताती है।",
+      "answer_preview": "### धारा 379 आईपीसी का विवरण\n- **धारा 379**: चोरी के लिए दंड (Punishment for theft)\n\n### चोरी की परिभाषा और तत्व\n- कोई भी व्यक्ति जो चोरी करता है, वह चोरी का अपराध करता है।\n\n### दंड और दंड के प्रकार\n-..."
+    },
+    {
+      "id": 71,
+      "query": "चोरी की सजा क्या है आईपीसी में",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "379"
+      ],
+      "retrieved_sections": [
+        "379",
+        "1",
+        "448",
+        "2",
+        "381"
+      ],
+      "answer_sections": [
+        "379",
+        "381"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.4,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately describes the punishment for theft under Section 379 of the IPC.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, without any external filler or knowledge.",
+      "completeness": 0.8,
+      "completeness_evidence": "The answer fully resolves the user query, but fails to mention the specific circumstances under which the punishment may vary, as mentioned in Section 381.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer is highly consistent with the retrieved context, but incorrectly states that Section 379 does not cover other types of theft, when in fact it is a general provision for theft.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope, answering normally and avoiding falsely claiming it is out of scope.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 705,
+      "retrieval_ms": 7323.4,
+      "generation_ms": 921.5,
+      "total_ms": 8245.0,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 379**: चोरी के लिए दंड (Punishment for theft)\n\n### DEFINITION & ELEMENTS\n- चोरी का अपराध तब होता है जब कोई व्यक्ति किसी अन्य की संपत्ति को चोरी करता है।\n\n### PUNISHMENT & PENALTIES\n- चोरी के लिए दंड के रूप में कैद की अवधि तीन वर्ष तक हो सकती है, या जुर्माना, या दोनों।\n\n### CASE ANALYSIS\n- यदि कोई व्यक्ति किसी अन्य की संपत्ति को चोरी करता है, तो वह IPC की धारा 379 के तहत दंडित किया जा सकता है, जिसमें तीन वर्ष तक की कैद, जुर्माना, या दोनों हो सकते हैं।\n\n### LIMITATIONS\n- धारा 379 केवल चोरी के लिए दंड को संदर्भित करती है, लेकिन यह अन्य प्रकार की चोरी के लिए दंड को संदर्भित नहीं करती है, जैसे कि धारा 381 जो क्लर्क या सेवक द्वारा चोरी के लिए दंड को संदर्भित करती है।",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 379**: चोरी के लिए दंड (Punishment for theft)\n\n### DEFINITION & ELEMENTS\n- चोरी का अपराध तब होता है जब कोई व्यक्ति किसी अन्य की संपत्ति को चोरी करता है।\n\n### PUNISH..."
+    },
+    {
+      "id": 72,
+      "query": "हत्या की परिभाषा और सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "difficulty": "easy",
+      "language": "hi",
+      "expected_sections": [
+        "300",
+        "302"
+      ],
+      "retrieved_sections": [
+        "302",
+        "1",
+        "428",
+        "2",
+        "364"
+      ],
+      "answer_sections": [
+        "302"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 0.5,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.0,
+      "faithfulness_evidence": "Evaluation error: Connection error.",
+      "groundedness": 0.0,
+      "groundedness_evidence": "Evaluation error: Connection error.",
+      "completeness": 0.0,
+      "completeness_evidence": "Evaluation error: Connection error.",
+      "consistency": 0.0,
+      "consistency_evidence": "Evaluation error: Connection error.",
+      "scope_handling": 0.0,
+      "scope_handling_evidence": "Evaluation error: Connection error.",
+      "hallucinated_sections": [],
+      "has_hallucinations": true,
+      "answer_length": 620,
+      "retrieval_ms": 1326.0,
+      "generation_ms": 8009.1,
+      "total_ms": 9335.0,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 302**: हत्या के लिए दंड (Punishment for murder)\n\n### DEFINITION & ELEMENTS\n- हत्या को वह मृत्युदंड, जीवन कारावास, और जुर्माने से दंडनीय अपराध माना जाता है।\n- हत्या के लिए किसी व्यक्ति की मृत्यु होना आवश्यक है।\n\n### PUNISHMENT & PENALTIES\n- हत्या के लिए दंड मृत्युदंड, जीवन कारावास, और जुर्माने के रूप में हो सकता है।\n\n### CASE ANALYSIS\n- यदि कोई व्यक्ति हत्या का अपराध करता है, तो वह मृत्युदंड, जीवन कारावास, और जुर्माने के लिए दंडनीय होगा।\n\n### LIMITATIONS\n- यह संदर्भ केवल हत्या के लिए दंड को संदर्भित करता है और अन्य अपराधों के लिए जुर्माना या सजा के बारे में जानकारी नहीं देता है।",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 302**: हत्या के लिए दंड (Punishment for murder)\n\n### DEFINITION & ELEMENTS\n- हत्या को वह मृत्युदंड, जीवन कारावास, और जुर्माने से दंडनीय अपराध माना जाता है।\n- हत्या ..."
+    },
+    {
+      "id": 73,
+      "query": "दहेज हत्या क्या होती है और इसकी सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "error": "Retrieval failed: [Errno 11001] getaddrinfo failed"
+    },
+    {
+      "id": 81,
+      "query": "chori ki saja kya hoti hai aur kaun sa section lagta hai",
+      "category": "hinglish_queries",
+      "error": "Retrieval failed: [Errno 11001] getaddrinfo failed"
+    },
+    {
+      "id": 82,
+      "query": "murder ki saja kis section me di gayi hai",
+      "category": "hinglish_queries",
+      "error": "Retrieval failed: [Errno 11001] getaddrinfo failed"
+    },
+    {
+      "id": 83,
+      "query": "rape karne par kitne saal ki punishment milti hai",
+      "category": "hinglish_queries",
+      "difficulty": "easy",
+      "language": "mixed",
+      "expected_sections": [
+        "376"
+      ],
+      "retrieved_sections": [
+        "376",
+        "376A",
+        "376D",
+        "302",
+        "342"
+      ],
+      "answer_sections": [
+        "376A",
+        "376D",
+        "376"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.6,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately reflects the IPC sections related to rape and their corresponding punishments.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly derived from the retrieved IPC context, but includes some external definitions and explanations.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer partially resolves the user query by providing information on punishments, but fails to address other aspects of rape, such as consent and reporting procedures.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer consistently applies the IPC sections to different scenarios, demonstrating a clear understanding of the legal framework.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly handles the query's scope by providing relevant information on IPC sections related to rape and their punishments.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1713,
+      "retrieval_ms": 6096.3,
+      "generation_ms": 1308.9,
+      "total_ms": 7405.2,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 376**: Punishment for rape.\n- **Section 376A**: Punishment for causing death or resulting in persistent vegetative state of victim.\n- **Section 376AB**: Punishment for rape on woman under twelve years of age.\n- **Section 376D**: Gang rape.\n\n### DEFINITION & ELEMENTS\n- Rape karne ke liye, kisi vyakti ko kisi aurat par chheda hua hona jaroori hai.\n- Aurat ke sammanit hona jaroori hai.\n- Kisi vyakti ko apne vishwasamantre se kisi aurat par chheda hua hona jaroori hai.\n\n### PUNISHMENT & PENALTIES\n- **Section 376**: \n  - 10 saal se lekar jeevan bhar ki kathinai ki saza.\n  - Fine bhi lag sakta hai.\n- **Section 376A**: \n  - 20 saal se lekar jeevan bhar ki kathinai ki saza.\n  - Ya maut ki saza.\n- **Section 376AB**: \n  - 20 saal se lekar jeevan bhar ki kathinai ki saza.\n  - Ya maut ki saza.\n  - Fine bhi lag sakta hai, jo victim ki medical expenses aur rehabilitation ke liye upyogi hona chahiye.\n- **Section 376D**: \n  - 20 saal se lekar jeevan bhar ki kathinai ki saza.\n\n### CASE ANALYSIS\n- Agar koi vyakti rape karta hai, to uske liye 10 saal se lekar jeevan bhar ki kathinai ki saza lag sakta hai.\n- Agar rape ke dauran koi aurat ki mrityu hoti hai ya uska persistent vegetative state ho jata hai, to uske liye 20 saal se lekar jeevan bhar ki kathinai ki saza ya maut ki saza lag sakta hai.\n- Agar rape ki umar 12 varsh se kam hoti hai, to uske liye 20 saal se lekar jeevan bhar ki kathinai ki saza ya maut ki saza lag sakta hai.\n- Agar gang rape hota hai, to har vyakti ko 20 saal se lekar jeevan bhar ki kathinai ki saza lag sakta hai.\n\n### LIMITATIONS\n- Ye sazaen IPC ke anusaar hain, aur kisi bhi vyakti par lagane se pehle, unke case ko court mein sunwaya jana hoga.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 376**: Punishment for rape.\n- **Section 376A**: Punishment for causing death or resulting in persistent vegetative state of victim.\n- **Section 376AB**: Punishment ..."
+    },
+    {
+      "id": 91,
+      "query": "difference between theft and robbery",
+      "category": "multi_section_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "378",
+        "390"
+      ],
+      "retrieved_sections": [
+        "390",
+        "410",
+        "382",
+        "378",
+        "97"
+      ],
+      "answer_sections": [
+        "378",
+        "390"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.4,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately describes the definitions and elements of theft and robbery as per the retrieved IPC context.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly derived from the retrieved context, but it includes some external knowledge in the case analysis section.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer fully resolves the user query on the definitions and elements of theft and robbery, but it fails to provide specific punishment details for both crimes.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer consistently represents the retrieved context, accurately describing the key differences between theft and robbery.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope, providing relevant information on the IPC sections related to theft and robbery.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1731,
+      "retrieval_ms": 1803.4,
+      "generation_ms": 14098.9,
+      "total_ms": 15902.2,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 390**: Robbery.\n- **Section 378**: Theft.\n\n### DEFINITION & ELEMENTS\n- **Theft** (Section 378): Theft is committed when a person intends to take dishonestly any movable property out of the possession of any person without that person's consent, and moves that property in order to such taking.\n- **Robbery** (Section 390): Robbery is a type of theft that involves either theft or extortion. In the case of theft, it is robbery if the offender, for the purpose of committing the theft, voluntarily causes or attempts to cause death, hurt, or wrongful restraint, or fear of instant death or of instant hurt, or of instant wrongful restraint. In the case of extortion, it is robbery if the offender, at the time of committing the extortion, is in the presence of the person put in fear and commits the extortion by putting that person in fear of instant death, of instant hurt, or of instant wrongful restraint.\n\n### PUNISHMENT & PENALTIES\n- **Theft** (Section 378): No specific punishment is mentioned in this section.\n- **Robbery** (Section 390): No specific punishment is mentioned in this section.\n\n### CASE ANALYSIS\n- The key difference between theft and robbery is the presence of violence or intimidation. Theft involves the dishonest taking of property without consent, whereas robbery involves the use of violence or intimidation to take property.\n- If a person commits theft using violence or intimidation, it can be classified as robbery.\n\n### LIMITATIONS\n- The retrieved context does not contain specific punishment details for theft and robbery.\n- The context does not provide a clear distinction between the punishments for theft and robbery, as both sections lack punishment details.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 390**: Robbery.\n- **Section 378**: Theft.\n\n### DEFINITION & ELEMENTS\n- **Theft** (Section 378): Theft is committed when a person intends to take dishonestly any mov..."
+    },
+    {
+      "id": 92,
+      "query": "murder vs culpable homicide",
+      "category": "multi_section_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "299",
+        "300"
+      ],
+      "retrieved_sections": [
+        "301",
+        "304",
+        "299",
+        "308",
+        "300"
+      ],
+      "answer_sections": [
+        "300",
+        "308",
+        "304",
+        "299"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.8,
+      "faithfulness": 0.8,
+      "faithfulness_evidence": "The generated answer accurately describes the elements and punishment for culpable homicide, but fails to provide a clear distinction between murder and culpable homicide due to the absence of Section 300.",
+      "groundedness": 0.9,
+      "groundedness_evidence": "The generated answer is strictly grounded in the retrieved IPC context, with references to relevant sections and explanations.",
+      "completeness": 0.7,
+      "completeness_evidence": "The generated answer fully resolves the query on culpable homicide, but fails to provide a clear answer on the distinction between murder and culpable homicide due to the limitations of the retrieved context.",
+      "consistency": 0.8,
+      "consistency_evidence": "The generated answer is generally consistent with the retrieved IPC context, but contains some minor inconsistencies in the explanation of the distinction between murder and culpable homicide.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The generated answer correctly handles the scope of the query, providing relevant information on culpable homicide and acknowledging the limitations of the retrieved context.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 2963,
+      "retrieval_ms": 1561.7,
+      "generation_ms": 12427.1,
+      "total_ms": 13988.9,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 299**: Culpable homicide.\n- **Section 300**: Murder. (Note: Section 300 is not provided in the given context, but it is mentioned as a separate section in the IPC.)\n- **Section 304**: Punishment for culpable homicide not amounting to murder.\n- **Section 308**: Attempt to commit culpable homicide.\n\n### DEFINITION & ELEMENTS\n- Culpable homicide is committed when a person causes death by doing an act with the intention of causing death, or with the intention of causing such bodily injury as is likely to cause death, or with the knowledge that he is likely by such act to cause death. (Section 299)\n- Culpable homicide not amounting to murder is committed when the act is done with the intention of causing death, or of causing such bodily injury as is likely to cause death, or with the knowledge that it is likely to cause death, but without any intention to cause death. (Section 304)\n- Murder is not defined in the given context, but it is mentioned as a separate section in the IPC (Section 300).\n- Attempt to commit culpable homicide is committed when a person does any act with such intention or knowledge and under such circumstances that, if he by that act caused death, he would be guilty of culpable homicide not amounting to murder. (Section 308)\n\n### PUNISHMENT & PENALTIES\n- Culpable homicide: The punishment is not specified in the given context.\n- Culpable homicide not amounting to murder: The punishment is imprisonment for life, or imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine, if the act is done with the intention of causing death, or of causing such bodily injury as is likely to cause death. (Section 304)\n- Attempt to commit culpable homicide: The punishment is imprisonment of either description for a term which may extend to three years, or with fine, or with both; and, if hurt is caused to any person by such act, shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both. (Section 308)\n\n### CASE ANALYSIS\n- If a person causes death with the intention of causing death, or with the intention of causing such bodily injury as is likely to cause death, or with the knowledge that he is likely by such act to cause death, they may be guilty of culpable homicide.\n- If the act is done with the intention of causing death, or of causing such bodily injury as is likely to cause death, or with the knowledge that it is likely to cause death, but without any intention to cause death, it may be culpable homicide not amounting to murder.\n- The distinction between murder and culpable homicide is not clear from the given context, as Section 300 is not provided.\n\n### LIMITATIONS\n- The retrieved context does not contain the definition and punishment for murder (Section 300).\n- The distinction between murder and culpable homicide is not clear from the given context.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 299**: Culpable homicide.\n- **Section 300**: Murder. (Note: Section 300 is not provided in the given context, but it is mentioned as a separate section in the IPC.)..."
+    },
+    {
+      "id": 93,
+      "query": "difference between criminal misappropriation and criminal breach of trust",
+      "category": "multi_section_queries",
+      "difficulty": "medium",
+      "language": "en",
+      "expected_sections": [
+        "403",
+        "405"
+      ],
+      "retrieved_sections": [
+        "406",
+        "408",
+        "407",
+        "410",
+        "409"
+      ],
+      "answer_sections": [
+        "408",
+        "409",
+        "406",
+        "407",
+        "410"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 0.0,
+      "retrieved_section_usage": 1.0,
+      "faithfulness": 0.8,
+      "faithfulness_evidence": "The generated answer accurately describes the key difference between criminal breach of trust and criminal misappropriation, but does not explicitly define criminal misappropriation in the IPC context.",
+      "groundedness": 0.9,
+      "groundedness_evidence": "The answer is strictly grounded in the retrieved IPC context, with references to relevant sections and definitions.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer partially resolves the user query, but fails to provide a clear definition of criminal misappropriation and its corresponding punishment.",
+      "consistency": 0.8,
+      "consistency_evidence": "The answer is generally consistent with the retrieved IPC context, but contains some minor inconsistencies in the explanation of criminal misappropriation.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly handles the query's scope, providing relevant information on the IPC sections related to criminal breach of trust and criminal misappropriation.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1939,
+      "retrieval_ms": 2255.1,
+      "generation_ms": 7042.1,
+      "total_ms": 9297.2,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 406**: Punishment for criminal breach of trust.\n- **Section 408**: Criminal breach of trust by clerk or servant.\n- **Section 407**: Criminal breach of trust by carrier, etc.\n- **Section 409**: Criminal breach of trust by public servant, or by banker, merchant or agent.\n- **Section 410**: Stolen property.\n\n### DEFINITION & ELEMENTS\n- **Criminal Breach of Trust**: Refers to the act of a person entrusted with property or dominion over property, who commits a breach of trust in respect of that property. This involves a breach of the trust reposed in the person, and not necessarily the theft or misappropriation of the property.\n- **Criminal Misappropriation**: Not explicitly defined in the provided IPC context. However, it can be inferred that it involves the act of misappropriating or converting property to one's own use, without necessarily breaching the trust reposed in the person.\n- **Key difference**: Criminal breach of trust involves a breach of trust, whereas criminal misappropriation involves the act of misappropriating or converting property to one's own use.\n\n### PUNISHMENT & PENALTIES\n- **Criminal Breach of Trust**:\n  - Section 406: Imprisonment for up to 3 years, or fine, or both.\n  - Section 408: Imprisonment for up to 7 years, and fine.\n  - Section 407: Imprisonment for up to 7 years, and fine.\n  - Section 409: Imprisonment for life, or up to 10 years, and fine.\n\n### CASE ANALYSIS\n- In a scenario where a person is entrusted with property and misappropriates it, but does not breach the trust reposed in them, the offense would be considered criminal misappropriation (if defined in the context). However, if the person breaches the trust reposed in them, the offense would be considered criminal breach of trust.\n\n### LIMITATIONS\n- The IPC context does not explicitly define criminal misappropriation, making it difficult to distinguish it from criminal breach of trust.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 406**: Punishment for criminal breach of trust.\n- **Section 408**: Criminal breach of trust by clerk or servant.\n- **Section 407**: Criminal breach of trust by carr..."
+    },
+    {
+      "id": 111,
+      "query": "How to file income tax return in India online?",
+      "category": "negative_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [],
+      "retrieved_sections": [
+        "4",
+        "236",
+        "3",
+        "153B",
+        "175"
+      ],
+      "answer_sections": [],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.0,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately states that the query falls outside the scope of the IPC database and provides a correct explanation for the out-of-scope notice.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly grounded in the context, referencing the IPC database and providing a clear explanation for the out-of-scope notice.",
+      "completeness": 1.0,
+      "completeness_evidence": "The answer fully resolves the user query by clearly stating that the query falls outside the scope of the IPC database and providing a correct explanation for the out-of-scope notice.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer is highly consistent with the retrieved context, accurately identifying the query as out-of-scope and providing a correct explanation.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope by identifying it as out-of-scope and providing a polite explanation, rather than attempting to answer the query or falsely claiming it is in-scope.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 343,
+      "retrieval_ms": 2130.6,
+      "generation_ms": 9794.5,
+      "total_ms": 11925.1,
+      "answer_text": "### OUT OF SCOPE NOTICE\nThis query falls outside the scope of the Indian Penal Code (IPC) database.\n\n### EXPLANATION\nI can only assist with criminal offenses and punishments defined under the IPC. For income tax returns, please refer to the Income Tax Department's official website or portal for guidelines on filing income tax returns online.",
+      "answer_preview": "### OUT OF SCOPE NOTICE\nThis query falls outside the scope of the Indian Penal Code (IPC) database.\n\n### EXPLANATION\nI can only assist with criminal offenses and punishments defined under the IPC. For..."
+    },
+    {
+      "id": 112,
+      "query": "Steps for GST registration for a new software company",
+      "category": "negative_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [],
+      "retrieved_sections": [
+        "405",
+        "75",
+        "511",
+        "175",
+        "173"
+      ],
+      "answer_sections": [
+        "405"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 0.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.8,
+      "faithfulness_evidence": "The answer correctly identifies the query as out of scope and provides a relevant explanation, but does not fully answer the query about GST registration.",
+      "groundedness": 0.9,
+      "groundedness_evidence": "The answer is strictly grounded in the context, but includes a hypothetical example that is not directly supported by the context.",
+      "completeness": 0.4,
+      "completeness_evidence": "The answer does not fully resolve the user query about GST registration for a new software company, but provides a recommendation to consult the official GST Portal or CBIC website.",
+      "consistency": 0.8,
+      "consistency_evidence": "The answer is generally consistent with the context, but includes a hypothetical example that may not be directly relevant to the query.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly identifies the query as out of scope and provides a polite explanation, including a recommendation to consult the official GST Portal or CBIC website.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 923,
+      "retrieval_ms": 2109.8,
+      "generation_ms": 11044.2,
+      "total_ms": 13154.0,
+      "answer_text": "### OUT OF SCOPE NOTICE\nThis query falls outside the scope of the Indian Penal Code (IPC) database.\n\n### EXPLANATION\nI can only assist with criminal offenses and punishments defined under the IPC. For GST registration, please refer to the GST Portal or the official website of the Central Board of Indirect Taxes and Customs (CBIC) for the latest guidelines and procedures.\n\nHowever, if you would like to know how the IPC context might relate to a scenario involving GST, I can provide a hypothetical example. For instance, if a person were to dishonestly misappropriate or convert to their own use GST funds entrusted to them, they might be committing a \"criminal breach of trust\" under Section 405 of the IPC.\n\nBut to answer your specific question about GST registration for a new software company, I would recommend consulting the official GST Portal or the CBIC website for the most accurate and up-to-date information.",
+      "answer_preview": "### OUT OF SCOPE NOTICE\nThis query falls outside the scope of the Indian Penal Code (IPC) database.\n\n### EXPLANATION\nI can only assist with criminal offenses and punishments defined under the IPC. For..."
+    },
+    {
+      "id": 113,
+      "query": "Is jaywalking a crime in India and what is the fine?",
+      "category": "negative_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [],
+      "retrieved_sections": [
+        "283",
+        "244",
+        "290",
+        "212",
+        "154"
+      ],
+      "answer_sections": [
+        "283"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 0.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.8,
+      "faithfulness_evidence": "The generated answer correctly cites Section 283 and explains its relevance to jaywalking, but does not fully address the limitations of the context.",
+      "groundedness": 0.9,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, with minimal external knowledge or filler.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer partially resolves the user query, but fails to address the specific circumstances under which jaywalking would be considered a crime.",
+      "consistency": 0.8,
+      "consistency_evidence": "The answer is generally consistent with the retrieved context, but may be open to interpretation in certain circumstances.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope, answering the question about jaywalking in India without falsely claiming it is out of scope.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 1151,
+      "retrieval_ms": 1957.7,
+      "generation_ms": 12181.5,
+      "total_ms": 14139.2,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 283**: Danger or obstruction in public way or line of navigation.\n\n### DEFINITION & ELEMENTS\n- The offense occurs when a person causes danger, obstruction, or injury to any person in any public way or public line of navigation.\n- The act can be either doing something or omitting to take order with any property in one's possession or under one's charge.\n\n### PUNISHMENT & PENALTIES\n- The punishment is a fine which may extend to two hundred rupees.\n\n### CASE ANALYSIS\n- Jaywalking can be considered a form of obstruction in a public way, as it involves pedestrians walking in a manner that may cause danger or obstruction to others.\n- Therefore, under Section 283, a person found guilty of jaywalking could be liable for a fine of up to two hundred rupees.\n\n### LIMITATIONS\n- The context does not specify the specific circumstances under which jaywalking would be considered a crime, or any additional factors that might affect the punishment.\n- It is worth noting that while Section 283 provides a general framework for punishing obstruction in public ways, it may not be the only relevant provision in all cases.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 283**: Danger or obstruction in public way or line of navigation.\n\n### DEFINITION & ELEMENTS\n- The offense occurs when a person causes danger, obstruction, or injur..."
+    },
+    {
+      "id": 26,
+      "query": "What is the punishment for theft under IPC?",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "379"
+      ],
+      "retrieved_sections": [
+        "379",
+        "410",
+        "215",
+        "412",
+        "382"
+      ],
+      "answer_sections": [
+        "379"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately states the punishment for theft as imprisonment of either description for a term which may extend to three years, or with fine, or with both, as per Section 379.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly derived from the context, but it includes some external knowledge in the definition and elements section.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer fully answers the query about the punishment for theft, but it does not address other related aspects like the definition of theft or the consequences of receiving stolen property.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer consistently refers to the relevant provisions and sections of the IPC, and accurately states the punishment for theft.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly handles the query's scope and provides a clear and concise answer related to the punishment for theft under IPC.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 574,
+      "retrieval_ms": 2367.5,
+      "generation_ms": 8589.1,
+      "total_ms": 10956.6,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 379**: Punishment for theft.\n\n### DEFINITION & ELEMENTS\n- Theft is committed by anyone who takes someone else's property without their consent.\n\n### PUNISHMENT & PENALTIES\n- The punishment for theft is:\n  - Imprisonment of either description for a term which may extend to three years.\n  - Fine.\n  - Both imprisonment and fine.\n\n### CASE ANALYSIS\n- Based on the provided context, if someone commits theft, they will be punished according to Section 379.\n\n### LIMITATIONS\n- No limitations were found in the context related to the question.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 379**: Punishment for theft.\n\n### DEFINITION & ELEMENTS\n- Theft is committed by anyone who takes someone else's property without their consent.\n\n### PUNISHMENT & PE..."
+    },
+    {
+      "id": 27,
+      "query": "What is the penalty for murder?",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "302"
+      ],
+      "retrieved_sections": [
+        "304",
+        "308",
+        "302",
+        "299",
+        "301"
+      ],
+      "answer_sections": [
+        "302"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.2,
+      "faithfulness": 1.0,
+      "faithfulness_evidence": "The generated answer accurately reflects the penalty for murder as per Section 302 of the IPC.",
+      "groundedness": 1.0,
+      "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, specifically Section 302.",
+      "completeness": 1.0,
+      "completeness_evidence": "The answer fully resolves the user query by providing the definition, elements, punishment, and penalties for murder.",
+      "consistency": 1.0,
+      "consistency_evidence": "The answer is highly consistent with the retrieved context, accurately representing the provisions and penalties for murder.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The assistant correctly handles the query's scope, providing a clear and accurate answer within the context of the IPC.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 599,
+      "retrieval_ms": 2221.2,
+      "generation_ms": 10921.0,
+      "total_ms": 13142.2,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 302**: Punishment for murder.\n\n### DEFINITION & ELEMENTS\n- The offense of murder is committed by causing death with the intention of doing so.\n\n### PUNISHMENT & PENALTIES\n- The punishment for murder is:\n  - Death\n  - Imprisonment for life\n  - Liability to fine\n\n### CASE ANALYSIS\n- Based on the provided context, the penalty for murder is death, imprisonment for life, and a fine. This is applicable when a person intentionally causes the death of another.\n\n### LIMITATIONS\n- None. The context provides a clear definition and punishment for the offense of murder.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 302**: Punishment for murder.\n\n### DEFINITION & ELEMENTS\n- The offense of murder is committed by causing death with the intention of doing so.\n\n### PUNISHMENT & PEN..."
+    },
+    {
+      "id": 28,
+      "query": "State the punishment for abetment of suicide.",
+      "category": "punishment_queries",
+      "difficulty": "easy",
+      "language": "en",
+      "expected_sections": [
+        "306"
+      ],
+      "retrieved_sections": [
+        "306",
+        "305",
+        "115",
+        "309",
+        "109"
+      ],
+      "answer_sections": [
+        "306",
+        "305",
+        "109",
+        "115"
+      ],
+      "citation_coverage": 1.0,
+      "expected_section_coverage": 1.0,
+      "retrieved_section_usage": 0.8,
+      "faithfulness": 0.9,
+      "faithfulness_evidence": "The generated answer accurately cites relevant IPC sections and provides a detailed analysis of the punishment for abetment of suicide.",
+      "groundedness": 0.8,
+      "groundedness_evidence": "The answer is mostly grounded in the retrieved IPC context, but it also includes some external knowledge and analysis that is not strictly derived from the context.",
+      "completeness": 0.7,
+      "completeness_evidence": "The answer fully resolves the user query, but it also raises some limitations and uncertainties that are not fully addressed in the context.",
+      "consistency": 0.9,
+      "consistency_evidence": "The answer is highly consistent with the retrieved IPC context, accurately citing relevant sections and providing a clear analysis of the punishment for abetment of suicide.",
+      "scope_handling": 1.0,
+      "scope_handling_evidence": "The answer correctly handles the query's scope, providing a detailed analysis of the punishment for abetment of suicide and accurately citing relevant IPC sections.",
+      "hallucinated_sections": [],
+      "has_hallucinations": false,
+      "answer_length": 2479,
+      "retrieval_ms": 2087.6,
+      "generation_ms": 8712.7,
+      "total_ms": 10800.3,
+      "answer_text": "### RELEVANT PROVISIONS\n- **Section 306**: Abetment of suicide.—\n- **Section 305**: Abetment of suicide of child or insane person.—\n- **Section 109**: Punishment of abetment if the act abetted is committed in consequence and where no express provision is made for its punishment.—\n- **Section 115**: Abetment of offence punishable with death or imprisonment for life—if offence not committed.— (for general abetment)\n\n### DEFINITION & ELEMENTS\n- Abetment of suicide involves encouraging or inducing someone to commit suicide.\n- The abettor's intention and knowledge of the suicide are crucial elements.\n\n### PUNISHMENT & PENALTIES\n- **Section 306**: If any person commits suicide, whoever abets the commission of such suicide, shall be punished with imprisonment of either description for a term which may extend to **ten years**, and shall also be liable to fine.\n- **Section 305**: Whoever abets the commission of such suicide, shall be punished with **death or imprisonment for life, or imprisonment for a term not exceeding ten years**, and shall also be liable to fine. (for abetment of suicide of child or insane person)\n- **Section 109**: The punishment for abetment is the same as the punishment for the committed offence (in this case, suicide).\n- **Section 115**: If the offence is not committed, the abettor shall be punished with imprisonment of either description for a term which may extend to **seven years**, and shall also be liable to fine. If any act causing harm is done in consequence, the abettor shall be liable to imprisonment of either description for a term which may extend to **fourteen years**, and shall also be liable to fine.\n\n### CASE ANALYSIS\nThe punishment for abetment of suicide depends on the circumstances. If the suicide is committed, the abettor shall be punished under Section 306 with imprisonment for up to ten years and fine. If the suicide is of a child or insane person, the abettor shall be punished under Section 305 with death or imprisonment for life, or imprisonment for up to ten years, and fine. If the offence is not committed, the abettor shall be punished under Section 115 with imprisonment for up to seven years and fine, or up to fourteen years and fine if harm is caused in consequence.\n\n### LIMITATIONS\n- The context does not specify the punishment for abetment of suicide if the abettor is a minor or insane.\n- The context does not provide specific guidelines for determining the intent and knowledge of the abettor.",
+      "answer_preview": "### RELEVANT PROVISIONS\n- **Section 306**: Abetment of suicide.—\n- **Section 305**: Abetment of suicide of child or insane person.—\n- **Section 109**: Punishment of abetment if the act abetted is comm..."
+    }
+  ]
+}

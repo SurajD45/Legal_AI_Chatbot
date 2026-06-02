@@ -1,0 +1,1972 @@
+[
+  {
+    "id": 1,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is Section 302 of the IPC?",
+    "expected_sections": [
+      "302"
+    ],
+    "primary_sections": [
+      "302"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries directly for the punishment of murder."
+  },
+  {
+    "id": 2,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Explain IPC Section 420.",
+    "expected_sections": [
+      "420"
+    ],
+    "primary_sections": [
+      "420"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for cheating and dishonestly inducing delivery of property."
+  },
+  {
+    "id": 3,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What does Section 379 IPC state?",
+    "expected_sections": [
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for the punishment for theft."
+  },
+  {
+    "id": 4,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Define Section 300 of the Indian Penal Code.",
+    "expected_sections": [
+      "300"
+    ],
+    "primary_sections": [
+      "300"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for the definition of murder."
+  },
+  {
+    "id": 5,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is Section 498A about?",
+    "expected_sections": [
+      "498A"
+    ],
+    "primary_sections": [
+      "498A"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for harassment/cruelty to a woman by husband or his relatives."
+  },
+  {
+    "id": 6,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Tell me about Section 304A IPC.",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for causing death by negligence (e.g., hit and run, medical negligence)."
+  },
+  {
+    "id": 7,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is Section 376 under IPC?",
+    "expected_sections": [
+      "376"
+    ],
+    "primary_sections": [
+      "376"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for punishment for rape."
+  },
+  {
+    "id": 8,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Explain Section 120B of the IPC.",
+    "expected_sections": [
+      "120B"
+    ],
+    "primary_sections": [
+      "120B"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for punishment of criminal conspiracy."
+  },
+  {
+    "id": 9,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What does Section 506 IPC cover?",
+    "expected_sections": [
+      "506"
+    ],
+    "primary_sections": [
+      "506"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for punishment for criminal intimidation."
+  },
+  {
+    "id": 10,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Can you explain IPC Section 307?",
+    "expected_sections": [
+      "307"
+    ],
+    "primary_sections": [
+      "307"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for attempt to murder."
+  },
+  {
+    "id": 11,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Detail Section 323 of Indian Penal Code.",
+    "expected_sections": [
+      "323"
+    ],
+    "primary_sections": [
+      "323"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for punishment for voluntarily causing hurt."
+  },
+  {
+    "id": 12,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is Section 392 of IPC?",
+    "expected_sections": [
+      "392"
+    ],
+    "primary_sections": [
+      "392"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for punishment for robbery."
+  },
+  {
+    "id": 13,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Define Section 354 under IPC.",
+    "expected_sections": [
+      "354"
+    ],
+    "primary_sections": [
+      "354"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for assault or criminal force to woman with intent to outrage her modesty."
+  },
+  {
+    "id": 14,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Explain IPC Section 384.",
+    "expected_sections": [
+      "384"
+    ],
+    "primary_sections": [
+      "384"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for punishment for extortion."
+  },
+  {
+    "id": 15,
+    "category": "exact_section_lookup",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is Section 509 IPC?",
+    "expected_sections": [
+      "509"
+    ],
+    "primary_sections": [
+      "509"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for word, gesture or act intended to insult the modesty of a woman."
+  },
+  {
+    "id": 16,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "धारा 302 क्या है?",
+    "expected_sections": [
+      "302"
+    ],
+    "primary_sections": [
+      "302"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 302 in Hindi."
+  },
+  {
+    "id": 17,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "धारा 420 क्या कहती है?",
+    "expected_sections": [
+      "420"
+    ],
+    "primary_sections": [
+      "420"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 420 in Hindi."
+  },
+  {
+    "id": 18,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "धारा 379 आईपीसी समझाएं।",
+    "expected_sections": [
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 379 in Hindi."
+  },
+  {
+    "id": 19,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "आईपीसी की धारा 498A के बारे में बताएं।",
+    "expected_sections": [
+      "498A"
+    ],
+    "primary_sections": [
+      "498A"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 498A in Hindi."
+  },
+  {
+    "id": 20,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "धारा 304A क्या होती है?",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 304A in Hindi."
+  },
+  {
+    "id": 21,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "आईपीसी धारा 307 क्या है?",
+    "expected_sections": [
+      "307"
+    ],
+    "primary_sections": [
+      "307"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 307 in Hindi."
+  },
+  {
+    "id": 22,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "धारा 354 आईपीसी के नियम क्या हैं?",
+    "expected_sections": [
+      "354"
+    ],
+    "primary_sections": [
+      "354"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 354 in Hindi."
+  },
+  {
+    "id": 23,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "आईपीसी की धारा 120B समझाओ।",
+    "expected_sections": [
+      "120B"
+    ],
+    "primary_sections": [
+      "120B"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 120B in Hindi."
+  },
+  {
+    "id": 24,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "धारा 506 के तहत क्या अपराध आता है?",
+    "expected_sections": [
+      "506"
+    ],
+    "primary_sections": [
+      "506"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 506 in Hindi."
+  },
+  {
+    "id": 25,
+    "category": "hindi_section_lookup",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "आईपीसी की धारा 376 का मतलब क्या है?",
+    "expected_sections": [
+      "376"
+    ],
+    "primary_sections": [
+      "376"
+    ],
+    "secondary_sections": [],
+    "notes": "Queries for Section 376 in Hindi."
+  },
+  {
+    "id": 26,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is the punishment for theft under IPC?",
+    "expected_sections": [
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [
+      "378"
+    ],
+    "notes": "Theft is defined in 378, but the punishment is under 379."
+  },
+  {
+    "id": 27,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is the penalty for murder?",
+    "expected_sections": [
+      "302"
+    ],
+    "primary_sections": [
+      "302"
+    ],
+    "secondary_sections": [
+      "300"
+    ],
+    "notes": "Murder is defined in 300, but the punishment is under 302."
+  },
+  {
+    "id": 28,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "State the punishment for abetment of suicide.",
+    "expected_sections": [
+      "306"
+    ],
+    "primary_sections": [
+      "306"
+    ],
+    "secondary_sections": [],
+    "notes": "Section 306 defines the punishment for abetment of suicide."
+  },
+  {
+    "id": 29,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is the punishment for cheating under Section 417?",
+    "expected_sections": [
+      "417"
+    ],
+    "primary_sections": [
+      "417"
+    ],
+    "secondary_sections": [
+      "415"
+    ],
+    "notes": "Cheating defined in 415, punished under 417."
+  },
+  {
+    "id": 30,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is the punishment for robbery under the IPC?",
+    "expected_sections": [
+      "392"
+    ],
+    "primary_sections": [
+      "392"
+    ],
+    "secondary_sections": [
+      "390"
+    ],
+    "notes": "Robbery defined in 390, punished under 392."
+  },
+  {
+    "id": 31,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is the sentence for dacoity?",
+    "expected_sections": [
+      "395"
+    ],
+    "primary_sections": [
+      "395"
+    ],
+    "secondary_sections": [
+      "391"
+    ],
+    "notes": "Dacoity defined in 391, punished under 395."
+  },
+  {
+    "id": 32,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "State the punishment for criminal breach of trust.",
+    "expected_sections": [
+      "406"
+    ],
+    "primary_sections": [
+      "406"
+    ],
+    "secondary_sections": [
+      "405"
+    ],
+    "notes": "Criminal breach of trust defined in 405, punished in 406."
+  },
+  {
+    "id": 33,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What are the penalties for defamation?",
+    "expected_sections": [
+      "500"
+    ],
+    "primary_sections": [
+      "500"
+    ],
+    "secondary_sections": [
+      "499"
+    ],
+    "notes": "Defamation defined in 499, punished in 500."
+  },
+  {
+    "id": 34,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is the punishment for wrongful confinement?",
+    "expected_sections": [
+      "342"
+    ],
+    "primary_sections": [
+      "342"
+    ],
+    "secondary_sections": [
+      "340"
+    ],
+    "notes": "Confinement defined in 340, punished in 342."
+  },
+  {
+    "id": 35,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is the punishment for public nuisance?",
+    "expected_sections": [
+      "290"
+    ],
+    "primary_sections": [
+      "290"
+    ],
+    "secondary_sections": [
+      "268"
+    ],
+    "notes": "Nuisance defined in 268, punished in 290."
+  },
+  {
+    "id": 36,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "Sentence for unlawful assembly participation.",
+    "expected_sections": [
+      "143"
+    ],
+    "primary_sections": [
+      "143"
+    ],
+    "secondary_sections": [
+      "141"
+    ],
+    "notes": "Unlawful assembly defined in 141, punished in 143."
+  },
+  {
+    "id": 37,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "What is the punishment for causing death by negligence?",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Negligent death is covered under Section 304A."
+  },
+  {
+    "id": 38,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "What is the punishment for kidnapping for ransom?",
+    "expected_sections": [
+      "364A"
+    ],
+    "primary_sections": [
+      "364A"
+    ],
+    "secondary_sections": [
+      "359",
+      "362"
+    ],
+    "notes": "Kidnapping for ransom is punished under 364A."
+  },
+  {
+    "id": 39,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "Penalty for abetting suicide of a child or insane person.",
+    "expected_sections": [
+      "305"
+    ],
+    "primary_sections": [
+      "305"
+    ],
+    "secondary_sections": [],
+    "notes": "Abetment of child's suicide is punished under 305."
+  },
+  {
+    "id": 40,
+    "category": "punishment_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "What is the punishment for committing dacoity with murder?",
+    "expected_sections": [
+      "396"
+    ],
+    "primary_sections": [
+      "396"
+    ],
+    "secondary_sections": [],
+    "notes": "Dacoity with murder is governed by Section 396."
+  },
+  {
+    "id": 41,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Define the offense of theft under IPC.",
+    "expected_sections": [
+      "378"
+    ],
+    "primary_sections": [
+      "378"
+    ],
+    "secondary_sections": [
+      "379"
+    ],
+    "notes": "Theft definition is under Section 378."
+  },
+  {
+    "id": 42,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is murder under the IPC?",
+    "expected_sections": [
+      "300"
+    ],
+    "primary_sections": [
+      "300"
+    ],
+    "secondary_sections": [
+      "302"
+    ],
+    "notes": "Murder definition is under Section 300."
+  },
+  {
+    "id": 43,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Explain what is extortion under IPC.",
+    "expected_sections": [
+      "383"
+    ],
+    "primary_sections": [
+      "383"
+    ],
+    "secondary_sections": [
+      "384"
+    ],
+    "notes": "Extortion definition is under Section 383."
+  },
+  {
+    "id": 44,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "What is cheating defined as in IPC?",
+    "expected_sections": [
+      "415"
+    ],
+    "primary_sections": [
+      "415"
+    ],
+    "secondary_sections": [
+      "417",
+      "420"
+    ],
+    "notes": "Cheating definition is under Section 415."
+  },
+  {
+    "id": 45,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "Define culpable homicide.",
+    "expected_sections": [
+      "299"
+    ],
+    "primary_sections": [
+      "299"
+    ],
+    "secondary_sections": [
+      "304"
+    ],
+    "notes": "Culpable homicide definition is under Section 299."
+  },
+  {
+    "id": 46,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is the legal definition of robbery?",
+    "expected_sections": [
+      "390"
+    ],
+    "primary_sections": [
+      "390"
+    ],
+    "secondary_sections": [
+      "392"
+    ],
+    "notes": "Robbery definition is under Section 390."
+  },
+  {
+    "id": 47,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What constitutes dacoity under IPC?",
+    "expected_sections": [
+      "391"
+    ],
+    "primary_sections": [
+      "391"
+    ],
+    "secondary_sections": [
+      "395"
+    ],
+    "notes": "Dacoity definition is under Section 391."
+  },
+  {
+    "id": 48,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is criminal conspiracy defined as?",
+    "expected_sections": [
+      "120A"
+    ],
+    "primary_sections": [
+      "120A"
+    ],
+    "secondary_sections": [
+      "120B"
+    ],
+    "notes": "Criminal conspiracy definition is under Section 120A."
+  },
+  {
+    "id": 49,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "Define criminal breach of trust.",
+    "expected_sections": [
+      "405"
+    ],
+    "primary_sections": [
+      "405"
+    ],
+    "secondary_sections": [
+      "406"
+    ],
+    "notes": "Criminal breach of trust definition is under Section 405."
+  },
+  {
+    "id": 50,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "What is unlawful assembly under the IPC?",
+    "expected_sections": [
+      "141"
+    ],
+    "primary_sections": [
+      "141"
+    ],
+    "secondary_sections": [
+      "143"
+    ],
+    "notes": "Unlawful assembly definition is under Section 141."
+  },
+  {
+    "id": 51,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "Define defamation according to Indian law.",
+    "expected_sections": [
+      "499"
+    ],
+    "primary_sections": [
+      "499"
+    ],
+    "secondary_sections": [
+      "500"
+    ],
+    "notes": "Defamation definition is under Section 499."
+  },
+  {
+    "id": 52,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "Define criminal intimidation.",
+    "expected_sections": [
+      "503"
+    ],
+    "primary_sections": [
+      "503"
+    ],
+    "secondary_sections": [
+      "506"
+    ],
+    "notes": "Criminal intimidation definition is under Section 503."
+  },
+  {
+    "id": 53,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "What constitutes public nuisance?",
+    "expected_sections": [
+      "268"
+    ],
+    "primary_sections": [
+      "268"
+    ],
+    "secondary_sections": [
+      "290"
+    ],
+    "notes": "Public nuisance definition is under Section 268."
+  },
+  {
+    "id": 54,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "Define the concept of private defense.",
+    "expected_sections": [
+      "96"
+    ],
+    "primary_sections": [
+      "96"
+    ],
+    "secondary_sections": [
+      "97",
+      "98",
+      "99",
+      "100"
+    ],
+    "notes": "Things done in private defense are defined starting from Section 96."
+  },
+  {
+    "id": 55,
+    "category": "definition_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "What is the definition of grievance hurt / grievous hurt?",
+    "expected_sections": [
+      "320"
+    ],
+    "primary_sections": [
+      "320"
+    ],
+    "secondary_sections": [
+      "322",
+      "325"
+    ],
+    "notes": "Grievous hurt is defined under Section 320."
+  },
+  {
+    "id": 56,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "laws against cheating and fraud in commercial deals",
+    "expected_sections": [
+      "420"
+    ],
+    "primary_sections": [
+      "420"
+    ],
+    "secondary_sections": [
+      "415",
+      "417"
+    ],
+    "notes": "Semantic concepts mapping to fraud and cheating."
+  },
+  {
+    "id": 57,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "legal provisions regarding kidnapping a child",
+    "expected_sections": [
+      "363"
+    ],
+    "primary_sections": [
+      "363"
+    ],
+    "secondary_sections": [
+      "359",
+      "361"
+    ],
+    "notes": "Kidnapping from lawful guardianship is governed by Section 361/363."
+  },
+  {
+    "id": 58,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "what offense is committed if you drive a car very fast and hit someone to death",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Covers hit and run / causing death by negligence under 304A."
+  },
+  {
+    "id": 59,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "laws related to public health and making noise or polluting the neighborhood",
+    "expected_sections": [
+      "268",
+      "290"
+    ],
+    "primary_sections": [
+      "268"
+    ],
+    "secondary_sections": [
+      "290"
+    ],
+    "notes": "Public nuisance laws."
+  },
+  {
+    "id": 60,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "husband and mother-in-law torturing wife for money or gold",
+    "expected_sections": [
+      "498A"
+    ],
+    "primary_sections": [
+      "498A"
+    ],
+    "secondary_sections": [
+      "304B"
+    ],
+    "notes": "Subjecting married woman to cruelty for dowry demands."
+  },
+  {
+    "id": 61,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "legal options if someone threatens to release my private pictures if I don't give them money",
+    "expected_sections": [
+      "383",
+      "384"
+    ],
+    "primary_sections": [
+      "383"
+    ],
+    "secondary_sections": [
+      "384"
+    ],
+    "notes": "Threats to reputation to obtain property is extortion."
+  },
+  {
+    "id": 62,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "what is the offense if five people break into a shop at night with guns and steal money",
+    "expected_sections": [
+      "391",
+      "395"
+    ],
+    "primary_sections": [
+      "391"
+    ],
+    "secondary_sections": [
+      "395"
+    ],
+    "notes": "Dacoity involves five or more people committing robbery."
+  },
+  {
+    "id": 63,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "what happens if a servant steals jewelry from the master's locker",
+    "expected_sections": [
+      "381"
+    ],
+    "primary_sections": [
+      "381"
+    ],
+    "secondary_sections": [
+      "378"
+    ],
+    "notes": "Theft by clerk or servant."
+  },
+  {
+    "id": 64,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "what offense is it if an officer demands money to process a government file",
+    "expected_sections": [
+      "161"
+    ],
+    "primary_sections": [
+      "161"
+    ],
+    "secondary_sections": [],
+    "notes": "Section 161 (historical public servant bribery, now under Prevention of Corruption Act, but historically in IPC)."
+  },
+  {
+    "id": 65,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "laws regarding insulting a woman's modesty in public places",
+    "expected_sections": [
+      "509"
+    ],
+    "primary_sections": [
+      "509"
+    ],
+    "secondary_sections": [
+      "354"
+    ],
+    "notes": "Section 509 specifically covers words, gestures or acts insulting modesty."
+  },
+  {
+    "id": 66,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+    "expected_sections": [
+      "96",
+      "97"
+    ],
+    "primary_sections": [
+      "96"
+    ],
+    "secondary_sections": [
+      "97",
+      "99",
+      "100"
+    ],
+    "notes": "Governed by laws of private defense."
+  },
+  {
+    "id": 67,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "what is it called when two or more people plan together in a hotel room to commit a bank robbery",
+    "expected_sections": [
+      "120A",
+      "120B"
+    ],
+    "primary_sections": [
+      "120A"
+    ],
+    "secondary_sections": [
+      "120B"
+    ],
+    "notes": "Agreement to commit an offense constitutes criminal conspiracy."
+  },
+  {
+    "id": 68,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "writing false stories online to destroy someone's social reputation",
+    "expected_sections": [
+      "499",
+      "500"
+    ],
+    "primary_sections": [
+      "499"
+    ],
+    "secondary_sections": [
+      "500"
+    ],
+    "notes": "Destroying reputation via false allegations is defamation."
+  },
+  {
+    "id": 69,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "inducing a bride to commit suicide because of continuous mental torture",
+    "expected_sections": [
+      "306",
+      "498A"
+    ],
+    "primary_sections": [
+      "306"
+    ],
+    "secondary_sections": [
+      "498A"
+    ],
+    "notes": "Abetment of suicide and cruelty."
+  },
+  {
+    "id": 70,
+    "category": "english_semantic_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "what happens if someone steals a bike and while running away, stabs the owner who tries to stop him",
+    "expected_sections": [
+      "382"
+    ],
+    "primary_sections": [
+      "382"
+    ],
+    "secondary_sections": [
+      "390"
+    ],
+    "notes": "Theft after preparation made for causing death or hurt."
+  },
+  {
+    "id": 71,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "चोरी की सजा क्या है आईपीसी में",
+    "expected_sections": [
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [
+      "378"
+    ],
+    "notes": "Punishment for theft in Hindi."
+  },
+  {
+    "id": 72,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "हत्या की परिभाषा और सजा क्या है",
+    "expected_sections": [
+      "300",
+      "302"
+    ],
+    "primary_sections": [
+      "302"
+    ],
+    "secondary_sections": [
+      "300"
+    ],
+    "notes": "Definition and punishment for murder in Hindi."
+  },
+  {
+    "id": 73,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "easy",
+    "query": "दहेज हत्या क्या होती है और इसकी सजा क्या है",
+    "expected_sections": [
+      "304B"
+    ],
+    "primary_sections": [
+      "304B"
+    ],
+    "secondary_sections": [],
+    "notes": "Dowry death in Hindi."
+  },
+  {
+    "id": 74,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "medium",
+    "query": "धोखाधड़ी और बेईमानी से संपत्ति हड़पने के कानून",
+    "expected_sections": [
+      "420"
+    ],
+    "primary_sections": [
+      "420"
+    ],
+    "secondary_sections": [
+      "415"
+    ],
+    "notes": "Cheating and fraud in Hindi."
+  },
+  {
+    "id": 75,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "medium",
+    "query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+    "expected_sections": [
+      "354",
+      "509"
+    ],
+    "primary_sections": [
+      "354"
+    ],
+    "secondary_sections": [
+      "509"
+    ],
+    "notes": "Outraging modesty of a woman in Hindi."
+  },
+  {
+    "id": 76,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "medium",
+    "query": "किसी को जान से मारने की धमकी देना",
+    "expected_sections": [
+      "503",
+      "506"
+    ],
+    "primary_sections": [
+      "506"
+    ],
+    "secondary_sections": [
+      "503"
+    ],
+    "notes": "Criminal intimidation / death threat in Hindi."
+  },
+  {
+    "id": 77,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "medium",
+    "query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+    "expected_sections": [
+      "378",
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [
+      "378"
+    ],
+    "notes": "Cutting tree without permission is theft under IPC."
+  },
+  {
+    "id": 78,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "hard",
+    "query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Death by negligent driving in Hindi."
+  },
+  {
+    "id": 79,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "hard",
+    "query": "पति द्वारा पत्नी को प्रताड़ित करना",
+    "expected_sections": [
+      "498A"
+    ],
+    "primary_sections": [
+      "498A"
+    ],
+    "secondary_sections": [],
+    "notes": "Cruelty to wife by husband/relatives in Hindi."
+  },
+  {
+    "id": 80,
+    "category": "hindi_semantic_queries",
+    "language": "hi",
+    "difficulty": "hard",
+    "query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+    "expected_sections": [
+      "463",
+      "464",
+      "465"
+    ],
+    "primary_sections": [
+      "465"
+    ],
+    "secondary_sections": [
+      "463",
+      "464"
+    ],
+    "notes": "Forgery / making false documents in Hindi."
+  },
+  {
+    "id": 81,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "easy",
+    "query": "chori ki saja kya hoti hai aur kaun sa section lagta hai",
+    "expected_sections": [
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [
+      "378"
+    ],
+    "notes": "Theft punishment in Romanized Hindi."
+  },
+  {
+    "id": 82,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "easy",
+    "query": "murder ki saja kis section me di gayi hai",
+    "expected_sections": [
+      "302"
+    ],
+    "primary_sections": [
+      "302"
+    ],
+    "secondary_sections": [
+      "300"
+    ],
+    "notes": "Murder punishment in Romanized Hindi."
+  },
+  {
+    "id": 83,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "easy",
+    "query": "rape karne par kitne saal ki punishment milti hai",
+    "expected_sections": [
+      "376"
+    ],
+    "primary_sections": [
+      "376"
+    ],
+    "secondary_sections": [
+      "375"
+    ],
+    "notes": "Rape punishment details in Romanized Hindi."
+  },
+  {
+    "id": 84,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "medium",
+    "query": "blackmail karne par kya punishment hai IPC me",
+    "expected_sections": [
+      "383",
+      "384"
+    ],
+    "primary_sections": [
+      "384"
+    ],
+    "secondary_sections": [
+      "383"
+    ],
+    "notes": "Blackmailing (extortion) punishment in Romanized Hindi."
+  },
+  {
+    "id": 85,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "medium",
+    "query": "agar koi online fake profile banakar insult kare to kya kare",
+    "expected_sections": [
+      "499",
+      "500"
+    ],
+    "primary_sections": [
+      "499"
+    ],
+    "secondary_sections": [
+      "500"
+    ],
+    "notes": "Defamation via fake profile in Romanized Hindi."
+  },
+  {
+    "id": 86,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "medium",
+    "query": "road par accident karke bhag jane par konsa law lagta hai",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Hit and run / death by negligence in Romanized Hindi."
+  },
+  {
+    "id": 87,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "medium",
+    "query": "apne defence me kisi ko marna allowed hai kya",
+    "expected_sections": [
+      "96",
+      "97"
+    ],
+    "primary_sections": [
+      "96"
+    ],
+    "secondary_sections": [
+      "97",
+      "99",
+      "100"
+    ],
+    "notes": "Right of private defense in Romanized Hindi."
+  },
+  {
+    "id": 88,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "hard",
+    "query": "ladki ko harass karna ya comment pass karna kis section me aata hai",
+    "expected_sections": [
+      "354",
+      "509"
+    ],
+    "primary_sections": [
+      "509"
+    ],
+    "secondary_sections": [
+      "354"
+    ],
+    "notes": "Insulting modesty of woman / comments in Romanized Hindi."
+  },
+  {
+    "id": 89,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "hard",
+    "query": "patni ko dahej ke liye pareshan karna",
+    "expected_sections": [
+      "498A"
+    ],
+    "primary_sections": [
+      "498A"
+    ],
+    "secondary_sections": [
+      "304B"
+    ],
+    "notes": "Dowry harassment in Romanized Hindi."
+  },
+  {
+    "id": 90,
+    "category": "hinglish_queries",
+    "language": "mixed",
+    "difficulty": "hard",
+    "query": "agar kuch log milkar bank lootne ka plan banaye",
+    "expected_sections": [
+      "120A",
+      "120B"
+    ],
+    "primary_sections": [
+      "120A"
+    ],
+    "secondary_sections": [
+      "120B"
+    ],
+    "notes": "Criminal conspiracy in Romanized Hindi."
+  },
+  {
+    "id": 91,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "difference between theft and robbery",
+    "expected_sections": [
+      "378",
+      "390"
+    ],
+    "primary_sections": [
+      "378",
+      "390"
+    ],
+    "secondary_sections": [
+      "379",
+      "392"
+    ],
+    "notes": "Theft defined in 378, Robbery in 390."
+  },
+  {
+    "id": 92,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "murder vs culpable homicide",
+    "expected_sections": [
+      "299",
+      "300"
+    ],
+    "primary_sections": [
+      "299",
+      "300"
+    ],
+    "secondary_sections": [
+      "302",
+      "304"
+    ],
+    "notes": "Culpable homicide defined in 299, Murder in 300."
+  },
+  {
+    "id": 93,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "difference between criminal misappropriation and criminal breach of trust",
+    "expected_sections": [
+      "403",
+      "405"
+    ],
+    "primary_sections": [
+      "403",
+      "405"
+    ],
+    "secondary_sections": [
+      "406"
+    ],
+    "notes": "Misappropriation is in 403, Breach of trust in 405."
+  },
+  {
+    "id": 94,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "robbery vs dacoity",
+    "expected_sections": [
+      "390",
+      "391"
+    ],
+    "primary_sections": [
+      "390",
+      "391"
+    ],
+    "secondary_sections": [
+      "392",
+      "395"
+    ],
+    "notes": "Robbery defined in 390, Dacoity defined in 391."
+  },
+  {
+    "id": 95,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "difference between kidnapping and abduction",
+    "expected_sections": [
+      "359",
+      "362"
+    ],
+    "primary_sections": [
+      "359",
+      "362"
+    ],
+    "secondary_sections": [
+      "361",
+      "363"
+    ],
+    "notes": "Kidnapping defined in 359, Abduction in 362."
+  },
+  {
+    "id": 96,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "cheating under 415 vs cheating under 420",
+    "expected_sections": [
+      "415",
+      "420"
+    ],
+    "primary_sections": [
+      "415",
+      "420"
+    ],
+    "secondary_sections": [
+      "417"
+    ],
+    "notes": "Cheating defined in 415, aggravated cheating in 420."
+  },
+  {
+    "id": 97,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "wrongful restraint vs wrongful confinement",
+    "expected_sections": [
+      "339",
+      "340"
+    ],
+    "primary_sections": [
+      "339",
+      "340"
+    ],
+    "secondary_sections": [
+      "341",
+      "342"
+    ],
+    "notes": "Restraint defined in 339, Confinement in 340."
+  },
+  {
+    "id": 98,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "assault vs criminal force",
+    "expected_sections": [
+      "349",
+      "350",
+      "351"
+    ],
+    "primary_sections": [
+      "350",
+      "351"
+    ],
+    "secondary_sections": [
+      "349"
+    ],
+    "notes": "Force in 349, Criminal force in 350, Assault in 351."
+  },
+  {
+    "id": 99,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "hurt vs grievous hurt",
+    "expected_sections": [
+      "319",
+      "320"
+    ],
+    "primary_sections": [
+      "319",
+      "320"
+    ],
+    "secondary_sections": [
+      "323",
+      "325"
+    ],
+    "notes": "Hurt defined in 319, Grievous hurt in 320."
+  },
+  {
+    "id": 100,
+    "category": "multi_section_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "extortion vs robbery",
+    "expected_sections": [
+      "383",
+      "390"
+    ],
+    "primary_sections": [
+      "383",
+      "390"
+    ],
+    "secondary_sections": [
+      "384",
+      "392"
+    ],
+    "notes": "Extortion defined in 383, Robbery defined in 390."
+  },
+  {
+    "id": 101,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "someone took my phone from my bag while I was sleeping in a train",
+    "expected_sections": [
+      "378",
+      "379"
+    ],
+    "primary_sections": [
+      "379"
+    ],
+    "secondary_sections": [
+      "378"
+    ],
+    "notes": "This describes a simple theft."
+  },
+  {
+    "id": 102,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "my landlord locked me out of my apartment and is not letting me enter",
+    "expected_sections": [
+      "339",
+      "341"
+    ],
+    "primary_sections": [
+      "341"
+    ],
+    "secondary_sections": [
+      "339"
+    ],
+    "notes": "This represents wrongful restraint under Section 339/341."
+  },
+  {
+    "id": 103,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "a shopkeeper took advance money online but shut down his shop and vanished",
+    "expected_sections": [
+      "415",
+      "420"
+    ],
+    "primary_sections": [
+      "420"
+    ],
+    "secondary_sections": [
+      "415"
+    ],
+    "notes": "Describes cheating and fraud."
+  },
+  {
+    "id": 104,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "my boss forced me to sign a blank document by threatening to ruin my career",
+    "expected_sections": [
+      "383",
+      "384"
+    ],
+    "primary_sections": [
+      "383"
+    ],
+    "secondary_sections": [
+      "384"
+    ],
+    "notes": "Describes extortion via threat."
+  },
+  {
+    "id": 105,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "husband and mother-in-law constant taunting and harassment for not bringing car",
+    "expected_sections": [
+      "498A"
+    ],
+    "primary_sections": [
+      "498A"
+    ],
+    "secondary_sections": [],
+    "notes": "Cruelty and dowry demands."
+  },
+  {
+    "id": 106,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "someone is continuously following my sister and watching her outside her college",
+    "expected_sections": [
+      "354D"
+    ],
+    "primary_sections": [
+      "354D"
+    ],
+    "secondary_sections": [],
+    "notes": "Describes stalking under Section 354D."
+  },
+  {
+    "id": 107,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+    "expected_sections": [
+      "304A"
+    ],
+    "primary_sections": [
+      "304A"
+    ],
+    "secondary_sections": [],
+    "notes": "Death by negligence (medical negligence)."
+  },
+  {
+    "id": 108,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "someone hit my father with an iron rod on his head, causing a skull fracture and coma",
+    "expected_sections": [
+      "320",
+      "325"
+    ],
+    "primary_sections": [
+      "325"
+    ],
+    "secondary_sections": [
+      "320"
+    ],
+    "notes": "Causes grievous hurt under Section 320/325."
+  },
+  {
+    "id": 109,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "my business partner took all client payments into his personal account and left the country",
+    "expected_sections": [
+      "405",
+      "406"
+    ],
+    "primary_sections": [
+      "406"
+    ],
+    "secondary_sections": [
+      "405"
+    ],
+    "notes": "Criminal breach of trust by business partner."
+  },
+  {
+    "id": 110,
+    "category": "ambiguous_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "a group of boys blocked a girl's path and sang vulgar songs pointing at her",
+    "expected_sections": [
+      "341",
+      "509"
+    ],
+    "primary_sections": [
+      "509"
+    ],
+    "secondary_sections": [
+      "341"
+    ],
+    "notes": "Modesty insult and wrongful restraint."
+  },
+  {
+    "id": 111,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "How to file income tax return in India online?",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Income tax filing is not covered by the Indian Penal Code."
+  },
+  {
+    "id": 112,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Steps for GST registration for a new software company",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. GST registration is under the GST Act, not IPC."
+  },
+  {
+    "id": 113,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "easy",
+    "query": "Is jaywalking a crime in India and what is the fine?",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Traffic rules are governed by the Motor Vehicles Act."
+  },
+  {
+    "id": 114,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "how to apply for a driving license in Maharashtra",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Driving licenses are under the RTO/Motor Vehicles Act."
+  },
+  {
+    "id": 115,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "what are the documents required for passport renewal",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Passport renewal is governed by the Passport Act."
+  },
+  {
+    "id": 116,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "medium",
+    "query": "minimum wage rules for workers in Delhi NCR",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Labor wages are under the Minimum Wages Act."
+  },
+  {
+    "id": 117,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "how to register a trademark for a brand name in India",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Trademarks are under the Trade Marks Act."
+  },
+  {
+    "id": 118,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "procedure to file for mutual divorce in family court",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Divorce is governed by family law (e.g. Hindu Marriage Act), not IPC."
+  },
+  {
+    "id": 119,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "how to claim insurance for a car damaged in a flood",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Insurance claims are under contract/IRDAI guidelines."
+  },
+  {
+    "id": 120,
+    "category": "negative_queries",
+    "language": "en",
+    "difficulty": "hard",
+    "query": "how to rent a commercial shop and draft a rent agreement",
+    "expected_sections": [],
+    "primary_sections": [],
+    "secondary_sections": [],
+    "notes": "Out of scope. Rental agreements are civil matters under rent control acts."
+  }
+]

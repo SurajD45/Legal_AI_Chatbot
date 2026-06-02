@@ -1,0 +1,1230 @@
+{
+  "summary": {
+    "sample_size": 30,
+    "avg_rerank_latency_ms": 2289.2,
+    "improved_count": 5,
+    "regressed_count": 2,
+    "stable_count": 23,
+    "metrics": {
+      "baseline": {
+        "recall_at_5": 0.211,
+        "mrr": 0.271,
+        "ndcg_at_5": 0.209
+      },
+      "reranked": {
+        "recall_at_5": 0.272,
+        "mrr": 0.287,
+        "ndcg_at_5": 0.249
+      },
+      "deltas": {
+        "recall_at_5": 0.061,
+        "mrr": 0.017,
+        "ndcg_at_5": 0.041
+      }
+    },
+    "projected_overall": {
+      "recall_at_5": {
+        "baseline": 0.624,
+        "projected": 0.646,
+        "delta": 0.022
+      },
+      "ndcg_at_5": {
+        "baseline": 0.563,
+        "projected": 0.578,
+        "delta": 0.015
+      }
+    }
+  },
+  "query_results": [
+    {
+      "id": 26,
+      "query": "What is the punishment for theft under IPC?",
+      "category": "punishment_queries",
+      "expected_sections": [
+        "379"
+      ],
+      "baseline": {
+        "sections": [
+          "379",
+          "382",
+          "410",
+          "380",
+          "412"
+        ],
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599
+      },
+      "reranked": {
+        "sections": [
+          "379",
+          "382",
+          "410",
+          "380",
+          "412"
+        ],
+        "recall_at_5": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599,
+        "rerank_latency_ms": 2863.3
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 27,
+      "query": "What is the penalty for murder?",
+      "category": "punishment_queries",
+      "expected_sections": [
+        "302"
+      ],
+      "baseline": {
+        "sections": [
+          "304",
+          "308",
+          "302",
+          "316",
+          "299"
+        ],
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_5": 0.41311732856427996
+      },
+      "reranked": {
+        "sections": [
+          "304",
+          "308",
+          "302",
+          "316",
+          "299"
+        ],
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_5": 0.41311732856427996,
+        "rerank_latency_ms": 2366.3
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 30,
+      "query": "What is the punishment for robbery under the IPC?",
+      "category": "punishment_queries",
+      "expected_sections": [
+        "392"
+      ],
+      "baseline": {
+        "sections": [
+          "390",
+          "389",
+          "382",
+          "384",
+          "385"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.27541155237618664
+      },
+      "reranked": {
+        "sections": [
+          "390",
+          "389",
+          "382",
+          "384",
+          "385"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.27541155237618664,
+        "rerank_latency_ms": 2492.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 31,
+      "query": "What is the sentence for dacoity?",
+      "category": "punishment_queries",
+      "expected_sections": [
+        "395"
+      ],
+      "baseline": {
+        "sections": [
+          "118",
+          "402",
+          "195",
+          "398",
+          "391"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.10654373218155079
+      },
+      "reranked": {
+        "sections": [
+          "118",
+          "402",
+          "195",
+          "398",
+          "391"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.10654373218155079,
+        "rerank_latency_ms": 2388.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 42,
+      "query": "What is murder under the IPC?",
+      "category": "definition_queries",
+      "expected_sections": [
+        "300"
+      ],
+      "baseline": {
+        "sections": [
+          "304",
+          "303",
+          "308",
+          "302",
+          "299"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.11861329943102608
+      },
+      "reranked": {
+        "sections": [
+          "304",
+          "303",
+          "308",
+          "302",
+          "299"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.11861329943102608,
+        "rerank_latency_ms": 2401.7
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 72,
+      "query": "हत्या की परिभाषा और सजा क्या है",
+      "category": "hindi_semantic_queries",
+      "expected_sections": [
+        "300",
+        "302"
+      ],
+      "baseline": {
+        "sections": [
+          "302",
+          "1",
+          "428",
+          "2",
+          "364"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599
+      },
+      "reranked": {
+        "sections": [
+          "302",
+          "307",
+          "364",
+          "336",
+          "429"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599,
+        "rerank_latency_ms": 1271.1
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 75,
+      "query": "महिला के साथ जबरदस्ती करना या उसकी गरिमा को ठेस पहुंचाना",
+      "category": "hindi_semantic_queries",
+      "expected_sections": [
+        "354",
+        "509"
+      ],
+      "baseline": {
+        "sections": [
+          "354",
+          "1",
+          "498",
+          "2",
+          "366"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599
+      },
+      "reranked": {
+        "sections": [
+          "354",
+          "1",
+          "498",
+          "2",
+          "366"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599,
+        "rerank_latency_ms": 2356.8
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 76,
+      "query": "किसी को जान से मारने की धमकी देना",
+      "category": "hindi_semantic_queries",
+      "expected_sections": [
+        "503",
+        "506"
+      ],
+      "baseline": {
+        "sections": [
+          "387",
+          "1",
+          "386",
+          "2",
+          "195A"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "195A",
+          "334",
+          "386",
+          "387",
+          "385"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 1229.0
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 77,
+      "query": "बिना अनुमति के किसी की जमीन से पेड़ काटना",
+      "category": "hindi_semantic_queries",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "baseline": {
+        "sections": [
+          "378",
+          "1",
+          "288",
+          "2",
+          "154"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.27541155237618664
+      },
+      "reranked": {
+        "sections": [
+          "378",
+          "154",
+          "245",
+          "289",
+          "1"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.27541155237618664,
+        "rerank_latency_ms": 1229.8
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 78,
+      "query": "लापरवाही से गाड़ी चलाकर किसी की जान लेना",
+      "category": "hindi_semantic_queries",
+      "expected_sections": [
+        "304A"
+      ],
+      "baseline": {
+        "sections": [
+          "279",
+          "1",
+          "287",
+          "2",
+          "337"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "279",
+          "280",
+          "289",
+          "287",
+          "304A"
+        ],
+        "recall_at_5": 1.0,
+        "mrr": 0.2,
+        "ndcg_at_5": 0.38685280723454163,
+        "rerank_latency_ms": 1192.7
+      },
+      "deltas": {
+        "recall_at_5": 1.0,
+        "mrr": 0.2,
+        "ndcg_at_5": 0.38685280723454163
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "id": 80,
+      "query": "झूठे दस्तावेज बनाकर किसी को धोखा देना",
+      "category": "hindi_semantic_queries",
+      "expected_sections": [
+        "463",
+        "464",
+        "465"
+      ],
+      "baseline": {
+        "sections": [
+          "182",
+          "1",
+          "477",
+          "2",
+          "464"
+        ],
+        "recall_at_5": 0.3333333333333333,
+        "mrr": 0.2,
+        "ndcg_at_5": 0.09364787839833931
+      },
+      "reranked": {
+        "sections": [
+          "463",
+          "477",
+          "464",
+          "192",
+          "194"
+        ],
+        "recall_at_5": 0.6666666666666666,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.3631143808977028,
+        "rerank_latency_ms": 1378.0
+      },
+      "deltas": {
+        "recall_at_5": 0.3333333333333333,
+        "mrr": 0.8,
+        "ndcg_at_5": 0.2694665024993635
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "id": 84,
+      "query": "blackmail karne par kya punishment hai IPC me",
+      "category": "hinglish_queries",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "baseline": {
+        "sections": [
+          "385",
+          "387",
+          "386",
+          "384",
+          "388"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 0.25,
+        "ndcg_at_5": 0.35583989829307827
+      },
+      "reranked": {
+        "sections": [
+          "303",
+          "330",
+          "389",
+          "176",
+          "124A"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 1610.6
+      },
+      "deltas": {
+        "recall_at_5": -0.5,
+        "mrr": -0.25,
+        "ndcg_at_5": -0.35583989829307827
+      },
+      "status": "REGRESSED"
+    },
+    {
+      "id": 85,
+      "query": "agar koi online fake profile banakar insult kare to kya kare",
+      "category": "hinglish_queries",
+      "expected_sections": [
+        "499",
+        "500"
+      ],
+      "baseline": {
+        "sections": [
+          "228",
+          "295A",
+          "182",
+          "441",
+          "505"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "228",
+          "295A",
+          "182",
+          "441",
+          "505"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2992.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 86,
+      "query": "road par accident karke bhag jane par konsa law lagta hai",
+      "category": "hinglish_queries",
+      "expected_sections": [
+        "304A"
+      ],
+      "baseline": {
+        "sections": [
+          "283",
+          "431",
+          "337",
+          "80",
+          "279"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "80",
+          "431",
+          "283",
+          "279",
+          "42"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 1826.0
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 87,
+      "query": "apne defence me kisi ko marna allowed hai kya",
+      "category": "hinglish_queries",
+      "expected_sections": [
+        "96",
+        "97"
+      ],
+      "baseline": {
+        "sections": [
+          "335",
+          "334",
+          "100",
+          "323",
+          "337"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.10961051126301759
+      },
+      "reranked": {
+        "sections": [
+          "99",
+          "101",
+          "100",
+          "105",
+          "322"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.3288315337890528,
+        "rerank_latency_ms": 1937.5
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.2192210225260352
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "id": 88,
+      "query": "ladki ko harass karna ya comment pass karna kis section me aata hai",
+      "category": "hinglish_queries",
+      "expected_sections": [
+        "354",
+        "509"
+      ],
+      "baseline": {
+        "sections": [
+          "50",
+          "376C",
+          "248",
+          "153A",
+          "249"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "50",
+          "376C",
+          "248",
+          "153A",
+          "249"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2771.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 90,
+      "query": "agar kuch log milkar bank lootne ka plan banaye",
+      "category": "hinglish_queries",
+      "expected_sections": [
+        "120A",
+        "120B"
+      ],
+      "baseline": {
+        "sections": [
+          "489E",
+          "294A",
+          "489A",
+          "154",
+          "489C"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "183",
+          "154",
+          "294A",
+          "177",
+          "173"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 1834.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 58,
+      "query": "what offense is committed if you drive a car very fast and hit someone to death",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "304A"
+      ],
+      "baseline": {
+        "sections": [
+          "382",
+          "316",
+          "115",
+          "299",
+          "308"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "382",
+          "316",
+          "115",
+          "299",
+          "308"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2709.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 59,
+      "query": "laws related to public health and making noise or polluting the neighborhood",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "268",
+        "290"
+      ],
+      "baseline": {
+        "sections": [
+          "278",
+          "505",
+          "188",
+          "182",
+          "173"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "278",
+          "505",
+          "188",
+          "182",
+          "173"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2997.7
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 61,
+      "query": "legal options if someone threatens to release my private pictures if I don't give them money",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "baseline": {
+        "sections": [
+          "383",
+          "195A",
+          "100",
+          "214",
+          "99"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599
+      },
+      "reranked": {
+        "sections": [
+          "383",
+          "195A",
+          "100",
+          "214",
+          "99"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599,
+        "rerank_latency_ms": 3012.7
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 62,
+      "query": "what is the offense if five people break into a shop at night with guns and steal money",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "391",
+        "395"
+      ],
+      "baseline": {
+        "sections": [
+          "457",
+          "460",
+          "111",
+          "382",
+          "404"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "457",
+          "460",
+          "111",
+          "382",
+          "404"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2682.2
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 64,
+      "query": "what offense is it if an officer demands money to process a government file",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "161"
+      ],
+      "baseline": {
+        "sections": [
+          "330",
+          "184",
+          "21",
+          "261",
+          "230"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "330",
+          "184",
+          "21",
+          "261",
+          "230"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 3044.8
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 66,
+      "query": "what are the legal rights when someone beats you up and you fight back to protect yourself",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "96",
+        "97"
+      ],
+      "baseline": {
+        "sections": [
+          "71",
+          "106",
+          "97",
+          "418",
+          "98"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_5": 0.10961051126301759
+      },
+      "reranked": {
+        "sections": [
+          "100",
+          "418",
+          "105",
+          "97",
+          "102"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 0.25,
+        "ndcg_at_5": 0.31363437796487775,
+        "rerank_latency_ms": 2039.8
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": -0.08333333333333331,
+        "ndcg_at_5": 0.20402386670186018
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "id": 101,
+      "query": "someone took my phone from my bag while I was sleeping in a train",
+      "category": "ambiguous_queries",
+      "expected_sections": [
+        "378",
+        "379"
+      ],
+      "baseline": {
+        "sections": [
+          "378",
+          "382",
+          "464",
+          "390",
+          "354D"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.27541155237618664
+      },
+      "reranked": {
+        "sections": [
+          "354D",
+          "376",
+          "378",
+          "390",
+          "303"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_5": 0.13770577618809332,
+        "rerank_latency_ms": 2044.5
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": -0.6666666666666667,
+        "ndcg_at_5": -0.13770577618809332
+      },
+      "status": "REGRESSED"
+    },
+    {
+      "id": 102,
+      "query": "my landlord locked me out of my apartment and is not letting me enter",
+      "category": "ambiguous_queries",
+      "expected_sections": [
+        "339",
+        "341"
+      ],
+      "baseline": {
+        "sections": [
+          "225B",
+          "378",
+          "445",
+          "94",
+          "223"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "225B",
+          "378",
+          "445",
+          "94",
+          "223"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2831.7
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 103,
+      "query": "a shopkeeper took advance money online but shut down his shop and vanished",
+      "category": "ambiguous_queries",
+      "expected_sections": [
+        "415",
+        "420"
+      ],
+      "baseline": {
+        "sections": [
+          "464",
+          "192",
+          "177",
+          "378",
+          "173"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "404",
+          "241",
+          "489E",
+          "192",
+          "403"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2469.5
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 104,
+      "query": "my boss forced me to sign a blank document by threatening to ruin my career",
+      "category": "ambiguous_queries",
+      "expected_sections": [
+        "383",
+        "384"
+      ],
+      "baseline": {
+        "sections": [
+          "383",
+          "180",
+          "175",
+          "464",
+          "167"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599
+      },
+      "reranked": {
+        "sections": [
+          "383",
+          "180",
+          "175",
+          "464",
+          "167"
+        ],
+        "recall_at_5": 0.5,
+        "mrr": 1.0,
+        "ndcg_at_5": 0.8262346571285599,
+        "rerank_latency_ms": 3212.4
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 106,
+      "query": "someone is continuously following my sister and watching her outside her college",
+      "category": "ambiguous_queries",
+      "expected_sections": [
+        "354D"
+      ],
+      "baseline": {
+        "sections": [
+          "366",
+          "354C",
+          "177",
+          "375",
+          "182"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "354C",
+          "354D",
+          "366",
+          "166A",
+          "376C"
+        ],
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "ndcg_at_5": 0.6309297535714574,
+        "rerank_latency_ms": 2042.4
+      },
+      "deltas": {
+        "recall_at_5": 1.0,
+        "mrr": 0.5,
+        "ndcg_at_5": 0.6309297535714574
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "id": 107,
+      "query": "a doctor operated on my leg but cut the wrong vein and the patient died in ICU",
+      "category": "ambiguous_queries",
+      "expected_sections": [
+        "304A"
+      ],
+      "baseline": {
+        "sections": [
+          "93",
+          "92",
+          "88",
+          "104",
+          "300"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "93",
+          "92",
+          "88",
+          "104",
+          "300"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2714.7
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    },
+    {
+      "id": 67,
+      "query": "what is it called when two or more people plan together in a hotel room to commit a bank robbery",
+      "category": "english_semantic_queries",
+      "expected_sections": [
+        "120A",
+        "120B"
+      ],
+      "baseline": {
+        "sections": [
+          "390",
+          "382",
+          "385",
+          "387",
+          "389"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "reranked": {
+        "sections": [
+          "390",
+          "382",
+          "385",
+          "387",
+          "389"
+        ],
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0,
+        "rerank_latency_ms": 2732.9
+      },
+      "deltas": {
+        "recall_at_5": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "status": "STABLE"
+    }
+  ]
+}

@@ -30,7 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from app.config import settings
 from app.core.retriever import get_retriever
 from app.core.llm_chain import get_llm_chain
-from app.core.query_expander import expand_query
+from app.core.query_expander import expand_query, expand_query_with_trace
 from app.utils import setup_logging, get_logger
 
 # Reconfigure stdout/stderr to use UTF-8 for Windows compatibility with Hindi characters
@@ -144,7 +144,7 @@ def evaluate_single_query(
 ) -> Dict[str, Any]:
     """Evaluate a single query against retriever and generation."""
     query = query_data["query"]
-    expanded_q = expand_query(query)
+    expanded_q, trace = expand_query_with_trace(query)
     expected = query_data["expected_sections"]
     primary = query_data.get("primary_sections", expected)
     secondary = query_data.get("secondary_sections", [])
@@ -199,6 +199,7 @@ def evaluate_single_query(
         "query": query,
         "original_query": query,
         "expanded_query": expanded_q,
+        "matched_expansion_rules": trace,
         "category": category,
         "difficulty": difficulty,
         "language": language,
@@ -274,6 +275,7 @@ def generate_report(results: List[Dict]) -> Dict[str, Any]:
             "query": r["query"],
             "original_query": r["original_query"],
             "expanded_query": r["expanded_query"],
+            "matched_expansion_rules": r["matched_expansion_rules"],
             "category": r["category"],
             "difficulty": r["difficulty"],
             "language": r["language"],

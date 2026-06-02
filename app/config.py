@@ -8,6 +8,10 @@ class Settings(BaseSettings):
     # API KEYS
     # =====================
     GROQ_API_KEY: str = Field(..., description="Groq API key for LLM inference")
+    GROQ_API_KEY_2: Optional[str] = Field(default=None, description="Optional extra Groq API key")
+    GROQ_API_KEY_3: Optional[str] = Field(default=None, description="Optional extra Groq API key")
+    GROQ_API_KEY_4: Optional[str] = Field(default=None, description="Optional extra Groq API key")
+    GROQ_API_KEY_5: Optional[str] = Field(default=None, description="Optional extra Groq API key")
     HF_API_TOKEN: Optional[str] = Field(
         default=None,
         description="HuggingFace API token (optional, for rate-limited endpoints)",
@@ -100,6 +104,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         case_sensitive = True
+        extra = "ignore"
 
 
 # Global settings instance (fails fast if env is broken)
