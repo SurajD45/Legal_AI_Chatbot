@@ -1,0 +1,133 @@
+[
+  {
+    "id": 1,
+    "description": "Murder: punishment then definition follow-up",
+    "conversation": [
+      "What is Section 302?",
+      "give me definition then"
+    ],
+    "expected_sections_per_turn": [
+      ["302"],
+      ["300"]
+    ],
+    "condensed_query_expected": "What is the definition of murder under IPC Section 302?"
+  },
+  {
+    "id": 2,
+    "description": "Theft: offense then punishment follow-up",
+    "conversation": [
+      "What is theft under IPC?",
+      "what is the punishment?"
+    ],
+    "expected_sections_per_turn": [
+      ["378"],
+      ["379"]
+    ],
+    "condensed_query_expected": "What is the punishment for theft under IPC Section 378?"
+  },
+  {
+    "id": 3,
+    "description": "Cheating: section lookup then bailable status follow-up",
+    "conversation": [
+      "Explain Section 420.",
+      "is it bailable?"
+    ],
+    "expected_sections_per_turn": [
+      ["420"],
+      ["420"]
+    ],
+    "condensed_query_expected": "Is IPC Section 420 bailable or non-bailable?"
+  },
+  {
+    "id": 4,
+    "description": "Rape: offense lookup then exception follow-up",
+    "conversation": [
+      "What is rape under IPC?",
+      "what are the exceptions?"
+    ],
+    "expected_sections_per_turn": [
+      ["375"],
+      ["375"]
+    ],
+    "condensed_query_expected": "What are the exceptions to rape under IPC Section 375?"
+  },
+  {
+    "id": 5,
+    "description": "Criminal conspiracy: definition then punishment follow-up",
+    "conversation": [
+      "Tell me about criminal conspiracy.",
+      "what is the fine amount?"
+    ],
+    "expected_sections_per_turn": [
+      ["120A"],
+      ["120B"]
+    ],
+    "condensed_query_expected": "What is the fine amount for criminal conspiracy under IPC Section 120B?"
+  },
+  {
+    "id": 6,
+    "description": "Culpable homicide: definition then ingredients follow-up",
+    "conversation": [
+      "What is culpable homicide under IPC?",
+      "what are its ingredients?"
+    ],
+    "expected_sections_per_turn": [
+      ["299"],
+      ["299"]
+    ],
+    "condensed_query_expected": "What are the essential ingredients of culpable homicide under IPC Section 299?"
+  },
+  {
+    "id": 7,
+    "description": "Extortion: lookup then imprisonment follow-up",
+    "conversation": [
+      "What is extortion in IPC?",
+      "how many years imprisonment?"
+    ],
+    "expected_sections_per_turn": [
+      ["383"],
+      ["384"]
+    ],
+    "condensed_query_expected": "How many years imprisonment for extortion under IPC Section 384?"
+  },
+  {
+    "id": 8,
+    "description": "Defamation: explanation then example follow-up",
+    "conversation": [
+      "Explain defamation under Indian Penal Code.",
+      "give me examples"
+    ],
+    "expected_sections_per_turn": [
+      ["499"],
+      ["499"]
+    ],
+    "condensed_query_expected": "What are examples of defamation under IPC Section 499?"
+  },
+  {
+    "id": 9,
+    "description": "Standalone query — should NOT be condensed",
+    "conversation": [
+      "What is Section 302?",
+      "What is Section 420?"
+    ],
+    "expected_sections_per_turn": [
+      ["302"],
+      ["420"]
+    ],
+    "condensed_query_expected": null,
+    "note": "Second query is standalone — keyword filter must pass it through unchanged."
+  },
+  {
+    "id": 10,
+    "description": "Hurt: grievous hurt then exception follow-up",
+    "conversation": [
+      "What is hurt under IPC?",
+      "what about grievous hurt?"
+    ],
+    "expected_sections_per_turn": [
+      ["319"],
+      ["320"]
+    ],
+    "condensed_query_expected": "What is grievous hurt under IPC?"
+  }
+]

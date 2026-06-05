@@ -5,6 +5,8 @@ from app.models import ChatRequest, ChatResponse
 from app.core.retriever import get_retriever
 from app.core.llm_chain import get_llm_chain
 from app.core.chat_history import get_history_manager
+from app.core.query_condenser import get_query_condenser
+from app.core.context_expander import get_context_expander
 from app.dependencies import limiter, get_rate_limit_string, get_current_user
 from app.utils import get_logger, LegalAIException, InvalidSessionError
 
@@ -46,10 +48,9 @@ async def query_legal_assistant(
     try:
         history_manager = get_history_manager()
 
+        # ── Session management ────────────────────────────────────────────────
         if chat_request.session_id is None:
-            session_id = history_manager.create_session(
-                user_id=user_id
-            )
+            session_id = history_manager.create_session(user_id=user_id)
         else:
             session_id = chat_request.session_id
 
@@ -58,9 +59,39 @@ async def query_legal_assistant(
             session_id=session_id,
         )
 
-        retriever = get_retriever()
-        documents = retriever.hybrid_search(chat_request.query)
+        # ── Phase 9A: Query Condensation ──────────────────────────────────────
+        # For contextual follow-ups (e.g. "give me definition then"), rewrite
+        # the query into a standalone search query using lightweight LLM.
+        # Standalone queries skip LLM entirely (0ms overhead).
+        condenser = get_query_condenser()
+        condensation_result = condenser.condense(
+            query=chat_request.query,
+            chat_history=chat_history,
+        )
+        search_query = condensation_result["search_query"]
 
+        if condensation_result["condensed"]:
+            logger.info(
+                "query_condensed",
+                original=condensation_result["original_query"],
+                rewritten=search_query,
+                rewrite_ms=condensation_result["rewrite_ms"],
+            )
+
+        # ── Retrieval ─────────────────────────────────────────────────────────
+        retriever = get_retriever()
+        documents = retriever.hybrid_search(search_query)
+
+        # ── Phase 9B: Context Expansion ───────────────────────────────────────
+        # Add semantically related IPC sections to the document list.
+        # Runs AFTER retrieval and BEFORE the LLM chain — fully decoupled.
+        expander = get_context_expander()
+        documents = expander.expand(documents)
+
+        # ── LLM Generation ────────────────────────────────────────────────────
+        # Always pass the original (user-facing) query to the LLM, not the
+        # condensed search query, so the answer remains grounded to what
+        # the user actually asked.
         llm_chain = get_llm_chain()
         answer = llm_chain.generate_answer(
             query=chat_request.query,
@@ -68,6 +99,7 @@ async def query_legal_assistant(
             chat_history=chat_history,
         )
 
+        # ── Persist conversation turn ─────────────────────────────────────────
         history_manager.add_message(
             user_id=user_id,
             session_id=session_id,
@@ -97,4 +129,3 @@ async def query_legal_assistant(
     except Exception as e:
         logger.error("chat_endpoint_failed", error=str(e))
         raise HTTPException(status_code=500, detail="Internal server error")
-
