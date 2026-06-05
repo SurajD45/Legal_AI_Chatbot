@@ -1,5 +1,5 @@
-import React, { useState, KeyboardEvent } from "react";
-import { Search, Loader2 } from "lucide-react";
+import React, { useState, KeyboardEvent, useEffect } from "react";
+import { ArrowUp, Loader2, Sparkles } from "lucide-react";
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -11,6 +11,32 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   isLoading,
 }) => {
   const [input, setInput] = useState("");
+  const [loadingStep, setLoadingStep] = useState(0);
+
+  const loadingMessages = [
+    "Thinking...",
+    "Retrieving IPC provisions...",
+    "Analyzing related sections...",
+    "Assembling legal reasoning...",
+  ];
+
+  // Cycle loading messages to simulate multi-stage pipeline transparency
+  useEffect(() => {
+    if (!isLoading) {
+      setLoadingStep(0);
+      return;
+    }
+
+    const timer1 = setTimeout(() => setLoadingStep(1), 600);
+    const timer2 = setTimeout(() => setLoadingStep(2), 1500);
+    const timer3 = setTimeout(() => setLoadingStep(3), 2800);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, [isLoading]);
 
   const handleSend = () => {
     if (input.trim() && !isLoading) {
@@ -27,43 +53,50 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   };
 
   return (
-    <div className="border-t border-gray-300 bg-white px-6 py-4">
-      <div className="max-w-5xl mx-auto flex gap-3 items-center">
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Search IPC sections or ask a legal question…"
-          className="flex-1 px-4 py-3 border border-gray-400 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-primary-600 font-serif"
-          rows={1}
-          disabled={isLoading}
-          style={{ minHeight: "52px", maxHeight: "120px" }}
-          onInput={(e) => {
-            const target = e.target as HTMLTextAreaElement;
-            target.style.height = "auto";
-            target.style.height = `${Math.min(
-              target.scrollHeight,
-              120
-            )}px`;
-          }}
-        />
+    <div className="border-t border-dark-border/40 bg-navy-black px-4 md:px-6 py-4 relative z-20">
+      <div className="max-w-3xl mx-auto space-y-3">
+        {/* Loading Steps Indicator */}
+        {isLoading && (
+          <div className="flex items-center gap-2 px-4 py-1.5 bg-gold/5 border border-gold/10 rounded-full w-fit mx-auto animate-pulse text-xs text-gold/90 font-mono">
+            <Sparkles className="w-3.5 h-3.5 animate-spin" />
+            <span>{loadingMessages[loadingStep]}</span>
+          </div>
+        )}
 
-        <button
-          onClick={handleSend}
-          disabled={!input.trim() || isLoading}
-          className="w-12 h-12 bg-primary-700 hover:bg-primary-800 text-white rounded-md flex items-center justify-center disabled:opacity-50"
-          aria-label="Search"
-        >
-          {isLoading ? (
-            <Loader2 className="w-5 h-5 animate-spin" />
-          ) : (
-            <Search className="w-5 h-5" />
-          )}
-        </button>
-      </div>
+        {/* Input Bar */}
+        <div className="relative flex items-center bg-dark-surface border border-dark-border hover:border-dark-border/80 focus-within:border-gold/40 focus-within:ring-1 focus-within:ring-gold/30 rounded-2xl shadow-xl transition-all duration-300 p-1.5 pl-4">
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask a legal query or search IPC section..."
+            className="flex-1 bg-transparent border-0 focus:ring-0 outline-none text-text-primary placeholder:text-text-secondary/50 font-sans text-sm resize-none py-2 max-h-24 no-scrollbar"
+            rows={1}
+            disabled={isLoading}
+            onInput={(e) => {
+              const target = e.target as HTMLTextAreaElement;
+              target.style.height = "auto";
+              target.style.height = `${Math.min(target.scrollHeight, 96)}px`;
+            }}
+          />
 
-      <div className="text-xs text-gray-600 text-center mt-2">
-        Press Enter to search • Shift+Enter for new line
+          <button
+            onClick={handleSend}
+            disabled={!input.trim() || isLoading}
+            className="w-10 h-10 bg-gold hover:bg-gold/90 active:scale-95 text-navy-black rounded-xl flex items-center justify-center transition disabled:opacity-30 disabled:pointer-events-none"
+            aria-label="Send"
+          >
+            {isLoading ? (
+              <Loader2 className="w-4 h-4 animate-spin text-navy-black" />
+            ) : (
+              <ArrowUp className="w-4 h-4 stroke-[3]" />
+            )}
+          </button>
+        </div>
+
+        <div className="text-[10px] text-text-secondary/60 text-center tracking-wide">
+          Enter to send • Shift+Enter for new line
+        </div>
       </div>
     </div>
   );
