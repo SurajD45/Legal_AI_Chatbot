@@ -167,6 +167,10 @@ QUESTION:
                         messages=messages,
                         temperature=0.2,
                         max_tokens=1024,
+                        # Explicitly disable tool calling — prevents tool-use capable
+                        # models (e.g. llama-3.3-70b-versatile) from returning an empty
+                        # response when they decide to call a tool instead of text output.
+                        tool_choice="none",
                     )
                     break
                 except Exception as e:
@@ -190,7 +194,23 @@ QUESTION:
             if completion is None:
                 raise last_err if last_err else LLMError("Failed to generate completion from Groq.")
 
-            answer = completion.choices[0].message.content.strip()
+            answer = completion.choices[0].message.content
+
+            # Guard against empty model output (e.g. tool-use model returned no text)
+            if not answer or not answer.strip():
+                finish_reason = completion.choices[0].finish_reason
+                logger.error(
+                    "groq_empty_response",
+                    finish_reason=finish_reason,
+                    model=self.model,
+                )
+                raise LLMError(
+                    f"Model returned an empty response (finish_reason={finish_reason!r}). "
+                    "This usually means the model attempted a tool call. "
+                    "Set LLM_MODEL to 'llama-3.1-8b-instant' or ensure tool_choice='none'."
+                )
+
+            answer = answer.strip()
 
             usage = {
                 "prompt_tokens": completion.usage.prompt_tokens,
