@@ -1,0 +1,1259 @@
+{
+  "report": {
+    "summary": {
+      "total_conversations": 10,
+      "errors": 0,
+      "condensation_triggered": 9,
+      "condensation_rate": 0.9,
+      "section_hit_rate": 1.0,
+      "expansion_active_count": 10,
+      "avg_faithfulness": 0.89,
+      "avg_groundedness": 0.915,
+      "avg_completeness": 0.75,
+      "avg_consistency": 0.87,
+      "target_completeness": 0.85,
+      "target_groundedness": 0.9,
+      "completeness_target_met": false,
+      "groundedness_target_met": true,
+      "avg_condense_ms": 489.7,
+      "avg_retrieve_ms": 1074.7,
+      "avg_gen_ms": 1891.8,
+      "avg_final_turn_total_ms": 3367.7
+    },
+    "per_conversation": [
+      {
+        "id": 1,
+        "description": "Murder: punishment then definition follow-up",
+        "final_query": "give me definition then",
+        "search_query": "What is the definition of Section 302 IPC?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "302"
+        ],
+        "expanded": [
+          "300"
+        ],
+        "faithfulness": 1.0,
+        "groundedness": 1.0,
+        "completeness": 0.8,
+        "condense_ms": 422,
+        "final_turn_total_ms": 1752
+      },
+      {
+        "id": 2,
+        "description": "Theft: offense then punishment follow-up",
+        "final_query": "what is the punishment?",
+        "search_query": "What is the punishment for theft under Section 378 of the Indian Penal Code?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "378"
+        ],
+        "expanded": [
+          "379"
+        ],
+        "faithfulness": 1.0,
+        "groundedness": 1.0,
+        "completeness": 1.0,
+        "condense_ms": 726,
+        "final_turn_total_ms": 4769
+      },
+      {
+        "id": 3,
+        "description": "Cheating: section lookup then bailable status follow-up",
+        "final_query": "is it bailable?",
+        "search_query": "Is Section 420 of the IPC a bailable offense?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "420"
+        ],
+        "expanded": [
+          "415",
+          "417"
+        ],
+        "faithfulness": 0.8,
+        "groundedness": 0.6,
+        "completeness": 0.4,
+        "condense_ms": 752,
+        "final_turn_total_ms": 5665
+      },
+      {
+        "id": 4,
+        "description": "Rape: offense lookup then exception follow-up",
+        "final_query": "what are the exceptions?",
+        "search_query": "What are the exceptions to the definition of rape under Section 375 IPC?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "375"
+        ],
+        "expanded": [
+          "376"
+        ],
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7,
+        "condense_ms": 316,
+        "final_turn_total_ms": 1161
+      },
+      {
+        "id": 5,
+        "description": "Criminal conspiracy: definition then punishment follow-up",
+        "final_query": "what is the fine amount?",
+        "search_query": "What is the fine amount for criminal conspiracy under Section 120B IPC?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "120B"
+        ],
+        "expanded": [
+          "120A"
+        ],
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.6,
+        "condense_ms": 294,
+        "final_turn_total_ms": 2594
+      },
+      {
+        "id": 6,
+        "description": "Culpable homicide: definition then ingredients follow-up",
+        "final_query": "what are its ingredients?",
+        "search_query": "What are the ingredients of culpable homicide under IPC sections 299 and 316?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "299",
+          "301",
+          "316",
+          "308",
+          "304"
+        ],
+        "expanded": [
+          "304A"
+        ],
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.6,
+        "condense_ms": 1284,
+        "final_turn_total_ms": 4704
+      },
+      {
+        "id": 7,
+        "description": "Extortion: lookup then imprisonment follow-up",
+        "final_query": "how many years imprisonment?",
+        "search_query": "What is the maximum imprisonment period for extortion under Section 383 of the IPC?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "383"
+        ],
+        "expanded": [
+          "384"
+        ],
+        "faithfulness": 1.0,
+        "groundedness": 1.0,
+        "completeness": 1.0,
+        "condense_ms": 339,
+        "final_turn_total_ms": 1670
+      },
+      {
+        "id": 8,
+        "description": "Defamation: explanation then example follow-up",
+        "final_query": "give me examples",
+        "search_query": "Provide examples of defamation under Section 499 of the Indian Penal Code.",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "499"
+        ],
+        "expanded": [
+          "500"
+        ],
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.6,
+        "condense_ms": 443,
+        "final_turn_total_ms": 4948
+      },
+      {
+        "id": 9,
+        "description": "Standalone query — should NOT be condensed",
+        "final_query": "What is Section 420?",
+        "search_query": "What is Section 420?",
+        "condensed": false,
+        "section_hit": true,
+        "retrieved": [
+          "420"
+        ],
+        "expanded": [
+          "415",
+          "417"
+        ],
+        "faithfulness": 1.0,
+        "groundedness": 1.0,
+        "completeness": 1.0,
+        "condense_ms": 0,
+        "final_turn_total_ms": 4108
+      },
+      {
+        "id": 10,
+        "description": "Hurt: grievous hurt then exception follow-up",
+        "final_query": "what about grievous hurt?",
+        "search_query": "What is the definition of grievous hurt under the Indian Penal Code?",
+        "condensed": true,
+        "section_hit": true,
+        "retrieved": [
+          "326A",
+          "322",
+          "329",
+          "89",
+          "320"
+        ],
+        "expanded": [
+          "325"
+        ],
+        "faithfulness": 0.9,
+        "groundedness": 0.95,
+        "completeness": 0.8,
+        "condense_ms": 321,
+        "final_turn_total_ms": 2306
+      }
+    ],
+    "failures": [
+      {
+        "id": 3,
+        "description": "Cheating: section lookup then bailable status follow-up",
+        "final_query": "is it bailable?",
+        "faithfulness": 0.8,
+        "groundedness": 0.6,
+        "completeness": 0.4
+      },
+      {
+        "id": 4,
+        "description": "Rape: offense lookup then exception follow-up",
+        "final_query": "what are the exceptions?",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.7
+      },
+      {
+        "id": 5,
+        "description": "Criminal conspiracy: definition then punishment follow-up",
+        "final_query": "what is the fine amount?",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.6
+      },
+      {
+        "id": 6,
+        "description": "Culpable homicide: definition then ingredients follow-up",
+        "final_query": "what are its ingredients?",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.6
+      },
+      {
+        "id": 8,
+        "description": "Defamation: explanation then example follow-up",
+        "final_query": "give me examples",
+        "faithfulness": 0.8,
+        "groundedness": 0.9,
+        "completeness": 0.6
+      }
+    ]
+  },
+  "raw_results": [
+    {
+      "id": 1,
+      "description": "Murder: punishment then definition follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is Section 302?",
+          "search_query": "What is Section 302?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 1135,
+          "expand_ms": 0,
+          "gen_ms": 636,
+          "total_ms": 1771,
+          "retrieved_sections": [
+            "302"
+          ],
+          "expanded_sections": [
+            "302",
+            "300"
+          ],
+          "added_by_expander": [
+            "300"
+          ],
+          "expected_sections": [
+            "302"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 302\n- Punishment for murder.\n\n### PUNISHMENT & PENALTIES\n- Imprisonment: life imprisonment\n- Fine: liable to fine\n- Additional consequences: death\n\n### LIMITATIONS\n- The retrieved context does not contain the definit..."
+        },
+        {
+          "turn": 2,
+          "user_query": "give me definition then",
+          "search_query": "What is the definition of Section 302 IPC?",
+          "was_condensed": true,
+          "condense_ms": 422,
+          "retrieve_ms": 194,
+          "expand_ms": 0,
+          "gen_ms": 1136,
+          "total_ms": 1752,
+          "retrieved_sections": [
+            "302"
+          ],
+          "expanded_sections": [
+            "302",
+            "300"
+          ],
+          "added_by_expander": [
+            "300"
+          ],
+          "expected_sections": [
+            "300"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 300\n- Murder.\n\n### DEFINITION & ELEMENTS\n- Culpable homicide is murder if the act by which the death is caused is done with the intention of causing death, or—\n  - If it is done with the intention of causing such bod...",
+          "judge_scores": {
+            "faithfulness": 1.0,
+            "groundedness": 1.0,
+            "completeness": 0.8,
+            "consistency": 1.0,
+            "faithfulness_evidence": "The generated answer accurately quotes and paraphrases the definition of murder from Section 300 of the IPC.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context without any external filler or knowledge.",
+            "completeness_evidence": "The answer fully resolves the definition of murder, but fails to mention the illustrations and exceptions provided in the context."
+          }
+        }
+      ],
+      "final_query": "give me definition then",
+      "final_search_query": "What is the definition of Section 302 IPC?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "302"
+      ],
+      "final_expanded_sections": [
+        "302",
+        "300"
+      ],
+      "final_added_by_expander": [
+        "300"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 1.0,
+      "groundedness": 1.0,
+      "completeness": 0.8,
+      "consistency": 1.0,
+      "total_condense_ms": 422,
+      "avg_retrieve_ms": 664.5,
+      "avg_gen_ms": 886.0,
+      "final_turn_total_ms": 1752
+    },
+    {
+      "id": 2,
+      "description": "Theft: offense then punishment follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is theft under IPC?",
+          "search_query": "What is theft under IPC?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 1555,
+          "expand_ms": 0,
+          "gen_ms": 639,
+          "total_ms": 2194,
+          "retrieved_sections": [
+            "410",
+            "378",
+            "414",
+            "382",
+            "97"
+          ],
+          "expanded_sections": [
+            "410",
+            "378",
+            "414",
+            "382",
+            "97",
+            "379"
+          ],
+          "added_by_expander": [
+            "379"
+          ],
+          "expected_sections": [
+            "378"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 378: Theft\n\n### DEFINITION & ELEMENTS\n- Theft is committed when a person intends to take dishonestly any movable property out of the possession of any person without that person's consent, and moves that property in ..."
+        },
+        {
+          "turn": 2,
+          "user_query": "what is the punishment?",
+          "search_query": "What is the punishment for theft under Section 378 of the Indian Penal Code?",
+          "was_condensed": true,
+          "condense_ms": 726,
+          "retrieve_ms": 202,
+          "expand_ms": 0,
+          "gen_ms": 3841,
+          "total_ms": 4769,
+          "retrieved_sections": [
+            "378"
+          ],
+          "expanded_sections": [
+            "378",
+            "379"
+          ],
+          "added_by_expander": [
+            "379"
+          ],
+          "expected_sections": [
+            "379"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 379: Punishment for theft\n\n### PUNISHMENT & PENALTIES\n- Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both.\n\n### LIM...",
+          "judge_scores": {
+            "faithfulness": 1.0,
+            "groundedness": 1.0,
+            "completeness": 1.0,
+            "consistency": 1.0,
+            "faithfulness_evidence": "The generated answer directly references Section 379, which explicitly states the punishment for theft.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, specifically Section 379.",
+            "completeness_evidence": "The answer fully resolves the user query by providing the punishment for theft as per Section 379."
+          }
+        }
+      ],
+      "final_query": "what is the punishment?",
+      "final_search_query": "What is the punishment for theft under Section 378 of the Indian Penal Code?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "378"
+      ],
+      "final_expanded_sections": [
+        "378",
+        "379"
+      ],
+      "final_added_by_expander": [
+        "379"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 1.0,
+      "groundedness": 1.0,
+      "completeness": 1.0,
+      "consistency": 1.0,
+      "total_condense_ms": 726,
+      "avg_retrieve_ms": 878.5,
+      "avg_gen_ms": 2240.0,
+      "final_turn_total_ms": 4769
+    },
+    {
+      "id": 3,
+      "description": "Cheating: section lookup then bailable status follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "Explain Section 420.",
+          "search_query": "Explain Section 420.",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 734,
+          "expand_ms": 0,
+          "gen_ms": 1228,
+          "total_ms": 1962,
+          "retrieved_sections": [
+            "420"
+          ],
+          "expanded_sections": [
+            "420",
+            "415",
+            "417"
+          ],
+          "added_by_expander": [
+            "415",
+            "417"
+          ],
+          "expected_sections": [
+            "420"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 420: Cheating and dishonestly inducing delivery of property.\n\n### DEFINITION & ELEMENTS\n- Cheating involves dishonestly inducing a person to deliver property to another person, or to make, alter or destroy a valuable..."
+        },
+        {
+          "turn": 2,
+          "user_query": "is it bailable?",
+          "search_query": "Is Section 420 of the IPC a bailable offense?",
+          "was_condensed": true,
+          "condense_ms": 752,
+          "retrieve_ms": 202,
+          "expand_ms": 0,
+          "gen_ms": 4711,
+          "total_ms": 5665,
+          "retrieved_sections": [
+            "420"
+          ],
+          "expanded_sections": [
+            "420",
+            "415",
+            "417"
+          ],
+          "added_by_expander": [
+            "415",
+            "417"
+          ],
+          "expected_sections": [
+            "420"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 420: Cheating and dishonestly inducing delivery of property.\n- Section 415: Cheating.\n- Section 417: Punishment for cheating.\n\n### BAILABILITY ANALYSIS\n- Section 420 is a non-bailable offense as per Section 2(c) of t...",
+          "judge_scores": {
+            "faithfulness": 0.8,
+            "groundedness": 0.6,
+            "completeness": 0.4,
+            "consistency": 0.8,
+            "faithfulness_evidence": "The answer correctly references relevant IPC sections and provides a general classification of Section 420 as a non-bailable offense.",
+            "groundedness_evidence": "The answer includes external knowledge from the Code of Criminal Procedure, 1973, which is not strictly grounded in the retrieved IPC context.",
+            "completeness_evidence": "The answer partially resolves the user query by providing information on the bailability of Section 420, but fails to provide a clear and definitive answer."
+          }
+        }
+      ],
+      "final_query": "is it bailable?",
+      "final_search_query": "Is Section 420 of the IPC a bailable offense?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "420"
+      ],
+      "final_expanded_sections": [
+        "420",
+        "415",
+        "417"
+      ],
+      "final_added_by_expander": [
+        "415",
+        "417"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 0.8,
+      "groundedness": 0.6,
+      "completeness": 0.4,
+      "consistency": 0.8,
+      "total_condense_ms": 752,
+      "avg_retrieve_ms": 468.0,
+      "avg_gen_ms": 2969.5,
+      "final_turn_total_ms": 5665
+    },
+    {
+      "id": 4,
+      "description": "Rape: offense lookup then exception follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is rape under IPC?",
+          "search_query": "What is rape under IPC?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 1742,
+          "expand_ms": 0,
+          "gen_ms": 1024,
+          "total_ms": 2766,
+          "retrieved_sections": [
+            "497",
+            "376D",
+            "376",
+            "303",
+            "376A"
+          ],
+          "expanded_sections": [
+            "497",
+            "376D",
+            "376",
+            "303",
+            "376A",
+            "375"
+          ],
+          "added_by_expander": [
+            "375"
+          ],
+          "expected_sections": [
+            "375"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 375\n- Section 376\n\n### DEFINITION & ELEMENTS\n- Rape is defined as sexual intercourse with a woman against her will without her consent, or with her consent if it is obtained by coercion, abuse of position, or when sh..."
+        },
+        {
+          "turn": 2,
+          "user_query": "what are the exceptions?",
+          "search_query": "What are the exceptions to the definition of rape under Section 375 IPC?",
+          "was_condensed": true,
+          "condense_ms": 316,
+          "retrieve_ms": 230,
+          "expand_ms": 0,
+          "gen_ms": 615,
+          "total_ms": 1161,
+          "retrieved_sections": [
+            "375"
+          ],
+          "expanded_sections": [
+            "375",
+            "376"
+          ],
+          "added_by_expander": [
+            "376"
+          ],
+          "expected_sections": [
+            "375"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 375\n\n### DEFINITION & ELEMENTS\n- The essential ingredients of the offense of rape include:\n  - Sexual intercourse\n  - Without the woman's consent\n  - Or with her consent obtained by coercion, abuse of position, or wh...",
+          "judge_scores": {
+            "faithfulness": 0.8,
+            "groundedness": 0.9,
+            "completeness": 0.7,
+            "consistency": 0.8,
+            "faithfulness_evidence": "The generated answer accurately describes the exceptions to the definition of rape as per Section 375.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, with minimal external knowledge.",
+            "completeness_evidence": "The answer partially resolves the user query by listing the exceptions to the definition of rape, but fails to address other aspects of the query."
+          }
+        }
+      ],
+      "final_query": "what are the exceptions?",
+      "final_search_query": "What are the exceptions to the definition of rape under Section 375 IPC?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "375"
+      ],
+      "final_expanded_sections": [
+        "375",
+        "376"
+      ],
+      "final_added_by_expander": [
+        "376"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 0.8,
+      "groundedness": 0.9,
+      "completeness": 0.7,
+      "consistency": 0.8,
+      "total_condense_ms": 316,
+      "avg_retrieve_ms": 986.0,
+      "avg_gen_ms": 819.5,
+      "final_turn_total_ms": 1161
+    },
+    {
+      "id": 5,
+      "description": "Criminal conspiracy: definition then punishment follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "Tell me about criminal conspiracy.",
+          "search_query": "Tell me about criminal conspiracy.",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 1862,
+          "expand_ms": 0,
+          "gen_ms": 1226,
+          "total_ms": 3088,
+          "retrieved_sections": [
+            "120A",
+            "120B",
+            "121A",
+            "192",
+            "35"
+          ],
+          "expanded_sections": [
+            "120A",
+            "120B",
+            "121A",
+            "192",
+            "35"
+          ],
+          "added_by_expander": [],
+          "expected_sections": [
+            "120A"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 120A: Definition of criminal conspiracy\n- Section 120B: Punishment of criminal conspiracy\n- Section 121A: Conspiracy to commit offences punishable by section 121\n\n### DEFINITION & ELEMENTS\n- An agreement between two ..."
+        },
+        {
+          "turn": 2,
+          "user_query": "what is the fine amount?",
+          "search_query": "What is the fine amount for criminal conspiracy under Section 120B IPC?",
+          "was_condensed": true,
+          "condense_ms": 294,
+          "retrieve_ms": 252,
+          "expand_ms": 0,
+          "gen_ms": 2048,
+          "total_ms": 2594,
+          "retrieved_sections": [
+            "120B"
+          ],
+          "expanded_sections": [
+            "120B",
+            "120A"
+          ],
+          "added_by_expander": [
+            "120A"
+          ],
+          "expected_sections": [
+            "120B"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 120A: Definition of criminal conspiracy\n- Section 120B: Punishment of criminal conspiracy\n\n### PUNISHMENT & PENALTIES\n- For a criminal conspiracy to commit an offence punishable with death, imprisonment for life, or ...",
+          "judge_scores": {
+            "faithfulness": 0.8,
+            "groundedness": 0.9,
+            "completeness": 0.6,
+            "consistency": 0.8,
+            "faithfulness_evidence": "The answer correctly identifies the relevant sections of the IPC and explains the punishment for criminal conspiracy, but fails to provide the specific fine amount for certain scenarios.",
+            "groundedness_evidence": "The answer is strictly grounded in the retrieved IPC context, with references to specific sections and provisions.",
+            "completeness_evidence": "The answer partially resolves the user query by explaining the punishment for criminal conspiracy, but fails to provide the specific fine amount for certain scenarios."
+          }
+        }
+      ],
+      "final_query": "what is the fine amount?",
+      "final_search_query": "What is the fine amount for criminal conspiracy under Section 120B IPC?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "120B"
+      ],
+      "final_expanded_sections": [
+        "120B",
+        "120A"
+      ],
+      "final_added_by_expander": [
+        "120A"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 0.8,
+      "groundedness": 0.9,
+      "completeness": 0.6,
+      "consistency": 0.8,
+      "total_condense_ms": 294,
+      "avg_retrieve_ms": 1057.0,
+      "avg_gen_ms": 1637.0,
+      "final_turn_total_ms": 2594
+    },
+    {
+      "id": 6,
+      "description": "Culpable homicide: definition then ingredients follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is culpable homicide under IPC?",
+          "search_query": "What is culpable homicide under IPC?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 1589,
+          "expand_ms": 0,
+          "gen_ms": 6965,
+          "total_ms": 8554,
+          "retrieved_sections": [
+            "316",
+            "299",
+            "301",
+            "308",
+            "304"
+          ],
+          "expanded_sections": [
+            "316",
+            "299",
+            "301",
+            "308",
+            "304",
+            "304A"
+          ],
+          "added_by_expander": [
+            "304A"
+          ],
+          "expected_sections": [
+            "299"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 299: Culpable homicide.\n- Section 316: Causing death of quick unborn child by act amounting to culpable homicide.\n\n### DEFINITION & ELEMENTS\n- Culpable homicide is committed by causing death by doing an act with the ..."
+        },
+        {
+          "turn": 2,
+          "user_query": "what are its ingredients?",
+          "search_query": "What are the ingredients of culpable homicide under IPC sections 299 and 316?",
+          "was_condensed": true,
+          "condense_ms": 1284,
+          "retrieve_ms": 2646,
+          "expand_ms": 0,
+          "gen_ms": 774,
+          "total_ms": 4704,
+          "retrieved_sections": [
+            "299",
+            "301",
+            "316",
+            "308",
+            "304"
+          ],
+          "expanded_sections": [
+            "299",
+            "301",
+            "316",
+            "308",
+            "304",
+            "304A"
+          ],
+          "added_by_expander": [
+            "304A"
+          ],
+          "expected_sections": [
+            "299"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 299: Culpable homicide.\n- Section 316: Causing death of quick unborn child by act amounting to culpable homicide.\n- Section 308: Attempt to commit culpable homicide.\n\n### DEFINITION & ELEMENTS\n- Culpable homicide is ...",
+          "judge_scores": {
+            "faithfulness": 0.8,
+            "groundedness": 0.9,
+            "completeness": 0.6,
+            "consistency": 0.8,
+            "faithfulness_evidence": "The generated answer accurately describes the definition and elements of culpable homicide, but does not fully address the limitations of the retrieved context.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, with minimal external knowledge or filler.",
+            "completeness_evidence": "The answer partially resolves the user query, but fails to address the complete punishment details for culpable homicide (Section 299)."
+          }
+        }
+      ],
+      "final_query": "what are its ingredients?",
+      "final_search_query": "What are the ingredients of culpable homicide under IPC sections 299 and 316?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "299",
+        "301",
+        "316",
+        "308",
+        "304"
+      ],
+      "final_expanded_sections": [
+        "299",
+        "301",
+        "316",
+        "308",
+        "304",
+        "304A"
+      ],
+      "final_added_by_expander": [
+        "304A"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 0.8,
+      "groundedness": 0.9,
+      "completeness": 0.6,
+      "consistency": 0.8,
+      "total_condense_ms": 1284,
+      "avg_retrieve_ms": 2117.5,
+      "avg_gen_ms": 3869.5,
+      "final_turn_total_ms": 4704
+    },
+    {
+      "id": 7,
+      "description": "Extortion: lookup then imprisonment follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is extortion in IPC?",
+          "search_query": "What is extortion in IPC?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 2847,
+          "expand_ms": 0,
+          "gen_ms": 486,
+          "total_ms": 3333,
+          "retrieved_sections": [
+            "385",
+            "389",
+            "383",
+            "390",
+            "384"
+          ],
+          "expanded_sections": [
+            "385",
+            "389",
+            "383",
+            "390",
+            "384",
+            "392"
+          ],
+          "added_by_expander": [
+            "392"
+          ],
+          "expected_sections": [
+            "383"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 383: Extortion\n\n### DEFINITION & ELEMENTS\n- Intentionally putting any person in fear of any injury to that person, or to any other, and thereby dishonestly inducing the person so put in fear to deliver to any person ..."
+        },
+        {
+          "turn": 2,
+          "user_query": "how many years imprisonment?",
+          "search_query": "What is the maximum imprisonment period for extortion under Section 383 of the IPC?",
+          "was_condensed": true,
+          "condense_ms": 339,
+          "retrieve_ms": 583,
+          "expand_ms": 0,
+          "gen_ms": 748,
+          "total_ms": 1670,
+          "retrieved_sections": [
+            "383"
+          ],
+          "expanded_sections": [
+            "383",
+            "384"
+          ],
+          "added_by_expander": [
+            "384"
+          ],
+          "expected_sections": [
+            "384"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 383: Extortion\n- Section 384: Punishment for extortion\n\n### PUNISHMENT & PENALTIES\n- Imprisonment of either description for a term which may extend to **three years** (Section 384)\n- Fine (Section 384)\n- Both impriso...",
+          "judge_scores": {
+            "faithfulness": 1.0,
+            "groundedness": 1.0,
+            "completeness": 1.0,
+            "consistency": 1.0,
+            "faithfulness_evidence": "The generated answer accurately states the punishment for extortion as imprisonment for up to three years, as per Section 384.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, specifically Sections 383 and 384.",
+            "completeness_evidence": "The answer fully resolves the user query by stating the punishment for extortion, including imprisonment, fine, and both."
+          }
+        }
+      ],
+      "final_query": "how many years imprisonment?",
+      "final_search_query": "What is the maximum imprisonment period for extortion under Section 383 of the IPC?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "383"
+      ],
+      "final_expanded_sections": [
+        "383",
+        "384"
+      ],
+      "final_added_by_expander": [
+        "384"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 1.0,
+      "groundedness": 1.0,
+      "completeness": 1.0,
+      "consistency": 1.0,
+      "total_condense_ms": 339,
+      "avg_retrieve_ms": 1715.0,
+      "avg_gen_ms": 617.0,
+      "final_turn_total_ms": 1670
+    },
+    {
+      "id": 8,
+      "description": "Defamation: explanation then example follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "Explain defamation under Indian Penal Code.",
+          "search_query": "Explain defamation under Indian Penal Code.",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 1379,
+          "expand_ms": 0,
+          "gen_ms": 1195,
+          "total_ms": 2574,
+          "retrieved_sections": [
+            "499",
+            "500",
+            "2",
+            "153B",
+            "505"
+          ],
+          "expanded_sections": [
+            "499",
+            "500",
+            "2",
+            "153B",
+            "505"
+          ],
+          "added_by_expander": [],
+          "expected_sections": [
+            "499"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 499: Defamation\n- Section 500: Punishment for defamation\n\n### DEFINITION & ELEMENTS\n- Defamation is said to occur when a person makes or publishes an imputation concerning another person intending to harm, or knowing..."
+        },
+        {
+          "turn": 2,
+          "user_query": "give me examples",
+          "search_query": "Provide examples of defamation under Section 499 of the Indian Penal Code.",
+          "was_condensed": true,
+          "condense_ms": 443,
+          "retrieve_ms": 306,
+          "expand_ms": 0,
+          "gen_ms": 4199,
+          "total_ms": 4948,
+          "retrieved_sections": [
+            "499"
+          ],
+          "expanded_sections": [
+            "499",
+            "500"
+          ],
+          "added_by_expander": [
+            "500"
+          ],
+          "expected_sections": [
+            "499"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 499: Defamation\n- Section 500: Punishment for defamation\n\n### DEFINITION & ELEMENTS\n- Defamation is said to occur when a person makes or publishes an imputation concerning another person intending to harm, or knowing...",
+          "judge_scores": {
+            "faithfulness": 0.8,
+            "groundedness": 0.9,
+            "completeness": 0.6,
+            "consistency": 0.8,
+            "faithfulness_evidence": "The generated answer accurately describes the definition and elements of defamation, as well as the punishment and penalties for it, based on the retrieved IPC context.",
+            "groundedness_evidence": "The answer is strictly derived from the context, with minimal external knowledge or filler, and accurately represents the retrieved context.",
+            "completeness_evidence": "The answer partially resolves the user query by providing examples of defamation, but fails to fully answer the query by not including information on the exceptions to defamation."
+          }
+        }
+      ],
+      "final_query": "give me examples",
+      "final_search_query": "Provide examples of defamation under Section 499 of the Indian Penal Code.",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "499"
+      ],
+      "final_expanded_sections": [
+        "499",
+        "500"
+      ],
+      "final_added_by_expander": [
+        "500"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 0.8,
+      "groundedness": 0.9,
+      "completeness": 0.6,
+      "consistency": 0.8,
+      "total_condense_ms": 443,
+      "avg_retrieve_ms": 842.5,
+      "avg_gen_ms": 2697.0,
+      "final_turn_total_ms": 4948
+    },
+    {
+      "id": 9,
+      "description": "Standalone query — should NOT be condensed",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is Section 302?",
+          "search_query": "What is Section 302?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 502,
+          "expand_ms": 0,
+          "gen_ms": 737,
+          "total_ms": 1239,
+          "retrieved_sections": [
+            "302"
+          ],
+          "expanded_sections": [
+            "302",
+            "300"
+          ],
+          "added_by_expander": [
+            "300"
+          ],
+          "expected_sections": [
+            "302"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 302: Punishment for murder.\n\n### PUNISHMENT & PENALTIES\n- Imprisonment: Imprisonment for life\n- Fine: Also liable to fine\n- Additional consequences: Death\n\n### LIMITATIONS\n- None."
+        },
+        {
+          "turn": 2,
+          "user_query": "What is Section 420?",
+          "search_query": "What is Section 420?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 159,
+          "expand_ms": 0,
+          "gen_ms": 3949,
+          "total_ms": 4108,
+          "retrieved_sections": [
+            "420"
+          ],
+          "expanded_sections": [
+            "420",
+            "415",
+            "417"
+          ],
+          "added_by_expander": [
+            "415",
+            "417"
+          ],
+          "expected_sections": [
+            "420"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 420: Cheating and dishonestly inducing delivery of property.\n\n### DEFINITION & ELEMENTS\n- Cheating and dishonestly inducing the person deceived to deliver any property to any person, or to make, alter or destroy the ...",
+          "judge_scores": {
+            "faithfulness": 1.0,
+            "groundedness": 1.0,
+            "completeness": 1.0,
+            "consistency": 0.8,
+            "faithfulness_evidence": "The generated answer accurately describes Section 420, its definition, elements, punishment, and penalties as per the retrieved IPC context.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, without any external filler or knowledge.",
+            "completeness_evidence": "The generated answer fully resolves all parts of the user query, providing a detailed explanation of Section 420, its definition, elements, punishment, and penalties."
+          }
+        }
+      ],
+      "final_query": "What is Section 420?",
+      "final_search_query": "What is Section 420?",
+      "final_condensed": false,
+      "final_retrieved_sections": [
+        "420"
+      ],
+      "final_expanded_sections": [
+        "420",
+        "415",
+        "417"
+      ],
+      "final_added_by_expander": [
+        "415",
+        "417"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 1.0,
+      "groundedness": 1.0,
+      "completeness": 1.0,
+      "consistency": 0.8,
+      "total_condense_ms": 0,
+      "avg_retrieve_ms": 330.5,
+      "avg_gen_ms": 2343.0,
+      "final_turn_total_ms": 4108
+    },
+    {
+      "id": 10,
+      "description": "Hurt: grievous hurt then exception follow-up",
+      "num_turns": 2,
+      "turns": [
+        {
+          "turn": 1,
+          "user_query": "What is hurt under IPC?",
+          "search_query": "What is hurt under IPC?",
+          "was_condensed": false,
+          "condense_ms": 0,
+          "retrieve_ms": 2513,
+          "expand_ms": 0,
+          "gen_ms": 554,
+          "total_ms": 3067,
+          "retrieved_sections": [
+            "303",
+            "330",
+            "497",
+            "382",
+            "84"
+          ],
+          "expanded_sections": [
+            "303",
+            "330",
+            "497",
+            "382",
+            "84"
+          ],
+          "added_by_expander": [],
+          "expected_sections": [
+            "319"
+          ],
+          "section_hit": false,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 330: Voluntarily causing hurt to extort confession, or to compel restoration of property.\n\n### DEFINITION & ELEMENTS\n- Voluntarily causing hurt for the purpose of extorting from the sufferer or from any person intere..."
+        },
+        {
+          "turn": 2,
+          "user_query": "what about grievous hurt?",
+          "search_query": "What is the definition of grievous hurt under the Indian Penal Code?",
+          "was_condensed": true,
+          "condense_ms": 321,
+          "retrieve_ms": 861,
+          "expand_ms": 0,
+          "gen_ms": 1124,
+          "total_ms": 2306,
+          "retrieved_sections": [
+            "326A",
+            "322",
+            "329",
+            "89",
+            "320"
+          ],
+          "expanded_sections": [
+            "326A",
+            "322",
+            "329",
+            "89",
+            "320",
+            "325"
+          ],
+          "added_by_expander": [
+            "325"
+          ],
+          "expected_sections": [
+            "320"
+          ],
+          "section_hit": true,
+          "answer_preview": "### RELEVANT PROVISIONS\n- Section 322: Voluntarily causing grievous hurt.—\n- Section 320: Grievous hurt.—\n- Section 326A: Voluntarily causing grievous hurt by use of acid, etc.—\n- Section 329: Voluntarily causing grievous hurt to extort property, or ...",
+          "judge_scores": {
+            "faithfulness": 0.9,
+            "groundedness": 0.95,
+            "completeness": 0.8,
+            "consistency": 0.9,
+            "faithfulness_evidence": "The generated answer accurately cites relevant sections of the IPC, including definitions and punishments, but fails to address the definition of 'hurt' under IPC.",
+            "groundedness_evidence": "The answer is strictly derived from the retrieved IPC context, with accurate citations and summaries of relevant sections.",
+            "completeness_evidence": "The answer partially resolves the user query by providing definitions and punishments for grievous hurt, but fails to fully address the query's scope and implications."
+          }
+        }
+      ],
+      "final_query": "what about grievous hurt?",
+      "final_search_query": "What is the definition of grievous hurt under the Indian Penal Code?",
+      "final_condensed": true,
+      "final_retrieved_sections": [
+        "326A",
+        "322",
+        "329",
+        "89",
+        "320"
+      ],
+      "final_expanded_sections": [
+        "326A",
+        "322",
+        "329",
+        "89",
+        "320",
+        "325"
+      ],
+      "final_added_by_expander": [
+        "325"
+      ],
+      "final_section_hit": true,
+      "faithfulness": 0.9,
+      "groundedness": 0.95,
+      "completeness": 0.8,
+      "consistency": 0.9,
+      "total_condense_ms": 321,
+      "avg_retrieve_ms": 1687.0,
+      "avg_gen_ms": 839.0,
+      "final_turn_total_ms": 2306
+    }
+  ]
+}

@@ -25,4 +25,12 @@ services:
         sync: false
       - key: LLM_MODEL
         value: llama-3.3-70b-versatile
+      - key: DEFAULT_TOP_K
+        value: "8"
+      - key: DENSE_CANDIDATES
+        value: "25"
+      - key: BM25_CANDIDATES
+        value: "25"
+      - key: MAX_CONTEXT_LENGTH
+        value: "6000"
     healthCheckPath: /health
