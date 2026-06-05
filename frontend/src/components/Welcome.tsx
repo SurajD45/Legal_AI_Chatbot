@@ -75,7 +75,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ onQueryClick }) => {
             </div>
 
             <div className="space-y-1">
-              <div className="text-2xl font-bold font-display text-gold">&lt; 2s</div>
+              <div className="text-2xl font-bold font-display text-gold">~3s</div>
               <div className="text-xxs uppercase tracking-wider text-text-secondary flex items-center justify-center gap-1">
                 <Clock className="w-3 h-3 text-gold/60" />
                 Response Time
