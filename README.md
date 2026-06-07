@@ -1,1277 +1,663 @@
-# ⚖️ Legal AI Assistant - Indian Penal Code Expert
+# ⚖️ LexAI — Indian Penal Code Legal Research Assistant
 
-> **An AI-powered RAG (Retrieval Augmented Generation) chatbot for querying the Indian Penal Code with hybrid search and context-aware conversations.**
+> **A production-grade RAG chatbot that answers questions about the Indian Penal Code using hybrid retrieval, conversational context, and LLM-powered legal reasoning.**
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Python](https://img.shields.io/badge/python-3.11+-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)
-![React](https://img.shields.io/badge/React-18.2-blue)
+![Python](https://img.shields.io/badge/python-3.11-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688?logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?logo=typescript&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Stars](https://img.shields.io/github/stars/yourusername/legal-ai-assistant?style=social)
-![Forks](https://img.shields.io/github/forks/yourusername/legal-ai-assistant?style=social)
-![Issues](https://img.shields.io/github/issues/yourusername/legal-ai-assistant)
-![PRs](https://img.shields.io/github/issues-pr/yourusername/legal-ai-assistant)
-![Docker](https://img.shields.io/badge/docker-ready-blue)
-![Production](https://img.shields.io/badge/production--ready-green)
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Architecture](#️-architecture)
-- [Tech Stack](#️-tech-stack)
-- [Quick Start](#-quick-start-docker)
-- [Local Development](#-local-development-setup)
-- [Project Structure](#-project-structure)
-- [API Documentation](#-api-documentation)
-- [Configuration](#️-configuration)
-- [Scripts](#-scripts)
-- [Deployment](#-deployment)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
-
----
-
-## 🎯 Overview
-
-The Legal AI Assistant is a **production-ready RAG system** that provides intelligent answers to Indian Penal Code queries. It combines vector similarity search with large language models to deliver accurate, source-backed legal information.
-
-### What Makes This Special?
-
-- **Hybrid Search**: Detects explicit section mentions (e.g., "Section 302") AND performs semantic search for general queries
-- **Context-Aware**: Maintains conversation history for multi-turn dialogues
-- **Source Attribution**: Every answer includes citations from actual IPC sections
-- **Production-Ready**: Rate limiting, structured logging, health checks, Docker deployment
-- **Modern UI**: Clean React + TypeScript frontend with Tailwind CSS
-
-### Perfect For
-
-- 🎓 Learning RAG architecture
-- 💼 Portfolio project for AI/ML engineers
-- 🏢 Enterprise legal tech prototypes
-- 📚 Understanding production-grade Python development
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [API Reference](#api-reference)
+- [Configuration](#configuration)
+- [Evaluation Framework](#evaluation-framework)
+- [Deployment](#deployment)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
-## 🎥 Demo
+## Overview
 
-### Screenshots
+LexAI is a full-stack Retrieval-Augmented Generation (RAG) system that provides AI-powered answers to questions about the **Indian Penal Code (IPC)**. Users ask legal questions in natural language, the system retrieves relevant IPC sections from a vector database using hybrid search, and an LLM generates a structured, source-backed legal answer.
 
-| Welcome Screen | Chat Interface | Source Citations |
-|---------------|----------------|------------------|
-| ![Welcome](https://via.placeholder.com/300x200/4F46E5/FFFFFF?text=Welcome+Screen) | ![Chat](https://via.placeholder.com/300x200/059669/FFFFFF?text=Chat+Interface) | ![Sources](https://via.placeholder.com/300x200/DC2626/FFFFFF?text=Source+Citations) |
+### What makes this different from a typical RAG demo?
 
-### Live Demo
-
-🚀 **[Try the Live Demo](https://your-demo-url.com)** (Coming Soon)
-
-*Note: Replace placeholder images with actual screenshots of your application*
+- **Multi-stage retrieval pipeline** — regex section detection → BM25 keyword search → dense vector search → Reciprocal Rank Fusion → context expansion graph
+- **Conversational query condensation** — follow-up questions like _"is it bailable?"_ are automatically rewritten into standalone search queries using a lightweight LLM
+- **Context expansion graph** — when Section 302 (Murder Punishment) is retrieved, Sections 300 and 299 (Murder Definition and Culpable Homicide) are automatically injected
+- **Production engineering** — JWT authentication via Supabase, rate limiting, structured logging, API key rotation, Docker deployment
+- **Quantitative evaluation** — 100+ test queries with measured Groundedness (0.93), Completeness (0.875), and 100% Section Hit Rate
 
 ---
 
-## 🏆 Why Choose This Project?
+## Key Features
 
-### ✨ What Sets It Apart
+### RAG Pipeline
 
-| Feature | This Project | Typical RAG Apps |
-|---------|-------------|------------------|
-| **Hybrid Search** | ✅ Section detection + semantic | ❌ Usually one or the other |
-| **Production Ready** | ✅ Docker, logging, rate limiting | ❌ Often just demos |
-| **Legal Accuracy** | ✅ Source citations with scores | ❌ Vague or no citations |
-| **Context Awareness** | ✅ Session-based conversations | ❌ Stateless queries |
-| **Modern Stack** | ✅ FastAPI + React + TypeScript | ❌ Flask + vanilla JS |
-| **Deployment Ready** | ✅ Multi-platform deployment | ❌ Local only |
+| Capability | Description |
+|---|---|
+| **Hybrid Retrieval** | Combines BM25 keyword matching with dense vector search (multilingual-e5-base embeddings), fused via Reciprocal Rank Fusion |
+| **Section Detection** | Regex patterns detect explicit section references (English + Hindi: "Section 302", "धारा 420") for exact Qdrant scroll lookup — 100% accuracy |
+| **Query Condensation** | Contextual follow-ups are rewritten into standalone queries via `llama-3.1-8b-instant`. Standalone queries bypass the LLM entirely (0ms overhead) |
+| **Context Expansion** | A curated relational graph auto-injects related IPC sections (e.g., 302 → 300 + 299) before LLM generation |
+| **Structured Answers** | Responses follow a legal template: Relevant Provisions → Definition & Elements → Punishment & Penalties → Case Analysis → Limitations |
 
-### 🎯 Perfect Portfolio Piece
+### Application
 
-This project demonstrates:
-
-- **Advanced AI/ML Skills**: RAG, embeddings, vector databases
-- **Full-Stack Development**: Python backend + React frontend
-- **Production Engineering**: Docker, monitoring, security
-- **Domain Expertise**: Legal tech with real-world application
-- **Scalable Architecture**: Clean separation of concerns
-
-### 📈 Impact & Reach
-
-- **GitHub Stars**: Showcase community interest
-- **Real Users**: Legal professionals, students, developers
-- **Industry Relevance**: Growing demand for legal AI solutions
-- **Educational Value**: Complete learning resource for RAG systems
+| Capability | Description |
+|---|---|
+| **Multi-user Sessions** | UUID-based sessions persisted in Redis with 24-hour TTL and ownership enforcement |
+| **Supabase Authentication** | JWT verification via ES256 with dynamic JWKS key fetching and rotation |
+| **Rate Limiting** | IP-based throttling via SlowAPI (configurable, default: 30 req/min) |
+| **API Key Rotation** | Supports up to 9 Groq API keys with automatic failover on rate-limit (429) or overload (503) errors |
+| **Three-Panel UI** | Collapsible sidebar, center chat feed, and right-side context panel with relevance tiers (Top Match / Related / Expanded) |
+| **Developer Mode** | Toggle to reveal RAG analytics: retrieval type, vector DB config, and pipeline execution details |
 
 ---
 
-## 💬 Quick Demo
+## Architecture
 
-### Example Queries & Responses
+### System Topology
 
-#### Query 1: Direct Section Reference
 ```
-User: What is Section 302?
-
-Assistant: Section 302 of the Indian Penal Code deals with punishment for murder. Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.
-
-📚 Sources:
-• Section 302 - Punishment for murder (Score: 0.987)
-• Section 299 - Culpable homicide (Score: 0.823)
-```
-
-#### Query 2: Natural Language Query
-```
-User: What happens if someone accidentally causes someone's death?
-
-Assistant: If death is caused accidentally without intention to cause death or knowledge that the act would likely cause death, it may fall under culpable homicide (Section 299) rather than murder (Section 302). The punishment would be imprisonment for life or up to 10 years with fine.
-
-📚 Sources:
-• Section 299 - Culpable homicide (Score: 0.945)
-• Section 304A - Causing death by negligence (Score: 0.876)
-• Section 304 - Punishment for culpable homicide (Score: 0.812)
-```
-
-#### Query 3: Conversational Follow-up
-```
-User: What about if it's during a fight?
-
-Assistant: In cases of death during a fight, it depends on whether there was premeditation or sudden provocation. Section 300 provides exceptions for sudden fight where death occurs before the assailant can realize the consequences.
-
-📚 Sources:
-• Section 300 - Murder - Exceptions (Score: 0.956)
-• Section 304 - Punishment for culpable homicide (Score: 0.834)
+┌─────────────────┐      HTTPS       ┌──────────────────────────┐
+│   Vercel CDN    │ ────────────────► │   Render (Docker)        │
+│   React + Vite  │                   │   FastAPI + Uvicorn      │
+│   TailwindCSS   │                   │                          │
+└─────────────────┘                   └──────────┬───────────────┘
+                                                 │
+                              ┌──────────────────┼──────────────────┐
+                              │                  │                  │
+                              ▼                  ▼                  ▼
+                     ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+                     │ Qdrant Cloud │   │   Groq API   │   │   Upstash    │
+                     │ (Vector DB)  │   │   (LLM)      │   │   Redis      │
+                     │ 548 sections │   │ llama-3.3-70b│   │  (Sessions)  │
+                     └──────────────┘   └──────────────┘   └──────────────┘
+                              │                                    │
+                              ▼                                    ▼
+                     ┌──────────────┐                     ┌──────────────┐
+                     │ HuggingFace  │                     │   Supabase   │
+                     │ Inference API│                     │   (Auth/JWT) │
+                     │ (Embeddings) │                     └──────────────┘
+                     └──────────────┘
 ```
 
-### API Usage Example
+### RAG Pipeline (Per Query)
 
-```bash
-# Query the assistant
-curl -X POST http://localhost:8000/api/query \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "What is Section 302?",
-    "session_id": "optional-session-id"
-  }'
-
-# Response includes answer, sources, and session management
+```
+User: "is it bailable?"
+       │
+       ▼
+┌──────────────────────────────┐
+│  1. JWT Auth Verification    │ ─── Supabase JWKS (ES256)
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  2. Session Management       │ ─── Redis: load/create session + history
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  3. Query Condensation       │ ─── Keyword filter → llama-3.1-8b-instant
+│     (Phase 9A)               │     "is it bailable?" → "Is Section 302
+│                              │      of IPC bailable or non-bailable?"
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  4. Hybrid Retrieval         │
+│     a. Regex section detect  │ ─── Exact Qdrant scroll if "Section NNN"
+│     b. Static query expansion│ ─── Synonym expansion (deterministic)
+│     c. Dense semantic search │ ─── HF e5-base → Qdrant ANN (top 25)
+│     d. BM25 keyword search   │ ─── In-memory BM25Okapi (top 25)
+│     e. RRF fusion            │ ─── Reciprocal Rank Fusion → top 8
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  5. Context Expansion        │ ─── related_sections.json graph
+│     (Phase 9B)               │     302 → auto-inject 300, 299
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  6. LLM Generation           │ ─── llama-3.3-70b-versatile via Groq
+│     System prompt + context  │     Structured legal answer template
+│     + chat history (last 8)  │     + key rotation on 429/503
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  7. Persist to Redis         │ ─── Save user + assistant messages
+└──────────────────────────────┘
 ```
 
 ---
 
-## 🌟 Community & Social Proof
-
-### 📊 GitHub Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api/pinned?username=yourusername&repo=legal-ai-assistant&theme=dark)
-
-### 🤝 Contributors
-
-<a href="https://github.com/yourusername/legal-ai-assistant/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=yourusername/legal-ai-assistant" />
-</a>
-
-### 💬 Discussions & Support
-
-- **GitHub Discussions**: Share ideas and get help
-- **Issues**: Report bugs or request features
-- **Discord**: Join our community chat (Coming Soon)
-- **Blog Posts**: Tutorials and deep dives
-
-### 📰 Featured In
-
-*Coming Soon - Media coverage and mentions*
-
----
-
-## 🔬 Technical Deep Dive
-
-### Hybrid Search Algorithm
-
-```python
-def hybrid_search(query: str) -> List[Document]:
-    # Step 1: Detect section patterns
-    sections = regex_search(r"section\s+(\d+)", query.lower())
-
-    if sections:
-        # Direct lookup for explicit sections
-        return get_sections_by_number(sections)
-    else:
-        # Semantic search with embeddings
-        query_embedding = embed_text(query)
-        return vector_search(query_embedding, top_k=5)
-```
-
-### Context Building Strategy
-
-```
-Context Window: 4000 characters max
-
-Format:
-[Section {number}] {title}
-{text}
-
-[Section {number}] {title}
-{text}
-
-Question: {user_query}
-History: {previous_messages}
-```
-
-### Session Management
-
-- **UUID-based sessions** for conversation continuity
-- **Automatic cleanup** of expired sessions (24h TTL)
-- **Memory-efficient storage** with message limits
-- **Thread-safe operations** for concurrent users
-
-### Error Handling Hierarchy
-
-```
-1. Input Validation (Pydantic)
-2. Rate Limiting (SlowAPI)
-3. Service Dependencies (Qdrant, Groq)
-4. Business Logic (Custom exceptions)
-5. Global Fallback (500 errors)
-```
-
-### Performance Optimizations
-
-- **Embedding caching** for repeated queries
-- **Connection pooling** for external APIs
-- **Async operations** throughout the stack
-- **Lazy loading** of ML models
-- **Query result caching** (planned)
-
----
-
-## 🆚 Comparison with Similar Projects
-
-| Project | Tech Stack | Search Type | UI | Deployment | License |
-|---------|------------|-------------|----|------------|---------|
-| **Legal AI Assistant** | FastAPI + React | Hybrid (Section + Semantic) | Modern React | Docker + Cloud | MIT |
-| LangChain RAG | Python + Streamlit | Semantic only | Basic | Local only | MIT |
-| LegalGPT | Flask + Vue | Keyword search | Basic | Manual | GPL |
-| LawBot | Django + Angular | Full-text search | Enterprise | Complex | Proprietary |
-| IPC Assistant | Node.js + Express | Section lookup | Minimal | Heroku | MIT |
-
-### Key Differentiators
-
-- **Hybrid Intelligence**: Combines rule-based section detection with AI semantic search
-- **Production Focus**: Built for real deployment with monitoring, security, and scalability
-- **Educational Value**: Comprehensive documentation and clean architecture
-- **Legal Accuracy**: Source citations with relevance scores for transparency
-- **Modern UX**: Beautiful, responsive interface with conversation history
-
----
-
-## 🗺️ Updated Roadmap
-
-### ✅ Completed (v1.0.0)
-
-- [x] Core RAG pipeline with hybrid search
-- [x] FastAPI backend with auto-generated docs
-- [x] React + TypeScript frontend
-- [x] Docker Compose deployment
-- [x] Qdrant vector database integration
-- [x] Groq LLM integration
-- [x] Session-based conversation history
-- [x] Rate limiting and security
-- [x] Comprehensive logging
-- [x] IPC data indexing and retrieval
-
-### 🚧 In Progress
-
-- [ ] User authentication system
-- [ ] Admin dashboard for analytics
-- [ ] Multi-language support (Hindi)
-- [ ] Voice input/output capabilities
-
-### 🔮 Planned Features
-
-- [ ] **Q2 2024**: Redis caching layer for performance
-- [ ] **Q2 2024**: Conversation export (PDF/JSON)
-- [ ] **Q3 2024**: Additional legal datasets (CrPC, CPC)
-- [ ] **Q3 2024**: Feedback mechanism for answer quality
-- [ ] **Q4 2024**: Mobile app (React Native)
-- [ ] **Q4 2024**: Advanced analytics and reporting
-- [ ] **Q1 2025**: Multi-tenant architecture
-- [ ] **Q1 2025**: Integration with legal research APIs
-
-### 📋 Feature Requests
-
-*Help prioritize by upvoting issues on GitHub*
-
-- API integrations (court records, case law)
-- Custom legal document upload
-- Collaboration features for legal teams
-- Advanced search filters and faceting
-
----
-
-## 🎯 Getting Started Checklist
-
-### For New Contributors
-
-- [ ] Read this README completely
-- [ ] Set up local development environment
-- [ ] Run the test suite
-- [ ] Try the API endpoints
-- [ ] Explore the codebase architecture
-- [ ] Check open issues for contribution ideas
-
-### For Portfolio Showcase
-
-- [ ] Deploy to production (Railway, Render, etc.)
-- [ ] Add your own customizations
-- [ ] Write a blog post about your experience
-- [ ] Share on LinkedIn/Twitter with demo link
-- [ ] Add to your GitHub profile README
-
----
-
-## 📞 Support & Contact
-
-### 📧 Get in Touch
-
-- **📧 Email**: your.email@example.com
-- **🐛 Issues**: [GitHub Issues](https://github.com/yourusername/legal-ai-assistant/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/yourusername/legal-ai-assistant/discussions)
-- **📱 Twitter**: [@yourusername](https://twitter.com/yourusername)
-
-### 🤝 Contributing Guidelines
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### 📚 Resources
-
-- **📖 Documentation**: Full API docs at `/docs`
-- **🎥 Tutorials**: Step-by-step guides (Coming Soon)
-- **📝 Blog**: Technical deep dives and updates
-- **🎙️ Podcast**: Interviews with legal tech experts
-
----
-
-## 🎉 Success Stories
-
-*"This project helped me land my dream job as an AI Engineer. The comprehensive architecture and production-ready features impressed interviewers."* - Recent Graduate
-
-*"As a law student, this tool has been invaluable for quick IPC research. The accuracy and source citations give me confidence in the answers."* - Law Student
-
-*"We deployed this internally for our legal team. The hybrid search and conversation context make it much more useful than simple keyword search."* - Legal Tech Company
-
----
-
-**⭐ Star this repo if you found it helpful! Your support motivates us to keep improving.**
-
-## ✨ Features
-
-### 🚀 Core Capabilities
-
-- ⚡ **Lightning-fast semantic search** across 512 IPC sections
-- 🔍 **Intelligent hybrid retrieval** (section detection + vector similarity)
-- 🤖 **AI-generated answers** using Groq's Llama 3 (70B parameter model)
-- 💬 **Conversational context** with session-based history management
-- 📊 **Real-time source citations** with relevance scores
-- 🛡️ **Rate limiting** (10 requests/min per IP, configurable)
-- 🎨 **Beautiful, responsive UI** with auto-scroll and loading states
-
-### 🔧 Technical Excellence
-
-- ✅ **Type-safe** with Pydantic validation
-- ✅ **Structured logging** (JSON in production, pretty-print in dev)
-- ✅ **Comprehensive error handling** with custom exceptions
-- ✅ **Docker Compose** for one-command deployment
-- ✅ **Environment-based config** (dev/staging/production)
-- ✅ **CORS enabled** for frontend integration
-- ✅ **Health monitoring** endpoints
-- ✅ **Auto-cleanup** of expired sessions
-
----
-
-## 🏗️ Architecture
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│                        USER BROWSER                          │
-│                    (React + TypeScript)                      │
-└────────────────────────┬─────────────────────────────────────┘
-                         │ HTTP/JSON
-                         ▼
-┌──────────────────────────────────────────────────────────────┐
-│                   FASTAPI BACKEND                            │
-│  ┌────────────┐  ┌──────────────┐  ┌────────────────────┐    │
-│  │ API Routes │──│ Dependencies │──│ Rate Limiter       │    │
-│  │ (chat.py)  │  │ (limiter)    │  │ (10 req/min)       │    │
-│  └────────────┘  └──────────────┘  └────────────────────┘    │
-│         │                                                    │
-│         ▼                                                    │
-│  ┌─────────────────────────────────────────────────┐         │
-│  │              CORE SERVICES                      │         │
-│  │  ┌──────────────┐ ┌────────────┐ ┌────────────┐ │         │
-│  │  │ Retriever    │ │ LLM Chain  │ │ History    │ │         │
-│  │  │ (hybrid)     │ │ (Groq API) │ │ Manager    │ │         │
-│  │  └──────┬───────┘ └─────┬──────┘ └───────|────┘ │         │
-│  └─────────┼───────────────┼────────────────| ──── ┘         │
-│            │               │                |                │
-└────────────┼───────────────┼─────────────────────────────────┘
-             │               |                |
-     ┌───────▼───┐     ┌─────▼──────┐     ┌───▼──────────┐
-     │  Qdrant   │     │  Groq LLM  │     │  Sentence    │
-     │  Vector   │     │  (Llama 3) │     │ Transformers │
-     │  Database │     │   API      │     │ (E5-large)   │
-     └───────────┘     └────────────┘     └──────────────┘
-```
-
-### Data Flow
-
-```
-1. User Query → FastAPI receives request
-2. Rate Limit Check → Validate request frequency
-3. Session Management → Get or create conversation session
-4. Hybrid Search:
-   ├─ Detect section patterns (regex)
-   ├─ IF sections found: Direct lookup in Qdrant
-   └─ ELSE: Generate embedding → Semantic search
-5. Context Building → Format top-K IPC sections
-6. LLM Generation → Groq API with context + history
-7. Response → Return answer + sources + session_id
-8. Session Update → Store in history manager
-```
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Web Framework** | FastAPI 0.104 | Async, auto-docs, high performance |
-| **Vector Database** | Qdrant | Self-hosted, production-grade similarity search |
-| **Embeddings** | Sentence Transformers<br/>`multilingual-e5-large` | 1024-dim vectors, multilingual support |
-| **LLM** | Groq (Llama 3-70B) | Ultra-fast inference, free tier available |
-| **Validation** | Pydantic 2.5 | Type-safe request/response models |
-| **Logging** | Structlog | Structured JSON logs for monitoring |
-| **Rate Limiting** | SlowAPI | IP-based request throttling |
+| Component | Technology | Details |
+|---|---|---|
+| Web Framework | FastAPI 0.104 | Async ASGI server with auto-generated docs |
+| LLM Inference | Groq API | `llama-3.3-70b-versatile` (main), `llama-3.1-8b-instant` (condenser) |
+| Vector Database | Qdrant Cloud | Cosine similarity, 768-dim vectors, payload indexing on `section_number` |
+| Embeddings | HuggingFace Inference API | `intfloat/multilingual-e5-base` (768 dimensions) |
+| Keyword Search | rank-bm25 | In-memory BM25Okapi over tokenized IPC corpus |
+| Session Store | Upstash Redis | Serverless, TLS, 24h TTL sessions with ownership enforcement |
+| Auth | Supabase + python-jose | ES256 JWT verification with JWKS key caching |
+| Rate Limiting | SlowAPI | IP-based, configurable per-minute limit |
+| Logging | structlog | JSON in production, pretty-print in development |
+| Validation | Pydantic 2.5 | Request/response models with field validators |
 
 ### Frontend
 
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Framework** | React 18 + TypeScript | Type-safe component development |
-| **Build Tool** | Vite 5 | Lightning-fast dev server & builds |
-| **Styling** | Tailwind CSS 3.3 | Utility-first responsive design |
-| **Icons** | Lucide React | Beautiful, consistent icons |
-| **Markdown** | react-markdown | Render formatted responses |
-| **HTTP Client** | Axios | API communication |
+| Component | Technology | Details |
+|---|---|---|
+| Framework | React 18 + TypeScript 5.2 | Type-safe component architecture |
+| Build Tool | Vite 5 | Fast HMR dev server, optimized production builds |
+| Styling | TailwindCSS 3 | Dark theme with gold accent palette |
+| Icons | Lucide React | Consistent, tree-shakeable icon set |
+| Markdown | react-markdown | Renders formatted LLM responses |
+| HTTP Client | Axios | API calls with auth token injection |
+| Auth | @supabase/supabase-js | Client-side authentication flow |
 
-### DevOps
+### Infrastructure
 
-- **Docker** + **Docker Compose** for containerization
-- **Uvicorn** ASGI server
-- **Python 3.11+** runtime
+| Component | Technology | Cost |
+|---|---|---|
+| Frontend Hosting | Vercel (CDN) | Free tier |
+| Backend Hosting | Render.com (Docker) | Free tier (sleeps after 15min idle) |
+| Vector DB | Qdrant Cloud | Free tier (1 GB) |
+| Session Store | Upstash Redis | Free tier (500K commands/month) |
+| LLM | Groq Cloud | Free tier (rate-limited) |
+| Auth | Supabase | Free tier |
 
 ---
 
-## 🚀 Quick Start (Docker)
+## Getting Started
 
 ### Prerequisites
 
-- Docker & Docker Compose installed
-- Groq API key (free at [console.groq.com](https://console.groq.com/keys))
+- Python 3.11+
+- Node.js 18+
+- Accounts for: [Groq](https://console.groq.com/keys), [Qdrant Cloud](https://cloud.qdrant.io/), [Upstash Redis](https://upstash.com/), [Supabase](https://supabase.com/)
+- IPC data already indexed in Qdrant (see [Indexing Data](#indexing-data))
 
-### Steps
+### 1. Clone & Configure
 
 ```bash
-# 1. Clone the repository
-git clone <your-repo-url>
-cd legal-ai-assistant
+git clone https://github.com/SurajD45/Legal_AI_Chatbot.git
+cd Legal_AI_Chatbot
 
-# 2. Set up environment variables
+# Copy and fill in your API keys
 cp .env.example .env
-nano .env  # Add your GROQ_API_KEY
-
-# 3. Start all services
-docker-compose up -d
-
-# 4. Wait for services to be healthy (~30 seconds)
-docker-compose ps
-
-# 5. Index IPC data (one-time setup)
-docker-compose exec backend python scripts/index_data.py
-
-# 6. Open the application
-# Backend API: http://localhost:8000
-# API Docs: http://localhost:8000/docs
-# Frontend: http://localhost:3000
 ```
 
-**That's it!** 🎉 The app is now running.
+Edit `.env` with your actual credentials:
 
-### Verify Installation
+```env
+GROQ_API_KEY=gsk_your_key_here
+QDRANT_URL=https://your-cluster.aws.cloud.qdrant.io
+QDRANT_API_KEY=your_qdrant_key
+REDIS_URL=rediss://default:your_password@your-host.upstash.io:6379
+SUPABASE_URL=https://your-project.supabase.co
+```
+
+### 2. Backend Setup
 
 ```bash
-# Check backend health
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (macOS/Linux)
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.base.txt
+
+# Start the server
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+The backend will be available at `http://localhost:8000`. In development mode, Swagger docs are at `/docs` and ReDoc at `/redoc`.
+
+### 3. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend will be available at `http://localhost:5173` with a proxy to the backend.
+
+### 4. Verify
+
+```bash
+# Health check
 curl http://localhost:8000/health
 
-# Test a query
-curl -X POST http://localhost:8000/api/query \
-  -H "Content-Type: application/json" \
-  -d '{"query": "What is Section 302?"}'
+# Test query (requires valid JWT — use the frontend for authenticated requests)
+curl http://localhost:8000/
+```
+
+### Indexing Data
+
+To index the IPC sections into Qdrant (one-time setup):
+
+```bash
+python scripts/index_data.py
+```
+
+This loads `data/ipc_clean.json` (548 IPC sections), generates embeddings using SentenceTransformer, and uploads them to your Qdrant Cloud collection.
+
+### Docker Deployment
+
+```bash
+# Build and run the backend container
+docker build -t legal-ai-backend .
+docker run -p 8000:8000 --env-file .env legal-ai-backend
 ```
 
 ---
 
-## 💻 Local Development Setup
-
-### Option 1: With Docker Qdrant
-
-```bash
-# 1. Install Python dependencies
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-# 2. Start Qdrant in Docker
-docker run -d -p 6333:6333 -p 6334:6334 \
-  -v $(pwd)/qdrant_storage:/qdrant/storage \
-  qdrant/qdrant
-
-# 3. Configure environment
-cp .env.example .env
-# Edit .env:
-# - Add GROQ_API_KEY
-# - Set QDRANT_HOST=localhost
-
-# 4. Index data
-python scripts/index_data.py
-
-# 5. Run backend
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-
-# 6. In another terminal, run frontend
-cd frontend
-npm install
-npm run dev
-```
-
-### Option 2: Full Local Setup
-
-```bash
-# Install Qdrant locally (requires Rust)
-# Or use Docker as shown above (recommended)
-
-# Backend setup
-pip install -r requirements.txt
-cp .env.example .env
-# Edit .env with your configuration
-
-# Index data
-python scripts/index_data.py
-
-# Run backend
-uvicorn app.main:app --reload
-
-# Frontend setup (in another terminal)
-cd frontend
-npm install
-npm run dev
-```
-
-### Development URLs
-
-- **Backend API**: http://localhost:8000
-- **API Docs (Swagger)**: http://localhost:8000/docs
-- **API Docs (ReDoc)**: http://localhost:8000/redoc
-- **Frontend**: http://localhost:3000
-- **Qdrant Dashboard**: http://localhost:6333/dashboard
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 legal-ai-assistant/
 │
-├── 📦 app/                          # Main application package
-│   ├── 🔌 api/                      # API route handlers
-│   │   ├── __init__.py
-│   │   ├── chat.py                  # Chat & query endpoints
-│   │   └── health.py                # Health check endpoints
+├── app/                              # Backend application
+│   ├── main.py                       # FastAPI app, lifespan, CORS, error handlers
+│   ├── config.py                     # Pydantic Settings — all env vars
+│   ├── models.py                     # Request/response Pydantic models
+│   ├── dependencies.py               # Rate limiter + JWT auth (JWKS/ES256)
 │   │
-│   ├── 🧠 core/                     # Business logic layer
-│   │   ├── __init__.py
-│   │   ├── retriever.py             # Hybrid search (section + semantic)
-│   │   ├── llm_chain.py             # Groq LLM integration
-│   │   └── chat_history.py          # Session management
+│   ├── api/                          # Route handlers
+│   │   ├── chat.py                   # POST /api/query, GET /api/session/latest
+│   │   └── health.py                 # GET /health, GET /
 │   │
-│   ├── 🛠️ utils/                     # Shared utilities
-│   │   ├── __init__.py
-│   │   ├── logger.py                # Structured logging setup
-│   │   └── exceptions.py            # Custom exception classes
+│   ├── core/                         # Business logic
+│   │   ├── retriever.py              # Hybrid search: regex + BM25 + dense + RRF
+│   │   ├── llm_chain.py              # Groq LLM: prompt building + key rotation
+│   │   ├── chat_history.py           # Redis session management
+│   │   ├── query_condenser.py        # Conversational query rewriting (Phase 9A)
+│   │   ├── context_expander.py       # Related section injection (Phase 9B)
+│   │   └── query_expander.py         # Static synonym expansion
 │   │
-│   ├── ⚙️ config.py                  # Environment-based configuration
-│   ├── 📋 models.py                  # Pydantic request/response models
-│   ├── 🔗 dependencies.py            # FastAPI dependency injection
-│   └── 🚀 main.py                    # Application entry point
+│   └── utils/                        # Cross-cutting concerns
+│       ├── logger.py                 # structlog configuration
+│       └── exceptions.py             # Custom exception hierarchy
 │
-├── 📜 scripts/                      # Utility scripts
-│   ├── index_data.py                # Index IPC data to Qdrant
-│   └── test_retrieval.py            # Test search functionality
-│
-├── 📊 data/                         # Data files (gitignored)
-│   ├── .gitkeep
-│   └── ipc.json                     # IPC sections (add your data here)
-│
-├── 🎨 frontend/                     # React frontend
+├── frontend/                         # React application
 │   ├── src/
+│   │   ├── App.tsx                   # Main app — three-panel layout
 │   │   ├── components/
-│   │   │   ├── ChatMessage.tsx      # Message display component
-│   │   │   ├── ChatInput.tsx        # Input with send button
-│   │   │   └── Welcome.tsx          # Landing screen
+│   │   │   ├── ChatInput.tsx         # Message input with loading states
+│   │   │   ├── ChatMessage.tsx       # Message bubbles with source citations
+│   │   │   ├── Welcome.tsx           # Landing screen with example queries
+│   │   │   └── Auth.tsx              # Supabase auth component
 │   │   ├── hooks/
-│   │   │   └── useChat.ts           # Chat state management hook
+│   │   │   └── useChat.ts           # Chat state management
 │   │   ├── services/
-│   │   │   └── api.ts               # API client (Axios)
-│   │   ├── types/
-│   │   │   └── index.ts             # TypeScript type definitions
-│   │   ├── App.tsx                  # Main app component
-│   │   ├── main.tsx                 # React entry point
-│   │   └── index.css                # Global styles + Tailwind
-│   │
-│   ├── index.html                   # HTML entry point
-│   ├── package.json                 # NPM dependencies
-│   ├── tsconfig.json                # TypeScript configuration
-│   ├── vite.config.ts               # Vite build config
-│   ├── tailwind.config.js           # Tailwind configuration
-│   ├── postcss.config.js            # PostCSS for Tailwind
-│   └── .eslintrc.cjs                # ESLint rules
+│   │   │   ├── api.ts               # Axios client with auth headers
+│   │   │   ├── auth.ts              # Auth helper functions
+│   │   │   └── supabase.ts          # Supabase client initialization
+│   │   └── types/
+│   │       └── index.ts             # TypeScript definitions
+│   ├── vercel.json                   # Vercel deployment config
+│   ├── vite.config.ts                # Vite config with dev proxy
+│   └── tailwind.config.js            # TailwindCSS theme
 │
-├── 🧪 tests/                        # Test suite
-│   ├── __init__.py
-│   ├── test_retriever.py            # Retrieval tests
-│   └── test_api.py                  # API endpoint tests
+├── evaluation/                       # Quality measurement framework
+│   ├── test_queries.json             # 100 curated test cases (7 categories)
+│   ├── conversational_queries_v1.json# 10 multi-turn conversation scenarios
+│   ├── evaluate_retrieval.py         # Recall@K, MRR, regex accuracy
+│   ├── evaluate_answers.py           # Groundedness, completeness, hallucination
+│   ├── evaluate_conversational.py    # Multi-turn evaluation
+│   ├── llm_judge.py                  # LLM-as-judge evaluation engine
+│   └── reports/                      # Generated evaluation reports
 │
-├── 🐳 Docker Files
-│   ├── Dockerfile                   # Backend container
-│   ├── docker-compose.yml           # Multi-service orchestration
-│   └── .dockerignore                # Exclude from Docker build
+├── scripts/
+│   ├── index_data.py                 # Index IPC JSON → Qdrant Cloud
+│   └── archive/
+│       └── generate_ipc_json.py      # IPC DOCX → JSON converter
 │
-├── ⚙️ Configuration Files
-│   ├── .env.example                 # Environment variable template
-│   ├── .env                         # Your actual secrets (gitignored)
-│   ├── .gitignore                   # Git exclusions
-│   └── requirements.txt             # Python dependencies
+├── data/
+│   ├── ipc_clean.json                # 548 IPC sections (~543 KB)
+│   └── related_sections.json         # Context expansion graph
 │
-└── 📖 README.md                     # This file
+├── tests/
+│   ├── test_api.py                   # API endpoint tests
+│   └── test_retriever.py             # Retriever unit tests
+│
+├── Dockerfile                        # Python 3.11-slim, production image
+├── render.yaml                       # Render.com deployment blueprint
+├── requirements.base.txt             # Production dependencies
+├── requirements.dev.txt              # Dev/test dependencies
+├── .env.example                      # Environment variable template
+└── PROJECT_EVOLUTION.md              # Detailed architectural case study
 ```
 
 ---
 
-## 📚 API Documentation
-
-### Base URL
-
-```
-http://localhost:8000
-```
-
-### Authentication
-
-No authentication required (add JWT tokens for production).
+## API Reference
 
 ### Endpoints
 
-#### 1️⃣ Health Check
+| Method | Path | Description | Auth |
+|---|---|---|---|
+| `GET` | `/` | Project info + links | None |
+| `GET` | `/health` | Service health: Qdrant, embedding, LLM status | None |
+| `POST` | `/api/query` | Main RAG endpoint — send query, get answer | JWT + Rate limited |
+| `GET` | `/api/session/latest` | Restore latest conversation session | JWT |
 
-```http
-GET /health
+### POST `/api/query`
+
+**Request:**
+
+```json
+{
+  "query": "What is Section 302 of IPC?",
+  "session_id": null
+}
 ```
 
-**Response (200 OK):**
+**Headers:**
+
+```
+Authorization: Bearer <supabase_jwt_token>
+Content-Type: application/json
+```
+
+**Response (200):**
+
+```json
+{
+  "answer": "### RELEVANT PROVISIONS\n- Section 302\n- Punishment for murder\n\n### DEFINITION & ELEMENTS\n...\n\n### PUNISHMENT & PENALTIES\n- Death, or\n- Imprisonment for life, and fine\n\n### LIMITATIONS\n- ...",
+  "sources": [
+    {
+      "section": "302",
+      "title": "Punishment for murder",
+      "text": "Whoever commits murder shall be punished with death, or imprisonment for life, and shall also be liable to fine.",
+      "score": 1.0
+    }
+  ],
+  "session_id": "550e8400-e29b-41d4-a716-446655440000",
+  "query": "What is Section 302 of IPC?"
+}
+```
+
+**Error Response (500):**
+
+```json
+{
+  "error": "LLMError",
+  "message": "Failed to generate answer: Rate limit exceeded",
+  "details": {}
+}
+```
+
+### GET `/health`
+
 ```json
 {
   "status": "healthy",
-  "environment": "development",
+  "environment": "production",
   "version": "1.0.0",
   "services": {
-    "qdrant": {
-      "status": "healthy",
-      "collection": "ipc_legal_docs",
-      "vectors_count": 512
-    },
-    "embedding_model": {
-      "status": "healthy",
-      "model": "intfloat/multilingual-e5-large"
-    }
+    "qdrant": { "status": "healthy", "collection": "ipc_legal_docs", "vectors_count": 548 },
+    "embedding_model": { "status": "healthy", "model": "intfloat/multilingual-e5-base" },
+    "llm": { "status": "healthy", "provider": "groq" }
   }
 }
 ```
 
 ---
 
-#### 2️⃣ Query Legal Assistant
+## Configuration
 
-```http
-POST /api/query
-```
+All variables are loaded via `app/config.py` using Pydantic Settings. The app **fails fast** on startup if required variables are missing.
 
-**Request Headers:**
-```
-Content-Type: application/json
-```
-
-**Request Body:**
-```json
-{
-  "query": "What is Section 302?",
-  "session_id": "optional-uuid-here"
-}
-```
-
-**Response (200 OK):**
-```json
-{
-  "answer": "Section 302 of the Indian Penal Code deals with punishment for murder. Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.",
-  "sources": [
-    {
-      "section": "302",
-      "title": "Punishment for murder",
-      "text": "Full legal text here...",
-      "score": 0.9876
-    }
-  ],
-  "session_id": "550e8400-e29b-41d4-a716-446655440000",
-  "query": "What is Section 302?"
-}
-```
-
-**Error Response (500):**
-```json
-{
-  "error": "LLMError",
-  "message": "Failed to generate answer: API timeout",
-  "details": {}
-}
-```
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `GROQ_API_KEY` | **Yes** | — | Primary Groq API key |
+| `GROQ_API_KEY_2` … `_5` | No | — | Additional keys for rotation |
+| `QDRANT_URL` | **Yes** | — | Qdrant Cloud cluster URL |
+| `QDRANT_API_KEY` | **Yes** | — | Qdrant Cloud API key |
+| `QDRANT_COLLECTION_NAME` | No | `ipc_legal_docs` | Qdrant collection name |
+| `REDIS_URL` | **Yes** | — | Upstash Redis URL (TLS) |
+| `SUPABASE_URL` | **Yes** | — | Supabase project URL |
+| `HF_API_TOKEN` | No | — | HuggingFace token (optional, for rate limits) |
+| `ENVIRONMENT` | No | `development` | `development` / `staging` / `production` |
+| `HOST` | No | `0.0.0.0` | Bind host |
+| `PORT` | No | `8000` | Bind port |
+| `LOG_LEVEL` | No | `INFO` | Logging level |
+| `CORS_ORIGINS` | No | `localhost` | Comma-separated allowed origins |
+| `LLM_MODEL` | No | `llama-3.3-70b-versatile` | Groq model for answer generation |
+| `EMBEDDING_MODEL` | No | `intfloat/multilingual-e5-base` | HuggingFace embedding model |
+| `EMBEDDING_DIMENSION` | No | `768` | Vector dimension |
+| `DEFAULT_TOP_K` | No | `5` | Final results after RRF fusion |
+| `DENSE_CANDIDATES` | No | `20` | Dense search candidates before fusion |
+| `BM25_CANDIDATES` | No | `20` | BM25 candidates before fusion |
+| `RRF_K` | No | `60` | RRF smoothing constant |
+| `MAX_CONTEXT_LENGTH` | No | `4000` | Max characters sent to LLM |
+| `RATE_LIMIT_PER_MINUTE` | No | `30` | API rate limit per IP |
 
 ---
 
-#### 3️⃣ Clear Session
+## Evaluation Framework
 
-```http
-DELETE /api/session/{session_id}
-```
+The `evaluation/` directory contains a quantitative testing framework that measures retrieval quality and answer correctness.
 
-**Response (200 OK):**
-```json
-{
-  "message": "Session 550e8400-e29b-41d4-a716-446655440000 cleared successfully"
-}
-```
+### Test Datasets
 
----
+| Dataset | Queries | Categories |
+|---|---|---|
+| `test_queries.json` | 100 | exact_match (10), exact_match_hindi (3), multi_section (5), semantic (37), semantic_complex (13), semantic_hindi (4), edge_case (8) |
+| `conversational_queries_v1.json` | 10 scenarios | Multi-turn conversations (e.g., "What is 302?" → "is it bailable?") |
 
-#### 4️⃣ Root Endpoint
+### Evaluation Results
 
-```http
-GET /
-```
+| Metric | Target | Final Score | Status |
+|---|---|---|---|
+| **Groundedness** | ≥ 0.90 | **0.930** | ✅ Met |
+| **Completeness** | ≥ 0.85 | **0.875** | ✅ Met |
+| **Section Hit Rate** | 100% | **100%** | ✅ Met |
+| **Query Condensation Accuracy** | — | **90%** | ✅ |
 
-**Response (200 OK):**
-```json
-{
-  "name": "Legal AI Assistant API",
-  "version": "1.0.0",
-  "description": "Indian Penal Code AI Assistant with RAG",
-  "docs": "/docs",
-  "health": "/health"
-}
-```
-
----
-
-### Rate Limiting
-
-All endpoints are rate-limited to **10 requests per minute per IP** (configurable in `.env`).
-
-**Rate Limit Headers:**
-```
-X-RateLimit-Limit: 10
-X-RateLimit-Remaining: 7
-X-RateLimit-Reset: 1640000000
-```
-
-**Rate Limit Exceeded (429):**
-```json
-{
-  "error": "Rate limit exceeded: 10 per 1 minute"
-}
-```
-
----
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-All configuration is done via environment variables. Copy `.env.example` to `.env` and customize:
+### Running Evaluations
 
 ```bash
-# ============================================
-# API Keys (REQUIRED)
-# ============================================
-GROQ_API_KEY=your_groq_api_key_here
+# Retrieval quality (Recall@K, MRR, regex accuracy)
+python evaluation/evaluate_retrieval.py
 
-# ============================================
-# Vector Database (Qdrant)
-# ============================================
-QDRANT_HOST=qdrant                    # Use 'localhost' for local dev
-QDRANT_PORT=6333
-QDRANT_COLLECTION_NAME=ipc_legal_docs
+# Answer quality (LLM-as-judge: groundedness, completeness, hallucination)
+python evaluation/evaluate_answers.py
 
-# ============================================
-# Application Settings
-# ============================================
-ENVIRONMENT=development               # development | staging | production
-LOG_LEVEL=INFO                       # DEBUG | INFO | WARNING | ERROR
-HOST=0.0.0.0
-PORT=8000
-
-# ============================================
-# Security & CORS
-# ============================================
-CORS_ORIGINS=http://localhost:3000,http://localhost:8000
-
-# ============================================
-# Rate Limiting
-# ============================================
-RATE_LIMIT_PER_MINUTE=10
-
-# ============================================
-# Model Configuration
-# ============================================
-EMBEDDING_MODEL=intfloat/multilingual-e5-large
-LLM_MODEL=llama3-70b-8192
-EMBEDDING_DIMENSION=1024
-
-# ============================================
-# Search Configuration
-# ============================================
-DEFAULT_TOP_K=5                      # Number of sources to retrieve
-MAX_CONTEXT_LENGTH=4000              # Max characters for LLM context
-```
-
-### Configuration Validation
-
-The app uses Pydantic to validate all environment variables on startup. If required variables are missing or invalid, it will fail fast with a clear error message.
-
----
-
-## 📜 Scripts
-
-### 1. Index Data (`scripts/index_data.py`)
-
-Indexes IPC sections into Qdrant vector database.
-
-**Usage:**
-```bash
-# With Docker
-docker-compose exec backend python scripts/index_data.py
-
-# Locally
-python scripts/index_data.py
-```
-
-**What it does:**
-1. Loads `data/ipc.json`
-2. Generates embeddings using Sentence Transformers
-3. Creates Qdrant collection
-4. Uploads vectors with metadata (section number, title, text)
-
-**Output:**
-```
-✅ Successfully indexed 512 IPC sections!
-📦 Collection: ipc_legal_docs
-🔗 Qdrant URL: http://localhost:6333/dashboard
+# Conversational evaluation (multi-turn scenarios)
+python evaluation/evaluate_conversational.py
 ```
 
 ---
 
-### 2. Test Retrieval (`scripts/test_retrieval.py`)
+## Deployment
 
-Tests the hybrid search system with sample queries.
+### Current Production Setup
 
-**Usage:**
-```bash
-# With Docker
-docker-compose exec backend python scripts/test_retrieval.py
+| Service | Platform | URL Pattern |
+|---|---|---|
+| Frontend | Vercel CDN | `your-app.vercel.app` |
+| Backend | Render.com (Docker) | `your-app.onrender.com` |
+| Vector DB | Qdrant Cloud | `xxx.aws.cloud.qdrant.io` |
+| Sessions | Upstash Redis | `xxx.upstash.io` |
+| Auth | Supabase | `xxx.supabase.co` |
 
-# Locally
-python scripts/test_retrieval.py
+### Deploy Backend to Render
+
+1. Push to GitHub
+2. Connect repository on [Render Dashboard](https://dashboard.render.com)
+3. Render will auto-detect `render.yaml` and configure the service
+4. Add environment variables in Render's dashboard
+5. Deploy — the health check at `/health` confirms readiness
+
+### Deploy Frontend to Vercel
+
+1. Import the `frontend/` directory on [Vercel](https://vercel.com)
+2. Set build command: `npm run build`
+3. Set output directory: `dist`
+4. Add `VITE_API_URL` environment variable pointing to your Render backend URL
+5. Deploy
+
+### Render Blueprint (`render.yaml`)
+
+The included `render.yaml` defines the backend service configuration:
+
+```yaml
+services:
+  - type: web
+    name: legal-ai-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      # ... (see render.yaml for full list)
 ```
-
-**What it tests:**
-- Section number detection (regex patterns)
-- Hybrid search (section + semantic)
-- Pure semantic search
-- Query performance
 
 ---
 
-## 🌐 Deployment
+## Troubleshooting
 
-### Deploy with Docker Compose (Recommended)
+### Backend won't start — Pydantic validation error
+
+**Cause:** Missing required environment variables.
 
 ```bash
-# 1. On your server, clone the repo
-git clone <your-repo>
-cd legal-ai-assistant
-
-# 2. Set up environment
-cp .env.example .env
-nano .env  # Add production values
-
-# 3. Deploy
-docker-compose up -d --build
-
-# 4. Index data
-docker-compose exec backend python scripts/index_data.py
-
-# 5. Check logs
-docker-compose logs -f backend
+# Check which variables are missing
+cat .env | grep -E "GROQ_API_KEY|QDRANT_URL|QDRANT_API_KEY|REDIS_URL|SUPABASE_URL"
 ```
 
----
+All five are required. See `.env.example` for the full template.
 
-### Deploy to Render.com
+### 401 Unauthorized on `/api/query`
 
-#### Backend Service
+**Cause:** Missing or expired JWT token.
 
-1. **Create Web Service** on Render
-2. **Connect GitHub repository**
-3. **Build Command:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Start Command:**
-   ```bash
-   uvicorn app.main:app --host 0.0.0.0 --port $PORT
-   ```
-5. **Environment Variables:**
-   - `GROQ_API_KEY` → Your Groq API key
-   - `QDRANT_HOST` → Use Qdrant Cloud or self-hosted URL
-   - `ENVIRONMENT` → `production`
-   - Add all other variables from `.env.example`
+The `/api/query` and `/api/session/latest` endpoints require a valid Supabase JWT in the `Authorization: Bearer <token>` header. Use the frontend's auth flow, or obtain a token from your Supabase project for testing.
 
-6. **After deployment:**
-   ```bash
-   # SSH into Render shell and index data
-   python scripts/index_data.py
-   ```
+### CORS errors in browser
 
-#### Qdrant Database
+**Cause:** Frontend origin not in `CORS_ORIGINS`.
 
-Use [Qdrant Cloud](https://cloud.qdrant.io/) (free tier available) or deploy your own Qdrant instance.
-
-#### Frontend
-
-1. **Build frontend locally:**
-   ```bash
-   cd frontend
-   npm run build
-   ```
-2. **Deploy `frontend/dist` to:**
-   - Netlify
-   - Vercel
-   - Render Static Site
-   - Or serve from FastAPI (already configured)
-
----
-
-### Deploy to Railway.app
-
-1. **Create new project** from GitHub
-2. **Add Qdrant** from Railway templates
-3. **Add Backend service:**
-   - Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - Add environment variables
-4. **Index data** via Railway CLI:
-   ```bash
-   railway run python scripts/index_data.py
-   ```
-
----
-
-### Production Checklist
-
-- [ ] Set `ENVIRONMENT=production` in `.env`
-- [ ] Use strong API keys (rotate regularly)
-- [ ] Enable HTTPS (use nginx/Caddy reverse proxy)
-- [ ] Set up monitoring (Sentry, DataDog, etc.)
-- [ ] Configure log aggregation (ELK, Papertrail)
-- [ ] Set up database backups (Qdrant snapshots)
-- [ ] Enable rate limiting (already configured)
-- [ ] Add authentication (JWT tokens)
-- [ ] Set up CI/CD pipeline (GitHub Actions)
-- [ ] Configure auto-scaling (K8s, Docker Swarm)
-
----
-
-## 🐛 Troubleshooting
-
-### Issue: "Collection not found"
-
-**Symptom:** API returns error about missing Qdrant collection
-
-**Solution:**
 ```bash
-# Index the data
-docker-compose exec backend python scripts/index_data.py
-
-# Verify collection exists
-curl http://localhost:6333/collections/ipc_legal_docs
+# Add your frontend URL
+CORS_ORIGINS=http://localhost:5173,https://your-app.vercel.app
 ```
 
----
+### Groq rate limit errors (429)
 
-### Issue: "GROQ_API_KEY not found"
-
-**Symptom:** Backend fails to start with Pydantic validation error
-
-**Solution:**
-```bash
-# Check your .env file
-cat .env | grep GROQ_API_KEY
-
-# If missing, add it:
-echo "GROQ_API_KEY=your_key_here" >> .env
-
-# Restart services
-docker-compose restart backend
-```
-
----
-
-### Issue: Qdrant connection error
-
-**Symptom:** `VectorDBError: Failed to connect to Qdrant`
-
-**Solution:**
-```bash
-# Check Qdrant is running
-docker-compose ps qdrant
-
-# Check Qdrant health
-curl http://localhost:6333/health
-
-# View Qdrant logs
-docker-compose logs qdrant
-
-# Restart Qdrant
-docker-compose restart qdrant
-```
-
----
-
-### Issue: Frontend can't connect to backend
-
-**Symptom:** CORS errors or network errors in browser console
-
-**Solution:**
-1. Check `CORS_ORIGINS` in `.env` includes your frontend URL
-2. Verify backend is running: `curl http://localhost:8000/health`
-3. Check Vite proxy config in `frontend/vite.config.ts`
-4. Clear browser cache and restart frontend dev server
-
----
-
-### Issue: Slow query responses
-
-**Symptom:** Queries take >5 seconds
+**Cause:** Exceeded Groq free tier limits.
 
 **Solutions:**
-- Reduce `DEFAULT_TOP_K` (fewer documents to process)
-- Use faster LLM model (e.g., `llama3-8b-8192`)
-- Increase `MAX_CONTEXT_LENGTH` carefully (more = slower)
-- Check Qdrant performance (query logs)
-- Optimize embedding model (use smaller model)
+1. Add more API keys: set `GROQ_API_KEY_2`, `GROQ_API_KEY_3`, etc. — the app auto-rotates
+2. Switch to a smaller model: `LLM_MODEL=llama-3.1-8b-instant`
+3. Upgrade to Groq paid tier
+
+### Slow responses (> 5 seconds)
+
+**Possible causes:**
+- Render free tier cold start (~50s after 15min idle). Send a `/health` ping first
+- HuggingFace Inference API cold start. First request loads the model (~10s)
+- Reduce `DENSE_CANDIDATES` and `BM25_CANDIDATES` from 25 to 15
+- Reduce `DEFAULT_TOP_K` from 8 to 5
+
+### Qdrant connection failures
+
+```bash
+# Verify Qdrant is reachable
+curl https://your-cluster.aws.cloud.qdrant.io/collections -H "api-key: your_key"
+```
+
+Check that `QDRANT_URL` includes `https://` and `QDRANT_API_KEY` is correct.
 
 ---
 
-### Issue: Rate limit exceeded
-
-**Symptom:** 429 errors from API
-
-**Solution:**
-```bash
-# Adjust in .env
-RATE_LIMIT_PER_MINUTE=20
-
-# Restart backend
-docker-compose restart backend
-```
-
----
-
-### Issue: Frontend build fails
-
-**Symptom:** `npm run build` errors
-
-**Solution:**
-```bash
-# Clear node_modules and reinstall
-cd frontend
-rm -rf node_modules package-lock.json
-npm install
-
-# Check Node version (requires 18+)
-node --version
-
-# Build again
-npm run build
-```
-
----
-
-## 🧪 Testing
-
-### Backend Tests
-
-```bash
-# Install test dependencies
-pip install pytest pytest-asyncio httpx
-
-# Run all tests
-pytest tests/ -v
-
-# Run with coverage
-pytest --cov=app tests/
-
-# Run specific test file
-pytest tests/test_retriever.py -v
-```
-
-### Frontend Tests
-
-```bash
-cd frontend
-
-# Install test dependencies
-npm install --save-dev vitest @testing-library/react
-
-# Run tests
-npm run test
-```
-
-### Manual Testing
-
-```bash
-# Test retrieval system
-python scripts/test_retrieval.py
-
-# Test API endpoints
-curl -X POST http://localhost:8000/api/query \
-  -H "Content-Type: application/json" \
-  -d '{"query": "What is Section 302?"}'
-```
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to get started:
+## Contributing
 
 ### Setup
 
 ```bash
 # Fork and clone
-git clone https://github.com/yourusername/legal-ai-assistant.git
-cd legal-ai-assistant
+git clone https://github.com/your-username/Legal_AI_Chatbot.git
+cd Legal_AI_Chatbot
 
-# Create branch
-git checkout -b feature/your-feature-name
-
-# Make changes
-# ...
+# Install all dependencies (including dev tools)
+pip install -r requirements.base.txt
+pip install -r requirements.dev.txt
 
 # Run tests
-pytest tests/
+pytest tests/ -v
 
 # Format code
 black app/ scripts/
 
 # Type check
 mypy app/
-
-# Commit and push
-git add .
-git commit -m "Add your feature"
-git push origin feature/your-feature-name
-
-# Create Pull Request on GitHub
 ```
 
 ### Code Standards
 
-- **Python:** Follow PEP 8, use Black formatter
-- **TypeScript:** Follow ESLint rules, use Prettier
-- **Commits:** Use conventional commits (feat:, fix:, docs:, etc.)
-- **Tests:** Write tests for new features
-- **Documentation:** Update README for significant changes
+- **Python:** PEP 8, formatted with Black
+- **TypeScript:** ESLint rules from `.eslintrc.cjs`
+- **Commits:** Conventional commits (`feat:`, `fix:`, `docs:`, `refactor:`)
+- **Tests:** Add tests for new features in `tests/`
 
 ---
 
-## 📄 License
+## Roadmap
 
-MIT License - See [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **IPC Data:** Government of India
-- **Embedding Model:** [intfloat/multilingual-e5-large](https://huggingface.co/intfloat/multilingual-e5-large)
-- **LLM:** [Groq](https://groq.com/) (Llama 3 by Meta)
-- **Vector Database:** [Qdrant](https://qdrant.tech/)
-- **Icons:** [Lucide](https://lucide.dev/)
+- [ ] Streaming responses (Groq `stream=True` → frontend SSE)
+- [ ] BNS/BNSS/BSA migration (new Indian criminal codes replacing IPC)
+- [ ] Cross-encoder re-ranking between retrieval and LLM generation
+- [ ] Conversation export (PDF/JSON)
+- [ ] Additional legal datasets (CrPC, CPC)
 
 ---
 
-## 📧 Support & Contact
+## License
 
-- **Issues:** [GitHub Issues](https://github.com/yourusername/legal-ai-assistant/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/legal-ai-assistant/discussions)
-- **Email:** your.email@example.com
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-**⭐ If you found this project helpful, please star the repository!**
+## Acknowledgments
+
+- **IPC Data** — Government of India
+- **Embedding Model** — [intfloat/multilingual-e5-base](https://huggingface.co/intfloat/multilingual-e5-base) (HuggingFace)
+- **LLM** — [Groq](https://groq.com/) (Llama 3 by Meta)
+- **Vector Database** — [Qdrant](https://qdrant.tech/)
+- **Icons** — [Lucide](https://lucide.dev/)
+- **Auth** — [Supabase](https://supabase.com/)
 
 ---
 
-## 📊 Performance Metrics
-
-- **Indexing Time:** ~30-60 seconds for 512 sections (depends on hardware)
-- **Query Latency:** <2 seconds (retrieval + LLM generation)
-- **Concurrent Users:** 50+ with rate limiting enabled
-- **Memory Usage:** ~2GB (includes embedding model in RAM)
-- **Accuracy:** 90%+ for section-specific queries
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Add user authentication (JWT)
-- [ ] Implement Redis for distributed session storage
-- [ ] Add conversation export (PDF/JSON)
-- [ ] Multi-language support (Hindi, regional languages)
-- [ ] Add more legal datasets (CrPC, CPC, etc.)
-- [ ] Implement feedback mechanism
-- [ ] Add admin dashboard
-- [ ] Optimize for mobile devices
-- [ ] Add voice input/output
-- [ ] Implement caching layer (Redis)
-
----
-
-**Built with ❤️ for the legal tech community**
+**Built by [Suraj Doifode](https://github.com/SurajD45)**
