@@ -1,6 +1,11 @@
-from typing import List, Optional
+from typing import Any, List, Optional, Union, TYPE_CHECKING
 from pydantic_settings import BaseSettings
 from pydantic import Field, field_validator
+
+if TYPE_CHECKING:
+    CORS_ORIGINS_TYPE = List[str]
+else:
+    CORS_ORIGINS_TYPE = Union[List[str], str]
 
 
 class Settings(BaseSettings):
@@ -43,8 +48,8 @@ class Settings(BaseSettings):
     # =====================
     # CORS
     # =====================
-    CORS_ORIGINS: str = Field(
-        default="http://localhost:3000,http://localhost:5173"
+    CORS_ORIGINS: CORS_ORIGINS_TYPE = Field(
+        default=["http://localhost:3000", "http://localhost:5173"]
     )
 
     # =====================
@@ -78,10 +83,12 @@ class Settings(BaseSettings):
     # =====================
     # VALIDATORS
     # =====================
-    @field_validator("CORS_ORIGINS")
+    @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
-    def parse_cors(cls, v: str) -> List[str]:
-        return [x.strip() for x in v.split(",") if x.strip()]
+    def parse_cors(cls, v: Any) -> List[str]:
+        if isinstance(v, str):
+            return [x.strip() for x in v.split(",") if x.strip()]
+        return v
 
     @field_validator("ENVIRONMENT")
     @classmethod
